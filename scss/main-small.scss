@@ -1,0 +1,5 @@
+@import '_main-mixin';
+
+@media only screen and (max-width: 30em) {
+  @include main(-s)
+}

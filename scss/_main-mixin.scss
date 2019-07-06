@@ -1,0 +1,8 @@
+@import '_variables';
+@import '_padding';
+@import '_margin';
+
+@mixin main($media-suffix) {
+  @include padding($media-suffix);
+  @include margin($media-suffix);
+}

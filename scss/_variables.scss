@@ -1,0 +1,22 @@
+/*
+   SPACERS
+
+   There are eight levels of spacers (including $spacer-0)
+   Each level of spacer is twice as big as the last, starting from $spacer-1
+   $spacer-base represents the size of $spacer-4 and is considered 'medium' size
+ */
+
+// $spacer-4 is equal to $spacer-base and vice versa
+$spacer-base: 2rem;
+
+// $spacer-atom is 1/4 of $spacer-3 (2^0 / 2^3)
+$spacer-atom: $spacer-base / 8;
+
+$spacer-0: 0;             // Level 0: no space
+$spacer-1: $spacer-atom;  // Level 1: XXS
+$spacer-2: $spacer-1 * 2; // Level 2: XS
+$spacer-3: $spacer-2 * 2; // Level 3: S
+$spacer-4: $spacer-3 * 2; // Level 4: M (spacer-base)
+$spacer-5: $spacer-4 * 2; // Level 5: L
+$spacer-6: $spacer-5 * 2; // Level 6: XL
+$spacer-7: $spacer-6 * 2; // Level 7: XXL
