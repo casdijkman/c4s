@@ -6,6 +6,7 @@
   "license": "GNU GPL v3",
   "private": true,
   "devDependencies": {
+    "browser-sync": "^2.26.7",
     "del": "^5.0.0",
     "del-cli": "^2.0.0",
     "node-sass": "^4.12.0",
@@ -17,6 +18,7 @@
     "sass:main": "node-sass scss/main.scss dist/main.css",
     "sass:main:small": "node-sass scss/main-small.scss dist/main-small.css",
     "sass:main:medium": "node-sass scss/main-medium.scss dist/main-medium.css",
-    "sass:main:large": "node-sass scss/main-large.scss dist/main-large.css"
+    "sass:main:large": "node-sass scss/main-large.scss dist/main-large.css",
+    "demo": "browser-sync"
   }
 }
