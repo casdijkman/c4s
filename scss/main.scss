@@ -1,0 +1,21 @@
+@mixin main($media-suffix) {
+  .test#{$media-suffix} {
+    p:after {
+      content: "This rule applies to #{$media-suffix} suffix.";
+    }
+  }
+}
+
+@include main('')
+
+@media only screen and (max-width: 30em) {
+  @include main(-s)
+}
+
+@media only screen and (min-width: 30em) and (max-width: 60em) {
+  @include main(-m)
+}
+
+@media only screen and (min-width: 60em) {
+  @include main(-l)
+}
