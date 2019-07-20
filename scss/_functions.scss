@@ -1,0 +1,15 @@
+@function power-of-two($exponent) {
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $_ from 1 through $exponent {
+      $value: $value * 2;
+    }
+  } @else if $exponent < 0 {
+    @for $_ from 1 through -$exponent {
+      $value: $value / 2;
+    }
+  }
+
+  @return $value;
+}
