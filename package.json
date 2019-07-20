@@ -16,9 +16,13 @@
     "start": "npm-run-all clean sass:**",
     "clean": "del-cli dist/*",
     "sass:main": "node-sass scss/main.scss dist/main.css",
+    "sass:main:min": "node-sass scss/main.scss dist/main.min.css --output-style compressed",
     "sass:main:small": "node-sass scss/main-small.scss dist/main-small.css",
+    "sass:main:small:min": "node-sass scss/main-small.scss dist/main-small.min.css --output-style compressed",
     "sass:main:medium": "node-sass scss/main-medium.scss dist/main-medium.css",
+    "sass:main:medium:min": "node-sass scss/main-medium.scss dist/main-medium.min.css --output-style compressed",
     "sass:main:large": "node-sass scss/main-large.scss dist/main-large.css",
+    "sass:main:large:min": "node-sass scss/main-large.scss dist/main-large.min.css --output-style compressed",
     "demo": "browser-sync"
   }
 }
