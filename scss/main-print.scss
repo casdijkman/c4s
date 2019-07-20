@@ -1,0 +1,5 @@
+@import '_main-mixin';
+
+@media only print {
+  @include main(-p);
+}
