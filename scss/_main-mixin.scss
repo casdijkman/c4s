@@ -2,8 +2,14 @@
 @import '_variables';
 @import '_padding';
 @import '_margin';
+@import '_width';
+@import '_height';
+@import '_position';
 
 @mixin main($media-suffix) {
-  @include padding($media-suffix);
-  @include margin($media-suffix);
+  @include padding ($media-suffix);
+  @include margin  ($media-suffix);
+  @include width   ($media-suffix);
+  @include height  ($media-suffix);
+  @include position($media-suffix);
 }

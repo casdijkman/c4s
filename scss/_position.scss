@@ -1,0 +1,7 @@
+@mixin position($media-suffix) {
+  .static#{$media-suffix}   { position: static; }
+  .absolute#{$media-suffix} { position: absolute; }
+  .relative#{$media-suffix} { position: relative; }
+  .fixed#{$media-suffix}    { position: fixed; }
+  .sticky#{$media-suffix}   { position: sticky; }
+}

@@ -19,3 +19,22 @@ $spacer-levels: (
   "6": $spacer-base * power-of-two(2),
   "7": $spacer-base * power-of-two(3)
 );
+
+/*
+   SIZERS
+
+   There are six levels of sizers, including $sizer-0, which is level 0
+   $sizer-0 is 0. After $sizer-1, every next sizer is twice the size of the last
+   Levels  1 through 5 therefore represent the product of $sizer-base with powers of two
+ */
+
+$sizer-base: 1rem !default;
+
+$sizer-levels: (
+  "0": 0,
+  "1": $sizer-base * power-of-two(0),
+  "2": $sizer-base * power-of-two(1),
+  "3": $sizer-base * power-of-two(2),
+  "4": $sizer-base * power-of-two(3),
+  "5": $sizer-base * power-of-two(4)
+);
