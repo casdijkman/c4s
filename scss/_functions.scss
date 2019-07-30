@@ -1,4 +1,4 @@
-@function power-of-two($exponent) {
+@function nth-power-of-two($exponent) {
   $value: 1;
 
   @if $exponent > 0 {
