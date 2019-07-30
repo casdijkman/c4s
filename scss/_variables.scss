@@ -2,19 +2,20 @@
    SPACERS
 
    There are eight levels of spacers, including $spacer-0, which is level 0
-   $spacer-0 is always 0. After $spacer-1, every next spacer is twice the size of the last
+   $spacer-0 is 0. After $spacer-1, every next spacer is twice the size of the last
    Levels  1 through 7 therefore represent the product of $spacer-base with powers of two
    $spacer-4 and is considered 'medium' size and is the product of $spacer-base and 2^0
  */
 
-// $spacer-4 is equal to $spacer-base and vice versa
 $spacer-base: 2rem !default;
 
-$spacer-0: 0;
-$spacer-1: $spacer-base * power-of-two(-3);
-$spacer-2: $spacer-base * power-of-two(-2);
-$spacer-3: $spacer-base * power-of-two(-1);
-$spacer-4: $spacer-base * power-of-two(0);
-$spacer-5: $spacer-base * power-of-two(1);
-$spacer-6: $spacer-base * power-of-two(2);
-$spacer-7: $spacer-base * power-of-two(3);
+$spacer-levels: (
+  "0": 0,
+  "1": $spacer-base * power-of-two(-3),
+  "2": $spacer-base * power-of-two(-2),
+  "3": $spacer-base * power-of-two(-1),
+  "4": $spacer-base * power-of-two(0),
+  "5": $spacer-base * power-of-two(1),
+  "6": $spacer-base * power-of-two(2),
+  "7": $spacer-base * power-of-two(3)
+);

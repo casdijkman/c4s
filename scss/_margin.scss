@@ -1,169 +1,47 @@
+// Add auto as a level for margins with -auto suffix
+$margin-spacer-levels: map-merge($spacer-levels, ("-auto": auto));
+
 @mixin margin($media-suffix) {
-  ////////////////
-  // Margin all //
-  ////////////////
 
-  .m0#{$media-suffix} { margin: $spacer-0; }
-  .m1#{$media-suffix} { margin: $spacer-1; }
-  .m2#{$media-suffix} { margin: $spacer-2; }
-  .m3#{$media-suffix} { margin: $spacer-3; }
-  .m4#{$media-suffix} { margin: $spacer-4; }
-  .m5#{$media-suffix} { margin: $spacer-5; }
-  .m6#{$media-suffix} { margin: $spacer-6; }
-  .m7#{$media-suffix} { margin: $spacer-7; }
-  .m-auto#{$media-suffix} { margin: auto; }
-
-  ////////////////
-  // Margin top //
-  ////////////////
-
-  .mt0#{$media-suffix} { margin-top: $spacer-0; }
-  .mt1#{$media-suffix} { margin-top: $spacer-1; }
-  .mt2#{$media-suffix} { margin-top: $spacer-2; }
-  .mt3#{$media-suffix} { margin-top: $spacer-3; }
-  .mt4#{$media-suffix} { margin-top: $spacer-4; }
-  .mt5#{$media-suffix} { margin-top: $spacer-5; }
-  .mt6#{$media-suffix} { margin-top: $spacer-6; }
-  .mt7#{$media-suffix} { margin-top: $spacer-7; }
-  .mt-auto#{$media-suffix} { margin-top: auto; }
-
-  //////////////////
-  // Margin right //
-  //////////////////
-
-  .mr0#{$media-suffix} { margin-right: $spacer-0; }
-  .mr1#{$media-suffix} { margin-right: $spacer-1; }
-  .mr2#{$media-suffix} { margin-right: $spacer-2; }
-  .mr3#{$media-suffix} { margin-right: $spacer-3; }
-  .mr4#{$media-suffix} { margin-right: $spacer-4; }
-  .mr5#{$media-suffix} { margin-right: $spacer-5; }
-  .mr6#{$media-suffix} { margin-right: $spacer-6; }
-  .mr7#{$media-suffix} { margin-right: $spacer-7; }
-  .mr-auto#{$media-suffix} { margin-right: auto; }
-
-  ///////////////////
-  // Margin bottom //
-  ///////////////////
-
-  .mb0#{$media-suffix} { margin-bottom: $spacer-0; }
-  .mb1#{$media-suffix} { margin-bottom: $spacer-1; }
-  .mb2#{$media-suffix} { margin-bottom: $spacer-2; }
-  .mb3#{$media-suffix} { margin-bottom: $spacer-3; }
-  .mb4#{$media-suffix} { margin-bottom: $spacer-4; }
-  .mb5#{$media-suffix} { margin-bottom: $spacer-5; }
-  .mb6#{$media-suffix} { margin-bottom: $spacer-6; }
-  .mb7#{$media-suffix} { margin-bottom: $spacer-7; }
-  .mb-auto#{$media-suffix} { margin-bottom: auto; }
-
-  /////////////////
-  // Margin left //
-  /////////////////
-
-  .ml0#{$media-suffix} { margin-left: $spacer-0; }
-  .ml1#{$media-suffix} { margin-left: $spacer-1; }
-  .ml2#{$media-suffix} { margin-left: $spacer-2; }
-  .ml3#{$media-suffix} { margin-left: $spacer-3; }
-  .ml4#{$media-suffix} { margin-left: $spacer-4; }
-  .ml5#{$media-suffix} { margin-left: $spacer-5; }
-  .ml6#{$media-suffix} { margin-left: $spacer-6; }
-  .ml7#{$media-suffix} { margin-left: $spacer-7; }
-  .ml-auto#{$media-suffix} { margin-left: auto; }
-
-  ///////////////////////
-  // Margin horizontal //
-  ///////////////////////
-
-  .mh0#{$media-suffix} {
-    margin-left: $spacer-0;
-    margin-right: $spacer-0;
+  // Margin all
+  @each $level, $value in $margin-spacer-levels {
+    .m#{$level}#{$media-suffix} { padding: $value; };
   }
 
-  .mh1#{$media-suffix} {
-    margin-left: $spacer-1;
-    margin-right: $spacer-1;
+  // Margin top
+  @each $level, $value in $margin-spacer-levels {
+    .mt#{$level}#{$media-suffix} { padding-top: $value; };
   }
 
-  .mh2#{$media-suffix} {
-    margin-left: $spacer-2;
-    margin-right: $spacer-2;
+  // Margin right
+  @each $level, $value in $margin-spacer-levels {
+    .mr#{$level}#{$media-suffix} { padding-right: $value; };
   }
 
-  .mh3#{$media-suffix} {
-    margin-left: $spacer-3;
-    margin-right: $spacer-3;
+  // Margin bottom
+  @each $level, $value in $margin-spacer-levels {
+    .mb#{$level}#{$media-suffix} { padding-bottom: $value; };
   }
 
-  .mh4#{$media-suffix} {
-    margin-left: $spacer-4;
-    margin-right: $spacer-4;
+  // Margin left
+  @each $level, $value in $margin-spacer-levels {
+    .ml#{$level}#{$media-suffix} { padding-left: $value; };
   }
 
-  .mh5#{$media-suffix} {
-    margin-left: $spacer-5;
-    margin-right: $spacer-5;
+  // Margin horizontal
+  @each $level, $value in $margin-spacer-levels {
+    .mh#{$level}#{$media-suffix} {
+      padding-left: $value;
+      padding-right: $value;
+    };
   }
 
-  .mh6#{$media-suffix} {
-    margin-left: $spacer-6;
-    margin-right: $spacer-6;
+  // Margin vertical
+  @each $level, $value in $margin-spacer-levels {
+    .mv#{$level}#{$media-suffix} {
+      padding-top: $value;
+      padding-bottom: $value;
+    };
   }
 
-  .mh7#{$media-suffix} {
-    margin-left: $spacer-7;
-    margin-right: $spacer-7;
-  }
-
-  .mh-auto#{$media-suffix} {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /////////////////////
-  // Margin vertical //
-  /////////////////////
-
-  .mv0#{$media-suffix} {
-    margin-top: $spacer-0;
-    margin-bottom: $spacer-0;
-  }
-
-  .mv1#{$media-suffix} {
-    margin-top: $spacer-1;
-    margin-bottom: $spacer-1;
-  }
-
-  .mv2#{$media-suffix} {
-    margin-top: $spacer-2;
-    margin-bottom: $spacer-2;
-  }
-
-  .mv3#{$media-suffix} {
-    margin-top: $spacer-3;
-    margin-bottom: $spacer-3;
-  }
-
-  .mv4#{$media-suffix} {
-    margin-top: $spacer-4;
-    margin-bottom: $spacer-4;
-  }
-
-  .mv5#{$media-suffix} {
-    margin-top: $spacer-5;
-    margin-bottom: $spacer-5;
-  }
-
-  .mv6#{$media-suffix} {
-    margin-top: $spacer-6;
-    margin-bottom: $spacer-6;
-  }
-
-  .mv7#{$media-suffix} {
-    margin-top: $spacer-7;
-    margin-bottom: $spacer-7;
-  }
-
-  .mv-auto#{$media-suffix} {
-    margin-top: auto;
-    margin-bottom: auto;
-  }
 }

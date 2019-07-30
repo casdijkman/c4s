@@ -1,154 +1,44 @@
 @mixin padding($media-suffix) {
-  /////////////////
-  // Padding all //
-  /////////////////
 
-  .p0#{$media-suffix} { padding: $spacer-0; }
-  .p1#{$media-suffix} { padding: $spacer-1; }
-  .p2#{$media-suffix} { padding: $spacer-2; }
-  .p3#{$media-suffix} { padding: $spacer-3; }
-  .p4#{$media-suffix} { padding: $spacer-4; }
-  .p5#{$media-suffix} { padding: $spacer-5; }
-  .p6#{$media-suffix} { padding: $spacer-6; }
-  .p7#{$media-suffix} { padding: $spacer-7; }
-
-  /////////////////
-  // Padding top //
-  /////////////////
-
-  .pt0#{$media-suffix} { padding-top: $spacer-0; }
-  .pt1#{$media-suffix} { padding-top: $spacer-1; }
-  .pt2#{$media-suffix} { padding-top: $spacer-2; }
-  .pt3#{$media-suffix} { padding-top: $spacer-3; }
-  .pt4#{$media-suffix} { padding-top: $spacer-4; }
-  .pt5#{$media-suffix} { padding-top: $spacer-5; }
-  .pt6#{$media-suffix} { padding-top: $spacer-6; }
-  .pt7#{$media-suffix} { padding-top: $spacer-7; }
-
-  ///////////////////
-  // Padding right //
-  ///////////////////
-
-  .pr0#{$media-suffix} { padding-right: $spacer-0; }
-  .pr1#{$media-suffix} { padding-right: $spacer-1; }
-  .pr2#{$media-suffix} { padding-right: $spacer-2; }
-  .pr3#{$media-suffix} { padding-right: $spacer-3; }
-  .pr4#{$media-suffix} { padding-right: $spacer-4; }
-  .pr5#{$media-suffix} { padding-right: $spacer-5; }
-  .pr6#{$media-suffix} { padding-right: $spacer-6; }
-  .pr7#{$media-suffix} { padding-right: $spacer-7; }
-
-  ////////////////////
-  // Padding bottom //
-  ////////////////////
-
-  .pb0#{$media-suffix} { padding-bottom: $spacer-0; }
-  .pb1#{$media-suffix} { padding-bottom: $spacer-1; }
-  .pb2#{$media-suffix} { padding-bottom: $spacer-2; }
-  .pb3#{$media-suffix} { padding-bottom: $spacer-3; }
-  .pb4#{$media-suffix} { padding-bottom: $spacer-4; }
-  .pb5#{$media-suffix} { padding-bottom: $spacer-5; }
-  .pb6#{$media-suffix} { padding-bottom: $spacer-6; }
-  .pb7#{$media-suffix} { padding-bottom: $spacer-7; }
-
-  //////////////////
-  // Padding left //
-  //////////////////
-
-  .pl0#{$media-suffix} { padding-left: $spacer-0; }
-  .pl1#{$media-suffix} { padding-left: $spacer-1; }
-  .pl2#{$media-suffix} { padding-left: $spacer-2; }
-  .pl3#{$media-suffix} { padding-left: $spacer-3; }
-  .pl4#{$media-suffix} { padding-left: $spacer-4; }
-  .pl5#{$media-suffix} { padding-left: $spacer-5; }
-  .pl6#{$media-suffix} { padding-left: $spacer-6; }
-  .pl7#{$media-suffix} { padding-left: $spacer-7; }
-
-  ////////////////////////
-  // Padding horizontal //
-  ////////////////////////
-
-  .ph0#{$media-suffix} {
-    padding-left: $spacer-0;
-    padding-right: $spacer-0;
+  // Padding all
+  @each $level, $value in $spacer-levels {
+    .p#{$level}#{$media-suffix} { padding: $value; };
   }
 
-  .ph1#{$media-suffix} {
-    padding-left: $spacer-1;
-    padding-right: $spacer-1;
+  // Padding top
+  @each $level, $value in $spacer-levels {
+    .pt#{$level}#{$media-suffix} { padding-top: $value; };
   }
 
-  .ph2#{$media-suffix} {
-    padding-left: $spacer-2;
-    padding-right: $spacer-2;
+  // Padding right
+  @each $level, $value in $spacer-levels {
+    .pr#{$level}#{$media-suffix} { padding-right: $value; };
   }
 
-  .ph3#{$media-suffix} {
-    padding-left: $spacer-3;
-    padding-right: $spacer-3;
+  // Padding bottom
+  @each $level, $value in $spacer-levels {
+    .pb#{$level}#{$media-suffix} { padding-bottom: $value; };
   }
 
-  .ph4#{$media-suffix} {
-    padding-left: $spacer-4;
-    padding-right: $spacer-4;
+  // Padding left
+  @each $level, $value in $spacer-levels {
+    .pl#{$level}#{$media-suffix} { padding-left: $value; };
   }
 
-  .ph5#{$media-suffix} {
-    padding-left: $spacer-5;
-    padding-right: $spacer-5;
+  // Padding horizontal
+  @each $level, $value in $spacer-levels {
+    .ph#{$level}#{$media-suffix} {
+      padding-left: $value;
+      padding-right: $value;
+    };
   }
 
-  .ph6#{$media-suffix} {
-    padding-left: $spacer-6;
-    padding-right: $spacer-6;
+  // Padding vertical
+  @each $level, $value in $spacer-levels {
+    .pv#{$level}#{$media-suffix} {
+      padding-top: $value;
+      padding-bottom: $value;
+    };
   }
 
-  .ph7#{$media-suffix} {
-    padding-left: $spacer-7;
-    padding-right: $spacer-7;
-  }
-
-  //////////////////////
-  // Padding vertical //
-  //////////////////////
-
-  .pv0#{$media-suffix} {
-    padding-top: $spacer-0;
-    padding-bottom: $spacer-0;
-  }
-
-  .pv1#{$media-suffix} {
-    padding-top: $spacer-1;
-    padding-bottom: $spacer-1;
-  }
-
-  .pv2#{$media-suffix} {
-    padding-top: $spacer-2;
-    padding-bottom: $spacer-2;
-  }
-
-  .pv3#{$media-suffix} {
-    padding-top: $spacer-3;
-    padding-bottom: $spacer-3;
-  }
-
-  .pv4#{$media-suffix} {
-    padding-top: $spacer-4;
-    padding-bottom: $spacer-4;
-  }
-
-  .pv5#{$media-suffix} {
-    padding-top: $spacer-5;
-    padding-bottom: $spacer-5;
-  }
-
-  .pv6#{$media-suffix} {
-    padding-top: $spacer-6;
-    padding-bottom: $spacer-6;
-  }
-
-  .pv7#{$media-suffix} {
-    padding-top: $spacer-7;
-    padding-bottom: $spacer-7;
-  }
 }
