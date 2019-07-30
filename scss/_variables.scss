@@ -31,10 +31,22 @@ $spacer-levels: (
 $sizer-base: 1rem !default;
 
 $sizer-levels: (
-  "0": 0,
-  "1": $sizer-base * power-of-two(0),
-  "2": $sizer-base * power-of-two(1),
-  "3": $sizer-base * power-of-two(2),
-  "4": $sizer-base * power-of-two(3),
-  "5": $sizer-base * power-of-two(4)
+  "0":           0,
+  "1":           $sizer-base * power-of-two(0),
+  "2":           $sizer-base * power-of-two(1),
+  "3":           $sizer-base * power-of-two(2),
+  "4":           $sizer-base * power-of-two(3),
+  "5":           $sizer-base * power-of-two(4),
+  "-10":         10%,
+  "-20":         20%,
+  "-30":         30%,
+  "-third":      100% / 3,
+  "-40":         40%,
+  "-50":         50%,
+  "-60":         60%,
+  "-two-thirds": 100% * 2 / 3,
+  "-70":         70%,
+  "-80":         80%,
+  "-90":         90%,
+  "-100":        100%
 );
