@@ -1,15 +1,15 @@
 @mixin miscellaneous($media-suffix) {
 
-  .list-reset {
+  .list-reset#{$media-suffix} {
     list-style: none;
     padding-left: 0;
   }
 
-  .list-indent {
+  .list-indent#{$media-suffix} {
     padding-left: unset;
   }
 
-  .stretch {
+  .stretch#{$media-suffix} {
     position: absolute;
     top: 0;
     left: 0;
@@ -17,7 +17,7 @@
     right: 0;
   }
 
-  .stretch-pseudo::after {
+  .stretch-pseudo#{$media-suffix}::after {
     position: absolute;
     top: 0;
     right: 0;
