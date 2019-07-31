@@ -3,10 +3,8 @@
   .list-reset#{$media-suffix} {
     list-style: none;
     padding-left: 0;
-  }
-
-  .list-indent#{$media-suffix} {
-    padding-left: unset;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   .stretch#{$media-suffix} {
