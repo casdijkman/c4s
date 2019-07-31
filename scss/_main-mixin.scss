@@ -6,12 +6,14 @@
 @import '_height';
 @import '_position';
 @import '_display';
+@import '_miscellaneous';
 
 @mixin main($media-suffix) {
-  @include padding ($media-suffix);
-  @include margin  ($media-suffix);
-  @include width   ($media-suffix);
-  @include height  ($media-suffix);
-  @include position($media-suffix);
-  @include display ($media-suffix);
+  @include padding      ($media-suffix);
+  @include margin       ($media-suffix);
+  @include width        ($media-suffix);
+  @include height       ($media-suffix);
+  @include position     ($media-suffix);
+  @include display      ($media-suffix);
+  @include miscellaneous($media-suffix);
 }
