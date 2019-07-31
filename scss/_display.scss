@@ -1,0 +1,12 @@
+@mixin display($media-suffix) {
+
+  .db#{$media-suffix}   { display: block; }
+  .di#{$media-suffix}   { display: inline; }
+  .dib#{$media-suffix}  { display: inline-block; }
+  .dn#{$media-suffix}   { display: none; }
+  .dt#{$media-suffix}   { display: table; }
+  .dtc#{$media-suffix}  { display: table-cell; }
+  .flex#{$media-suffix} { display: flex; }
+  .grid#{$media-suffix} { display: grid; }
+
+}
