@@ -15,8 +15,8 @@
   "scripts": {
     "start": "npm-run-all clean sass:**",
     "clean": "del-cli dist/*",
-    "sass:main":            "node-sass scss/main.scss dist/main.css",
-    "sass:main:min":        "node-sass scss/main.scss dist/main.min.css --output-style compressed",
+    "sass:main":            "node-sass scss/main-all.scss dist/main-all.css",
+    "sass:main:min":        "node-sass scss/main-all.scss dist/main-all.min.css --output-style compressed",
     "sass:main:small":      "node-sass scss/main-small.scss dist/main-small.css",
     "sass:main:small:min":  "node-sass scss/main-small.scss dist/main-small.min.css --output-style compressed",
     "sass:main:medium":     "node-sass scss/main-medium.scss dist/main-medium.css",
