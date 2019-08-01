@@ -5,42 +5,42 @@ $margin-spacer-levels: map-merge($spacer-levels, ("-auto": auto));
 
   // Margin all
   @each $level, $value in $margin-spacer-levels {
-    .m#{$level}#{$media-suffix} { padding: $value; }
+    .m#{$level}#{$media-suffix} { margin: $value; }
   }
 
   // Margin top
   @each $level, $value in $margin-spacer-levels {
-    .mt#{$level}#{$media-suffix} { padding-top: $value; }
+    .mt#{$level}#{$media-suffix} { margin-top: $value; }
   }
 
   // Margin right
   @each $level, $value in $margin-spacer-levels {
-    .mr#{$level}#{$media-suffix} { padding-right: $value; }
+    .mr#{$level}#{$media-suffix} { margin-right: $value; }
   }
 
   // Margin bottom
   @each $level, $value in $margin-spacer-levels {
-    .mb#{$level}#{$media-suffix} { padding-bottom: $value; }
+    .mb#{$level}#{$media-suffix} { margin-bottom: $value; }
   }
 
   // Margin left
   @each $level, $value in $margin-spacer-levels {
-    .ml#{$level}#{$media-suffix} { padding-left: $value; }
+    .ml#{$level}#{$media-suffix} { margin-left: $value; }
   }
 
   // Margin horizontal
   @each $level, $value in $margin-spacer-levels {
     .mh#{$level}#{$media-suffix} {
-      padding-left: $value;
-      padding-right: $value;
+      margin-left: $value;
+      margin-right: $value;
     }
   }
 
   // Margin vertical
   @each $level, $value in $margin-spacer-levels {
     .mv#{$level}#{$media-suffix} {
-      padding-top: $value;
-      padding-bottom: $value;
+      margin-top: $value;
+      margin-bottom: $value;
     }
   }
 
