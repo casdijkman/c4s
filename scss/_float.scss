@@ -1,0 +1,7 @@
+@mixin float($media-suffix) {
+
+  .fl { float: left; }
+  .fr { float: right; }
+  .fn { float: none; }
+
+}
