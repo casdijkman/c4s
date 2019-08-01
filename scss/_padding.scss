@@ -2,27 +2,27 @@
 
   // Padding all
   @each $level, $value in $spacer-levels {
-    .p#{$level}#{$media-suffix} { padding: $value; };
+    .p#{$level}#{$media-suffix} { padding: $value; }
   }
 
   // Padding top
   @each $level, $value in $spacer-levels {
-    .pt#{$level}#{$media-suffix} { padding-top: $value; };
+    .pt#{$level}#{$media-suffix} { padding-top: $value; }
   }
 
   // Padding right
   @each $level, $value in $spacer-levels {
-    .pr#{$level}#{$media-suffix} { padding-right: $value; };
+    .pr#{$level}#{$media-suffix} { padding-right: $value; }
   }
 
   // Padding bottom
   @each $level, $value in $spacer-levels {
-    .pb#{$level}#{$media-suffix} { padding-bottom: $value; };
+    .pb#{$level}#{$media-suffix} { padding-bottom: $value; }
   }
 
   // Padding left
   @each $level, $value in $spacer-levels {
-    .pl#{$level}#{$media-suffix} { padding-left: $value; };
+    .pl#{$level}#{$media-suffix} { padding-left: $value; }
   }
 
   // Padding horizontal
@@ -30,7 +30,7 @@
     .ph#{$level}#{$media-suffix} {
       padding-left: $value;
       padding-right: $value;
-    };
+    }
   }
 
   // Padding vertical
@@ -38,7 +38,7 @@
     .pv#{$level}#{$media-suffix} {
       padding-top: $value;
       padding-bottom: $value;
-    };
+    }
   }
 
 }
