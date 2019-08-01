@@ -6,7 +6,8 @@
   .dn#{$media-suffix}   { display: none; }
   .dt#{$media-suffix}   { display: table; }
   .dtc#{$media-suffix}  { display: table-cell; }
-  .flex#{$media-suffix} { display: flex; }
-  .grid#{$media-suffix} { display: grid; }
+  .df#{$media-suffix}   { display: flex; }
+  .dif#{$media-suffix}  { display: inline-flex; }
+  .dg#{$media-suffix}   { display: grid; }
 
 }
