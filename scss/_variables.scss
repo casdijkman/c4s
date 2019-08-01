@@ -56,70 +56,75 @@ $sizer-levels: (
 
  */
 
-$black:         #000;
-$near-black:    #111;
-$dark-gray:     #333;
-$mid-gray:      #555;
-$gray:          #777;
-$silver:        #999;
-$light-silver:  #aaa;
-$moon-gray:     #ccc;
-$light-gray:    #eee;
-$near-white:    #f4f4f4;
-$white:         #fff;
+$black: #000;
+$white: #fff;
 
-$black-90:      scale-color($black, $alpha: -10%);
-$black-80:      scale-color($black, $alpha: -20%);
-$black-70:      scale-color($black, $alpha: -30%);
-$black-60:      scale-color($black, $alpha: -40%);
-$black-50:      scale-color($black, $alpha: -50%);
-$black-40:      scale-color($black, $alpha: -60%);
-$black-30:      scale-color($black, $alpha: -70%);
-$black-20:      scale-color($black, $alpha: -80%);
-$black-10:      scale-color($black, $alpha: -90%);
-$black-05:      scale-color($black, $alpha: -95%);
-$black-025:     scale-color($black, $alpha: -97.5%);
-$black-0125:    scale-color($black, $alpha: -98.75%);
+$colors: (
+  "black":         $black,
+  "near-black":    #111,
+  "dark-gray":     #333,
+  "mid-gray":      #555,
+  "gray":          #777,
+  "silver":        #999,
+  "light-silver":  #aaa,
+  "moon-gray":     #ccc,
+  "light-gray":    #eee,
+  "near-white":    #f4f4f4,
+  "white":         $white,
 
-$white-90:      scale-color($white, $alpha: -10%);
-$white-80:      scale-color($white, $alpha: -20%);
-$white-70:      scale-color($white, $alpha: -30%);
-$white-60:      scale-color($white, $alpha: -40%);
-$white-50:      scale-color($white, $alpha: -50%);
-$white-40:      scale-color($white, $alpha: -60%);
-$white-30:      scale-color($white, $alpha: -70%);
-$white-20:      scale-color($white, $alpha: -80%);
-$white-10:      scale-color($white, $alpha: -90%);
-$white-05:      scale-color($white, $alpha: -95%);
-$white-025:     scale-color($white, $alpha: -97.5%);
-$white-0125:    scale-color($white, $alpha: -98.75%);
+  "dark-red":      #e7040f,
+  "red":           #ff4136,
+  "light-red":     #ff725c,
+  "washed-red":    #ffdfdf,
 
-$dark-red:      #e7040f;
-$red:           #ff4136;
-$light-red:     #ff725c;
-$washed-red:    #ffdfdf;
+  "orange":        #ff6300,
+  "gold":          #ffb700,
+  "yellow":        #ffd700,
+  "light-yellow":  #fbf1a9,
+  "washed-yellow": #fffceb,
 
-$orange:        #ff6300;
-$gold:          #ffb700;
-$yellow:        #ffd700;
-$light-yellow:  #fbf1a9;
-$washed-yellow: #fffceb;
+  "purple":        #5e2ca5,
+  "light-purple":  #a463f2,
+  "dark-pink":     #d5008f,
+  "hot-pink":      #ff41b4,
+  "pink":          #ff80cc,
+  "light-pink":    #ffa3d7,
 
-$purple:        #5e2ca5;
-$light-purple:  #a463f2;
-$dark-pink:     #d5008f;
-$hot-pink:      #ff41b4;
-$pink:          #ff80cc;
-$light-pink:    #ffa3d7;
+  "dark-green":    #137752,
+  "green":         #19a974,
+  "light-green":   #9eebcf,
+  "washed-green":  #e8fdf5,
 
-$dark-green:    #137752;
-$green:         #19a974;
-$light-green:   #9eebcf;
-$washed-green:  #e8fdf5;
+  "navy":          #001b44,
+  "dark-blue":     #00449e,
+  "blue":          #357edd,
+  "light-blue":    #96ccff,
+  "lightest-blue": #cdecff,
+  "washed-blue":   #f6fffe,
 
-$navy:          #001b44;
-$dark-blue:     #00449e;
-$blue:          #357edd;
-$light-blue:    #96ccff;
-$lightest-blue: #cdecff;
-$washed-blue:   #f6fffe;
+  "black-90":      scale-color($black, $alpha: -10%),
+  "black-80":      scale-color($black, $alpha: -20%),
+  "black-70":      scale-color($black, $alpha: -30%),
+  "black-60":      scale-color($black, $alpha: -40%),
+  "black-50":      scale-color($black, $alpha: -50%),
+  "black-40":      scale-color($black, $alpha: -60%),
+  "black-30":      scale-color($black, $alpha: -70%),
+  "black-20":      scale-color($black, $alpha: -80%),
+  "black-10":      scale-color($black, $alpha: -90%),
+  "black-05":      scale-color($black, $alpha: -95%),
+  "black-025":     scale-color($black, $alpha: -97.5%),
+  "black-0125":    scale-color($black, $alpha: -98.75%),
+
+  "white-90":      scale-color($white, $alpha: -10%),
+  "white-80":      scale-color($white, $alpha: -20%),
+  "white-70":      scale-color($white, $alpha: -30%),
+  "white-60":      scale-color($white, $alpha: -40%),
+  "white-50":      scale-color($white, $alpha: -50%),
+  "white-40":      scale-color($white, $alpha: -60%),
+  "white-30":      scale-color($white, $alpha: -70%),
+  "white-20":      scale-color($white, $alpha: -80%),
+  "white-10":      scale-color($white, $alpha: -90%),
+  "white-05":      scale-color($white, $alpha: -95%),
+  "white-025":     scale-color($white, $alpha: -97.5%),
+  "white-0125":    scale-color($white, $alpha: -98.75%)
+)
