@@ -1,0 +1,3 @@
+@each $color, $value in $colors {
+  .b--#{$color} { border-color: $value; }
+}
