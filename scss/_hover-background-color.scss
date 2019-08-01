@@ -1,0 +1,3 @@
+@each $color, $value in $colors {
+  .hover-bg-#{$color}:hover { background-color: $value; }
+}
