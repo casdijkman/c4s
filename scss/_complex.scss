@@ -1,0 +1,15 @@
+/*
+   Complex styles are CSS rules that are context-dependent
+   These rules have more than one selector and are not considered atomic CSS
+
+ */
+
+.bt-between + .bt-between {
+  border-top-style: solid;
+  border-top-width: 1px;
+}
+
+.bl-between + .bl-between {
+  border-left-style: solid;
+  border-left-width: 1px;
+}
