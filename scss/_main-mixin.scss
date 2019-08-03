@@ -8,6 +8,7 @@
 @import '_display';
 @import '_float';
 @import '_border';
+@import '_border-radius';
 @import '_miscellaneous';
 
 @mixin main($media-suffix) {
@@ -19,5 +20,6 @@
   @include display      ($media-suffix);
   @include float        ($media-suffix);
   @include border       ($media-suffix);
+  @include border-radius($media-suffix);
   @include miscellaneous($media-suffix);
 }

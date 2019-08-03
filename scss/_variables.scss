@@ -53,7 +53,6 @@ $sizer-levels: (
 
 /*
    COLORS
-
  */
 
 $black: #000;
@@ -127,4 +126,20 @@ $colors: (
   "white-05":      scale-color($white, $alpha: -95%),
   "white-025":     scale-color($white, $alpha: -97.5%),
   "white-0125":    scale-color($white, $alpha: -98.75%)
-)
+);
+
+/*
+   BORDER-RADIUS SIZES
+*/
+
+$border-radius-base: 1rem !default;
+
+$border-radius-levels: (
+  "0":     0,
+  "1":     $border-radius-base * nth-power-of-two(-3),
+  "2":     $border-radius-base * nth-power-of-two(-2),
+  "3":     $border-radius-base * nth-power-of-two(-1),
+  "4":     $border-radius-base,
+  "-100":  100%,
+  "-pill": 9999px
+);

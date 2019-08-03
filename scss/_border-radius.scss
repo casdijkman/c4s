@@ -1,0 +1,5 @@
+@mixin border-radius($media-suffix) {
+  @each $level, $value in $border-radius-levels {
+    .br#{$level} { border-radius: $value; }
+  }
+}
