@@ -13,15 +13,3 @@
   @extend .bl;
 }
 
-/*
-   The .button class does not set (background-)color,
-   border(-radius) and padding by default.
-*/
-.button {
-  @extend .dib;
-  @extend .link;
-  @extend .bn;
-  font-size: 1rem;
-  font-family: inherit;
-  cursor: pointer;
-}

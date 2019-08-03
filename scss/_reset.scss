@@ -40,3 +40,9 @@ input[type="text"],
 input[type="url"] {
   box-sizing: border-box;
 }
+
+button {
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+}
