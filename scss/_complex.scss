@@ -1,15 +1,25 @@
 /*
-   Complex styles are CSS rules that are context-dependent
-   These rules have more than one selector and are not considered atomic CSS
+   Complex styles are CSS rules that are either context-dependent,
+   have more than one selector or more than two properties.
+   These styles are not considered atomic CSS.
 
  */
 
 .bt-between + .bt-between {
-  border-top-style: solid;
-  border-top-width: 1px;
+  @extend .bt;
 }
 
 .bl-between + .bl-between {
-  border-left-style: solid;
-  border-left-width: 1px;
+  @extend .bl;
+}
+
+// The .button class does not override (background-)color by default
+.button {
+  @extend .dib;
+  @extend .link;
+  @extend .bn;
+  font-size: 1rem;
+  padding: 0 .5rem; // emulates default <button> padding
+  font-family: inherit;
+  cursor: pointer;
 }
