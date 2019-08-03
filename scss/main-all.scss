@@ -1,5 +1,9 @@
-@import '_functions';
-@import '_variables';
+/*
+   Responsive import
+ */
+@import '_main-mixin';
+
+@include main('');
 
 /*
    Non-responsive imports (do not support media specific suffixes)
@@ -13,10 +17,3 @@
 @import '_border-color';
 @import '_font-family';
 @import '_box-sizing';
-
-/*
-   Responsive import
-*/
-@import '_main-mixin';
-
-@include main('');
