@@ -1,20 +1,19 @@
-@import '_main-mixin';
-
-@include main('');
-
 /*
-   The following imports are not responsive, i.e. they do not support
-   media specific suffixes (as opposed to the imports in _main-mixin.scss)
-
+   Non-responsive imports (do not support media specific suffixes)
  */
+@import '_complex';
 @import '_reset';
 @import '_color';
 @import '_hover-color';
 @import '_background-color';
-@import '_border-color';
 @import '_hover-background-color';
+@import '_border-color';
 @import '_font-family';
 @import '_box-sizing';
-@import '_complex';
 
+/*
+   Responsive import
+*/
+@import '_main-mixin';
 
+@include main('');
