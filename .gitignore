@@ -15,3 +15,4 @@ yarn-error.log*
 
 ### Project specific ###
 dist/
+NOTES.md
