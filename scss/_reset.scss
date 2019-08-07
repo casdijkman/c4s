@@ -45,3 +45,8 @@ button {
   font-size: inherit;
   font-family: inherit;
 }
+
+img {
+  // Prevent extra space at the bottom of `img` tags
+  display: block;
+}
