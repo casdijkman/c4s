@@ -9,6 +9,8 @@
 @import '_float';
 @import '_border';
 @import '_border-radius';
+@import '_font-size';
+@import '_line-height';
 @import '_miscellaneous';
 
 @mixin main($media-suffix) {
@@ -21,5 +23,7 @@
   @include float        ($media-suffix);
   @include border       ($media-suffix);
   @include border-radius($media-suffix);
+  @include font-size    ($media-suffix);
+  @include line-height  ($media-suffix);
   @include miscellaneous($media-suffix);
 }

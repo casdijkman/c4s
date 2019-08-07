@@ -50,3 +50,42 @@ img {
   // Prevent extra space at the bottom of `img` tags
   display: block;
 }
+
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 2.75rem;
+  margin-bottom: 1rem;
+  line-height: $line-height-header;
+}
+
+h1 {
+  font-size: $font-size-h1;
+}
+
+h2 {
+  font-size: $font-size-h2;
+}
+
+h3 {
+  font-size: $font-size-h3;
+}
+
+h4 {
+  font-size: $font-size-h4;
+}
+
+h5 {
+  font-size: $font-size-h5;
+}
+
+h6 {
+  font-size: $font-size-h6;
+}
+
+small {
+  font-size: $font-size-small;
+}
+
+p {
+  line-height: $line-height-text;
+}

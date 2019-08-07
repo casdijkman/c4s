@@ -130,7 +130,7 @@ $colors: (
 
 /*
    BORDER-RADIUS SIZES
-*/
+ */
 
 $border-radius-base: 1rem !default;
 
@@ -143,3 +143,29 @@ $border-radius-levels: (
   "-100":  100%,
   "-pill": 9999px
 );
+
+/*
+   FONT SIZES
+
+   `h1` trough `h6` and `small` font sizes are set along with
+   corresponding classes `.h1` through `.h6` and `.small`
+ */
+
+$font-size-base: 1em !default;
+$font-scaling-factor: 1.25 !default;
+
+$font-size-h1:    $font-size-base * pow($font-scaling-factor, 5);
+$font-size-h2:    $font-size-base * pow($font-scaling-factor, 4);
+$font-size-h3:    $font-size-base * pow($font-scaling-factor, 3);
+$font-size-h4:    $font-size-base * pow($font-scaling-factor, 2);
+$font-size-h5:    $font-size-base * pow($font-scaling-factor, 1);
+$font-size-h6:    $font-size-base;
+$font-size-small: $font-size-base * pow($font-scaling-factor, -1);
+
+/*
+   LINE HEIGHTS
+ */
+
+$line-height-header: 1.15 !default;
+$line-height-text:   1.5 !default;
+$line-height-extra:  2 !default;

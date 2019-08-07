@@ -1,0 +1,31 @@
+@mixin font-size($media-suffix) {
+
+  .f1#{$media-suffix} {
+    font-size: $font-size-h1
+  }
+
+  .f2#{$media-suffix} {
+    font-size: $font-size-h2
+  }
+
+  .f3#{$media-suffix} {
+    font-size: $font-size-h3
+  }
+
+  .f4#{$media-suffix} {
+    font-size: $font-size-h4
+  }
+
+  .f5#{$media-suffix} {
+    font-size: $font-size-h5
+  }
+
+  .f6#{$media-suffix} {
+    font-size: $font-size-h6
+  }
+
+  .small#{$media-suffix} {
+    font-size: $font-size-small
+  }
+
+}
