@@ -1,5 +1,13 @@
 @mixin font-size($media-suffix) {
 
+  .f-headline#{$media-suffix} {
+    font-size: $font-size-headline
+  }
+
+  .f-subheadline#{$media-suffix} {
+    font-size: $font-size-subheadline
+  }
+
   .f1#{$media-suffix} {
     font-size: $font-size-h1
   }

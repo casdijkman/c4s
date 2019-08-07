@@ -11,6 +11,7 @@
 @import '_border-radius';
 @import '_font-size';
 @import '_line-height';
+@import '_font-weight';
 @import '_miscellaneous';
 
 @mixin main($media-suffix) {
@@ -25,5 +26,6 @@
   @include border-radius($media-suffix);
   @include font-size    ($media-suffix);
   @include line-height  ($media-suffix);
+  @include font-weight  ($media-suffix);
   @include miscellaneous($media-suffix);
 }
