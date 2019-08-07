@@ -1,5 +1,5 @@
-@import '_main-mixin';
+@import 'responsive-mixin';
 
 @media only screen and (max-width: 30em) {
-  @include main(-s)
+  @include responsive-mixin(-s)
 }

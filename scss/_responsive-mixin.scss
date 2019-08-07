@@ -1,20 +1,20 @@
-@import '_functions';
-@import '_variables';
-@import '_padding';
-@import '_margin';
-@import '_width';
-@import '_height';
-@import '_position';
-@import '_display';
-@import '_float';
-@import '_border';
-@import '_border-radius';
-@import '_font-size';
-@import '_line-height';
-@import '_font-weight';
-@import '_miscellaneous';
+@import 'modules/functions';
+@import 'modules/variables';
+@import 'modules/padding';
+@import 'modules/margin';
+@import 'modules/width';
+@import 'modules/height';
+@import 'modules/position';
+@import 'modules/display';
+@import 'modules/float';
+@import 'modules/border';
+@import 'modules/border-radius';
+@import 'modules/font-size';
+@import 'modules/line-height';
+@import 'modules/font-weight';
+@import 'modules/miscellaneous';
 
-@mixin main($media-suffix) {
+@mixin responsive-mixin($media-suffix) {
   @include padding      ($media-suffix);
   @include margin       ($media-suffix);
   @include width        ($media-suffix);

@@ -1,20 +1,20 @@
 /*
    Responsive import
  */
-@import '_main-mixin';
+@import 'responsive-mixin';
 
-@include main('');
+@include responsive-mixin('');
 
 /*
    Non-responsive imports (do not support media specific suffixes)
  */
-@import '_complex';
-@import '_reset';
-@import '_color';
-@import '_hover-color';
-@import '_background-color';
-@import '_hover-background-color';
-@import '_border-color';
-@import '_font-family';
-@import '_box-sizing';
-@import '_cursor';
+@import 'modules/complex';
+@import 'modules/reset';
+@import 'modules/color';
+@import 'modules/hover-color';
+@import 'modules/background-color';
+@import 'modules/hover-background-color';
+@import 'modules/border-color';
+@import 'modules/font-family';
+@import 'modules/box-sizing';
+@import 'modules/cursor';
