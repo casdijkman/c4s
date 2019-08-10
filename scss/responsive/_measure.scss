@@ -1,0 +1,7 @@
+@mixin measure($media-suffix) {
+
+  .measure-narrow#{$media-suffix} { max-width: 20em; }
+  .measure#{$media-suffix}        { max-width: 30em; }
+  .measure-wide#{$media-suffix}   { max-width: 34em; }
+
+}

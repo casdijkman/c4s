@@ -13,6 +13,7 @@
 @import 'responsive/white-space';
 @import 'responsive/vertical-align';
 @import 'responsive/tracking';
+@import 'responsive/measure';
 
 
 @mixin responsive($media-suffix) {
@@ -31,4 +32,5 @@
   @include white-space   ($media-suffix);
   @include vertical-align($media-suffix);
   @include tracking      ($media-suffix);
+  @include measure       ($media-suffix);
 }
