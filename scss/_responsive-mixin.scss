@@ -12,7 +12,6 @@
 @import 'modules/font-size';
 @import 'modules/line-height';
 @import 'modules/font-weight';
-@import 'modules/miscellaneous';
 
 @mixin responsive-mixin($media-suffix) {
   @include padding      ($media-suffix);
@@ -27,5 +26,4 @@
   @include font-size    ($media-suffix);
   @include line-height  ($media-suffix);
   @include font-weight  ($media-suffix);
-  @include miscellaneous($media-suffix);
 }

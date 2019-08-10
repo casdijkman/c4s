@@ -1,32 +1,28 @@
-@mixin miscellaneous($media-suffix) {
-
-  .list-reset#{$media-suffix} {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .stretch#{$media-suffix} {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-  }
-
-  .stretch-pseudo#{$media-suffix}::after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    pointer-events: auto;
-    content: "";
-    background-color: transparent;
-  }
-
-  .v-mid { vertical-align: middle; }
-  .link { text-decoration: none; }
-
+.list-reset {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
+
+.stretch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.stretch-pseudo::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: auto;
+  content: "";
+  background-color: transparent;
+}
+
+.v-mid { vertical-align: middle; }
+.link  { text-decoration: none; }
