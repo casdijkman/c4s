@@ -1,6 +1,10 @@
+/*
+   All viewports combined, include non-responsive styles
+ */
+
 @import 'c4s-base';
 @import 'c4s-s';
 @import 'c4s-m';
 @import 'c4s-l';
 @import 'c4s-h';
-//@import 'c4s-p';
+//@import 'c4s-p'; // Optionally include print media
