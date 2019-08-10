@@ -1,0 +1,8 @@
+@mixin white-space($media-suffix) {
+
+  .nowrap#{$media-suffix} { white-space: nowrap; }
+  .pre#{$media-suffix}    { white-space: pre; }
+
+  //.ws-normal#{$media-suffix} { white-space: normal; }
+
+}

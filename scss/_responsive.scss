@@ -10,6 +10,7 @@
 @import 'responsive/font-size';
 @import 'responsive/line-height';
 @import 'responsive/font-weight';
+@import 'responsive/white-space';
 
 @mixin responsive($media-suffix) {
   @include padding      ($media-suffix);
@@ -24,4 +25,5 @@
   @include font-size    ($media-suffix);
   @include line-height  ($media-suffix);
   @include font-weight  ($media-suffix);
+  @include white-space  ($media-suffix);
 }
