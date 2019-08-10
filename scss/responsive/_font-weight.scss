@@ -9,7 +9,6 @@
 
   // Add extra class for font-weight bold (for brevity)
   .b#{$media-suffix} {
-    //font-weight: 700;
     @extend .fw-bold#{$media-suffix};
   }
 
