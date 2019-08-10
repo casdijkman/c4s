@@ -11,19 +11,22 @@
 @import 'responsive/line-height';
 @import 'responsive/font-weight';
 @import 'responsive/white-space';
+@import 'responsive/vertical-align';
+
 
 @mixin responsive($media-suffix) {
-  @include padding      ($media-suffix);
-  @include margin       ($media-suffix);
-  @include width        ($media-suffix);
-  @include height       ($media-suffix);
-  @include position     ($media-suffix);
-  @include display      ($media-suffix);
-  @include float        ($media-suffix);
-  @include border       ($media-suffix);
-  @include border-radius($media-suffix);
-  @include font-size    ($media-suffix);
-  @include line-height  ($media-suffix);
-  @include font-weight  ($media-suffix);
-  @include white-space  ($media-suffix);
+  @include padding       ($media-suffix);
+  @include margin        ($media-suffix);
+  @include width         ($media-suffix);
+  @include height        ($media-suffix);
+  @include position      ($media-suffix);
+  @include display       ($media-suffix);
+  @include float         ($media-suffix);
+  @include border        ($media-suffix);
+  @include border-radius ($media-suffix);
+  @include font-size     ($media-suffix);
+  @include line-height   ($media-suffix);
+  @include font-weight   ($media-suffix);
+  @include white-space   ($media-suffix);
+  @include vertical-align($media-suffix);
 }

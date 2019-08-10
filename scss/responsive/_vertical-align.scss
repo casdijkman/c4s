@@ -1,0 +1,12 @@
+@mixin vertical-align($media-suffix) {
+
+  .v-mid#{$media-suffix},
+  .v-middle#{$media-suffix} {
+    vertical-align: middle;
+  }
+
+  .v-base#{$media-suffix}    { vertical-align: baseline; }
+  .v-top#{$media-suffix}     { vertical-align: top; }
+  .v-bottom#{$media-suffix}  { vertical-align: bottom; }
+
+}
