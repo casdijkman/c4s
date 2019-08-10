@@ -1,0 +1,7 @@
+@mixin tracking($media-suffix) {
+
+  .tracked#{$media-suffix}       { letter-spacing:  .1em; }
+  .tracked-tight#{$media-suffix} { letter-spacing: -.05em; }
+  .tracked-mega#{$media-suffix}  { letter-spacing:  .25em; }
+
+}

@@ -12,6 +12,7 @@
 @import 'responsive/font-weight';
 @import 'responsive/white-space';
 @import 'responsive/vertical-align';
+@import 'responsive/tracking';
 
 
 @mixin responsive($media-suffix) {
@@ -29,4 +30,5 @@
   @include font-weight   ($media-suffix);
   @include white-space   ($media-suffix);
   @include vertical-align($media-suffix);
+  @include tracking      ($media-suffix);
 }
