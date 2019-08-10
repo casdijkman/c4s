@@ -1,12 +1,21 @@
+@import 'functions';
+@import 'variables';
+
 /*
-   Responsive import
+   'Responsive' import
+
+   NB since the include is not nested in a media query,
+   rules from this mixin will apply to all screen sizes.
+   The include does not have a media suffix (empty string)
  */
 @import 'responsive';
-
 @include responsive('');
 
 /*
-   Non-responsive imports (do not support media specific suffixes)
+   Non-responsive imports
+
+   These imports are not mixins and therefore do not have
+   media specific suffixes
  */
 @import 'non-responsive/complex';
 @import 'non-responsive/reset';
