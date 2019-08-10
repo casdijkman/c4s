@@ -1,5 +1,5 @@
-@import 'responsive-mixin';
+@import 'responsive';
 
 @media only print {
-  @include responsive-mixin(-p);
+  @include responsive(-p);
 }

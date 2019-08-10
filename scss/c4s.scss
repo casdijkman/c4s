@@ -1,24 +1,24 @@
 /*
    Responsive import
  */
-@import 'responsive-mixin';
+@import 'responsive';
 
-@include responsive-mixin('');
+@include responsive('');
 
 /*
    Non-responsive imports (do not support media specific suffixes)
  */
-@import 'modules/complex';
-@import 'modules/reset';
-@import 'modules/color';
-@import 'modules/hover-color';
-@import 'modules/background-color';
-@import 'modules/hover-background-color';
-@import 'modules/border-color';
-@import 'modules/font-family';
-@import 'modules/font-style';
-@import 'modules/text-decoration';
-@import 'modules/text-transform';
-@import 'modules/box-sizing';
-@import 'modules/cursor';
-@import 'modules/miscellaneous';
+@import 'non-responsive/complex';
+@import 'non-responsive/reset';
+@import 'non-responsive/color';
+@import 'non-responsive/hover-color';
+@import 'non-responsive/background-color';
+@import 'non-responsive/hover-background-color';
+@import 'non-responsive/border-color';
+@import 'non-responsive/font-family';
+@import 'non-responsive/font-style';
+@import 'non-responsive/text-decoration';
+@import 'non-responsive/text-transform';
+@import 'non-responsive/box-sizing';
+@import 'non-responsive/cursor';
+@import 'non-responsive/miscellaneous';
