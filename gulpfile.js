@@ -1,8 +1,9 @@
 'use strict';
 
-const { src, dest, parallel } = require('gulp');
+const { src, dest, series, parallel } = require('gulp');
 const sass = require('gulp-sass');
 const rename = require('gulp-rename');
+const del = require('del');
 
 const base = 'src';
 const destination = 'dist';
@@ -28,6 +29,10 @@ function compileMinifiedSass() {
 	.pipe(dest(destination))
 }
 
+function clean() {
+    return del(destination)
+}
+
 module.exports = {
-    default: parallel(compileSass, compileMinifiedSass)
+    default: series(clean, parallel(compileSass, compileMinifiedSass))
 }
