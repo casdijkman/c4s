@@ -1,7 +1,7 @@
 @mixin height($media-suffix) {
 
   @each $level, $value in $sizer-levels {
-    .h#{$level}#{$media-suffix} { height: $value; };
+    .h#{$level}#{$media-suffix} { height: $value; }
   }
 
 }

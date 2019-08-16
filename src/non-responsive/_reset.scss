@@ -22,8 +22,12 @@ button {
 // Prevent extra space at the bottom of `img` tags
 img { display: block; }
 
-
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-top: 2.75rem;
   margin-bottom: 1rem;
   line-height: $line-height-header;

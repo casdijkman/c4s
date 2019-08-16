@@ -1,15 +1,10 @@
 @mixin font-weight($media-suffix) {
 
   @each $level, $value in $font-weight-levels {
-    .fw#{$level}#{$media-suffix} {
-      font-weight: $value;
-    }
+    .fw#{$level}#{$media-suffix} { font-weight: $value; }
   }
-
 
   // Add extra class for font-weight bold (for brevity)
-  .b#{$media-suffix} {
-    @extend .fw-bold#{$media-suffix};
-  }
+  .b#{$media-suffix} { @extend .fw-bold#{$media-suffix}; }
 
 }

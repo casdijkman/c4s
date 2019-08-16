@@ -1,7 +1,7 @@
 @mixin width($media-suffix) {
 
   @each $level, $value in $sizer-levels {
-    .w#{$level}#{$media-suffix} { width: $value; };
+    .w#{$level}#{$media-suffix} { width: $value; }
   }
 
 }
