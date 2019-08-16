@@ -9,9 +9,11 @@
 	"number-leading-zero": "never",
 	"block-opening-brace-space-before": null,
 	"block-closing-brace-empty-line-before": null,
-	"at-rule-empty-line-before": null,
+	"at-rule-empty-line-before": [ "always" , {
+	    ignore: ["first-nested", "after-comment"]
+	}],
 	"rule-empty-line-before": [ "always-multi-line", {
-	    ignore: ["after-comment", "first-nested"]
+	    ignore: ["first-nested", "after-comment"]
 	}]
     }
 }
