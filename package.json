@@ -10,11 +10,16 @@
     "del": "^5.0.0",
     "gulp": "^4.0.2",
     "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.2"
+    "gulp-sass": "^4.0.2",
+    "stylelint": "^10.1.0",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-order": "^3.0.1",
+    "stylelint-scss": "^3.9.3"
   },
   "scripts": {
     "start": "gulp",
     "build": "gulp build",
-    "demo": "browser-sync"
+    "demo": "browser-sync",
+    "lint": "stylelint src/**/*.scss"
   }
 }
