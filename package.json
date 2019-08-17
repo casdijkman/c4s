@@ -20,6 +20,6 @@
     "start": "gulp",
     "build": "gulp build",
     "demo": "browser-sync",
-    "lint": "stylelint src/**/*.scss"
+    "lint": "stylelint src/**.scss"
   }
 }

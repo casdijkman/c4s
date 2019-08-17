@@ -10,7 +10,9 @@
 	"block-opening-brace-space-before": null,
 	"block-closing-brace-empty-line-before": null,
 	"at-rule-empty-line-before": [ "always" , {
-	    ignore: ["first-nested", "after-comment"]
+	    except: ["blockless-after-same-name-blockless"],
+	    ignore: ["first-nested", "after-comment"],
+	    ignoreAtRules: ["else"]
 	}],
 	"rule-empty-line-before": [ "always-multi-line", {
 	    ignore: ["first-nested", "after-comment"]
