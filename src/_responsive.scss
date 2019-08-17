@@ -15,7 +15,6 @@
 @import 'responsive/tracking';
 @import 'responsive/measure';
 
-
 @mixin responsive($media-suffix) {
   @include padding       ($media-suffix);
   @include margin        ($media-suffix);
