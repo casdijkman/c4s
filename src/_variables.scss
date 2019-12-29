@@ -21,12 +21,12 @@ $spacer-levels: (
 );
 
 /*
-   POSITION SPACERS
+   COORDINATE SPACERS
 
    These spacers are used for top, right, bottom and left positioning.
  */
 
-$trbl-spacer-levels: (
+$coordinate-spacer-levels: (
   "-0": 0,
   "-1": 1rem,
   "-2": 2rem
