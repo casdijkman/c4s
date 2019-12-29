@@ -4,8 +4,8 @@
 
 @import 'functions';
 @import 'variables';
-@import 'responsive';
+@import 'responsive-all';
 
 @media only screen and (min-width: 90em) {
-  @include responsive(-h);
+  @include responsive-all(-h);
 }

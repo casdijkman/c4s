@@ -4,8 +4,8 @@
 
 @import 'functions';
 @import 'variables';
-@import 'responsive';
+@import 'responsive-all';
 
 @media only print {
-  @include responsive(-p);
+  @include responsive-all(-p);
 }
