@@ -1,13 +1,20 @@
 // Translate horizontally
-@each $level, $value in $translates {
+@each $level, $value in $translate-levels {
   .translateX#{$level} {
     transform: translateX($value);
   }
 }
 
 // Translate vertically
-@each $level, $value in $translates {
+@each $level, $value in $translate-levels {
   .translateY#{$level} {
     transform: translateY($value);
+  }
+}
+
+// Transition transforms
+@each $level, $value in $transition-speeds {
+  .transition-translate#{$level} {
+    transition: transform $value ease-in-out;
   }
 }

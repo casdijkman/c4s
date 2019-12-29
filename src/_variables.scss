@@ -67,12 +67,21 @@ $sizer-levels: (
    TRANSLATE
  */
 
-$translates: (
+$translate-levels: (
   "-0":    0,
   "-100":  100%,
   "-n100": -100%
 );
 
+/*
+   TRANSITION SPEED
+ */
+
+$transition-speeds: (
+  "-slow":   .5s,
+  "-medium": .25s,
+  "-fast":   .15s
+);
 
 /*
    COLORS
