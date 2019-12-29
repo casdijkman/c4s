@@ -21,6 +21,18 @@ $spacer-levels: (
 );
 
 /*
+   POSITION SPACERS
+
+   These spacers are used for top, right, bottom and left positioning.
+ */
+
+$trbl-spacer-levels: (
+  "-0": 0,
+  "-1": 1 rem,
+  "-2": 2 rem
+);
+
+/*
    SIZERS
 
    There are six levels of sizers, including $sizer-0, which is level 0

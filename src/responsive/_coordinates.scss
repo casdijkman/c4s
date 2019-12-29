@@ -1,0 +1,10 @@
+@mixin coordinates($media-suffix) {
+
+  @each $level, $value in $trbl-spacer-levels {
+    .top#{$level}#{$media-suffix}    { top: $value; }
+    .right#{$level}#{$media-suffix}  { right: $value; }
+    .bottom#{$level}#{$media-suffix} { bottom: $value; }
+    .left#{$level}#{$media-suffix}   { left: $value; }
+  }
+
+}

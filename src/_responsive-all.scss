@@ -10,6 +10,7 @@
 @import 'responsive/width';
 @import 'responsive/height';
 @import 'responsive/position';
+@import 'responsive/coordinates';
 @import 'responsive/display';
 @import 'responsive/float';
 @import 'responsive/border';
@@ -28,6 +29,7 @@
   @include width         ($media-suffix);
   @include height        ($media-suffix);
   @include position      ($media-suffix);
+  @include coordinates   ($media-suffix);
   @include display       ($media-suffix);
   @include float         ($media-suffix);
   @include border        ($media-suffix);
