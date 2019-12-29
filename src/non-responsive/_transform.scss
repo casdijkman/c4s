@@ -1,0 +1,13 @@
+// Translate horizontally
+@each $level, $value in $translates {
+  .translateX#{$level} {
+    transform: translateX($value);
+  }
+}
+
+// Translate vertically
+@each $level, $value in $translates {
+  .translateY#{$level} {
+    transform: translateY($value);
+  }
+}

@@ -64,6 +64,17 @@ $sizer-levels: (
 );
 
 /*
+   TRANSLATE
+ */
+
+$translates: (
+  "-0":    0,
+  "-100":  100%,
+  "-n100": -100%
+);
+
+
+/*
    COLORS
  */
 
