@@ -10,6 +10,7 @@
     "css": "^2.2.4",
     "del": "^5.0.0",
     "gulp": "^4.0.2",
+    "gulp-nunjucks-render": "^2.2.3",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "stylelint": "^10.1.0",
