@@ -6,6 +6,8 @@ const rename = require('gulp-rename');
 const del = require('del');
 const fs = require('fs');
 const css = require('css');
+const nunjucksRender = require('gulp-nunjucks-render');
+const data = require('gulp-data');
 
 const base = 'src';
 const destination = 'dist';
@@ -18,7 +20,7 @@ const globs = {
 
 function compileSass() {
     return src(globs.src.sass)
-	.pipe(sass().on('error', sass.logError))
+	.pipe(sass({ sourceComments: true }).on('error', sass.logError))
 	.pipe(dest(destination))
 }
 
@@ -39,34 +41,33 @@ function watchSass() {
     return watch(globs.src.sass, compileSassAll)
 }
 
-function parseCss(cb) {
-    const file = fs.readFileSync('dist/c4s-base.css', 'utf8');
-    const ast = css.parse(file);
-    let json = JSON.stringify(ast, null, 2);
-    json += '\n';
-    //fs.writeFileSync('css.json', json);
-    printCss(ast);
-    cb();
-}
+function nunjucksCompile() {
+    const myData = {
+	css: css.parse(fs.readFileSync('dist/c4s-base.css', 'utf8'))
+    };
 
-function printCss(ast) {
-    let cssFile = "";
-    for (let rule of ast.stylesheet.rules.filter((x) => x.type === 'rule')) {
-	let string = '';
-	string += rule.selectors.join(',\n');
-	string += ' {\n'
-	rule.declarations.forEach((declaration, index) => {
-	    string += `  ${declaration.property}: ${declaration.value};`;
-	    if (index != rule.declarations.length - 1) string += '\n';
+    const manageEnv = (env) => {
+	env.addFilter('getFileFromComment', (comment) => {
+	    const regex = new RegExp('^line [0-9]*, (.*)');
+	    const matches = regex.exec(comment.trim());
+	    if (matches && matches.length === 2) {
+		const path = matches[1];
+		const pathParts = path.split('/');
+		return pathParts[pathParts.length - 1];
+	    } else {
+		return null;
+	    }
 	})
-	string += ' }\n\n';
-	cssFile += string;
-    }
-    //fs.writeFileSync('css.css', cssFile);
+    };
+
+    return src('**/*.njk')
+	.pipe(data(myData))
+	.pipe(nunjucksRender({ manageEnv }))
+	.pipe(dest('.'))
 }
 
 module.exports = {
-    parseCss,
+    nunjucksCompile,
     build: series(clean, compileSassAll),
     default: series(clean, compileSassAll, watchSass)
 }
