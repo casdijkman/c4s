@@ -72,7 +72,7 @@ function lintSass() {
     return src(globs.src.sass)
         .pipe(stylelint({
             reporters: [
-                {formatter: 'string', console: true}
+                { formatter: 'string', console: true }
             ]
         }));
 }
