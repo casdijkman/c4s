@@ -15,7 +15,8 @@ const destination = 'dist';
 
 const globs = {
     src: {
-	sass: `${base}/**/*.scss`
+	sass: `${base}/**/*.scss`,
+	nunjucks: '**/*.njk'
     }
 };
 
@@ -32,18 +33,8 @@ function compileSassMinified() {
 	.pipe(dest(destination));
 }
 
-const compileSassAll = parallel(compileSass, compileSassMinified);
-
-function clean() {
-    return del(destination);
-}
-
-function watchSass() {
-    return watch(globs.src.sass, compileSassAll);
-}
-
-function nunjucksCompile() {
-    return src('**/*.njk')
+function compileNunjucks() {
+    return src(globs.src.nunjucks)
 	.pipe(data(getNunjucksData()))
 	.pipe(nunjucksRender({ manageEnv }))
 	.pipe(dest('.'));
@@ -65,12 +56,23 @@ function lintJs() {
         .pipe(eslint.failAfterError());
 }
 
+function clean() {
+    return del(destination);
+}
+
+function watchFiles() {
+    watch(globs.src.sass,     compileSassAll);
+    watch(globs.src.nunjucks, compileNunjucks);
+}
+
+const compileSassAll = parallel(compileSass, compileSassMinified);
+const build = series(clean, compileSassAll, compileNunjucks);
 
 module.exports = {
-    nunjucksCompile,
-    compileSassAll,
+    nunjucks: compileNunjucks,
+    sass: compileSassAll,
     clean,
-    build: series(clean, compileSassAll),
-    default: series(clean, compileSassAll, watchSass),
+    build,
+    default: series(build, watchFiles),
     lint: parallel(lintSass, lintJs)
 };
