@@ -8,6 +8,8 @@ const fs = require('fs');
 const css = require('css');
 const nunjucksRender = require('gulp-nunjucks-render');
 const data = require('gulp-data');
+const stylelint = require('gulp-stylelint');
+const eslint = require('gulp-eslint');
 
 const base = 'src';
 const destination = 'dist';
@@ -27,7 +29,7 @@ function compileSass() {
 function compileSassMinified() {
     return src(globs.src.sass)
 	.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-	.pipe(rename({ extname: ".min.css" }))
+	.pipe(rename({ extname: '.min.css' }))
 	.pipe(dest(destination));
 }
 
@@ -50,14 +52,14 @@ function nunjucksCompile() {
 	env.addFilter('getFileFromComment', (comment) => {
 	    const regex = new RegExp('^line [0-9]*, (.*)');
 	    const matches = regex.exec(comment.trim());
-	    if (matches && matches.length === 2) {
+	    if (matches && matches.length === 2) { // eslint-disable-line no-magic-numbers
 		const path = matches[1];
 		const pathParts = path.split('/');
 		return pathParts[pathParts.length - 1];
 	    } else {
 		return null;
 	    }
-	})
+	});
     };
 
     return src('**/*.njk')
@@ -66,10 +68,28 @@ function nunjucksCompile() {
 	.pipe(dest('.'));
 }
 
+function lintSass() {
+    return src(globs.src.sass)
+        .pipe(stylelint({
+            reporters: [
+                {formatter: 'string', console: true}
+            ]
+        }));
+}
+
+function lintJs() {
+    return src(['**/*.js', '!node_modules/**', '!distribution/**'])
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
+}
+
+
 module.exports = {
     nunjucksCompile,
     compileSassAll,
     clean,
     build: series(clean, compileSassAll),
-    default: series(clean, compileSassAll, watchSass)
-}
+    default: series(clean, compileSassAll, watchSass),
+    lint: parallel(lintSass, lintJs)
+};
