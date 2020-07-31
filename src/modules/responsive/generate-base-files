@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+for file in _*; do
+    newFile="${file:1}"
+    baseName="${newFile/.scss/}"
+    newFile="${newFile/.scss/-base.scss}"
+
+    touch $newFile
+    cat << EOF > $newFile
+@import '../../functions';
+@import '../../variables';
+@import './$baseName';
+
+@include $baseName ('');
+EOF
+done
