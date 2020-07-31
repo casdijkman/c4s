@@ -19,7 +19,7 @@
 	</dl>
     {% elif rule.type === 'comment' %}
 	{% set currFile %}
-	{{- rule.comment | getFileFromComment -}}
+	{{ rule.comment | getFileFromComment }}
 	{% endset %}
     {% endif %}
 {% endfor %}
