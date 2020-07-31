@@ -1,11 +1,10 @@
 'use strict';
 
 const { src, dest, watch, series, parallel } = require('gulp');
+const { getNunjucksData, manageEnv } = require('./nunjucks');
 const sass = require('gulp-sass');
 const rename = require('gulp-rename');
 const del = require('del');
-const fs = require('fs');
-const css = require('css');
 const nunjucksRender = require('gulp-nunjucks-render');
 const data = require('gulp-data');
 const stylelint = require('gulp-stylelint');
@@ -44,26 +43,8 @@ function watchSass() {
 }
 
 function nunjucksCompile() {
-    const myData = {
-	css: css.parse(fs.readFileSync('dist/c4s-base.css', 'utf8'))
-    };
-
-    const manageEnv = (env) => {
-	env.addFilter('getFileFromComment', (comment) => {
-	    const regex = new RegExp('^line [0-9]*, (.*)');
-	    const matches = regex.exec(comment.trim());
-	    if (matches && matches.length === 2) { // eslint-disable-line no-magic-numbers
-		const path = matches[1];
-		const pathParts = path.split('/');
-		return pathParts[pathParts.length - 1];
-	    } else {
-		return null;
-	    }
-	});
-    };
-
     return src('**/*.njk')
-	.pipe(data(myData))
+	.pipe(data(getNunjucksData()))
 	.pipe(nunjucksRender({ manageEnv }))
 	.pipe(dest('.'));
 }
