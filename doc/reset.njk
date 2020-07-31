@@ -1,5 +1,5 @@
 {% set currFile = 'test' %}
-{% set thisFile = '_reset.scss' %}
+{% set thisFile = 'reset.scss' %}
 
 <h1>{{ thisFile }}</h1>
 
@@ -18,8 +18,6 @@
 	    </dd>
 	</dl>
     {% elif rule.type === 'comment' %}
-	{% set currFile %}
-	{{ rule.comment | getFileFromComment }}
-	{% endset %}
+	{% set currFile %}{{ rule.comment | getFileFromComment }}{% endset %}
     {% endif %}
 {% endfor %}
