@@ -1,3 +1,6 @@
+@import '../../functions';
+@import '../../variables';
+
 // Translate horizontally
 @each $level, $value in $translate-levels {
   .translateX#{$level} {

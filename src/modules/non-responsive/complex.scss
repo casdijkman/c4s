@@ -1,3 +1,6 @@
+@import '../../functions';
+@import '../../variables';
+
 /*
    Complex styles are CSS rules that are either context-dependent,
    have more than one selector or more than two properties.
@@ -6,9 +9,11 @@
  */
 
 .bt-between + .bt-between {
-  @extend .bt;
+  border-top-style: solid;
+  border-top-width: 1px;
 }
 
 .bl-between + .bl-between {
-  @extend .bl;
+  border-left-style: solid;
+  border-left-width: 1px;
 }
