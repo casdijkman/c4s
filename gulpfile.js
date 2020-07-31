@@ -21,24 +21,24 @@ const globs = {
 function compileSass() {
     return src(globs.src.sass)
 	.pipe(sass({ sourceComments: true }).on('error', sass.logError))
-	.pipe(dest(destination))
+	.pipe(dest(destination));
 }
 
 function compileSassMinified() {
     return src(globs.src.sass)
 	.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
 	.pipe(rename({ extname: ".min.css" }))
-	.pipe(dest(destination))
+	.pipe(dest(destination));
 }
 
 const compileSassAll = parallel(compileSass, compileSassMinified);
 
 function clean() {
-    return del(destination)
+    return del(destination);
 }
 
 function watchSass() {
-    return watch(globs.src.sass, compileSassAll)
+    return watch(globs.src.sass, compileSassAll);
 }
 
 function nunjucksCompile() {
@@ -63,11 +63,13 @@ function nunjucksCompile() {
     return src('**/*.njk')
 	.pipe(data(myData))
 	.pipe(nunjucksRender({ manageEnv }))
-	.pipe(dest('.'))
+	.pipe(dest('.'));
 }
 
 module.exports = {
     nunjucksCompile,
+    compileSassAll,
+    clean,
     build: series(clean, compileSassAll),
     default: series(clean, compileSassAll, watchSass)
 }
