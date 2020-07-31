@@ -4,7 +4,7 @@
 
 @import 'functions';
 @import 'variables';
-@import 'responsive-all';
+@import 'modules/responsive-all';
 
 @media only screen and (max-width: 30em) {
   @include responsive-all(-s);
