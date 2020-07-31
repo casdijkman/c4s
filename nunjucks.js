@@ -1,10 +1,20 @@
 const fs = require('fs');
+const glob = require('glob');
 const css = require('css');
 
 function getNunjucksData() {
-    return {
-	css: css.parse(fs.readFileSync('dist/c4s-base.css', 'utf8'))
-    };
+    const data = { files: [] };
+    const cssFiles = glob.sync('dist/modules/**/*.css')
+	  .filter((file) => ! /\.min\.css$/.test(file));
+
+    for (const file of cssFiles) {
+	data.files.push({
+	    name: file,
+	    css: css.parse(fs.readFileSync(file, 'utf8'))
+	});
+    }
+
+    return data;
 }
 
 function getNunjucksEnv(env) {

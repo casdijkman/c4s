@@ -1,23 +1,20 @@
-{% set currFile = 'test' %}
-{% set thisFile = 'reset.scss' %}
+{% for file in files %}
+    <h1>{{ file.name }}</h1>
 
-<h1>{{ thisFile }}</h1>
-
-{% for rule in css.stylesheet.rules %}
-    {% if rule.type === 'rule' and currFile === thisFile %}
-	<dl>
-	    <dt>
-		{{ rule.selectors | join(', ') }}
-	    </dt>
-	    <dd>
-		{% for declaration in rule.declarations %}
-		    <div>
-			{{ declaration.property }}: {{ declaration.value }}
-		    </div>
-		{% endfor %}
-	    </dd>
-	</dl>
-    {% elif rule.type === 'comment' %}
-	{% set currFile %}{{ rule.comment | getFileFromComment }}{% endset %}
-    {% endif %}
+    {% for rule in file.css.stylesheet.rules %}
+	{% if rule.type === 'rule' %}
+	    <dl>
+		<dt>
+		    {{ rule.selectors | join(', ') }}
+		</dt>
+		<dd>
+		    {% for declaration in rule.declarations %}
+			<div>
+			    {{ declaration.property }}: {{ declaration.value }}
+			</div>
+		    {% endfor %}
+		</dd>
+	    </dl>
+	{% endif %}
+    {% endfor %}
 {% endfor %}
