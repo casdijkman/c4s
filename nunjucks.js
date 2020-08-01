@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 const glob = require('glob');
 const css = require('css');
 
@@ -9,7 +10,7 @@ function getNunjucksData() {
 
     for (const file of cssFiles) {
 	data.files.push({
-	    name: file,
+	    name: path.basename(file, '.css'),
 	    css: css.parse(fs.readFileSync(file, 'utf8'))
 	});
     }
