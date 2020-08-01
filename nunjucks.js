@@ -9,8 +9,14 @@ function getNunjucksData() {
 	  .filter((file) => ! /\.min\.css$/.test(file));
 
     for (const file of cssFiles) {
+	const responsive = /\/responsive\//.test(file);
+	let name = path.basename(file, '.css');
+	name = responsive ? name.replace(/-base$/, '') : name;
+
 	data.files.push({
-	    name: path.basename(file, '.css'),
+	    name,
+	    file,
+	    responsive,
 	    css: css.parse(fs.readFileSync(file, 'utf8'))
 	});
     }
@@ -23,8 +29,8 @@ function getNunjucksEnv(env) {
 	const regex = new RegExp('^line [0-9]*, (.*)');
 	const matches = regex.exec(comment.trim());
 	if (matches && matches.length === 2) { // eslint-disable-line no-magic-numbers
-	    const path = matches[1];
-	    const pathParts = path.split('/');
+	    const fullPath = matches[1];
+	    const pathParts = fullPath.split('/');
 	    return pathParts[pathParts.length - 1];
 	} else {
 	    return null;
