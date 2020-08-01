@@ -1,20 +1,32 @@
-{% for file in files %}
-    <h1>{{ file.name }}</h1>
+<html>
+    <head>
+	<meta charset="utf-8">
+	<title>My CSS library demo</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="/dist/c4s-all.css" rel="stylesheet">
+    </head>
+    <body class="p3">
+	{% for file in files %}
+	    <h1 class="dib">{{ file.name }}</h1>
+	    <code class="pl3 nowrap">{{ file.file }}</code>
 
-    {% for rule in file.css.stylesheet.rules %}
-	{% if rule.type === 'rule' %}
-	    <dl>
-		<dt>
-		    {{ rule.selectors | join(', ') }}
-		</dt>
-		<dd>
-		    {% for declaration in rule.declarations %}
-			<div>
-			    {{ declaration.property }}: {{ declaration.value }}
-			</div>
-		    {% endfor %}
-		</dd>
-	    </dl>
-	{% endif %}
-    {% endfor %}
-{% endfor %}
+	    {% for rule in file.css.stylesheet.rules %}
+		{% if rule.type === 'rule' %}
+		    <dl>
+			<dt>
+			    {{ rule.selectors | join(', ') }}
+			</dt>
+			<dd>
+			    {% for declaration in rule.declarations %}
+				<div>
+				    {{ declaration.property }}: {{ declaration.value }}
+				</div>
+			    {% endfor %}
+			</dd>
+		    </dl>
+		{% endif %}
+	    {% endfor %}
+	{% endfor %}
+    </body>
+</html>
