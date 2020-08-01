@@ -11,22 +11,22 @@
 	    <h1 class="dib">{{ file.name }}</h1>
 	    <code class="pl3 nowrap">{{ file.file }}</code>
 
-	    {% for rule in file.css.stylesheet.rules %}
-		{% if rule.type === 'rule' %}
+	    {% for rule in file.css.stylesheet.rules -%}
+		{% if rule.type === 'rule' -%}
 		    <dl>
 			<dt>
 			    {{ rule.selectors | join(', ') }}
 			</dt>
 			<dd>
-			    {% for declaration in rule.declarations %}
+			    {% for declaration in rule.declarations -%}
 				<div>
 				    {{ declaration.property }}: {{ declaration.value }}
 				</div>
-			    {% endfor %}
+			    {%- endfor %}
 			</dd>
 		    </dl>
-		{% endif %}
-	    {% endfor %}
-	{% endfor %}
+		{%- endif %}
+	    {%- endfor %}
+	{%- endfor %}
     </body>
 </html>
