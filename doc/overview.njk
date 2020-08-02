@@ -1,60 +1,119 @@
 {% macro example(type, selectors, declarations) %}
     {% set firstSelector %}{{ selectors | first }}{% endset %}
     {% set firstClass %}{{ firstSelector | getClassFromSelector }}{% endset %}
-    {% set readableSelectors %}{{ selectors | join(" or ") }}{% endset %}
-    {% set caption = "Element with class " + firstClass %}
+    {% set readableClasses %}{{ selectors | getClassesFromSelectors | join(" or ") }}{% endset %}
+    {% set caption = "Element with class " + readableClasses %}
 
     {% if type === "complex" %}
-	<div class="dn">
-	    No example found
-	</div>
+	{% if firstClass === "bt-between" %}
+	    <div class="dif flex-column">
+		{% for i in [1, 2, 3] %}
+		    <div class="p1 {{ firstClass }}">
+			{{ caption }}
+		    </div>
+		{% endfor %}
+	    </div>
+	{% elif firstClass === "bl-between" %}
+	    <div class="df">
+		{% for i in [1, 2, 3] %}
+		    <div class="p1 dib {{ firstClass }}">
+			{{ caption }}
+		    </div>
+		{% endfor %}
+	    </div>
+	{% endif %}
     {% elif type === "reset" %}
-	<div class="dn">
-	    No example found
-	</div>
+	{#
+
+	These rules should speak for themselves, they overrides some 'harmful' defaults
+	and set defaults for header font sizes, line heights etc.
+
+	#}
     {% elif type === "color" %}
-	<div class="dn">
-	    No example found
+	<div class="dib p1 {{ firstClass }}">
+	    {{ caption }}
+	</div>
+	<br>
+	<div class="dib bg-black p1 {{ firstClass }}">
+	    {{ caption }}
 	</div>
     {% elif type === "hover-color" %}
-	<div class="dn">
-	    No example found
+	<div class="dib {{ firstClass }}">
+	    {{ caption }}
+	</div>
+	<br>
+	<div class="dib bg-black {{ firstClass }}">
+	    {{ caption }}
 	</div>
     {% elif type === "background-color" %}
-	<div class="dn">
-	    No example found
+	<div class="dib {{ firstClass }}">
+	    {{ caption }}
+	</div>
+	<br>
+	<div class="dib white {{ firstClass }}">
+	    {{ caption }}
 	</div>
     {% elif type === "hover-background-color" %}
-	<div class="dn">
-	    No example found
+	<div class="dib {{ firstClass }}">
+	    {{ caption }}
+	</div>
+	<br>
+	<div class="dib white {{ firstClass }}">
+	    {{ caption }}
 	</div>
     {% elif type === "border-color" %}
-	<div class="dn">
-	    No example found
+	<div class="dib p2">
+	    <div class="dib ba p1 {{ firstClass }}">
+		{{ caption }}
+	    </div>
+	</div>
+	<br>
+	<div class="dib bg-black white p2">
+	    <div class="ba p1 {{ firstClass }}">
+		{{ caption }}
+	    </div>
 	</div>
     {% elif type === "font-family" %}
-	<div class="dn">
-	    No example found
+	<div class="{{ firstClass }}">
+	    {{ caption }}
 	</div>
     {% elif type === "font-style" %}
-	<div class="dn">
-	    No example found
+	<div class="{{ firstClass }}">
+	    {{ caption }}
 	</div>
     {% elif type === "text-decoration" %}
-	<div class="dn">
-	    No example found
+	<div class="{{ firstClass }}">
+	    {{ caption }}
 	</div>
     {% elif type === "text-transform" %}
-	<div class="dn">
-	    No example found
+	<div class="{{ firstClass }}">
+	    {{ caption }}
 	</div>
     {% elif type === "text-align" %}
-	<div class="dn">
-	    No example found
+	<div class="bg-black white p1 {{ firstClass }}">
+	    {{ caption }}
 	</div>
     {% elif type === "transform" %}
-	<div class="dn">
-	    No example found
+	<div class="tc">
+	    <div class="dib relative">
+		<div class="hidden df justify-center p5">
+		    <div class="h3 p1 ba {{ firstClass }}">
+			{{ caption }}
+		    </div>
+		</div>
+		<div class="absolute top-0 df justify-center p5">
+		    <div class="h3 p1 ba {{ firstClass }}">
+			{{ caption }}
+		    </div>
+		</div>
+		<div class="absolute top-0 df justify-center p5">
+		    <div class="h3 p1 ba b--black-10">
+			<span class="hidden">
+			    {{ caption }}
+			</span>
+		    </div>
+		</div>
+	    </div>
 	</div>
     {% elif type === "box-sizing" %}
 	<div class="dn">
