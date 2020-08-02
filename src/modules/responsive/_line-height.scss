@@ -1,7 +1,7 @@
 @mixin line-height($media-suffix) {
 
-  .lh-header#{$media-suffix} { line-height: $line-height-header; }
-  .lh-text#{$media-suffix}   { line-height: $line-height-text; }
-  .lh-extra#{$media-suffix}  { line-height: $line-height-extra; }
+  @each $level, $value in $line-height-levels {
+    .lh-#{$level}#{$media-suffix} { line-height: $value; }
+  }
 
 }
