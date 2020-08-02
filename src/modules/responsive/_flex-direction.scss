@@ -1,0 +1,8 @@
+@mixin flex-direction($media-suffix) {
+
+  .flex-column         { flex-direction: column; }
+  .flex-row            { flex-direction: row; }
+  .flex-column-reverse { flex-direction: column-reverse; }
+  .flex-row-reverse    { flex-direction: row-reverse; }
+
+}

@@ -12,6 +12,8 @@
 @import 'responsive/position';
 @import 'responsive/coordinates';
 @import 'responsive/display';
+@import 'responsive/flex';
+@import 'responsive/flex-direction';
 @import 'responsive/float';
 @import 'responsive/border';
 @import 'responsive/border-radius';
@@ -24,21 +26,23 @@
 @import 'responsive/measure';
 
 @mixin responsive-all($media-suffix) {
-  @include padding       ($media-suffix);
-  @include margin        ($media-suffix);
-  @include width         ($media-suffix);
-  @include height        ($media-suffix);
-  @include position      ($media-suffix);
-  @include coordinates   ($media-suffix);
-  @include display       ($media-suffix);
-  @include float         ($media-suffix);
-  @include border        ($media-suffix);
-  @include border-radius ($media-suffix);
-  @include font-size     ($media-suffix);
-  @include line-height   ($media-suffix);
-  @include font-weight   ($media-suffix);
-  @include white-space   ($media-suffix);
-  @include vertical-align($media-suffix);
-  @include tracking      ($media-suffix);
-  @include measure       ($media-suffix);
+  @include padding        ($media-suffix);
+  @include margin         ($media-suffix);
+  @include width          ($media-suffix);
+  @include height         ($media-suffix);
+  @include position       ($media-suffix);
+  @include coordinates    ($media-suffix);
+  @include display        ($media-suffix);
+  @include flex           ($media-suffix);
+  @include flex-direction ($media-suffix);
+  @include float          ($media-suffix);
+  @include border         ($media-suffix);
+  @include border-radius  ($media-suffix);
+  @include font-size      ($media-suffix);
+  @include line-height    ($media-suffix);
+  @include font-weight    ($media-suffix);
+  @include white-space    ($media-suffix);
+  @include vertical-align ($media-suffix);
+  @include tracking       ($media-suffix);
+  @include measure        ($media-suffix);
 }
