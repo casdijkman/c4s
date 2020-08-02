@@ -1,6 +1,6 @@
 {% macro example(type, selectors, declarations) %}
     {% set firstSelector %}{{ selectors | first }}{% endset %}
-    {% set firstClass %}{{ firstSelector | replace(".", "") }}{% endset %}
+    {% set firstClass %}{{ firstSelector | getClassFromSelector }}{% endset %}
     {% set readableSelectors %}{{ selectors | join(" or ") }}{% endset %}
     {% set caption = "Element with " + readableSelectors %}
 

@@ -37,6 +37,12 @@ function getNunjucksEnv(env) {
 	}
     });
 
+    env.addFilter('getClassFromSelector', (selector) => {
+	let cssClass = selector.split('+')[0].trim();
+	cssClass = cssClass.replace('.', '');
+	return cssClass;
+    });
+
     return env;
 }
 
