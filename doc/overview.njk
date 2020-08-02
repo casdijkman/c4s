@@ -11,7 +11,7 @@
     {% elif type == "margin" %}
 	<div class="dib ba">
             <div class="dib white bg-black {{ firstClass }}">
-
+		{{ caption }}
             </div>
         </div>
     {% elif type == "width" %}
@@ -36,9 +36,17 @@
 	<link href="/dist/c4s-all.css" rel="stylesheet">
     </head>
     <body class="p3">
+	<h1 class="mt0">
+	    C4S documentation
+	</h1>
+
 	{% for file in files %}
-	    <h1 class="dib">{{ file.name | replace("-", " ") | title }}</h1>
-	    <code class="pl3 nowrap">{{ file.file }}</code>
+	    <h2 class="dib">
+		{{ file.name | replace("-", " ") | title }}
+	    </h2>
+	    <code class="pl3 nowrap">
+		{{ file.file }}
+	    </code>
 
 	    {% for rule in file.css.stylesheet.rules -%}
 		{% if rule.type === "rule" -%}
