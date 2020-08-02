@@ -4,7 +4,71 @@
     {% set readableSelectors %}{{ selectors | join(" or ") }}{% endset %}
     {% set caption = "Element with " + readableSelectors %}
 
-    {% if type === "padding" %}
+    {% if type === "complex" %}
+	<div class="dn">
+	    No example found
+	</div>
+    {% elif type == "reset" %}
+	<div class="dn">
+	    No example found
+	</div>
+    {% elif type == "color" %}
+	<div class="dn">
+	    No example found
+	</div>
+    {% elif type == "hover-color" %}
+	<div class="dn">
+	    No example found
+	</div>
+    {% elif type == "background-color" %}
+	<div class="dn">
+	    No example found
+	</div>
+    {% elif type == "hover-background-color" %}
+	<div class="dn">
+	    No example found
+	</div>
+    {% elif type == "border-color" %}
+	<div class="dn">
+	    No example found
+	</div>
+    {% elif type == "font-family" %}
+	<div class="dn">
+	    No example found
+	</div>
+    {% elif type == "font-style" %}
+	<div class="dn">
+	    No example found
+	</div>
+    {% elif type == "text-decoration" %}
+	<div class="dn">
+	    No example found
+	</div>
+    {% elif type == "text-transform" %}
+	<div class="dn">
+	    No example found
+	</div>
+    {% elif type == "text-align" %}
+	<div class="dn">
+	    No example found
+	</div>
+    {% elif type == "transform" %}
+	<div class="dn">
+	    No example found
+	</div>
+    {% elif type == "box-sizing" %}
+	<div class="dn">
+	    No example found
+	</div>
+    {% elif type == "cursor" %}
+	<div class="dn">
+	    No example found
+	</div>
+    {% elif type == "miscellaneous" %}
+	<div class="dn">
+	    No example found
+	</div>
+    {% elif type === "padding" %}
 	<div class="dib white bg-black {{ firstClass }}">
 	    {{ caption }}
 	</div>
@@ -19,6 +83,103 @@
 	    <div class="dib white bg-black {{ firstClass }}">
 		{{ caption }}
             </div>
+	</div>
+    {% elif type == "height" %}
+	<div class="dib white bg-black {{ firstClass }}">
+	    {{ caption }}
+        </div>
+    {% elif type == "position" %}
+	{#
+	<div class="relative ba w5 h5">
+	<div class="dib white bg-black top-1 {{ firstClass }}">
+	{{ caption }}
+	</div>
+	</div>
+	#}
+	<div class="dn">
+	    No example found
+	</div>
+    {% elif type == "coordinates" %}
+	<div class="relative ba w5 h5">
+	    <div class="dib white bg-black absolute {{ firstClass }}">
+		{{ caption }}
+	    </div>
+	</div>
+    {% elif type == "display" %}
+	{#
+	<div class="bg-black white {{ firstClass }}">
+	{{ caption }}
+	</div>
+	#}
+	<div class="dn">
+	    No example found
+	</div>
+    {% elif type == "flex" %}
+	{#
+	TODO: implement
+	#}
+	<div class="dn">
+	    No example found
+	</div>
+    {% elif type == "flex-direction" %}
+	<div class="dif {{ firstClass }}">
+	    {% for i in [1, 2, 3] %}
+		<div class="p2">
+		    <div class="bg-black white">
+			Child {{ i }}
+		    </div>
+		</div>
+	    {% endfor %}
+	</div>
+    {% elif type == "float" %}
+	<div class="ba w5 h4">
+	    <div class="dib white bg-black {{ firstClass }}">
+		{{ caption }}
+	    </div>
+	</div>
+    {% elif type == "border" %}
+	<div class="w5 h3 {{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% elif type == "border-radius" %}
+	<div class="dib p3 ba {{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% elif type == "font-size" %}
+	<span class="{{ firstClass }}">
+	    {{ caption }}
+	</span>
+    {% elif type == "line-height" %}
+	<div class="dib bg-black white">
+	    <span class="{{ firstClass }}">
+		{{ caption }}
+	    </span>
+	</div>
+    {% elif type == "font-weight" %}
+	<div class="{{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% elif type == "white-space" %}
+	{#
+	<div class="{{ firstClass }}">
+	{{ caption }}
+	</div>
+	#}
+	<div class="dn">
+	    No example found
+	</div>
+    {% elif type == "vertical-align" %}
+	<div class="dib bg-black white lh-extra ph2">
+	    <div class="dib bg-red {{ firstClass }}" style="height: .4em; width: .4em;"></div>
+	    {{ caption }}
+	</div>
+    {% elif type == "tracking" %}
+	<span class="{{ firstClass }}">
+	    {{ caption }}
+	</span>
+    {% elif type == "measure" %}
+	<div class="bg-black white {{ firstClass }}">
+	    {{ caption }}
 	</div>
     {% else %}
 	<div class="dn">
