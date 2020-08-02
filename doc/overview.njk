@@ -1,3 +1,32 @@
+{% macro example(type, selectors, declarations) %}
+    {% set firstSelector %}{{ selectors | first }}{% endset %}
+    {% set firstClass %}{{ firstSelector | replace(".", "") }}{% endset %}
+    {% set readableSelectors %}{{ selectors | join(" or ") }}{% endset %}
+    {% set caption = "Element with " + readableSelectors %}
+
+    {% if type === "padding" %}
+	<div class="dib white bg-black {{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% elif type == "margin" %}
+	<div class="dib ba">
+            <div class="dib white bg-black {{ firstClass }}">
+
+            </div>
+        </div>
+    {% elif type == "width" %}
+	<div class="ba">
+	    <div class="dib white bg-black {{ firstClass }}">
+		{{ caption }}
+            </div>
+	</div>
+    {% else %}
+	<div class="dn">
+	    No example found
+	</div>
+    {% endif %}
+{% endmacro %}
+
 <html>
     <head>
 	<meta charset="utf-8">
@@ -8,14 +37,14 @@
     </head>
     <body class="p3">
 	{% for file in files %}
-	    <h1 class="dib">{{ file.name }}</h1>
+	    <h1 class="dib">{{ file.name | replace("-", " ") | title }}</h1>
 	    <code class="pl3 nowrap">{{ file.file }}</code>
 
 	    {% for rule in file.css.stylesheet.rules -%}
-		{% if rule.type === 'rule' -%}
+		{% if rule.type === "rule" -%}
 		    <dl>
 			<dt>
-			    {{ rule.selectors | join(', ') }}
+			    {{ rule.selectors | join(", ") }}
 			</dt>
 			<dd>
 			    {% for declaration in rule.declarations -%}
@@ -25,8 +54,14 @@
 			    {%- endfor %}
 			</dd>
 		    </dl>
+
+		    <div>
+			{{ example(file.name, rule.selectors, rule.declarations) }}
+		    </div>
 		{%- endif %}
 	    {%- endfor %}
 	{%- endfor %}
     </body>
 </html>
+
+
