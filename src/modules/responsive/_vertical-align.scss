@@ -5,8 +5,12 @@
     vertical-align: middle;
   }
 
-  .v-base#{$media-suffix}    { vertical-align: baseline; }
-  .v-top#{$media-suffix}     { vertical-align: top; }
-  .v-bottom#{$media-suffix}  { vertical-align: bottom; }
+  .v-base#{$media-suffix}        { vertical-align: baseline; }
+  .v-top#{$media-suffix}         { vertical-align: top; }
+  .v-bottom#{$media-suffix}      { vertical-align: bottom; }
+  .v-text-top#{$media-suffix}    { vertical-align: text-top; }
+  .v-text-bottom#{$media-suffix} { vertical-align: text-bottom; }
+  .v-sub#{$media-suffix}         { vertical-align: sub; }
+  .v-super#{$media-suffix}       { vertical-align: super; }
 
 }
