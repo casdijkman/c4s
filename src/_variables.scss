@@ -176,7 +176,9 @@ $colors: (
   "white-10":      scale-color($white, $alpha: -90%),
   "white-05":      scale-color($white, $alpha: -95%),
   "white-025":     scale-color($white, $alpha: -97.5%),
-  "white-0125":    scale-color($white, $alpha: -98.75%)
+  "white-0125":    scale-color($white, $alpha: -98.75%),
+
+  "transparent": transparent
 );
 
 /*
