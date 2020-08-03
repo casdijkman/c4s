@@ -273,3 +273,17 @@ $opacity-levels: (
  */
 
 $border-styles: dotted, dashed, double, groove, ridge, inset, outset;
+
+/*
+   BORDER WIDTHS
+ */
+
+$border-width-base: 1rem;
+
+$border-widths: (
+  "1": $border-width-base * nth-power-of-two(-3),
+  "2": $border-width-base * nth-power-of-two(-2),
+  "3": $border-width-base * nth-power-of-two(-1),
+  "4": $border-width-base,
+  "5": $border-width-base * nth-power-of-two(1)
+);

@@ -62,7 +62,11 @@
 	    {{ caption }}
 	</div>
     {% elif type === "border" %}
-	<div class="w5 h3 bg-black-05 p1 {{ firstClass }}">
+	<div class="dib bg-black-05 p1 {{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% elif type === "border-width" %}
+	<div class="dib p1 ba {{ firstClass }}">
 	    {{ caption }}
 	</div>
     {% elif type === "border-color" %}
@@ -78,7 +82,7 @@
 	    </div>
 	</div>
     {% elif type === "border-style" %}
-	<div class="dib ba p1 {{ firstClass }}">
+	<div class="dib ba bw2 p1 {{ firstClass }}">
 	    {{ caption }}
 	</div>
     {% elif type === "font-family" %}
