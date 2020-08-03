@@ -1,0 +1,6 @@
+@import '../../functions';
+@import '../../variables';
+
+@each $opacity, $value in $opacity-levels {
+  .o#{$opacity} { opacity: $value; }
+}
