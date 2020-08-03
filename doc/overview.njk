@@ -132,17 +132,31 @@
 	    </div>
 	</div>
     {% elif type === "box-sizing" %}
-	<div class="dn">
-	    No example found
+	<div class="bt bb br bw5 {{ firstClass }}" style="width: 256px;">
+	    {{ caption }} and width 256px
 	</div>
     {% elif type === "cursor" %}
-	<div class="dn">
-	    No example found
+	<div class="dib ba p1 {{ firstClass }}">
+	    {{ caption }}
 	</div>
     {% elif type === "miscellaneous" %}
-	<div class="dn">
-	    No example found
-	</div>
+	{% if firstClass === "list-reset" %}
+	    <ul class="dib ba p3 {{ firstClass }}">
+		{% for i in [1, 2, 3] %}
+		    <li>List item in <code>ul</code> with class {{ firstClass }}</li>
+		{% endfor %}
+	    </ul>
+	{% elif firstClass === "stretch" or firstClass === "stretch-pseudo" %}
+	    <div class="dib ba w5 h3 relative">
+		<a class="bg-black-10 {{ firstClass }}" href="javascript:;">
+		    {{ caption }}
+		</a>
+	    </div>
+	{% elif firstClass === "link" %}
+	    <a class="{{ firstClass }}" href="javascript:;">
+		{{ caption }}
+	    </a>
+	{% endif %}
     {% elif type === "padding" %}
 	<div class="dib white bg-black {{ firstClass }}">
 	    {{ caption }}
