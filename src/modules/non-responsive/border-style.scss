@@ -1,0 +1,6 @@
+@import '../../functions';
+@import '../../variables';
+
+@each $border-style in $border-styles {
+  .b--#{$border-style} { border-style: $border-style; }
+}

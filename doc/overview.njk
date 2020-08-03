@@ -61,6 +61,10 @@
 	<div class="dib white {{ firstClass }}">
 	    {{ caption }}
 	</div>
+    {% elif type === "border" %}
+	<div class="w5 h3 bg-black-05 p1 {{ firstClass }}">
+	    {{ caption }}
+	</div>
     {% elif type === "border-color" %}
 	<div class="dib p2">
 	    <div class="dib ba p1 {{ firstClass }}">
@@ -72,6 +76,10 @@
 	    <div class="ba p1 {{ firstClass }}">
 		{{ caption }}
 	    </div>
+	</div>
+    {% elif type === "border-style" %}
+	<div class="dib ba p1 {{ firstClass }}">
+	    {{ caption }}
 	</div>
     {% elif type === "font-family" %}
 	<div class="{{ firstClass }}">
@@ -199,10 +207,6 @@
 	    <div class="dib white bg-black {{ firstClass }}">
 		{{ caption }}
 	    </div>
-	</div>
-    {% elif type === "border" %}
-	<div class="w5 h3 {{ firstClass }}">
-	    {{ caption }}
 	</div>
     {% elif type === "border-radius" %}
 	<div class="dib p3 ba {{ firstClass }}">
