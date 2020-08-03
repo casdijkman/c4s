@@ -15,7 +15,6 @@
 @import 'responsive/flex';
 @import 'responsive/flex-direction';
 @import 'responsive/float';
-@import 'responsive/border';
 @import 'responsive/border-radius';
 @import 'responsive/font-size';
 @import 'responsive/line-height';
@@ -36,7 +35,6 @@
   @include flex           ($media-suffix);
   @include flex-direction ($media-suffix);
   @include float          ($media-suffix);
-  @include border         ($media-suffix);
   @include border-radius  ($media-suffix);
   @include font-size      ($media-suffix);
   @include line-height    ($media-suffix);
