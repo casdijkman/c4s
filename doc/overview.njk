@@ -131,9 +131,14 @@
 		</div>
 	    </div>
 	</div>
+    {% elif type === "visibility" %}
+	<div class="dib bg-black white p1 {{ firstClass }}">
+	    {{ caption }}
+	</div>
     {% elif type === "box-sizing" %}
-	<div class="bt bb br bw5 {{ firstClass }}" style="width: 256px;">
-	    {{ caption }} and width 256px
+	{% set width = "256px" %}
+	<div class="bt bb br bw5 {{ firstClass }}" style="width: {{ width }};">
+	    {{ caption }} and width {{ width }}
 	</div>
     {% elif type === "cursor" %}
 	<div class="dib ba p1 {{ firstClass }}">
@@ -185,9 +190,6 @@
 	</div>
 	</div>
 	#}
-	<div class="dn">
-	    No example found
-	</div>
     {% elif type === "coordinates" %}
 	<div class="relative ba w5 h5">
 	    <div class="dib white bg-black absolute {{ firstClass }}">
@@ -200,16 +202,10 @@
 	{{ caption }}
 	</div>
 	#}
-	<div class="dn">
-	    No example found
-	</div>
     {% elif type === "flex" %}
 	{#
 	TODO: implement
 	#}
-	<div class="dn">
-	    No example found
-	</div>
     {% elif type === "flex-direction" %}
 	<div class="dif {{ firstClass }}">
 	    {% for i in [1, 2, 3] %}
@@ -245,13 +241,9 @@
 	    {{ caption }}
 	</div>
     {% elif type === "white-space" %}
-	{#
-	<div class="{{ firstClass }}">
-	{{ caption }}
-	</div>
-	#}
-	<div class="dn">
-	    No example found
+	<div class="w5 bg-black-10 {{ firstClass }}">
+	    {{ caption }}
+	    {{ caption | replace(" ", "   ") }}
 	</div>
     {% elif type === "vertical-align" %}
 	<div class="dib bg-black white lh-extra ph2">
