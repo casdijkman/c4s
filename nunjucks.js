@@ -15,7 +15,7 @@ function getNunjucksData() {
 
 	data.files.push({
 	    name,
-	    file,
+	    file: file.replace(/^dist\/modules\//, ''),
 	    responsive,
 	    css: css.parse(fs.readFileSync(file, 'utf8'))
 	});
