@@ -14,10 +14,3 @@
     transform: translateY($value);
   }
 }
-
-// Transition transforms
-@each $level, $value in $transition-speeds {
-  .transition-transform#{$level} {
-    transition: transform $value ease-in-out;
-  }
-}

@@ -1,0 +1,58 @@
+@import '../../functions';
+@import '../../variables';
+
+/*
+ * Credit to Adam Morse from Tachyons for the debug grids
+ * See http://tachyons.io/docs/debug-grid/
+ */
+
+$dataUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFElEQVR4AWPAC97/9x0eCsAEPgwAVLshdpENIxcAAAAASUVORK5CYII=";
+
+.debug-grid {
+  background: transparent url($dataUrl) repeat top left;
+}
+
+$dataUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMklEQVR4AWOgCLz/b0epAa6UGuBOqQHOQHLUgFEDnAbcBZ4UGwDOkiCnkIhdgNgNxAYAiYlD+8sEuo8AAAAASUVORK5CYII=";
+
+.debug-grid-16 {
+  background: transparent url($dataUrl) repeat top left;
+}
+
+$dataUrl: "data:image/gif;base64,R0lGODdhCAAIAPEAAADw/wDx/////wAAACwAAAAACAAIAAACDZQvgaeb/lxbAIKA8y0AOw==";
+
+.debug-grid-8-solid {
+  background: white url($dataUrl) repeat top left;
+}
+
+$dataUrl: "data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/xXy/////ywAAAAAEAAQAAACIZyPKckYDQFsb6ZqD85jZ2+BkwiRFKehhqQCQgDHcgwEBQA7";
+
+.debug-grid-16-solid {
+  background: white url($dataUrl) repeat top left;
+}
+
+/*
+ * Credit to Chris Coyier from CSSTricks for the striped background
+ * See https://css-tricks.com/stripes-css/
+ */
+
+.debug-striped {
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      map-get($colors, "black-025"),
+      map-get($colors, "black-025") 10px,
+      map-get($colors, "black-05") 10px,
+      map-get($colors, "black-05") 20px
+    );
+}
+
+.debug-striped-light {
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      map-get($colors, "black-025"),
+      map-get($colors, "black-025") 10px,
+      transparent 10px,
+      transparent 20px
+    );
+}
