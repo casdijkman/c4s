@@ -1,3 +1,9 @@
+{% macro exampleBox(firstClass, caption) %}
+    <div class="debug-striped-light p3">
+	{{ caller(firstClass, caption) }}
+    </div>
+{% endmacro %}
+
 {% macro example(type, selectors, declarations) %}
     {% set firstSelector %}{{ selectors | first }}{% endset %}
     {% set firstClass %}{{ firstSelector | getClassFromSelector }}{% endset %}
@@ -6,20 +12,24 @@
 
     {% if type === "complex" %}
 	{% if firstClass === "bt-between" %}
-	    <div class="dif flex-column">
-		{% for i in [1, 2, 3] %}
-		    <div class="p1 {{ firstClass }}">
-			{{ caption }}
-		    </div>
-		{% endfor %}
+	    <div class="dib ba p3">
+		<div class="dif flex-column">
+		    {% for i in [1, 2, 3] %}
+			<div class="bg-black-10 p1 {{ firstClass }}">
+			    {{ caption }}
+			</div>
+		    {% endfor %}
+		</div>
 	    </div>
 	{% elif firstClass === "bl-between" %}
-	    <div class="df">
-		{% for i in [1, 2, 3] %}
-		    <div class="p1 dib {{ firstClass }}">
-			{{ caption }}
-		    </div>
-		{% endfor %}
+	    <div class="dib ba p3">
+		<div class="df">
+		    {% for i in [1, 2, 3] %}
+			<div class="dib bg-black-10 p1 {{ firstClass }}">
+			    {{ caption }}
+			</div>
+		    {% endfor %}
+		</div>
 	    </div>
 	{% endif %}
     {% elif type === "reset" %}
@@ -30,39 +40,47 @@
 
 	#}
     {% elif type === "color" %}
-	<div class="dib p1 {{ firstClass }}">
-	    {{ caption }}
-	</div>
-	<br>
-	<div class="dib bg-black p1 {{ firstClass }}">
-	    {{ caption }}
+	<div class="dib ba p3">
+	    <div class="dib p1 {{ firstClass }}">
+		{{ caption }}
+	    </div>
+	    <br>
+	    <div class="dib bg-black p1 {{ firstClass }}">
+		{{ caption }}
+	    </div>
 	</div>
     {% elif type === "hover-color" %}
-	<div class="dib {{ firstClass }}">
-	    {{ caption }}
-	</div>
-	<br>
-	<div class="dib bg-black {{ firstClass }}">
-	    {{ caption }}
+	<div class="dib p3 ba">
+	    <div class="dib {{ firstClass }}">
+		{{ caption }}
+	    </div>
+	    <br>
+	    <div class="dib bg-black white {{ firstClass }}">
+		{{ caption }}
+	    </div>
 	</div>
     {% elif type === "background-color" %}
-	<div class="dib {{ firstClass }}">
-	    {{ caption }}
-	</div>
-	<br>
-	<div class="dib white {{ firstClass }}">
-	    {{ caption }}
-	</div>
+	{% call exampleBox(firstClass, caption) %}
+	    <div class="dib {{ firstClass }}">
+		{{ caption }}
+	    </div>
+	    <br>
+	    <div class="dib white {{ firstClass }}">
+		{{ caption }}
+	    </div>
+	{% endcall %}
     {% elif type === "hover-background-color" %}
-	<div class="dib {{ firstClass }}">
-	    {{ caption }}
-	</div>
-	<br>
-	<div class="dib white {{ firstClass }}">
-	    {{ caption }}
+	<div class="dib p3 ba">
+	    <div class="dib {{ firstClass }}">
+		{{ caption }}
+	    </div>
+	    <br>
+	    <div class="dib white {{ firstClass }}">
+		{{ caption }}
+	    </div>
 	</div>
     {% elif type === "border" %}
-	<div class="dib bg-black-05 p1 {{ firstClass }}">
+	<div class="dib bg-black-10 p1 {{ firstClass }}">
 	    {{ caption }}
 	</div>
     {% elif type === "border-width" %}
@@ -90,47 +108,75 @@
 	    {{ caption }}
 	</div>
     {% elif type === "font-style" %}
-	<div class="{{ firstClass }}">
-	    {{ caption }}
+	<div class="dib p3 ba">
+	    <div class="{{ firstClass }}">
+		{{ caption }}
+	    </div>
 	</div>
     {% elif type === "text-decoration" %}
-	<div class="{{ firstClass }}">
+	<div class="dib p3 ba {{ firstClass }}">
 	    {{ caption }}
 	</div>
     {% elif type === "text-transform" %}
-	<div class="{{ firstClass }}">
+	<div class="dib p3 ba {{ firstClass }}">
 	    {{ caption }}
 	</div>
     {% elif type === "text-align" %}
-	<div class="bg-black white p1 {{ firstClass }}">
+	<div class="p3 ba {{ firstClass }}">
 	    {{ caption }}
+	    {% if firstClass == "tj" %}
+		&mdash;	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+		veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+		commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+		velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+		cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+		est laborum.
+	    {% endif %}
 	</div>
     {% elif type === "opacity" %}
-	<div class="bg-black white p1 {{ firstClass }}">
+	<div class="dib bg-black white p3 {{ firstClass }}">
 	    {{ caption }}
 	</div>
     {% elif type === "transform" %}
-	<div class="tc">
-	    <div class="dib relative">
-		<div class="hidden df justify-center p5">
-		    <div class="h3 p1 ba {{ firstClass }}">
+	{% macro transformBox(firstClass, caption, containerClass, boxClass, textClass) %}
+	    <div class="top-0 left-50 translateX-n50 w-third {{ containerClass }}">
+		<div class="p2 ba {{ firstClass }} {{ boxClass }}">
+		    <span class="{{ textClass }}">
 			{{ caption }}
-		    </div>
-		</div>
-		<div class="absolute top-0 df justify-center p5">
-		    <div class="h3 p1 ba {{ firstClass }}">
-			{{ caption }}
-		    </div>
-		</div>
-		<div class="absolute top-0 df justify-center p5">
-		    <div class="h3 p1 ba b--black-10">
-			<span class="hidden">
-			    {{ caption }}
-			</span>
-		    </div>
+		    </span>
 		</div>
 	    </div>
+	{% endmacro %}
+
+	{% set paddingClass %}
+	{% if r/Y-100$/.test(firstClass) %}
+	    pb6 pb5-m pt3 pt4-s
+	{% elif r/Y-n100$/.test(firstClass) %}
+	    pt6 pt5-m pb3 pb4-s
+	{% elif r/Y-50$/.test(firstClass) %}
+	    pb5 pb4-m pt3 pt4-s
+	{% elif r/Y-n50$/.test(firstClass) %}
+	    pt5 pt4-m pb3 pb4-s
+	{% else %}
+	    pv3
+	{% endif %}
+	{% endset %}
+
+	<div class="{{ paddingClass }}">
+	    <div class="relative">
+		{# Placeholder #}
+		{{ transformBox(firstClass, caption, "hidden") }}
+
+		{# Ghost #}
+		{{ transformBox("", caption, "absolute o-40", "debug-striped b--dashed", "hidden") }}
+
+		{# Visible element #}
+		{{ transformBox(firstClass, caption, "absolute") }}
+	    </div>
 	</div>
+    {% elif type === "transition" %}
+	TODO
     {% elif type === "visibility" %}
 	<div class="dib bg-black white p1 {{ firstClass }}">
 	    {{ caption }}
@@ -141,7 +187,7 @@
 	    {{ caption }} and width {{ width }}
 	</div>
     {% elif type === "cursor" %}
-	<div class="dib ba p1 {{ firstClass }}">
+	<div class="dib ba p3 {{ firstClass }}">
 	    {{ caption }}
 	</div>
     {% elif type === "miscellaneous" %}
@@ -152,16 +198,22 @@
 		{% endfor %}
 	    </ul>
 	{% elif firstClass === "stretch" or firstClass === "stretch-pseudo" %}
-	    <div class="dib ba w5 h3 relative">
-		<a class="bg-black-10 {{ firstClass }}" href="javascript:;">
+	    <div class="w6 h4 ba relative">
+		<a class="dib p3 debug-striped {{ firstClass }}" href="javascript:;">
 		    {{ caption }}
 		</a>
 	    </div>
 	{% elif firstClass === "link" %}
-	    <a class="{{ firstClass }}" href="javascript:;">
-		{{ caption }}
-	    </a>
+	    <div class="dib p3 ba">
+		<a class="{{ firstClass }}" href="javascript:;">
+		    {{ caption }}
+		</a>
+	    </div>
 	{% endif %}
+    {% elif type === "debug" %}
+	<div class="p4 {{ firstClass }}">
+	    {{ caption }}
+	</div>
     {% elif type === "padding" %}
 	<div class="dib white bg-black {{ firstClass }}">
 	    {{ caption }}
@@ -269,7 +321,7 @@
 	    {{ caption }}
 	</div>
     {% else %}
-	<div class="dn">
+	<div class="">
 	    No example found
 	</div>
     {% endif %}
