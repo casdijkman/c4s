@@ -1,176 +1,323 @@
-<!doctype html>
-<html lang="en">
+{% macro example(type, selectors, declarations) %}
+    {% set firstSelector %}{{ selectors | first }}{% endset %}
+    {% set firstClass %}{{ firstSelector | getClassFromSelector }}{% endset %}
+    {% set readableClasses %}{{ selectors | getClassesFromSelectors | join(" or ") }}{% endset %}
+    {% set caption = "Element with class " + readableClasses %}
+
+    {% if type === "complex" %}
+	{% if firstClass === "bt-between" %}
+	    <div class="dif flex-column">
+		{% for i in [1, 2, 3] %}
+		    <div class="p1 {{ firstClass }}">
+			{{ caption }}
+		    </div>
+		{% endfor %}
+	    </div>
+	{% elif firstClass === "bl-between" %}
+	    <div class="df">
+		{% for i in [1, 2, 3] %}
+		    <div class="p1 dib {{ firstClass }}">
+			{{ caption }}
+		    </div>
+		{% endfor %}
+	    </div>
+	{% endif %}
+    {% elif type === "reset" %}
+	{#
+
+	These rules should speak for themselves, they overrides some 'harmful' defaults
+	and set defaults for header font sizes, line heights etc.
+
+	#}
+    {% elif type === "color" %}
+	<div class="dib p1 {{ firstClass }}">
+	    {{ caption }}
+	</div>
+	<br>
+	<div class="dib bg-black p1 {{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% elif type === "hover-color" %}
+	<div class="dib {{ firstClass }}">
+	    {{ caption }}
+	</div>
+	<br>
+	<div class="dib bg-black {{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% elif type === "background-color" %}
+	<div class="dib {{ firstClass }}">
+	    {{ caption }}
+	</div>
+	<br>
+	<div class="dib white {{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% elif type === "hover-background-color" %}
+	<div class="dib {{ firstClass }}">
+	    {{ caption }}
+	</div>
+	<br>
+	<div class="dib white {{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% elif type === "border" %}
+	<div class="dib bg-black-05 p1 {{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% elif type === "border-width" %}
+	<div class="dib p1 ba {{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% elif type === "border-color" %}
+	<div class="dib p2">
+	    <div class="dib ba p1 {{ firstClass }}">
+		{{ caption }}
+	    </div>
+	</div>
+	<br>
+	<div class="dib bg-black white p2">
+	    <div class="ba p1 {{ firstClass }}">
+		{{ caption }}
+	    </div>
+	</div>
+    {% elif type === "border-style" %}
+	<div class="dib ba bw2 p1 {{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% elif type === "font-family" %}
+	<div class="{{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% elif type === "font-style" %}
+	<div class="{{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% elif type === "text-decoration" %}
+	<div class="{{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% elif type === "text-transform" %}
+	<div class="{{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% elif type === "text-align" %}
+	<div class="bg-black white p1 {{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% elif type === "opacity" %}
+	<div class="bg-black white p1 {{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% elif type === "transform" %}
+	<div class="tc">
+	    <div class="dib relative">
+		<div class="hidden df justify-center p5">
+		    <div class="h3 p1 ba {{ firstClass }}">
+			{{ caption }}
+		    </div>
+		</div>
+		<div class="absolute top-0 df justify-center p5">
+		    <div class="h3 p1 ba {{ firstClass }}">
+			{{ caption }}
+		    </div>
+		</div>
+		<div class="absolute top-0 df justify-center p5">
+		    <div class="h3 p1 ba b--black-10">
+			<span class="hidden">
+			    {{ caption }}
+			</span>
+		    </div>
+		</div>
+	    </div>
+	</div>
+    {% elif type === "visibility" %}
+	<div class="dib bg-black white p1 {{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% elif type === "box-sizing" %}
+	{% set width = "256px" %}
+	<div class="bt bb br bw5 {{ firstClass }}" style="width: {{ width }};">
+	    {{ caption }} and width {{ width }}
+	</div>
+    {% elif type === "cursor" %}
+	<div class="dib ba p1 {{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% elif type === "miscellaneous" %}
+	{% if firstClass === "list-reset" %}
+	    <ul class="dib ba p3 {{ firstClass }}">
+		{% for i in [1, 2, 3] %}
+		    <li>List item in <code>ul</code> with class {{ firstClass }}</li>
+		{% endfor %}
+	    </ul>
+	{% elif firstClass === "stretch" or firstClass === "stretch-pseudo" %}
+	    <div class="dib ba w5 h3 relative">
+		<a class="bg-black-10 {{ firstClass }}" href="javascript:;">
+		    {{ caption }}
+		</a>
+	    </div>
+	{% elif firstClass === "link" %}
+	    <a class="{{ firstClass }}" href="javascript:;">
+		{{ caption }}
+	    </a>
+	{% endif %}
+    {% elif type === "padding" %}
+	<div class="dib white bg-black {{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% elif type === "margin" %}
+	{% set autoRegex = r/[rlh]-auto$/ %}
+
+	{% if autoRegex.test(firstClass) %}
+	    <div class="ba">
+		<div class="w4 white bg-black {{ firstClass }}">
+		    {{ caption }}
+		</div>
+	    </div>
+	{% else %}
+	    <div class="dib ba">
+		<div class="dib white bg-black {{ firstClass }}">
+		    {{ caption }}
+		</div>
+            </div>
+	{% endif %}
+    {% elif type === "width" %}
+	<div class="ba">
+	    <div class="dib white bg-black {{ firstClass }}">
+		{{ caption }}
+            </div>
+	</div>
+    {% elif type === "height" %}
+	<div class="dib white bg-black {{ firstClass }}">
+	    {{ caption }}
+        </div>
+    {% elif type === "position" %}
+	{#
+	<div class="relative ba w5 h5">
+	<div class="dib white bg-black top-1 {{ firstClass }}">
+	{{ caption }}
+	</div>
+	</div>
+	#}
+    {% elif type === "coordinates" %}
+	<div class="relative ba w-50 h4">
+	    <div class="dib white bg-black absolute {{ firstClass }}">
+		{{ caption }}
+	    </div>
+	</div>
+    {% elif type === "display" %}
+	{#
+	<div class="bg-black white {{ firstClass }}">
+	{{ caption }}
+	</div>
+	#}
+    {% elif type === "flex" %}
+	{#
+	TODO: implement
+	#}
+    {% elif type === "flex-direction" %}
+	<div class="dif {{ firstClass }}">
+	    {% for i in [1, 2, 3] %}
+		<div class="p2">
+		    <div class="bg-black white">
+			Child {{ i }}
+		    </div>
+		</div>
+	    {% endfor %}
+	</div>
+    {% elif type === "float" %}
+	<div class="ba w5 h4">
+	    <div class="dib white bg-black {{ firstClass }}">
+		{{ caption }}
+	    </div>
+	</div>
+    {% elif type === "border-radius" %}
+	<div class="dib p3 ba {{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% elif type === "font-size" %}
+	<span class="{{ firstClass }}">
+	    {{ caption }}
+	</span>
+    {% elif type === "line-height" %}
+	<div class="dib bg-black white">
+	    <span class="{{ firstClass }}">
+		{{ caption }}
+	    </span>
+	</div>
+    {% elif type === "font-weight" %}
+	<div class="{{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% elif type === "white-space" %}
+	<div class="w5 bg-black-10 {{ firstClass }}">
+	    {{ caption }}
+	    {{ caption | replace(" ", "   ") }}
+	</div>
+    {% elif type === "vertical-align" %}
+	<div class="dib bg-black white lh-extra ph2">
+	    <div class="dib bg-red {{ firstClass }}" style="height: .4em; width: .4em;"></div>
+	    {{ caption }}
+	</div>
+    {% elif type === "tracking" %}
+	<span class="{{ firstClass }}">
+	    {{ caption }}
+	</span>
+    {% elif type === "measure" %}
+	<div class="bg-black white {{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% else %}
+	<div class="dn">
+	    No example found
+	</div>
+    {% endif %}
+{% endmacro %}
+
+<html>
     <head>
 	<meta charset="utf-8">
 	<title>My CSS library demo</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<link href="/dist/c4s-all.css"    rel="stylesheet">
-	<link href="/dist/c4s-small.css"  rel="stylesheet" media="(max-width: 30em)">
-	<link href="/dist/c4s-medium.css" rel="stylesheet" media="(min-width: 30em) and (max-width: 60em)">
-	<link href="/dist/c4s-large.css"  rel="stylesheet" media="(min-width: 60em) and (max-width: 90em)">
-	<link href="/dist/c4s-huge.css"   rel="stylesheet" media="(min-width: 90em)">
-	<link href="/dist/c4s-print.css"  rel="stylesheet" media="print" disabled>
+	<link href="/dist/c4s-all.css" rel="stylesheet">
     </head>
     <body class="p3">
 	<h1 class="mt0">
-	    My CSS library demo
+	    C4S documentation
 	</h1>
-	<h2>
-	    Padding
-	</h2>
-	<h3>
-	    Padding all
-	</h3>
 
-	<h4 class="mb1">
-	    <code>p0</code>
-	</h4>
-	<div class="dib white bg-black p0">
-	    Element with class p0
-	</div>
+	{% for file in files %}
+	    <h2 class="dib">
+		{{ file.name | replace("-", " ") | title }}
+	    </h2>
+	    <code class="pl3 nowrap">
+		{{ file.file }}
+	    </code>
 
-	<h4 class="mb1">
-	    <code>p1</code>
-	</h4>
-	<div class="dib white bg-black p1">
-	    Element with class p1
-	</div>
+	    {% for rule in file.css.stylesheet.rules -%}
+		{% if rule.type === "rule" -%}
+		    <dl>
+			<dt>
+			    {{ rule.selectors | join(", ") }}
+			</dt>
+			<dd>
+			    {% for declaration in rule.declarations -%}
+				<div>
+				    {{ declaration.property }}: {{ declaration.value }}
+				</div>
+			    {%- endfor %}
+			</dd>
+		    </dl>
 
-	<h4 class="mb1">
-	    <code>p2</code>
-	</h4>
-	<div class="dib white bg-black p2">
-	    Element with class p2
-	</div>
-
-	<h4 class="mb1">
-	    <code>p3</code>
-	</h4>
-	<div class="dib white bg-black p3">
-	    Element with class p3
-	</div>
-
-	<h4 class="mb1">
-	    <code>p4</code>
-	</h4>
-	<div class="dib white bg-black p4">
-	    Element with class p4
-	</div>
-	<h4 class="mb1">
-	    <code>p5</code>
-	</h4>
-	<div class="dib white bg-black p5">
-	    Element with class p5
-	</div>
-
-	<h4 class="mb1">
-	    <code>p6</code>
-	</h4>
-	<div class="dib white bg-black p6">
-	    Element with class p6
-	</div>
-
-	<h4 class="mb1">
-	    <code>p7</code>
-	</h4>
-	<div class="dib white bg-black p7">
-	    Element with class p7
-	</div>
-
-	<h2>
-	    Margin
-	</h2>
-	<h3>
-	    Margin all
-	</h3>
-
-	<h4 class="mb1">
-	    <code>m0</code>
-	</h4>
-	<div class="dib ba">
-	    <div class="dib white bg-black m0">
-		Element with class m0
-	    </div>
-	</div>
-
-	<h4 class="mb1">
-	    <code>m1</code>
-	</h4>
-	<div class="dib ba">
-	    <div class="dib white bg-black m1">
-		Element with class m1
-	    </div>
-	</div>
-
-	<h4 class="mb1">
-	    <code>m2</code>
-	</h4>
-	<div class="dib ba">
-	    <div class="dib white bg-black m2">
-		Element with class m2
-	    </div>
-	</div>
-
-	<h4 class="mb1">
-	    <code>m3</code>
-	</h4>
-	<div class="dib ba">
-	    <div class="dib white bg-black m3">
-		Element with class m3
-	    </div>
-	</div>
-
-	<h4 class="mb1">
-	    <code>m4</code>
-	</h4>
-	<div class="dib ba">
-	    <div class="dib white bg-black m4">
-		Element with class m4
-	    </div>
-	</div>
-
-	<h4 class="mb1">
-	    <code>m5</code>
-	</h4>
-	<div class="dib ba">
-	    <div class="dib white bg-black m5">
-		Element with class m5
-	    </div>
-	</div>
-
-	<h4 class="mb1">
-	    <code>m6</code>
-	</h4>
-	<div class="dib ba">
-	    <div class="dib white bg-black m6">
-		Element with class m6
-	    </div>
-	</div>
-
-	<h4 class="mb1">
-	    <code>m7</code>
-	</h4>
-	<div class="dib ba">
-	    <div class="dib white bg-black m7">
-		Element with class m7
-	    </div>
-	</div>
-
-	<h2>
-	    Headers
-	</h2>
-	<div class="dib ba p3">
-	    <div class="f-headline b">headline</div>
-	    <div class="f-subheadline b">subheadline</div>
-            <h1  class="mv0">h1 header</h1>
-            <h2  class="mv0">h2 header</h2>
-            <h3  class="mv0">h3 header</h3>
-            <h4  class="mv0">h4 header</h4>
-            <h5  class="mv0">h5 header</h5>
-            <h6  class="mv0">h6 header</h6>
-            <p   class="mv0">regular text</p>
-	</div>
+		    <div>
+			{{ example(file.name, rule.selectors, rule.declarations) }}
+		    </div>
+		{%- endif %}
+	    {%- endfor %}
+	{%- endfor %}
     </body>
 </html>
+
+
