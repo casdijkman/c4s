@@ -167,11 +167,21 @@
 	    {{ caption }}
 	</div>
     {% elif type === "margin" %}
-	<div class="dib ba">
-            <div class="dib white bg-black {{ firstClass }}">
-		{{ caption }}
+	{% set autoRegex = r/[rlh]-auto$/ %}
+
+	{% if autoRegex.test(firstClass) %}
+	    <div class="ba">
+		<div class="w4 white bg-black {{ firstClass }}">
+		    {{ caption }}
+		</div>
+	    </div>
+	{% else %}
+	    <div class="dib ba">
+		<div class="dib white bg-black {{ firstClass }}">
+		    {{ caption }}
+		</div>
             </div>
-        </div>
+	{% endif %}
     {% elif type === "width" %}
 	<div class="ba">
 	    <div class="dib white bg-black {{ firstClass }}">
@@ -191,7 +201,7 @@
 	</div>
 	#}
     {% elif type === "coordinates" %}
-	<div class="relative ba w5 h5">
+	<div class="relative ba w-50 h4">
 	    <div class="dib white bg-black absolute {{ firstClass }}">
 		{{ caption }}
 	    </div>
