@@ -27,9 +27,11 @@ $spacer-levels: (
  */
 
 $coordinate-spacer-levels: (
-  "-0": 0,
-  "-1": 1rem,
-  "-2": 2rem
+  "-0":   0,
+  "-1":   1rem,
+  "-2":   2rem,
+  "-50":  50%,
+  "-100": 100%
 );
 
 /*
@@ -49,6 +51,7 @@ $sizer-levels: (
   "3":           $sizer-base * nth-power-of-two(2),
   "4":           $sizer-base * nth-power-of-two(3),
   "5":           $sizer-base * nth-power-of-two(4),
+  "6":           $sizer-base * nth-power-of-two(5),
   "-10":         10%,
   "-20":         20%,
   "-30":         30%,
