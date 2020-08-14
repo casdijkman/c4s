@@ -1,5 +1,5 @@
 {% macro exampleBox(firstClass, caption) %}
-    <div class="debug-striped-light p3">
+    <div class="dib debug-striped-light p3 ba b--black-10">
 	{{ caller(firstClass, caption) }}
     </div>
 {% endmacro %}
@@ -88,14 +88,14 @@
 	    {{ caption }}
 	</div>
     {% elif type === "border-color" %}
-	<div class="dib p2">
-	    <div class="dib ba p1 {{ firstClass }}">
+	<div class="dib p3">
+	    <div class="dib ba p2 {{ firstClass }}">
 		{{ caption }}
 	    </div>
 	</div>
 	<br>
-	<div class="dib bg-black white p2">
-	    <div class="ba p1 {{ firstClass }}">
+	<div class="dib bg-black white p3 mt3">
+	    <div class="ba p2 {{ firstClass }}">
 		{{ caption }}
 	    </div>
 	</div>
