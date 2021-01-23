@@ -173,7 +173,7 @@
 	    </div>
 	</div>
     {% elif type === "transition" %}
-	TODO
+	{# TODO #}
     {% elif type === "visibility" %}
 	<div class="dib bg-black white p1 {{ firstClass }}">
 	    {{ caption }}
@@ -256,15 +256,9 @@
 	    </div>
 	</div>
     {% elif type === "display" %}
-	{#
-	<div class="bg-black white {{ firstClass }}">
-	{{ caption }}
-	</div>
-	#}
+	{# TODO #}
     {% elif type === "flex" %}
-	{#
-	TODO: implement
-	#}
+	{# TODO #}
     {% elif type === "flex-direction" %}
 	<div class="dif {{ firstClass }}">
 	    {% for i in [1, 2, 3] %}
@@ -318,7 +312,7 @@
 	    {{ caption }}
 	</div>
     {% else %}
-	<div class="">
+	<div>
 	    No example found
 	</div>
     {% endif %}
@@ -346,7 +340,7 @@
 	    {% endfor %}
 
 	    {% if hasRules %}
-		<h2 class="dib">
+		<h2 class="f4 dib">
 		    {{ file.name | replace("-", " ") | title }}
 		</h2>
 		<code class="pl3 nowrap">
@@ -354,26 +348,31 @@
 		</code>
 	    {% endif %}
 
-	    {% for rule in file.css.stylesheet.rules %}
-		{% if rule.type === "rule" %}
-		    <dl>
-			<dt>
-			    {{ rule.selectors | join(", ") }}
-			</dt>
-			<dd>
-			    {% for declaration in rule.declarations %}
-				<div>
-				    {{ declaration.property }}: {{ declaration.value }}
-				</div>
-			    {% endfor %}
-			</dd>
-		    </dl>
+	    <details>
+		<summary class="cursor-pointer">
+		    More information
+		</summary>
+		{% for rule in file.css.stylesheet.rules %}
+		    {% if rule.type === "rule" %}
+			<dl>
+			    <dt>
+				{{ rule.selectors | join(", ") }}
+			    </dt>
+			    <dd>
+				{% for declaration in rule.declarations %}
+				    <div>
+					{{ declaration.property }}: {{ declaration.value }}
+				    </div>
+				{% endfor %}
+			    </dd>
+			</dl>
 
-		    <div>
-			{{ example(file.name, rule.selectors, rule.declarations) }}
-		    </div>
-		{% endif %}
-	    {% endfor %}
+			<div>
+			    {{ example(file.name, rule.selectors, rule.declarations) }}
+			</div>
+		    {% endif %}
+		{% endfor %}
+	    </details>
 	{% endfor %}
     </body>
 </html>
