@@ -7,6 +7,8 @@ const rename = require('gulp-rename');
 const del = require('del');
 const nunjucksRender = require('gulp-nunjucks-render');
 const data = require('gulp-data');
+const htmlmin = require('gulp-htmlmin');
+const beautifier = require('gulp-jsbeautifier');
 const stylelint = require('gulp-stylelint');
 const eslint = require('gulp-eslint');
 
@@ -39,6 +41,14 @@ function compileNunjucks() {
     return src(globs.src.nunjucks)
 	.pipe(data(getNunjucksData()))
 	.pipe(nunjucksRender({ manageEnv }))
+	.pipe(htmlmin({
+	    removeComments: true,
+	    collapseWhitespace: true
+	}))
+	.pipe(beautifier({
+	    indent_size: 2, // eslint-disable-line camelcase
+	    end_with_newline: true // eslint-disable-line camelcase
+	}))
 	.pipe(dest('.'));
 }
 
