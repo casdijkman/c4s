@@ -1,4 +1,5 @@
 @use '../../variables';
+@use './font-family';
 @use 'sass:map';
 
 html {
@@ -45,3 +46,5 @@ h6    { font-size: variables.$font-size-h6; }
 small { font-size: variables.$font-size-small; }
 
 p { line-height: map.get(variables.$line-height-levels, 'text'); }
+
+code { font-family: font-family.$font-family-code; }

@@ -20,3 +20,9 @@
     times,
     serif;
 }
+
+$font-family-code: Consolas, monaco, monospace;
+
+.code {
+  font-family: $font-family-code;
+}
