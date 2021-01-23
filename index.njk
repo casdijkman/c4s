@@ -4,6 +4,12 @@
     </div>
 {% endmacro %}
 
+{% macro exampleNotFound() %}
+    <div class="">
+	Example not found
+    </div>
+{% endmacro %}
+
 {% macro example(type, selectors, declarations) %}
     {% set firstSelector %}{{ selectors | first }}{% endset %}
     {% set firstClass %}{{ firstSelector | getClassFromSelector }}{% endset %}
@@ -31,6 +37,16 @@
 		    {% endfor %}
 		</div>
 	    </div>
+	{% elif r/pt.-between$/.test(firstClass) %}
+	    {# TODO #}
+	{% elif r/pl.-between$/.test(firstClass) %}
+	    {# TODO #}
+	{% elif r/mt.-between$/.test(firstClass) %}
+	    {# TODO #}
+	{% elif r/ml.-between$/.test(firstClass) %}
+	    {# TODO #}
+	{% else %}
+	    {{ exampleNotFound() }}
 	{% endif %}
     {% elif type === "reset" %}
 	{#
@@ -111,6 +127,10 @@
 	    </div>
 	</div>
     {% elif type === "text-decoration" %}
+	<div class="dib p3 ba {{ firstClass }}">
+	    {{ caption }}
+	</div>
+    {% elif type === "text-shadow" %}
 	<div class="dib p3 ba {{ firstClass }}">
 	    {{ caption }}
 	</div>
@@ -206,6 +226,8 @@
 		    {{ caption }}
 		</a>
 	    </div>
+	{% else %}
+	    {{ exampleNotFound() }}
 	{% endif %}
     {% elif type === "debug" %}
 	<div class="p4 {{ firstClass }}">
@@ -242,13 +264,7 @@
 	    {{ caption }}
         </div>
     {% elif type === "position" %}
-	{#
-	<div class="relative ba w5 h5">
-	<div class="dib white bg-black top-1 {{ firstClass }}">
-	{{ caption }}
-	</div>
-	</div>
-	#}
+	{# TODO #}
     {% elif type === "coordinates" %}
 	<div class="relative ba w-50 h4">
 	    <div class="dib white bg-black absolute {{ firstClass }}">
@@ -312,9 +328,7 @@
 	    {{ caption }}
 	</div>
     {% else %}
-	<div>
-	    No example found
-	</div>
+	{{ exampleNotFound() }}
     {% endif %}
 {% endmacro %}
 
@@ -327,8 +341,8 @@
 	<link href="/dist/c4s-all.css" rel="stylesheet">
     </head>
     <body class="p3">
-	<h1 class="mt0">
-	    C4S documentation
+	<h1 class="mt0 mb4">
+	    C4S docu&shy;menta&shy;tion
 	</h1>
 
 	{% for file in files %}
@@ -340,25 +354,27 @@
 	    {% endfor %}
 
 	    {% if hasRules %}
-		<h2 class="f4 dib">
-		    {{ file.name | replace("-", " ") | title }}
-		</h2>
-		<code class="pl3 nowrap">
-		    {{ file.file }}
-		</code>
+		<header class="mb3">
+		    <h2 class="mv0 f4 dib">
+			{{ file.name | replace("-", " ") | title }}
+		    </h2>
+		    <code class="pl3 nowrap">
+			{{ file.file }}
+		    </code>
+		</header>
 	    {% endif %}
 
-	    <details>
+	    <details class="mb4">
 		<summary class="cursor-pointer">
 		    More information
 		</summary>
 		{% for rule in file.css.stylesheet.rules %}
 		    {% if rule.type === "rule" %}
-			<dl>
-			    <dt>
+			<dl class="mt4">
+			    <dt class="code">
 				{{ rule.selectors | join(", ") }}
 			    </dt>
-			    <dd>
+			    <dd class="code">
 				{% for declaration in rule.declarations %}
 				    <div>
 					{{ declaration.property }}: {{ declaration.value }}
