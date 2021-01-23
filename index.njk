@@ -61,12 +61,9 @@
 	</div>
     {% elif type === "background-color" %}
 	{% call exampleBox(firstClass, caption) %}
-	    <div class="dib {{ firstClass }}">
-		{{ caption }}
-	    </div>
-	    <br>
-	    <div class="dib white {{ firstClass }}">
-		{{ caption }}
+	    <div class="p3 {{ firstClass }}">
+		<div class="pt3-between">{{ caption }}</div>
+		<div class="white text-shadow pt3-between">{{ caption }}</div>
 	    </div>
 	{% endcall %}
     {% elif type === "hover-background-color" %}
