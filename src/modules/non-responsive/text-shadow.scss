@@ -1,0 +1,6 @@
+@use '../../variables';
+@use 'sass:map';
+
+.text-shadow {
+  text-shadow: .1em .1em .1em map.get(variables.$colors, 'black-60');
+}
