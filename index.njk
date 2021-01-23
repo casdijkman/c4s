@@ -341,34 +341,43 @@
 	</h1>
 
 	{% for file in files %}
-	    <h2 class="dib">
-		{{ file.name | replace("-", " ") | title }}
-	    </h2>
-	    <code class="pl3 nowrap">
-		{{ file.file }}
-	    </code>
+	    {% set hasRules = false %}
+	    {% for rule in file.css.stylesheet.rules %}
+		{% if rule.type === "rule" %}
+		    {% set hasRules = true %}
+		{% endif %}
+	    {% endfor %}
 
-	    {% for rule in file.css.stylesheet.rules -%}
-		{% if rule.type === "rule" -%}
+	    {% if hasRules %}
+		<h2 class="dib">
+		    {{ file.name | replace("-", " ") | title }}
+		</h2>
+		<code class="pl3 nowrap">
+		    {{ file.file }}
+		</code>
+	    {% endif %}
+
+	    {% for rule in file.css.stylesheet.rules %}
+		{% if rule.type === "rule" %}
 		    <dl>
 			<dt>
 			    {{ rule.selectors | join(", ") }}
 			</dt>
 			<dd>
-			    {% for declaration in rule.declarations -%}
+			    {% for declaration in rule.declarations %}
 				<div>
 				    {{ declaration.property }}: {{ declaration.value }}
 				</div>
-			    {%- endfor %}
+			    {% endfor %}
 			</dd>
 		    </dl>
 
 		    <div>
 			{{ example(file.name, rule.selectors, rule.declarations) }}
 		    </div>
-		{%- endif %}
-	    {%- endfor %}
-	{%- endfor %}
+		{% endif %}
+	    {% endfor %}
+	{% endfor %}
     </body>
 </html>
 
