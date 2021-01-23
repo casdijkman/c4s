@@ -1,7 +1,7 @@
-@import 'functions';
-@import 'variables';
-@import 'modules/responsive-all';
-@import 'modules/non-responsive-all';
+@use 'functions';
+@use 'variables';
+@use 'modules/responsive-all';
+@use 'modules/non-responsive-all';
 
 // Include responsive-all mixin with no media query or suffix
-@include responsive-all('');
+@include responsive-all.responsive-all('');

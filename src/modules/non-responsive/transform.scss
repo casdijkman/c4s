@@ -1,15 +1,14 @@
-@import '../../functions';
-@import '../../variables';
+@use '../../variables';
 
 // Translate horizontally
-@each $level, $value in $translate-levels {
+@each $level, $value in variables.$translate-levels {
   .translateX#{$level} {
     transform: translateX($value);
   }
 }
 
 // Translate vertically
-@each $level, $value in $translate-levels {
+@each $level, $value in variables.$translate-levels {
   .translateY#{$level} {
     transform: translateY($value);
   }

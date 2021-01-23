@@ -10,6 +10,8 @@ const data = require('gulp-data');
 const stylelint = require('gulp-stylelint');
 const eslint = require('gulp-eslint');
 
+sass.compiler = require('sass');
+
 const base = 'src';
 const destination = 'dist';
 

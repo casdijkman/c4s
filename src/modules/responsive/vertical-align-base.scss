@@ -1,5 +1,5 @@
-@import '../../functions';
-@import '../../variables';
-@import './vertical-align';
+@use '../../functions';
+@use '../../variables';
+@use './vertical-align';
 
-@include vertical-align ('');
+@include vertical-align.vertical-align('');

@@ -1,5 +1,5 @@
-@import '../../functions';
-@import '../../variables';
-@import './measure';
+@use '../../functions';
+@use '../../variables';
+@use './measure';
 
-@include measure ('');
+@include measure.measure('');

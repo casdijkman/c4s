@@ -1,5 +1,5 @@
-@import '../../functions';
-@import '../../variables';
-@import './flex';
+@use '../../functions';
+@use '../../variables';
+@use './flex';
 
-@include flex ('');
+@include flex.flex('');

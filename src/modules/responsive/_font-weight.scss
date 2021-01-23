@@ -1,10 +1,14 @@
+@use '../../variables';
+@use 'sass:map';
+
 @mixin font-weight($media-suffix) {
 
-  @each $level, $value in $font-weight-levels {
+  @each $level, $value in variables.$font-weight-levels {
     .fw#{$level}#{$media-suffix} { font-weight: $value; }
   }
 
   // Add extra class for font-weight bold (for brevity)
-  .b#{$media-suffix} { @extend .fw-bold#{$media-suffix}; }
+  $font-weight-bold: map.get(variables.$font-weight-levels, '-bold');
+  .b#{$media-suffix} { font-weight: $font-weight-bold; }
 
 }

@@ -4,11 +4,17 @@ module.exports = {
     ],
     extends: 'stylelint-config-standard',
     rules: {
+	'string-quotes': 'single',
 	'at-rule-no-unknown': null,
 	'scss/at-rule-no-unknown': true,
 	'number-leading-zero': 'never',
 	'block-opening-brace-space-before': null,
 	'block-closing-brace-empty-line-before': null,
+	'max-line-length': [
+	    81, {
+		ignore: ["comments"]
+	    }
+	],
 	'at-rule-empty-line-before': [
 	    'always' , {
 		except: ['blockless-after-same-name-blockless'],

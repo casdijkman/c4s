@@ -1,6 +1,8 @@
+@use '../../variables';
+
 @mixin line-height($media-suffix) {
 
-  @each $level, $value in $line-height-levels {
+  @each $level, $value in variables.$line-height-levels {
     .lh-#{$level}#{$media-suffix} { line-height: $value; }
   }
 

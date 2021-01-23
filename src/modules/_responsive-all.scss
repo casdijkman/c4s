@@ -5,42 +5,42 @@
    media queries targeting specific screen sizes. The media suffix is added to the end of
    the CSS rules. When there should be no suffix pass an emtpy string.
  */
-@import 'responsive/padding';
-@import 'responsive/margin';
-@import 'responsive/width';
-@import 'responsive/height';
-@import 'responsive/position';
-@import 'responsive/coordinates';
-@import 'responsive/display';
-@import 'responsive/flex';
-@import 'responsive/flex-direction';
-@import 'responsive/float';
-@import 'responsive/border-radius';
-@import 'responsive/font-size';
-@import 'responsive/line-height';
-@import 'responsive/font-weight';
-@import 'responsive/white-space';
-@import 'responsive/vertical-align';
-@import 'responsive/tracking';
-@import 'responsive/measure';
+@use 'responsive/padding';
+@use 'responsive/margin';
+@use 'responsive/width';
+@use 'responsive/height';
+@use 'responsive/position';
+@use 'responsive/coordinates';
+@use 'responsive/display';
+@use 'responsive/flex';
+@use 'responsive/flex-direction';
+@use 'responsive/float';
+@use 'responsive/border-radius';
+@use 'responsive/font-size';
+@use 'responsive/line-height';
+@use 'responsive/font-weight';
+@use 'responsive/white-space';
+@use 'responsive/vertical-align';
+@use 'responsive/tracking';
+@use 'responsive/measure';
 
 @mixin responsive-all($media-suffix) {
-  @include padding        ($media-suffix);
-  @include margin         ($media-suffix);
-  @include width          ($media-suffix);
-  @include height         ($media-suffix);
-  @include position       ($media-suffix);
-  @include coordinates    ($media-suffix);
-  @include display        ($media-suffix);
-  @include flex           ($media-suffix);
-  @include flex-direction ($media-suffix);
-  @include float          ($media-suffix);
-  @include border-radius  ($media-suffix);
-  @include font-size      ($media-suffix);
-  @include line-height    ($media-suffix);
-  @include font-weight    ($media-suffix);
-  @include white-space    ($media-suffix);
-  @include vertical-align ($media-suffix);
-  @include tracking       ($media-suffix);
-  @include measure        ($media-suffix);
+  @include padding.padding               ($media-suffix);
+  @include margin.margin                 ($media-suffix);
+  @include width.width                   ($media-suffix);
+  @include height.height                 ($media-suffix);
+  @include position.position             ($media-suffix);
+  @include coordinates.coordinates       ($media-suffix);
+  @include display.display               ($media-suffix);
+  @include flex.flex                     ($media-suffix);
+  @include flex-direction.flex-direction ($media-suffix);
+  @include float.float                   ($media-suffix);
+  @include border-radius.border-radius   ($media-suffix);
+  @include font-size.font-size           ($media-suffix);
+  @include line-height.line-height       ($media-suffix);
+  @include font-weight.font-weight       ($media-suffix);
+  @include white-space.white-space       ($media-suffix);
+  @include vertical-align.vertical-align ($media-suffix);
+  @include tracking.tracking             ($media-suffix);
+  @include measure.measure               ($media-suffix);
 }

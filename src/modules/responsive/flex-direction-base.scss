@@ -1,5 +1,5 @@
-@import '../../functions';
-@import '../../variables';
-@import './flex-direction';
+@use '../../functions';
+@use '../../variables';
+@use './flex-direction';
 
-@include flex-direction ('');
+@include flex-direction.flex-direction('');

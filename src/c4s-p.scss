@@ -2,10 +2,10 @@
    Print media
  */
 
-@import 'functions';
-@import 'variables';
-@import 'modules/responsive-all';
+@use 'functions';
+@use 'variables';
+@use 'modules/responsive-all';
 
 @media only print {
-  @include responsive-all(-p);
+  @include responsive-all.responsive-all(-p);
 }

@@ -1,33 +1,32 @@
-@import '../../functions';
-@import '../../variables';
+@use '../../variables';
+@use 'sass:map';
 
 /*
  * Credit to Adam Morse from Tachyons for the debug grids
  * See http://tachyons.io/docs/debug-grid/
  */
 
-$dataUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFElEQVR4AWPAC97/9x0eCsAEPgwAVLshdpENIxcAAAAASUVORK5CYII=";
+/* stylelint-disable max-line-length */
+$dataUrlGrid8: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFElEQVR4AWPAC97/9x0eCsAEPgwAVLshdpENIxcAAAAASUVORK5CYII=';
+$dataUrlGrid16: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMklEQVR4AWOgCLz/b0epAa6UGuBOqQHOQHLUgFEDnAbcBZ4UGwDOkiCnkIhdgNgNxAYAiYlD+8sEuo8AAAAASUVORK5CYII=';
+$dataUrlGrid8Solid: 'data:image/gif;base64,R0lGODdhCAAIAPEAAADw/wDx/////wAAACwAAAAACAAIAAACDZQvgaeb/lxbAIKA8y0AOw==';
+$dataUrlGrid16Solid: 'data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/xXy/////ywAAAAAEAAQAAACIZyPKckYDQFsb6ZqD85jZ2+BkwiRFKehhqQCQgDHcgwEBQA7';
+/* stylelint-enable max-line-length */
 
 .debug-grid {
-  background: transparent url($dataUrl) repeat top left;
+  background: transparent url($dataUrlGrid8) repeat top left;
 }
-
-$dataUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMklEQVR4AWOgCLz/b0epAa6UGuBOqQHOQHLUgFEDnAbcBZ4UGwDOkiCnkIhdgNgNxAYAiYlD+8sEuo8AAAAASUVORK5CYII=";
 
 .debug-grid-16 {
-  background: transparent url($dataUrl) repeat top left;
+  background: transparent url($dataUrlGrid16) repeat top left;
 }
-
-$dataUrl: "data:image/gif;base64,R0lGODdhCAAIAPEAAADw/wDx/////wAAACwAAAAACAAIAAACDZQvgaeb/lxbAIKA8y0AOw==";
 
 .debug-grid-8-solid {
-  background: white url($dataUrl) repeat top left;
+  background: white url($dataUrlGrid8Solid) repeat top left;
 }
 
-$dataUrl: "data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/xXy/////ywAAAAAEAAQAAACIZyPKckYDQFsb6ZqD85jZ2+BkwiRFKehhqQCQgDHcgwEBQA7";
-
 .debug-grid-16-solid {
-  background: white url($dataUrl) repeat top left;
+  background: white url($dataUrlGrid16Solid) repeat top left;
 }
 
 /*
@@ -39,10 +38,10 @@ $dataUrl: "data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/xXy/////ywAAAAAEAAQAAA
   background:
     repeating-linear-gradient(
       -45deg,
-      map-get($colors, "black-025"),
-      map-get($colors, "black-025") 10px,
-      map-get($colors, "black-05") 10px,
-      map-get($colors, "black-05") 20px
+      map.get(variables.$colors, 'black-025'),
+      map.get(variables.$colors, 'black-025') 10px,
+      map.get(variables.$colors, 'black-05') 10px,
+      map.get(variables.$colors, 'black-05') 20px
     );
 }
 
@@ -50,8 +49,8 @@ $dataUrl: "data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/xXy/////ywAAAAAEAAQAAA
   background:
     repeating-linear-gradient(
       -45deg,
-      map-get($colors, "black-025"),
-      map-get($colors, "black-025") 10px,
+      map.get(variables.$colors, 'black-025'),
+      map.get(variables.$colors, 'black-025') 10px,
       transparent 10px,
       transparent 20px
     );

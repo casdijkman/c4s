@@ -1,5 +1,5 @@
-@import '../../functions';
-@import '../../variables';
-@import './position';
+@use '../../functions';
+@use '../../variables';
+@use './position';
 
-@include position ('');
+@include position.position('');

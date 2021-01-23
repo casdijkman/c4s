@@ -1,6 +1,8 @@
+@use '../../variables';
+
 @mixin width($media-suffix) {
 
-  @each $level, $value in $sizer-levels {
+  @each $level, $value in variables.$sizer-levels {
     .w#{$level}#{$media-suffix} { width: $value; }
   }
 

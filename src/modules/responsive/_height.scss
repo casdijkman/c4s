@@ -1,6 +1,8 @@
+@use '../../variables';
+
 @mixin height($media-suffix) {
 
-  @each $level, $value in $sizer-levels {
+  @each $level, $value in variables.$sizer-levels {
     .h#{$level}#{$media-suffix} { height: $value; }
   }
 

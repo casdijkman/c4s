@@ -1,6 +1,5 @@
-@import '../../functions';
-@import '../../variables';
+@use '../../variables';
 
-@each $border-width, $value in $border-widths {
+@each $border-width, $value in variables.$border-widths {
   .bw#{$border-width} { border-width: $value; }
 }

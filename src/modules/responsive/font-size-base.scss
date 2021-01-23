@@ -1,5 +1,5 @@
-@import '../../functions';
-@import '../../variables';
-@import './font-size';
+@use '../../functions';
+@use '../../variables';
+@use './font-size';
 
-@include font-size ('');
+@include font-size.font-size('');

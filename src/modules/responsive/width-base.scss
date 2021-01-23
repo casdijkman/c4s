@@ -1,5 +1,5 @@
-@import '../../functions';
-@import '../../variables';
-@import './width';
+@use '../../functions';
+@use '../../variables';
+@use './width';
 
-@include width ('');
+@include width.width('');

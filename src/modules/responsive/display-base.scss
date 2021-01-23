@@ -1,5 +1,5 @@
-@import '../../functions';
-@import '../../variables';
-@import './display';
+@use '../../functions';
+@use '../../variables';
+@use './display';
 
-@include display ('');
+@include display.display('');

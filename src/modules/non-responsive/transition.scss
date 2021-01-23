@@ -1,8 +1,7 @@
-@import '../../functions';
-@import '../../variables';
+@use '../../variables';
 
 // Transition transforms
-@each $level, $value in $transition-speeds {
+@each $level, $value in variables.$transition-speeds {
   .transition-transform#{$level} {
     transition: transform $value ease-in-out;
   }

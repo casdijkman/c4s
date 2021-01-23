@@ -7,10 +7,10 @@ for file in _*; do
 
     touch $newFile
     cat << EOF > $newFile
-@import '../../functions';
-@import '../../variables';
-@import './$baseName';
+@use '../../functions';
+@use '../../variables';
+@use './$baseName';
 
-@include $baseName ('');
+@include $baseName.$baseName('');
 EOF
 done

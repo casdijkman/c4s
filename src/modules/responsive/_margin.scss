@@ -1,11 +1,14 @@
+@use '../../variables';
+@use 'sass:map';
+
 // Add auto as a level for margins with -auto suffix
 // NB: Margin-all and margin-vertical rules do not include the '-auto' suffix
-$margin-spacer-levels: map-merge($spacer-levels, ("-auto": auto));
+$margin-spacer-levels: map.merge(variables.$spacer-levels, ('-auto': auto));
 
 @mixin margin($media-suffix) {
 
   // Margin all
-  @each $level, $value in $spacer-levels {
+  @each $level, $value in variables.$spacer-levels {
     .m#{$level}#{$media-suffix} { margin: $value; }
   }
 
@@ -38,7 +41,7 @@ $margin-spacer-levels: map-merge($spacer-levels, ("-auto": auto));
   }
 
   // Margin vertical
-  @each $level, $value in $spacer-levels {
+  @each $level, $value in variables.$spacer-levels {
     .mv#{$level}#{$media-suffix} {
       margin-top: $value;
       margin-bottom: $value;

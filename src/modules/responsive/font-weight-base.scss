@@ -1,5 +1,5 @@
-@import '../../functions';
-@import '../../variables';
-@import './font-weight';
+@use '../../functions';
+@use '../../variables';
+@use './font-weight';
 
-@include font-weight ('');
+@include font-weight.font-weight('');

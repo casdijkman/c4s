@@ -1,5 +1,5 @@
-@import '../../functions';
-@import '../../variables';
-@import './height';
+@use '../../functions';
+@use '../../variables';
+@use './height';
 
-@include height ('');
+@include height.height('');

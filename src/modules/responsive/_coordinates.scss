@@ -1,6 +1,8 @@
+@use '../../variables';
+
 @mixin coordinates($media-suffix) {
 
-  @each $level, $value in $coordinate-spacer-levels {
+  @each $level, $value in variables.$coordinate-spacer-levels {
     .top#{$level}#{$media-suffix}    { top: $value; }
     .right#{$level}#{$media-suffix}  { right: $value; }
     .bottom#{$level}#{$media-suffix} { bottom: $value; }

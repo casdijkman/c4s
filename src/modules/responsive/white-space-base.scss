@@ -1,5 +1,5 @@
-@import '../../functions';
-@import '../../variables';
-@import './white-space';
+@use '../../functions';
+@use '../../variables';
+@use './white-space';
 
-@include white-space ('');
+@include white-space.white-space('');

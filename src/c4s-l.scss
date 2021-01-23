@@ -2,10 +2,10 @@
    Large viewports
  */
 
-@import 'functions';
-@import 'variables';
-@import 'modules/responsive-all';
+@use 'functions';
+@use 'variables';
+@use 'modules/responsive-all';
 
 @media only screen and (min-width: 60em) {
-  @include responsive-all(-l);
+  @include responsive-all.responsive-all(-l);
 }
