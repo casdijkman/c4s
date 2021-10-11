@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 @function pow($number, $exponent) {
   $value: 1;
 
@@ -8,7 +10,7 @@
   }
   @else if $exponent < 0 {
     @for $_ from 1 through -$exponent {
-      $value: $value / $number;
+      $value: math.div($value, $number);
     }
   }
 

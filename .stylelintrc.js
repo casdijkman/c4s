@@ -1,3 +1,5 @@
+const maxLineLength = 82;
+
 module.exports = {
     plugins: [
 	'stylelint-scss'
@@ -11,8 +13,8 @@ module.exports = {
 	'block-opening-brace-space-before': null,
 	'block-closing-brace-empty-line-before': null,
 	'max-line-length': [
-	    81, {
-		ignore: ["comments"]
+	    maxLineLength, {
+		ignore: ['comments']
 	    }
 	],
 	'at-rule-empty-line-before': [
