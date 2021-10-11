@@ -1,8 +1,15 @@
+@use '../../variables';
+
 @mixin white-space($media-suffix) {
+  .#{variables.$global-prefix}nowrap#{$media-suffix} {
+    white-space: nowrap;
+  }
 
-  .nowrap#{$media-suffix} { white-space: nowrap; }
-  .pre#{$media-suffix}    { white-space: pre; }
+  .#{variables.$global-prefix}pre#{$media-suffix} {
+    white-space: pre;
+  }
 
-  //.ws-normal#{$media-suffix} { white-space: normal; }
-
+  /* .#{variables.$global-prefix}ws-normal#{$media-suffix} {
+     white-space: normal;
+     } */
 }

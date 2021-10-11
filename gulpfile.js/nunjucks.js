@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const glob = require('glob');
-const css = require('css');
+const cssLib = require('css');
 
 function getNunjucksData() {
     const data = { files: [] };
@@ -17,7 +17,7 @@ function getNunjucksData() {
 	    name,
 	    file: file.replace(/^dist\/modules\//, ''),
 	    responsive,
-	    css: css.parse(fs.readFileSync(file, 'utf8'))
+	    css: cssLib.parse(fs.readFileSync(file, 'utf8'))
 	});
     }
 

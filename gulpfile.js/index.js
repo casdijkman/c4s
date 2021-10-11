@@ -75,7 +75,7 @@ const compileSassAll = parallel(compileSass, compileSassMinified);
 const build = series(clean, compileSassAll, compileNunjucks);
 
 function watchFiles() {
-    watch(globs.src.sass, compileSassAll);
+    watch(globs.src.sass, build);
     watch(globs.src.nunjucks, compileNunjucks);
 }
 

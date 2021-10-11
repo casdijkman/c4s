@@ -1,7 +1,15 @@
+@use '../../variables';
+
 @mixin tracking($media-suffix) {
+  .#{variables.$global-prefix}tracked#{$media-suffix} {
+    letter-spacing: .1em;
+  }
 
-  .tracked#{$media-suffix}       { letter-spacing: .1em; }
-  .tracked-tight#{$media-suffix} { letter-spacing: -.05em; }
-  .tracked-mega#{$media-suffix}  { letter-spacing: .25em; }
+  .#{variables.$global-prefix}tracked-tight#{$media-suffix} {
+    letter-spacing: -.05em;
+  }
 
+  .#{variables.$global-prefix}tracked-mega#{$media-suffix} {
+    letter-spacing: .25em;
+  }
 }

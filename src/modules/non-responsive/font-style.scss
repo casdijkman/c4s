@@ -1,6 +1,10 @@
-.fs-normal { font-style: normal; }
+@use '../../variables';
 
-.fs-italic,
-.i {
+.#{variables.$global-prefix}fs-normal {
+  font-style: normal;
+}
+
+.#{variables.$global-prefix}fs-italic,
+.#{variables.$global-prefix}i {
   font-style: italic;
 }

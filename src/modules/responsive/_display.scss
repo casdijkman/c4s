@@ -1,13 +1,39 @@
+@use '../../variables';
+
 @mixin display($media-suffix) {
+  .#{variables.$global-prefix}db#{$media-suffix} {
+    display: block;
+  }
 
-  .db#{$media-suffix}   { display: block; }
-  .di#{$media-suffix}   { display: inline; }
-  .dib#{$media-suffix}  { display: inline-block; }
-  .dn#{$media-suffix}   { display: none; }
-  .dt#{$media-suffix}   { display: table; }
-  .dtc#{$media-suffix}  { display: table-cell; }
-  .df#{$media-suffix}   { display: flex; }
-  .dif#{$media-suffix}  { display: inline-flex; }
-  .dg#{$media-suffix}   { display: grid; }
+  .#{variables.$global-prefix}di#{$media-suffix} {
+    display: inline;
+  }
 
+  .#{variables.$global-prefix}dib#{$media-suffix} {
+    display: inline-block;
+  }
+
+  .#{variables.$global-prefix}dn#{$media-suffix} {
+    display: none;
+  }
+
+  .#{variables.$global-prefix}dt#{$media-suffix} {
+    display: table;
+  }
+
+  .#{variables.$global-prefix}dtc#{$media-suffix} {
+    display: table-cell;
+  }
+
+  .#{variables.$global-prefix}df#{$media-suffix} {
+    display: flex;
+  }
+
+  .#{variables.$global-prefix}dif#{$media-suffix} {
+    display: inline-flex;
+  }
+
+  .#{variables.$global-prefix}dg#{$media-suffix} {
+    display: grid;
+  }
 }

@@ -8,41 +8,45 @@
  */
 
 // Border top between
-.bt-between + .bt-between {
+.#{variables.$global-prefix}bt-between + .#{variables.$global-prefix}bt-between {
   border-top-style: solid;
   border-top-width: 1px;
 }
 
 // Border left between
-.bl-between + .bl-between {
+.#{variables.$global-prefix}bl-between + .#{variables.$global-prefix}bl-between {
   border-left-style: solid;
   border-left-width: 1px;
 }
 
 // Padding top between
 @each $level, $value in variables.$spacer-levels {
-  .pt#{$level}-between + .pt#{$level}-between {
+  // stylelint-disable-next-line max-line-length
+  .#{variables.$global-prefix}pt#{$level}-between + .#{variables.$global-prefix}pt#{$level}-between {
     padding-top: $value;
   }
 }
 
 // Padding left between
 @each $level, $value in variables.$spacer-levels {
-  .pl#{$level}-between + .pl#{$level}-between {
+  // stylelint-disable-next-line max-line-length
+  .#{variables.$global-prefix}pl#{$level}-between + .#{variables.$global-prefix}pl#{$level}-between {
     padding-left: $value;
   }
 }
 
 // Margin top between
 @each $level, $value in variables.$spacer-levels {
-  .mt#{$level}-between + .mt#{$level}-between {
+  // stylelint-disable-next-line max-line-length
+  .#{variables.$global-prefix}mt#{$level}-between + .#{variables.$global-prefix}mt#{$level}-between {
     margin-top: $value;
   }
 }
 
 // Margin left between
 @each $level, $value in variables.$spacer-levels {
-  .ml#{$level}-between + .ml#{$level}-between {
+  // stylelint-disable-next-line max-line-length
+  .#{variables.$global-prefix}ml#{$level}-between + .#{variables.$global-prefix}ml#{$level}-between {
     margin-left: $value;
   }
 }

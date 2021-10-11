@@ -2,6 +2,8 @@
 @use 'sass:color';
 @use 'sass:math';
 
+$global-prefix: '';
+
 /*
    SPACERS
 
@@ -224,6 +226,7 @@ $font-size-h3:          $font-size-base * pow($font-scaling-factor, 3) !default;
 $font-size-h4:          $font-size-base * pow($font-scaling-factor, 2) !default;
 $font-size-h5:          $font-size-base * pow($font-scaling-factor, 1) !default;
 $font-size-h6:          $font-size-base;
+// stylelint-disable-next-line max-line-length
 $font-size-small:       $font-size-base * pow($font-scaling-factor, -1) !default;
 
 /*

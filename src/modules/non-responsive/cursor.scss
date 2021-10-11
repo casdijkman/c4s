@@ -1,6 +1,8 @@
-.cursor-pointer     { cursor: pointer; }
-.cursor-text        { cursor: text; }
-.cursor-none        { cursor: none; }
-.cursor-not-allowed { cursor: not-allowed; }
-.cursor-progress    { cursor: progress; }
-.cursor-wait        { cursor: wait; }
+@use '../../variables';
+
+.#{variables.$global-prefix}cursor-pointer     { cursor: pointer; }
+.#{variables.$global-prefix}cursor-text        { cursor: text; }
+.#{variables.$global-prefix}cursor-none        { cursor: none; }
+.#{variables.$global-prefix}cursor-not-allowed { cursor: not-allowed; }
+.#{variables.$global-prefix}cursor-progress    { cursor: progress; }
+.#{variables.$global-prefix}cursor-wait        { cursor: wait; }

@@ -6,46 +6,68 @@
 $margin-spacer-levels: map.merge(variables.$spacer-levels, ('-auto': auto));
 
 @mixin margin($media-suffix) {
-
-  // Margin all
+  /*
+     MARGIN ALL
+  */
   @each $level, $value in variables.$spacer-levels {
-    .m#{$level}#{$media-suffix} { margin: $value; }
+    .#{variables.$global-prefix}m#{$level}#{$media-suffix} {
+      margin: $value;
+    }
   }
 
-  // Margin top
+  /*
+     MARGIN TOP
+   */
   @each $level, $value in $margin-spacer-levels {
-    .mt#{$level}#{$media-suffix} { margin-top: $value; }
+    .#{variables.$global-prefix}mt#{$level}#{$media-suffix} {
+      margin-top: $value;
+    }
   }
 
-  // Margin right
+  /*
+     MARGIN RIGHT
+   */
   @each $level, $value in $margin-spacer-levels {
-    .mr#{$level}#{$media-suffix} { margin-right: $value; }
+    .#{variables.$global-prefix}mr#{$level}#{$media-suffix} {
+      margin-right: $value;
+    }
   }
 
-  // Margin bottom
+  /*
+     MARGIN BOTTOM
+   */
   @each $level, $value in $margin-spacer-levels {
-    .mb#{$level}#{$media-suffix} { margin-bottom: $value; }
+    .#{variables.$global-prefix}mb#{$level}#{$media-suffix} {
+      margin-bottom: $value;
+    }
   }
 
-  // Margin left
+  /*
+     MARGIN LEFT
+   */
   @each $level, $value in $margin-spacer-levels {
-    .ml#{$level}#{$media-suffix} { margin-left: $value; }
+    .#{variables.$global-prefix}ml#{$level}#{$media-suffix} {
+      margin-left: $value;
+    }
   }
 
-  // Margin horizontal
+  /*
+     MARGIN HORIZONTAL
+   */
   @each $level, $value in $margin-spacer-levels {
-    .mh#{$level}#{$media-suffix} {
+    .#{variables.$global-prefix}mh#{$level}#{$media-suffix} {
       margin-left: $value;
       margin-right: $value;
     }
   }
 
-  // Margin vertical
+  /*
+     MARGIN VERTICAL
+   */
   @each $level, $value in variables.$spacer-levels {
-    .mv#{$level}#{$media-suffix} {
+    .#{variables.$global-prefix}mv#{$level}#{$media-suffix} {
       margin-top: $value;
       margin-bottom: $value;
     }
   }
-
 }

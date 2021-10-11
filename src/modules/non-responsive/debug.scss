@@ -13,19 +13,19 @@ $dataUrlGrid8Solid: 'data:image/gif;base64,R0lGODdhCAAIAPEAAADw/wDx/////wAAACwAA
 $dataUrlGrid16Solid: 'data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/xXy/////ywAAAAAEAAQAAACIZyPKckYDQFsb6ZqD85jZ2+BkwiRFKehhqQCQgDHcgwEBQA7';
 /* stylelint-enable max-line-length */
 
-.debug-grid {
+.#{variables.$global-prefix}debug-grid {
   background: transparent url($dataUrlGrid8) repeat top left;
 }
 
-.debug-grid-16 {
+.#{variables.$global-prefix}debug-grid-16 {
   background: transparent url($dataUrlGrid16) repeat top left;
 }
 
-.debug-grid-8-solid {
+.#{variables.$global-prefix}debug-grid-8-solid {
   background: white url($dataUrlGrid8Solid) repeat top left;
 }
 
-.debug-grid-16-solid {
+.#{variables.$global-prefix}debug-grid-16-solid {
   background: white url($dataUrlGrid16Solid) repeat top left;
 }
 
@@ -34,7 +34,7 @@ $dataUrlGrid16Solid: 'data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/xXy/////ywA
  * See https://css-tricks.com/stripes-css/
  */
 
-.debug-striped {
+.#{variables.$global-prefix}debug-striped {
   background:
     repeating-linear-gradient(
       -45deg,
@@ -45,7 +45,7 @@ $dataUrlGrid16Solid: 'data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/xXy/////ywA
     );
 }
 
-.debug-striped-light {
+.#{variables.$global-prefix}debug-striped-light {
   background:
     repeating-linear-gradient(
       -45deg,

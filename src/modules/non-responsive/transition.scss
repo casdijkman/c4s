@@ -2,7 +2,7 @@
 
 // Transition transforms
 @each $level, $value in variables.$transition-speeds {
-  .transition-transform#{$level} {
+  .#{variables.$global-prefix}transition-transform#{$level} {
     transition: transform $value ease-in-out;
   }
 }

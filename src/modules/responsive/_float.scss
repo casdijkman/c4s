@@ -1,7 +1,15 @@
+@use '../../variables';
+
 @mixin float($media-suffix) {
+  .#{variables.$global-prefix}fl#{$media-suffix} {
+    float: left;
+  }
 
-  .fl { float: left; }
-  .fr { float: right; }
-  .fn { float: none; }
+  .#{variables.$global-prefix}fr#{$media-suffix} {
+    float: right;
+  }
 
+  .#{variables.$global-prefix}fn#{$media-suffix} {
+    float: none;
+  }
 }

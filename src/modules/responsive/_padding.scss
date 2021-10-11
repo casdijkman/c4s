@@ -1,35 +1,44 @@
 @use '../../variables';
 
 @mixin padding($media-suffix) {
-
   // Padding all
   @each $level, $value in variables.$spacer-levels {
-    .p#{$level}#{$media-suffix} { padding: $value; }
+    .#{variables.$global-prefix}p#{$level}#{$media-suffix} {
+      padding: $value;
+    }
   }
 
   // Padding top
   @each $level, $value in variables.$spacer-levels {
-    .pt#{$level}#{$media-suffix} { padding-top: $value; }
+    .#{variables.$global-prefix}pt#{$level}#{$media-suffix} {
+      padding-top: $value;
+    }
   }
 
   // Padding right
   @each $level, $value in variables.$spacer-levels {
-    .pr#{$level}#{$media-suffix} { padding-right: $value; }
+    .#{variables.$global-prefix}pr#{$level}#{$media-suffix} {
+      padding-right: $value;
+    }
   }
 
   // Padding bottom
   @each $level, $value in variables.$spacer-levels {
-    .pb#{$level}#{$media-suffix} { padding-bottom: $value; }
+    .#{variables.$global-prefix}pb#{$level}#{$media-suffix} {
+      padding-bottom: $value;
+    }
   }
 
   // Padding left
   @each $level, $value in variables.$spacer-levels {
-    .pl#{$level}#{$media-suffix} { padding-left: $value; }
+    .#{variables.$global-prefix}pl#{$level}#{$media-suffix} {
+      padding-left: $value;
+    }
   }
 
   // Padding horizontal
   @each $level, $value in variables.$spacer-levels {
-    .ph#{$level}#{$media-suffix} {
+    .#{variables.$global-prefix}ph#{$level}#{$media-suffix} {
       padding-left: $value;
       padding-right: $value;
     }
@@ -37,7 +46,7 @@
 
   // Padding vertical
   @each $level, $value in variables.$spacer-levels {
-    .pv#{$level}#{$media-suffix} {
+    .#{variables.$global-prefix}pv#{$level}#{$media-suffix} {
       padding-top: $value;
       padding-bottom: $value;
     }

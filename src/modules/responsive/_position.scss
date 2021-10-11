@@ -1,9 +1,23 @@
+@use '../../variables';
+
 @mixin position($media-suffix) {
+  .#{variables.$global-prefix}static#{$media-suffix} {
+    position: static;
+  }
 
-  .static#{$media-suffix}   { position: static; }
-  .absolute#{$media-suffix} { position: absolute; }
-  .relative#{$media-suffix} { position: relative; }
-  .fixed#{$media-suffix}    { position: fixed; }
-  .sticky#{$media-suffix}   { position: sticky; }
+  .#{variables.$global-prefix}absolute#{$media-suffix} {
+    position: absolute;
+  }
 
+  .#{variables.$global-prefix}relative#{$media-suffix} {
+    position: relative;
+  }
+
+  .#{variables.$global-prefix}fixed#{$media-suffix} {
+    position: fixed;
+  }
+
+  .#{variables.$global-prefix}sticky#{$media-suffix} {
+    position: sticky;
+  }
 }

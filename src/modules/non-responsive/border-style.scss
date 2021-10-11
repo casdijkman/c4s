@@ -1,5 +1,7 @@
 @use '../../variables';
 
 @each $border-style in variables.$border-styles {
-  .b--#{$border-style} { border-style: $border-style; }
+  .#{variables.$global-prefix}b--#{$border-style} {
+    border-style: $border-style;
+  }
 }

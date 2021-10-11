@@ -1,6 +1,10 @@
-.underline { text-decoration: underline; }
+@use '../../variables';
 
-.line-through,
-.strike {
+.#{variables.$global-prefix}underline {
+  text-decoration: underline;
+}
+
+.#{variables.$global-prefix}line-through,
+.#{variables.$global-prefix}strike {
   text-decoration: line-through;
 }

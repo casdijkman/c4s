@@ -1,12 +1,21 @@
 @use '../../variables';
 
 @mixin coordinates($media-suffix) {
-
   @each $level, $value in variables.$coordinate-spacer-levels {
-    .top#{$level}#{$media-suffix}    { top: $value; }
-    .right#{$level}#{$media-suffix}  { right: $value; }
-    .bottom#{$level}#{$media-suffix} { bottom: $value; }
-    .left#{$level}#{$media-suffix}   { left: $value; }
-  }
+    .#{variables.$global-prefix}top#{$level}#{$media-suffix} {
+      top: $value;
+    }
 
+    .#{variables.$global-prefix}right#{$level}#{$media-suffix} {
+      right: $value;
+    }
+
+    .#{variables.$global-prefix}bottom#{$level}#{$media-suffix} {
+      bottom: $value;
+    }
+
+    .#{variables.$global-prefix}left#{$level}#{$media-suffix} {
+      left: $value;
+    }
+  }
 }

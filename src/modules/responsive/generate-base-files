@@ -5,8 +5,8 @@ for file in _*; do
     baseName="${newFile/.scss/}"
     newFile="${newFile/.scss/-base.scss}"
 
-    touch $newFile
-    cat << EOF > $newFile
+    touch "$newFile"
+    cat << EOF > "$newFile"
 @use '../../functions';
 @use '../../variables';
 @use './$baseName';

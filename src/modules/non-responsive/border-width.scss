@@ -1,5 +1,5 @@
 @use '../../variables';
 
 @each $border-width, $value in variables.$border-widths {
-  .bw#{$border-width} { border-width: $value; }
+  .#{variables.$global-prefix}bw#{$border-width} { border-width: $value; }
 }

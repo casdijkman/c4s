@@ -1,2 +1,9 @@
-.capitalize { text-transform: capitalize; }
-.uppercase  { text-transform: uppercase; }
+@use '../../variables';
+
+.#{variables.$global-prefix}capitalize {
+  text-transform: capitalize;
+}
+
+.#{variables.$global-prefix}uppercase  {
+  text-transform: uppercase;
+}

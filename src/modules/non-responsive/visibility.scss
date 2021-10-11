@@ -1,13 +1,15 @@
-.visible {
+@use '../../variables';
+
+.#{variables.$global-prefix}visible {
   visibility: visible;
 }
 
-.hidden,
-.invisible {
+.#{variables.$global-prefix}hidden,
+.#{variables.$global-prefix}invisible {
   visibility: hidden;
 }
 
 // Used for hiding table rows
-// .collapse {
+// .#{variables.$global-prefix}collapse {
 //   visibility: collapse;
 // }

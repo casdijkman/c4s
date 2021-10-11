@@ -1,5 +1,7 @@
 @use '../../variables';
 
 @each $color, $value in variables.$colors {
-  .hover-#{$color}:hover { color: $value; }
+  .#{variables.$global-prefix}hover-#{$color}:hover {
+    color: $value;
+  }
 }

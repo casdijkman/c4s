@@ -1,9 +1,9 @@
 @use '../../variables';
 
 @mixin border-radius($media-suffix) {
-
   @each $level, $value in variables.$border-radius-levels {
-    .br#{$level}#{$media-suffix} { border-radius: $value; }
+    .#{variables.$global-prefix}br#{$level}#{$media-suffix} {
+      border-radius: $value;
+    }
   }
-
 }

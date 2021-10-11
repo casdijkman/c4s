@@ -1,5 +1,5 @@
 @use '../../variables';
 
 @each $color, $value in variables.$colors {
-  .bg-#{$color} { background-color: $value; }
+  .#{variables.$global-prefix}bg-#{$color} { background-color: $value; }
 }

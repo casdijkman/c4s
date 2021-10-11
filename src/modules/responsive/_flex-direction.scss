@@ -1,8 +1,19 @@
+@use '../../variables';
+
 @mixin flex-direction($media-suffix) {
+  .#{variables.$global-prefix}flex-column#{$media-suffix} {
+    flex-direction: column;
+  }
 
-  .flex-column         { flex-direction: column; }
-  .flex-row            { flex-direction: row; }
-  .flex-column-reverse { flex-direction: column-reverse; }
-  .flex-row-reverse    { flex-direction: row-reverse; }
+  .#{variables.$global-prefix}flex-row#{$media-suffix} {
+    flex-direction: row;
+  }
 
+  .#{variables.$global-prefix}flex-column-reverse#{$media-suffix} {
+    flex-direction: column-reverse;
+  }
+
+  .#{variables.$global-prefix}flex-row-reverse#{$media-suffix} {
+    flex-direction: row-reverse;
+  }
 }

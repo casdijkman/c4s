@@ -2,14 +2,14 @@
 
 // Translate horizontally
 @each $level, $value in variables.$translate-levels {
-  .translateX#{$level} {
+  .#{variables.$global-prefix}translateX#{$level} {
     transform: translateX($value);
   }
 }
 
 // Translate vertically
 @each $level, $value in variables.$translate-levels {
-  .translateY#{$level} {
+  .#{variables.$global-prefix}translateY#{$level} {
     transform: translateY($value);
   }
 }

@@ -1,5 +1,7 @@
 @use '../../variables';
 
 @each $color, $value in variables.$colors {
-  .hover-bg-#{$color}:hover { background-color: $value; }
+  .#{variables.$global-prefix}hover-bg-#{$color}:hover {
+    background-color: $value;
+  }
 }

@@ -1,5 +1,7 @@
 @use '../../variables';
 
 @each $opacity, $value in variables.$opacity-levels {
-  .o#{$opacity} { opacity: $value; }
+  .#{variables.$global-prefix}o#{$opacity} {
+    opacity: $value;
+  }
 }

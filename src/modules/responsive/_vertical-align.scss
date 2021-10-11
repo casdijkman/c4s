@@ -1,16 +1,36 @@
-@mixin vertical-align($media-suffix) {
+@use '../../variables';
 
-  .v-mid#{$media-suffix},
-  .v-middle#{$media-suffix} {
+@mixin vertical-align($media-suffix) {
+  .#{variables.$global-prefix}v-mid#{$media-suffix},
+  .#{variables.$global-prefix}v-middle#{$media-suffix} {
     vertical-align: middle;
   }
 
-  .v-base#{$media-suffix}        { vertical-align: baseline; }
-  .v-top#{$media-suffix}         { vertical-align: top; }
-  .v-bottom#{$media-suffix}      { vertical-align: bottom; }
-  .v-text-top#{$media-suffix}    { vertical-align: text-top; }
-  .v-text-bottom#{$media-suffix} { vertical-align: text-bottom; }
-  .v-sub#{$media-suffix}         { vertical-align: sub; }
-  .v-super#{$media-suffix}       { vertical-align: super; }
+  .#{variables.$global-prefix}v-base#{$media-suffix} {
+    vertical-align: baseline;
+  }
 
+  .#{variables.$global-prefix}v-top#{$media-suffix} {
+    vertical-align: top;
+  }
+
+  .#{variables.$global-prefix}v-bottom#{$media-suffix} {
+    vertical-align: bottom;
+  }
+
+  .#{variables.$global-prefix}v-text-top#{$media-suffix} {
+    vertical-align: text-top;
+  }
+
+  .#{variables.$global-prefix}v-text-bottom#{$media-suffix} {
+    vertical-align: text-bottom;
+  }
+
+  .#{variables.$global-prefix}v-sub#{$media-suffix} {
+    vertical-align: sub;
+  }
+
+  .#{variables.$global-prefix}v-super#{$media-suffix} {
+    vertical-align: super;
+  }
 }

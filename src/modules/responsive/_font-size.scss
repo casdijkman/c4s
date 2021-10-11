@@ -1,41 +1,39 @@
 @use '../../variables';
 
 @mixin font-size($media-suffix) {
-
-  .f-headline#{$media-suffix} {
+  .#{variables.$global-prefix}f-headline#{$media-suffix} {
     font-size: variables.$font-size-headline;
   }
 
-  .f-subheadline#{$media-suffix} {
+  .#{variables.$global-prefix}f-subheadline#{$media-suffix} {
     font-size: variables.$font-size-subheadline;
   }
 
-  .f1#{$media-suffix} {
+  .#{variables.$global-prefix}f1#{$media-suffix} {
     font-size: variables.$font-size-h1;
   }
 
-  .f2#{$media-suffix} {
+  .#{variables.$global-prefix}f2#{$media-suffix} {
     font-size: variables.$font-size-h2;
   }
 
-  .f3#{$media-suffix} {
+  .#{variables.$global-prefix}f3#{$media-suffix} {
     font-size: variables.$font-size-h3;
   }
 
-  .f4#{$media-suffix} {
+  .#{variables.$global-prefix}f4#{$media-suffix} {
     font-size: variables.$font-size-h4;
   }
 
-  .f5#{$media-suffix} {
+  .#{variables.$global-prefix}f5#{$media-suffix} {
     font-size: variables.$font-size-h5;
   }
 
-  .f6#{$media-suffix} {
+  .#{variables.$global-prefix}f6#{$media-suffix} {
     font-size: variables.$font-size-h6;
   }
 
-  .small#{$media-suffix} {
+  .#{variables.$global-prefix}small#{$media-suffix} {
     font-size: variables.$font-size-small;
   }
-
 }
