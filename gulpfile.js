@@ -2,7 +2,8 @@
 
 const { src, dest, watch, series, parallel } = require('gulp');
 const { getNunjucksData, manageEnv } = require('./nunjucks');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
+sass.compiler = require('sass');
 const rename = require('gulp-rename');
 const del = require('del');
 const nunjucksRender = require('gulp-nunjucks-render');
@@ -11,8 +12,6 @@ const htmlmin = require('gulp-htmlmin');
 const beautifier = require('gulp-jsbeautifier');
 const stylelint = require('gulp-stylelint');
 const eslint = require('gulp-eslint');
-
-sass.compiler = require('sass');
 
 const base = 'src';
 const destination = 'dist';
