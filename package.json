@@ -28,7 +28,7 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build",
-    "demo": "browser-sync",
+    "demo": "browser-sync dist",
     "lint": "gulp lint",
     "lint-rc": "yarn eslint .*.js --ignore-pattern '!.*'"
   }

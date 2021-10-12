@@ -13,13 +13,12 @@ const beautifier = require('gulp-jsbeautifier');
 const stylelint = require('gulp-stylelint');
 const eslint = require('gulp-eslint');
 
-const base = 'src';
 const destination = 'dist';
 
 const globs = {
     src: {
-	sass: `${base}/**/*.scss`,
-	nunjucks: '**/*.njk'
+	sass:     './src/**/*.scss',
+	nunjucks: './docs/**/*.njk'
     }
 };
 
@@ -48,7 +47,7 @@ function compileNunjucks() {
 	    indent_size: 2, // eslint-disable-line camelcase
 	    end_with_newline: true // eslint-disable-line camelcase
 	}))
-	.pipe(dest('.'));
+	.pipe(dest(destination));
 }
 
 function lintSass() {

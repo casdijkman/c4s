@@ -338,7 +338,7 @@
 	<title>My CSS library demo</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="/dist/c4s-all.css" rel="stylesheet">
+	<link href="/c4s-all.css" rel="stylesheet">
     </head>
     <body class="p3">
 	<h1 class="mt0 mb4">
@@ -362,33 +362,33 @@
 			{{ file.file }}
 		    </code>
 		</header>
+
+		<details class="mb4">
+		    <summary class="cursor-pointer">
+			More information
+		    </summary>
+		    {% for rule in file.css.stylesheet.rules %}
+			{% if rule.type === "rule" %}
+			    <dl class="mt4">
+				<dt class="code">
+				    {{ rule.selectors | join(", ") }}
+				</dt>
+				<dd class="code">
+				    {% for declaration in rule.declarations %}
+					<div>
+					    {{ declaration.property }}: {{ declaration.value }}
+					</div>
+				    {% endfor %}
+				</dd>
+			    </dl>
+
+			    <div>
+				{{ example(file.name, rule.selectors, rule.declarations) }}
+			    </div>
+			{% endif %}
+		    {% endfor %}
+		</details>
 	    {% endif %}
-
-	    <details class="mb4">
-		<summary class="cursor-pointer">
-		    More information
-		</summary>
-		{% for rule in file.css.stylesheet.rules %}
-		    {% if rule.type === "rule" %}
-			<dl class="mt4">
-			    <dt class="code">
-				{{ rule.selectors | join(", ") }}
-			    </dt>
-			    <dd class="code">
-				{% for declaration in rule.declarations %}
-				    <div>
-					{{ declaration.property }}: {{ declaration.value }}
-				    </div>
-				{% endfor %}
-			    </dd>
-			</dl>
-
-			<div>
-			    {{ example(file.name, rule.selectors, rule.declarations) }}
-			</div>
-		    {% endif %}
-		{% endfor %}
-	    </details>
 	{% endfor %}
     </body>
 </html>
