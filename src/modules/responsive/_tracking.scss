@@ -1,15 +1,16 @@
+@use '../../functions';
 @use '../../variables';
 
+$trackings: (
+  tracked:        .1em,
+  tracked-tight: -.05em,
+  tracked-mega:   .25em
+);
+
 @mixin tracking($media-suffix) {
-  .#{variables.$global-prefix}tracked#{$media-suffix} {
-    letter-spacing: .1em;
-  }
-
-  .#{variables.$global-prefix}tracked-tight#{$media-suffix} {
-    letter-spacing: -.05em;
-  }
-
-  .#{variables.$global-prefix}tracked-mega#{$media-suffix} {
-    letter-spacing: .25em;
+  @each $name, $value in $trackings {
+    #{functions.construct-class-name(variables.$global-prefix, $name, $media-suffix)} {
+      letter-spacing: $value;
+    }
   }
 }

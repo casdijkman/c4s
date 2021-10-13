@@ -1,4 +1,6 @@
 @use 'sass:math';
+@use 'sass:meta';
+@use 'sass:list';
 
 @function pow($number, $exponent) {
   $value: 1;
@@ -19,4 +21,41 @@
 
 @function nth-power-of-two($exponent) {
   @return pow(2, $exponent);
+}
+
+@function remove-values-from-list($list, $value) {
+  $new-list: ();
+
+  @each $item in $list {
+    @if $item != $value {
+      $new-list: list.append($new-list, $item);
+    }
+  }
+
+  @return $new-list;
+}
+
+@function list-to-dash-separated-string($list) {
+  @if meta.type-of($list) != list and meta.type-of($list) != arglist{
+    @error 'Wrong parameter, not a list ' + meta.type-of($list);
+  }
+
+  $list: remove-values-from-list($list, '');
+  $dash-separated-string: '';
+
+  @each $item in $list {
+    @if meta.type-of($item) != string {
+      @error 'Unexpected value, not a string ' + $item;
+    } @else if list.index($list, $item) == list.length($list) {
+      $dash-separated-string: $dash-separated-string + $item;
+    } @else {
+      $dash-separated-string: $dash-separated-string + $item + '-';
+    }
+  }
+
+  @return $dash-separated-string;
+}
+
+@function construct-class-name($list...) {
+  @return '.' + list-to-dash-separated-string($list);
 }

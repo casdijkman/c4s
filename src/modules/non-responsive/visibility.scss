@@ -1,15 +1,15 @@
+@use '../../functions';
 @use '../../variables';
 
-.#{variables.$global-prefix}visible {
-  visibility: visible;
-}
+$visibilities: (
+  visible: visible,
+  hidden: hidden,
+  invisible: hidden,
+  // collapse: collapse
+);
 
-.#{variables.$global-prefix}hidden,
-.#{variables.$global-prefix}invisible {
-  visibility: hidden;
+@each $name, $value in $visibilities {
+  #{functions.construct-class-name(variables.$global-prefix, $name)} {
+    visibility: $value;
+  }
 }
-
-// Used for hiding table rows
-// .#{variables.$global-prefix}collapse {
-//   visibility: collapse;
-// }

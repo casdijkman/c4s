@@ -1,4 +1,4 @@
-const maxLineLength = 82;
+const maxLineLength = 100;
 
 module.exports = {
     plugins: [
@@ -28,6 +28,12 @@ module.exports = {
 	    'always-multi-line',
 	    {
 		ignore: ['first-nested', 'after-comment']
+	    }
+	],
+	'block-closing-brace-newline-after': [
+	    'always',
+	    {
+		ignoreAtRules: ['if', 'else']
 	    }
 	]
     }

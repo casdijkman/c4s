@@ -2,8 +2,6 @@
    Small viewports
  */
 
-@use 'functions';
-@use 'variables';
 @use 'modules/responsive-all';
 
 @media only screen and (min-width: 20em) {

@@ -1,39 +1,10 @@
+@use '../../functions';
 @use '../../variables';
 
 @mixin font-size($media-suffix) {
-  .#{variables.$global-prefix}f-headline#{$media-suffix} {
-    font-size: variables.$font-size-headline;
-  }
-
-  .#{variables.$global-prefix}f-subheadline#{$media-suffix} {
-    font-size: variables.$font-size-subheadline;
-  }
-
-  .#{variables.$global-prefix}f1#{$media-suffix} {
-    font-size: variables.$font-size-h1;
-  }
-
-  .#{variables.$global-prefix}f2#{$media-suffix} {
-    font-size: variables.$font-size-h2;
-  }
-
-  .#{variables.$global-prefix}f3#{$media-suffix} {
-    font-size: variables.$font-size-h3;
-  }
-
-  .#{variables.$global-prefix}f4#{$media-suffix} {
-    font-size: variables.$font-size-h4;
-  }
-
-  .#{variables.$global-prefix}f5#{$media-suffix} {
-    font-size: variables.$font-size-h5;
-  }
-
-  .#{variables.$global-prefix}f6#{$media-suffix} {
-    font-size: variables.$font-size-h6;
-  }
-
-  .#{variables.$global-prefix}small#{$media-suffix} {
-    font-size: variables.$font-size-small;
+  @each $name, $value in variables.$font-sizes {
+    #{functions.construct-class-name(variables.$global-prefix, $name, $media-suffix)} {
+      font-size: $value;
+    }
   }
 }

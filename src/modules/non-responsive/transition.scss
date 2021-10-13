@@ -1,8 +1,9 @@
+@use '../../functions';
 @use '../../variables';
 
 // Transition transforms
 @each $level, $value in variables.$transition-speeds {
-  .#{variables.$global-prefix}transition-transform#{$level} {
+  #{functions.construct-class-name(variables.$global-prefix, transition-transform, $level)} {
     transition: transform $value ease-in-out;
   }
 }

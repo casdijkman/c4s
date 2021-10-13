@@ -1,15 +1,16 @@
+@use '../../functions';
 @use '../../variables';
 
+$measures: (
+  measure-narrow: 20em,
+  measure: 30em,
+  measure-wide: 34em
+);
+
 @mixin measure($media-suffix) {
-  .#{variables.$global-prefix}measure-narrow#{$media-suffix} {
-    max-width: 20em;
-  }
-
-  .#{variables.$global-prefix}measure#{$media-suffix} {
-    max-width: 30em;
-  }
-
-  .#{variables.$global-prefix}measure-wide#{$media-suffix} {
-    max-width: 34em;
+  @each $name, $value in $measures {
+    #{functions.construct-class-name(variables.$global-prefix, $name, $media-suffix)} {
+      max-width: $value;
+    }
   }
 }

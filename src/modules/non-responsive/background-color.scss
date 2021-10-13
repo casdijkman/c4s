@@ -1,5 +1,8 @@
+@use '../../functions';
 @use '../../variables';
 
 @each $color, $value in variables.$colors {
-  .#{variables.$global-prefix}bg-#{$color} { background-color: $value; }
+  #{functions.construct-class-name(variables.$global-prefix, bg, $color)} {
+    background-color: $value;
+  }
 }

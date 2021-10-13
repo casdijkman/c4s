@@ -1,8 +1,9 @@
+@use '../../functions';
 @use '../../variables';
 
 @mixin width($media-suffix) {
   @each $level, $value in variables.$sizer-levels {
-    .#{variables.$global-prefix}w#{$level}#{$media-suffix} {
+    #{functions.construct-class-name(variables.$global-prefix, w + $level, $media-suffix)} {
       width: $value;
     }
   }

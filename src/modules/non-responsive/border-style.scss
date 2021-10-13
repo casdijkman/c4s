@@ -1,7 +1,8 @@
+@use '../../functions';
 @use '../../variables';
 
 @each $border-style in variables.$border-styles {
-  .#{variables.$global-prefix}b--#{$border-style} {
+  #{functions.construct-class-name(variables.$global-prefix, b-- + $border-style)} {
     border-style: $border-style;
   }
 }

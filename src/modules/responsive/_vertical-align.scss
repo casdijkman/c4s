@@ -1,36 +1,22 @@
+@use '../../functions';
 @use '../../variables';
 
+$vertical-aligns: (
+  mid:         middle,
+  middle:      middle,
+  base:        baseline,
+  top:         top,
+  bottom:      bottom,
+  text-top:    text-top,
+  text-bottom: text-bottom,
+  sub:         sub,
+  super:       super
+);
+
 @mixin vertical-align($media-suffix) {
-  .#{variables.$global-prefix}v-mid#{$media-suffix},
-  .#{variables.$global-prefix}v-middle#{$media-suffix} {
-    vertical-align: middle;
-  }
-
-  .#{variables.$global-prefix}v-base#{$media-suffix} {
-    vertical-align: baseline;
-  }
-
-  .#{variables.$global-prefix}v-top#{$media-suffix} {
-    vertical-align: top;
-  }
-
-  .#{variables.$global-prefix}v-bottom#{$media-suffix} {
-    vertical-align: bottom;
-  }
-
-  .#{variables.$global-prefix}v-text-top#{$media-suffix} {
-    vertical-align: text-top;
-  }
-
-  .#{variables.$global-prefix}v-text-bottom#{$media-suffix} {
-    vertical-align: text-bottom;
-  }
-
-  .#{variables.$global-prefix}v-sub#{$media-suffix} {
-    vertical-align: sub;
-  }
-
-  .#{variables.$global-prefix}v-super#{$media-suffix} {
-    vertical-align: super;
+  @each $name, $value in $vertical-aligns {
+    #{functions.construct-class-name(variables.$global-prefix, v, $name, $media-suffix)} {
+      vertical-align: $value;
+    }
   }
 }

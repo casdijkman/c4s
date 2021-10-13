@@ -1,17 +1,15 @@
+@use '../../functions';
 @use '../../variables';
 
-.#{variables.$global-prefix}tl {
-  text-align: left;
-}
+$text-aligns: (
+  l: left,
+  r: right,
+  c: center,
+  j: justify
+);
 
-.#{variables.$global-prefix}tr {
-  text-align: right;
-}
-
-.#{variables.$global-prefix}tc {
-  text-align: center;
-}
-
-.#{variables.$global-prefix}tj {
-  text-align: justify;
+@each $name, $value in $text-aligns {
+  #{functions.construct-class-name(variables.$global-prefix, t + $name)} {
+    text-align: $value;
+  }
 }

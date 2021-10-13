@@ -1,15 +1,16 @@
+@use '../../functions';
 @use '../../variables';
 
+$white-spaces: (
+  nowrap: nowrap,
+  pre: pre,
+  // ws-normal: normal
+);
+
 @mixin white-space($media-suffix) {
-  .#{variables.$global-prefix}nowrap#{$media-suffix} {
-    white-space: nowrap;
+  @each $name, $value in $white-spaces {
+    #{functions.construct-class-name(variables.$global-prefix, $name, $media-suffix)} {
+      white-space: $value;
+    }
   }
-
-  .#{variables.$global-prefix}pre#{$media-suffix} {
-    white-space: pre;
-  }
-
-  /* .#{variables.$global-prefix}ws-normal#{$media-suffix} {
-     white-space: normal;
-     } */
 }

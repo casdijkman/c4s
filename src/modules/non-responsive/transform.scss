@@ -1,15 +1,16 @@
+@use '../../functions';
 @use '../../variables';
 
 // Translate horizontally
 @each $level, $value in variables.$translate-levels {
-  .#{variables.$global-prefix}translateX#{$level} {
+  #{functions.construct-class-name(variables.$global-prefix, translateX, $level)} {
     transform: translateX($value);
   }
 }
 
 // Translate vertically
 @each $level, $value in variables.$translate-levels {
-  .#{variables.$global-prefix}translateY#{$level} {
+  #{functions.construct-class-name(variables.$global-prefix, translateY, $level)} {
     transform: translateY($value);
   }
 }

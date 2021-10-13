@@ -1,21 +1,15 @@
+@use '../../functions';
 @use '../../variables';
+
+$directions: top, right, bottom, left;
 
 @mixin coordinates($media-suffix) {
   @each $level, $value in variables.$coordinate-spacer-levels {
-    .#{variables.$global-prefix}top#{$level}#{$media-suffix} {
-      top: $value;
-    }
-
-    .#{variables.$global-prefix}right#{$level}#{$media-suffix} {
-      right: $value;
-    }
-
-    .#{variables.$global-prefix}bottom#{$level}#{$media-suffix} {
-      bottom: $value;
-    }
-
-    .#{variables.$global-prefix}left#{$level}#{$media-suffix} {
-      left: $value;
+    @each $direction in $directions {
+      // stylelint-disable-next-line max-line-length
+      #{functions.construct-class-name(variables.$global-prefix, $direction, $level, $media-suffix)} {
+        #{$direction}: $value;
+      }
     }
   }
 }

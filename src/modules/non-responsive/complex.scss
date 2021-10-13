@@ -1,3 +1,4 @@
+@use '../../functions';
 @use '../../variables';
 
 /*
@@ -8,45 +9,47 @@
  */
 
 // Border top between
-.#{variables.$global-prefix}bt-between + .#{variables.$global-prefix}bt-between {
+#{functions.construct-class-name(variables.$global-prefix, bt-between)} +
+#{functions.construct-class-name(variables.$global-prefix, bt-between)} {
   border-top-style: solid;
   border-top-width: 1px;
 }
 
 // Border left between
-.#{variables.$global-prefix}bl-between + .#{variables.$global-prefix}bl-between {
+#{functions.construct-class-name(variables.$global-prefix, bl-between)} +
+#{functions.construct-class-name(variables.$global-prefix, bl-between)} {
   border-left-style: solid;
   border-left-width: 1px;
 }
 
 // Padding top between
 @each $level, $value in variables.$spacer-levels {
-  // stylelint-disable-next-line max-line-length
-  .#{variables.$global-prefix}pt#{$level}-between + .#{variables.$global-prefix}pt#{$level}-between {
+  #{functions.construct-class-name(variables.$global-prefix, pt + $level, between)} +
+  #{functions.construct-class-name(variables.$global-prefix, pt + $level, between)} {
     padding-top: $value;
   }
 }
 
 // Padding left between
 @each $level, $value in variables.$spacer-levels {
-  // stylelint-disable-next-line max-line-length
-  .#{variables.$global-prefix}pl#{$level}-between + .#{variables.$global-prefix}pl#{$level}-between {
+  #{functions.construct-class-name(variables.$global-prefix, pl + $level, between)} +
+  #{functions.construct-class-name(variables.$global-prefix, pl + $level, between)} {
     padding-left: $value;
   }
 }
 
 // Margin top between
 @each $level, $value in variables.$spacer-levels {
-  // stylelint-disable-next-line max-line-length
-  .#{variables.$global-prefix}mt#{$level}-between + .#{variables.$global-prefix}mt#{$level}-between {
+  #{functions.construct-class-name(variables.$global-prefix, mt + $level, between)} +
+  #{functions.construct-class-name(variables.$global-prefix, mt + $level, between)} {
     margin-top: $value;
   }
 }
 
 // Margin left between
 @each $level, $value in variables.$spacer-levels {
-  // stylelint-disable-next-line max-line-length
-  .#{variables.$global-prefix}ml#{$level}-between + .#{variables.$global-prefix}ml#{$level}-between {
+  #{functions.construct-class-name(variables.$global-prefix, ml + $level, between)} +
+  #{functions.construct-class-name(variables.$global-prefix, ml + $level, between)} {
     margin-left: $value;
   }
 }

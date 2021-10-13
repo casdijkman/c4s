@@ -1,4 +1,10 @@
+@use '../../functions';
 @use '../../variables';
 
-.#{variables.$global-prefix}border-box  { box-sizing: border-box; }
-.#{variables.$global-prefix}content-box { box-sizing: content-box; }
+#{functions.construct-class-name(variables.$global-prefix, border-box)} {
+  box-sizing: border-box;
+}
+
+#{functions.construct-class-name(variables.$global-prefix, content-box)} {
+  box-sizing: content-box;
+}

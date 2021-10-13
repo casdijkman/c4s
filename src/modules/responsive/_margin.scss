@@ -1,3 +1,4 @@
+@use '../../functions';
 @use '../../variables';
 @use 'sass:map';
 
@@ -5,49 +6,28 @@
 // NB: Margin-all and margin-vertical rules do not include the '-auto' suffix
 $margin-spacer-levels: map.merge(variables.$spacer-levels, ('-auto': auto));
 
+$margins: (
+  m:  margin,
+  mt: margin-top,
+  mr: margin-right,
+  mb: margin-bottom,
+  ml: margin-left
+);
+
 @mixin margin($media-suffix) {
-  /*
-     MARGIN ALL
-  */
-  @each $level, $value in variables.$spacer-levels {
-    .#{variables.$global-prefix}m#{$level}#{$media-suffix} {
-      margin: $value;
-    }
-  }
+  @each $name, $property in $margins {
+    $levels: ();
 
-  /*
-     MARGIN TOP
-   */
-  @each $level, $value in $margin-spacer-levels {
-    .#{variables.$global-prefix}mt#{$level}#{$media-suffix} {
-      margin-top: $value;
+    @if $property == margin {
+      $levels: variables.$spacer-levels;
+    } @else {
+      $levels: $margin-spacer-levels;
     }
-  }
 
-  /*
-     MARGIN RIGHT
-   */
-  @each $level, $value in $margin-spacer-levels {
-    .#{variables.$global-prefix}mr#{$level}#{$media-suffix} {
-      margin-right: $value;
-    }
-  }
-
-  /*
-     MARGIN BOTTOM
-   */
-  @each $level, $value in $margin-spacer-levels {
-    .#{variables.$global-prefix}mb#{$level}#{$media-suffix} {
-      margin-bottom: $value;
-    }
-  }
-
-  /*
-     MARGIN LEFT
-   */
-  @each $level, $value in $margin-spacer-levels {
-    .#{variables.$global-prefix}ml#{$level}#{$media-suffix} {
-      margin-left: $value;
+    @each $level, $value in $levels {
+      #{functions.construct-class-name(variables.$global-prefix, $name + $level, $media-suffix)} {
+        #{$property}: $value;
+      }
     }
   }
 
@@ -55,7 +35,7 @@ $margin-spacer-levels: map.merge(variables.$spacer-levels, ('-auto': auto));
      MARGIN HORIZONTAL
    */
   @each $level, $value in $margin-spacer-levels {
-    .#{variables.$global-prefix}mh#{$level}#{$media-suffix} {
+    #{functions.construct-class-name(variables.$global-prefix, mh + $level, $media-suffix)} {
       margin-left: $value;
       margin-right: $value;
     }
@@ -65,7 +45,7 @@ $margin-spacer-levels: map.merge(variables.$spacer-levels, ('-auto': auto));
      MARGIN VERTICAL
    */
   @each $level, $value in variables.$spacer-levels {
-    .#{variables.$global-prefix}mv#{$level}#{$media-suffix} {
+    #{functions.construct-class-name(variables.$global-prefix, mv + $level, $media-suffix)} {
       margin-top: $value;
       margin-bottom: $value;
     }

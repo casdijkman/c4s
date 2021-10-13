@@ -1,10 +1,14 @@
+@use '../../functions';
 @use '../../variables';
 
-.#{variables.$global-prefix}fs-normal {
-  font-style: normal;
-}
+$font-styles: (
+  fs-normal: normal,
+  fs-italic: italic,
+  i: italic
+);
 
-.#{variables.$global-prefix}fs-italic,
-.#{variables.$global-prefix}i {
-  font-style: italic;
+@each $name, $value in $font-styles {
+  #{functions.construct-class-name(variables.$global-prefix, $name)} {
+    font-style: $value;
+  }
 }

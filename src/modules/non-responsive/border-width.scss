@@ -1,5 +1,8 @@
+@use '../../functions';
 @use '../../variables';
 
 @each $border-width, $value in variables.$border-widths {
-  .#{variables.$global-prefix}bw#{$border-width} { border-width: $value; }
+  #{functions.construct-class-name(variables.$global-prefix, bw + $border-width)} {
+    border-width: $value;
+  }
 }

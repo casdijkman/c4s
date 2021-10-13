@@ -1,10 +1,14 @@
+@use '../../functions';
 @use '../../variables';
 
-.#{variables.$global-prefix}underline {
-  text-decoration: underline;
-}
+$text-decorations: (
+  underline: underline,
+  line-through: line-through,
+  strike: line-through
+);
 
-.#{variables.$global-prefix}line-through,
-.#{variables.$global-prefix}strike {
-  text-decoration: line-through;
+@each $name, $value in $text-decorations {
+  #{functions.construct-class-name(variables.$global-prefix, $name)} {
+    text-decoration: $value;
+  }
 }

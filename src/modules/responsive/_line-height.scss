@@ -1,8 +1,9 @@
+@use '../../functions';
 @use '../../variables';
 
 @mixin line-height($media-suffix) {
   @each $level, $value in variables.$line-height-levels {
-    .#{variables.$global-prefix}lh-#{$level}#{$media-suffix} {
+    #{functions.construct-class-name(variables.$global-prefix, lh, $level, $media-suffix)} {
       line-height: $value;
     }
   }

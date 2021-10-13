@@ -1,9 +1,10 @@
+@use '../../functions';
 @use '../../variables';
 
-.#{variables.$global-prefix}capitalize {
+#{functions.construct-class-name(variables.$global-prefix, capitalize)} {
   text-transform: capitalize;
 }
 
-.#{variables.$global-prefix}uppercase  {
+#{functions.construct-class-name(variables.$global-prefix, uppercase)} {
   text-transform: uppercase;
 }

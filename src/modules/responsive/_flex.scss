@@ -1,180 +1,104 @@
+@use '../../functions';
 @use '../../variables';
 
+$flex-wraps: wrap, nowrap, wrap-reverse;
+$flex-aligns: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  baseline: baseline,
+  stretch: stretch
+);
+$flex-align-contents: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  between: space-between,
+  around: space-around,
+  stretch: stretch
+);
+$flex-justify-contents: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  between: space-between,
+  around: space-around
+);
+$flex-grows: (
+  '0': 0,
+  '1': 1
+);
+$flex-shrinks: (
+  '0': 0,
+  '1': 1
+);
+$flex-orders: (
+  1:    1,
+  2:    2,
+  3:    3,
+  4:    4,
+  5:    5,
+  6:    6,
+  7:    7,
+  8:    8,
+  9:    9,
+  last: 99999
+);
+
 @mixin flex($media-suffix) {
-  /*
-     FLEX WRAP
-   */
-  .#{variables.$global-prefix}flex-wrap#{$media-suffix} {
-    flex-wrap: wrap;
+  // FLEX WRAP
+  @each $flex-wrap in $flex-wraps {
+    #{functions.construct-class-name(variables.$global-prefix, flex, $flex-wrap, $media-suffix)} {
+      flex-wrap: $flex-wrap;
+    }
   }
 
-  .#{variables.$global-prefix}flex-nowrap#{$media-suffix} {
-    flex-wrap: nowrap;
+  @each $name, $value in $flex-aligns {
+    // ALIGN ITEMS
+    #{functions.construct-class-name(variables.$global-prefix, items, $name, $media-suffix)} {
+      align-items: $value;
+    }
   }
 
-  .#{variables.$global-prefix}flex-wrap-reverse#{$media-suffix} {
-    flex-wrap: wrap-reverse;
+  @each $name, $value in $flex-aligns {
+    // ALIGN SELF
+    #{functions.construct-class-name(variables.$global-prefix, self, $name, $media-suffix)} {
+      align-self: $value;
+    }
   }
 
-  /*
-     ALIGN ITEMS
-   */
-  .#{variables.$global-prefix}items-start#{$media-suffix} {
-    align-items: flex-start;
+  @each $name, $value in $flex-align-contents {
+    // ALIGN CONTENT
+    #{functions.construct-class-name(variables.$global-prefix, content, $name, $media-suffix)} {
+      align-content: $value;
+    }
   }
 
-  .#{variables.$global-prefix}items-end#{$media-suffix} {
-    align-items: flex-end;
+  @each $name, $value in $flex-justify-contents {
+    // JUSTIFY CONTENT
+    #{functions.construct-class-name(variables.$global-prefix, justify, $name, $media-suffix)} {
+      justify-content: $value;
+    }
   }
 
-  .#{variables.$global-prefix}items-center#{$media-suffix} {
-    align-items: center;
+  @each $name, $value in $flex-grows {
+    // FLEX GROW
+    #{functions.construct-class-name(variables.$global-prefix, flex-grow, $name, $media-suffix)} {
+      flex-grow: $value;
+    }
   }
 
-  .#{variables.$global-prefix}items-baseline#{$media-suffix} {
-    align-items: baseline;
+  @each $name, $value in $flex-shrinks {
+    // FLEX SHRINK
+    #{functions.construct-class-name(variables.$global-prefix, flex-shrink, $name, $media-suffix)} {
+      flex-shrink: $value;
+    }
   }
 
-  .#{variables.$global-prefix}items-stretch#{$media-suffix} {
-    align-items: stretch;
-  }
-
-  /*
-     ALIGN SELF
-   */
-  .#{variables.$global-prefix}self-start#{$media-suffix} {
-    align-self: flex-start;
-  }
-
-  .#{variables.$global-prefix}self-end#{$media-suffix} {
-    align-self: flex-end;
-  }
-
-  .#{variables.$global-prefix}self-center#{$media-suffix} {
-    align-self: center;
-  }
-
-  .#{variables.$global-prefix}self-baseline#{$media-suffix} {
-    align-self: baseline;
-  }
-
-  .#{variables.$global-prefix}self-stretch#{$media-suffix} {
-    align-self: stretch;
-  }
-
-  /*
-     ALIGN CONTENT
-   */
-  .#{variables.$global-prefix}content-start#{$media-suffix} {
-    align-content: flex-start;
-  }
-
-  .#{variables.$global-prefix}content-end#{$media-suffix} {
-    align-content: flex-end;
-  }
-
-  .#{variables.$global-prefix}content-center#{$media-suffix} {
-    align-content: center;
-  }
-
-  .#{variables.$global-prefix}content-between#{$media-suffix} {
-    align-content: space-between;
-  }
-
-  .#{variables.$global-prefix}content-around#{$media-suffix} {
-    align-content: space-around;
-  }
-
-  .#{variables.$global-prefix}content-stretch#{$media-suffix} {
-    align-content: stretch;
-  }
-
-  /*
-     JUSTIFY CONTENT
-   */
-  .#{variables.$global-prefix}justify-start#{$media-suffix} {
-    justify-content: flex-start;
-  }
-
-  .#{variables.$global-prefix}justify-end#{$media-suffix} {
-    justify-content: flex-end;
-  }
-
-  .#{variables.$global-prefix}justify-center#{$media-suffix} {
-    justify-content: center;
-  }
-
-  .#{variables.$global-prefix}justify-between#{$media-suffix} {
-    justify-content: space-between;
-  }
-
-  .#{variables.$global-prefix}justify-around#{$media-suffix} {
-    justify-content: space-around;
-  }
-
-  /*
-     FLEX GROW
-   */
-  .#{variables.$global-prefix}flex-grow-0#{$media-suffix} {
-    flex-grow: 0;
-  }
-
-  .#{variables.$global-prefix}flex-grow-1#{$media-suffix} {
-    flex-grow: 1;
-  }
-
-  /*
-     FLEX SHRINK
-   */
-  .#{variables.$global-prefix}flex-shrink-0#{$media-suffix} {
-    flex-shrink: 0;
-  }
-
-  .#{variables.$global-prefix}flex-shrink-1#{$media-suffix} {
-    flex-shrink: 1;
-  }
-
-  /*
-     FLEX ORDER
-   */
-
-  /* .#{variables.$global-prefix}order-0#{$media-suffix} {
-     order: 0;
-     }
-
-     .#{variables.$global-prefix}order-1#{$media-suffix} {
-     order: 1;
-     }
-
-     .#{variables.$global-prefix}order-2#{$media-suffix} {
-     order: 2;
-     }
-
-     .#{variables.$global-prefix}order-3#{$media-suffix} {
-     order: 3;
-     }
-
-     .#{variables.$global-prefix}order-4#{$media-suffix} {
-     order: 4;
-     }
-
-     .#{variables.$global-prefix}order-5#{$media-suffix} {
-     order: 5;
-     }
-
-     .#{variables.$global-prefix}order-6#{$media-suffix} {
-     order: 6;
-     }
-
-     .#{variables.$global-prefix}order-7#{$media-suffix} {
-     order: 7;
-     }
-
-     .#{variables.$global-prefix}order-8#{$media-suffix} {
-     order: 8;
-     }
-
-     .#{variables.$global-prefix}order-last#{$media-suffix} {
-     order: 99999;
-     }  */
+  // @each $name, $value in $flex-orders {
+  //   // FLEX ORDER
+  //   #{functions.construct-class-name(variables.$global-prefix, order, $name, $media-suffix)} {
+  //     order: $value;
+  //   }
+  // }
 }

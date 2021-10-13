@@ -1,8 +1,9 @@
+@use '../../functions';
 @use '../../variables';
 
 @mixin border-radius($media-suffix) {
   @each $level, $value in variables.$border-radius-levels {
-    .#{variables.$global-prefix}br#{$level}#{$media-suffix} {
+    #{functions.construct-class-name(variables.$global-prefix, br + $level, $media-suffix)} {
       border-radius: $value;
     }
   }

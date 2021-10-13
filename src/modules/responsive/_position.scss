@@ -1,23 +1,12 @@
+@use '../../functions';
 @use '../../variables';
 
+$positions: static, absolute, relative, fixed, sticky;
+
 @mixin position($media-suffix) {
-  .#{variables.$global-prefix}static#{$media-suffix} {
-    position: static;
-  }
-
-  .#{variables.$global-prefix}absolute#{$media-suffix} {
-    position: absolute;
-  }
-
-  .#{variables.$global-prefix}relative#{$media-suffix} {
-    position: relative;
-  }
-
-  .#{variables.$global-prefix}fixed#{$media-suffix} {
-    position: fixed;
-  }
-
-  .#{variables.$global-prefix}sticky#{$media-suffix} {
-    position: sticky;
+  @each $position in $positions {
+    #{functions.construct-class-name(variables.$global-prefix, $position, $media-suffix)} {
+      position: $position;
+    }
   }
 }

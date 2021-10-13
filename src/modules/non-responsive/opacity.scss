@@ -1,7 +1,8 @@
+@use '../../functions';
 @use '../../variables';
 
 @each $opacity, $value in variables.$opacity-levels {
-  .#{variables.$global-prefix}o#{$opacity} {
+  #{functions.construct-class-name(variables.$global-prefix, variables.$opacity-name, $opacity)} {
     opacity: $value;
   }
 }

@@ -1,6 +1,7 @@
+@use '../../functions';
 @use '../../variables';
 
-.#{variables.$global-prefix}sans-serif {
+#{functions.construct-class-name(variables.$global-prefix, sans-serif)} {
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -16,7 +17,7 @@
     sans-serif;
 }
 
-.#{variables.$global-prefix}serif {
+#{functions.construct-class-name(variables.$global-prefix, serif)} {
   font-family:
     georgia,
     times,
@@ -25,6 +26,6 @@
 
 $font-family-code: consolas, monaco, monospace;
 
-.#{variables.$global-prefix}code {
+#{functions.construct-class-name(variables.$global-prefix, code)} {
   font-family: $font-family-code;
 }
