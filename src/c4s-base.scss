@@ -1,5 +1,9 @@
+/*
+ * Only base styles, meaning all screen sizes
+ */
+
 @use 'modules/responsive-all';
 @use 'modules/non-responsive-all';
 
-// Include responsive-all mixin with no media query or suffix
-@include responsive-all.responsive-all('');
+@include non-responsive-all.non-responsive-all();
+@include responsive-all.responsive-all();

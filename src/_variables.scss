@@ -1,8 +1,31 @@
-@use './functions' as *;
+@use './functions';
 @use 'sass:color';
 @use 'sass:math';
+@use 'sass:map';
+
+/**********
+ * GLOBAL *
+ **********/
 
 $global-prefix: '';
+
+$breakpoints: (
+  s: (
+    breakpoint: 20em
+  ),
+  m: (
+    breakpoint: 30em
+  ),
+  l: (
+    breakpoint: 60em
+  ),
+  h: (
+    breakpoint: 90em,
+  ),
+  p: (
+    media: print
+  )
+);
 
 /*
    SPACERS
@@ -13,18 +36,21 @@ $global-prefix: '';
    $spacer-4 and is considered 'medium' size and is the product of $spacer-base and 2^0
  */
 
-$spacer-base: 2rem !default;
+$spacer-base: 2rem;
 
 $spacer-levels: (
   '0': 0,
-  '1': $spacer-base * nth-power-of-two(-3),
-  '2': $spacer-base * nth-power-of-two(-2),
-  '3': $spacer-base * nth-power-of-two(-1),
+  '1': $spacer-base * functions.nth-power-of-two(-3),
+  '2': $spacer-base * functions.nth-power-of-two(-2),
+  '3': $spacer-base * functions.nth-power-of-two(-1),
   '4': $spacer-base,
-  '5': $spacer-base * nth-power-of-two(1),
-  '6': $spacer-base * nth-power-of-two(2),
-  '7': $spacer-base * nth-power-of-two(3)
-) !default;
+  '5': $spacer-base * functions.nth-power-of-two(1),
+  '6': $spacer-base * functions.nth-power-of-two(2),
+  '7': $spacer-base * functions.nth-power-of-two(3)
+);
+
+// Add auto as a level for margins with -auto suffix
+$margin-spacer-levels: map.merge($spacer-levels, ('-auto': auto));
 
 /*
    COORDINATE SPACERS
@@ -38,7 +64,7 @@ $coordinate-spacer-levels: (
   '2':   2rem,
   '50':  50%,
   '100': 100%
-) !default;
+);
 
 /*
    SIZERS
@@ -48,16 +74,16 @@ $coordinate-spacer-levels: (
    Levels  1 through 5 therefore represent the product of $sizer-base with powers of two
  */
 
-$sizer-base: 1rem !default;
+$sizer-base: 1rem;
 
 $sizer-levels: (
   '0':           0,
   '1':           $sizer-base,
-  '2':           $sizer-base * nth-power-of-two(1),
-  '3':           $sizer-base * nth-power-of-two(2),
-  '4':           $sizer-base * nth-power-of-two(3),
-  '5':           $sizer-base * nth-power-of-two(4),
-  '6':           $sizer-base * nth-power-of-two(5),
+  '2':           $sizer-base * functions.nth-power-of-two(1),
+  '3':           $sizer-base * functions.nth-power-of-two(2),
+  '4':           $sizer-base * functions.nth-power-of-two(3),
+  '5':           $sizer-base * functions.nth-power-of-two(4),
+  '6':           $sizer-base * functions.nth-power-of-two(5),
   '-10':         10%,
   '-20':         20%,
   '-30':         30%,
@@ -70,7 +96,7 @@ $sizer-levels: (
   '-80':         80%,
   '-90':         90%,
   '-100':        100%
-) !default;
+);
 
 /*
    TRANSLATE
@@ -82,7 +108,7 @@ $translate-levels: (
   'n100': -100%,
   '50':   50%,
   'n50':  -50%
-) !default;
+);
 
 /*
    TRANSITION SPEED
@@ -92,14 +118,14 @@ $transition-speeds: (
   'slow':   .5s,
   'medium': .25s,
   'fast':   .15s
-) !default;
+);
 
 /*
    COLORS
  */
 
-$black: #000 !default;
-$white: #fff !default;
+$black: #000;
+$white: #fff;
 
 $colors: (
   /*
@@ -190,23 +216,23 @@ $colors: (
      Transparent
    */
   'transparent': transparent
-) !default;
+);
 
 /*
    BORDER-RADIUS SIZES
  */
 
-$border-radius-base: 1rem !default;
+$border-radius-base: 1rem;
 
 $border-radius-levels: (
   '0':     0,
-  '1':     $border-radius-base * nth-power-of-two(-3),
-  '2':     $border-radius-base * nth-power-of-two(-2),
-  '3':     $border-radius-base * nth-power-of-two(-1),
+  '1':     $border-radius-base * functions.nth-power-of-two(-3),
+  '2':     $border-radius-base * functions.nth-power-of-two(-2),
+  '3':     $border-radius-base * functions.nth-power-of-two(-1),
   '4':     $border-radius-base,
   '-100':  100%,
   '-pill': 9999px
-) !default;
+);
 
 /*
    FONT SIZES
@@ -215,29 +241,19 @@ $border-radius-levels: (
    corresponding classes `.h1` through `.h6` and `.small`
  */
 
-$font-size-base: 1em !default;
-$font-scaling-factor: 1.25 !default;
-
-$font-size-headline:    6rem !default;
-$font-size-subheadline: 5rem !default;
-$font-size-h1:          $font-size-base * pow($font-scaling-factor, 5) !default;
-$font-size-h2:          $font-size-base * pow($font-scaling-factor, 4) !default;
-$font-size-h3:          $font-size-base * pow($font-scaling-factor, 3) !default;
-$font-size-h4:          $font-size-base * pow($font-scaling-factor, 2) !default;
-$font-size-h5:          $font-size-base * pow($font-scaling-factor, 1) !default;
-$font-size-h6:          $font-size-base;
-$font-size-small:       $font-size-base * pow($font-scaling-factor, -1) !default;
+$font-size-base: 1em;
+$font-scaling-factor: 1.25;
 
 $font-sizes: (
-  f-headline:    $font-size-headline,
-  f-subheadline: $font-size-subheadline,
-  f1:            $font-size-h1,
-  f2:            $font-size-h2,
-  f3:            $font-size-h3,
-  f4:            $font-size-h4,
-  f5:            $font-size-h5,
-  f6:            $font-size-h6,
-  small:         $font-size-small
+  f-headline:    6rem,
+  f-subheadline: 5rem,
+  f1:            $font-size-base * functions.power($font-scaling-factor, 5),
+  f2:            $font-size-base * functions.power($font-scaling-factor, 4),
+  f3:            $font-size-base * functions.power($font-scaling-factor, 3),
+  f4:            $font-size-base * functions.power($font-scaling-factor, 2),
+  f5:            $font-size-base * functions.power($font-scaling-factor, 1),
+  f6:            $font-size-base,
+  small:         $font-size-base * functions.power($font-scaling-factor, -1)
 );
 
 /*
@@ -249,7 +265,7 @@ $line-height-levels: (
   'header': 1.15,
   'text':   1.5,
   'extra':  2
-) !default;
+);
 
 /*
    FONT WEIGHTS
@@ -268,13 +284,13 @@ $font-weight-levels: (
   'fw-900':     900,
   'fw-lighter': lighter,
   'fw-bolder':  bolder
-) !default;
+);
 
 /*
    OPACITY LEVELS
  */
 
-$opacity-name: o !default;
+$opacity-name: o;
 
 $opacity-levels: (
   '100': 1,
@@ -290,24 +306,240 @@ $opacity-levels: (
   '05':  .05,
   '025': .025,
   '0':   0
-) !default;
+);
 
 /*
    BORDER STYLES
  */
 
-$border-styles: [ solid, dotted, dashed, double, groove, ridge, inset, outset ] !default;
+$border-styles: [ solid, dotted, dashed, double, groove, ridge, inset, outset ];
 
 /*
    BORDER WIDTHS
  */
 
-$border-width-base: 1rem !default;
+$border-width-base: 1rem;
 
 $border-widths: (
-  '1': $border-width-base * nth-power-of-two(-3),
-  '2': $border-width-base * nth-power-of-two(-2),
-  '3': $border-width-base * nth-power-of-two(-1),
+  '1': $border-width-base * functions.nth-power-of-two(-3),
+  '2': $border-width-base * functions.nth-power-of-two(-2),
+  '3': $border-width-base * functions.nth-power-of-two(-1),
   '4': $border-width-base,
-  '5': $border-width-base * nth-power-of-two(1)
-) !default;
+  '5': $border-width-base * functions.nth-power-of-two(1)
+);
+
+/*
+   CURSORS
+ */
+
+$cursors: pointer, text, none, not-allowed, progress, wait;
+
+/*
+   FONT FAMILIES
+ */
+
+$font-family-code: consolas, monaco, monospace;
+
+/*
+   FONT STYLES
+ */
+
+$font-styles: (
+  fs-normal: normal,
+  fs-italic: italic,
+  i: italic
+);
+
+/*
+   TEXT ALIGNS
+ */
+
+$text-aligns: (
+  l: left,
+  r: right,
+  c: center,
+  j: justify
+);
+
+/*
+   TEXT DECORATIONS
+ */
+
+$text-decorations: (
+  underline: underline,
+  line-through: line-through,
+  strike: line-through
+);
+
+/*
+   VISIBILITIES
+ */
+
+$visibilities: (
+  visible: visible,
+  hidden: hidden,
+  invisible: hidden,
+  // collapse: collapse
+);
+
+/*
+   CONFIGURATION
+ */
+
+@mixin configure(
+  $global-prefix: null,
+  $breakpoints: null,
+  $spacer-base: null,
+  $spacer-levels: null,
+  $margin-spacer-levels: null,
+  $coordinate-spacer-levels: null,
+  $sizer-base: null,
+  $sizer-levels: null,
+  $translate-levels: null,
+  $transition-speeds: null,
+  $black: null,
+  $white: null,
+  $colors: null,
+  $border-radius-base: null,
+  $border-radius-levels: null,
+  $font-size-base: null,
+  $font-scaling-factor: null,
+  $font-sizes: null,
+  $line-height-levels: null,
+  $font-weight-levels: null,
+  $opacity-name: null,
+  $opacity-levels: null,
+  $border-styles: null,
+  $border-width-base: null,
+  $border-widths: null,
+  $cursors: null,
+  $font-family-code: null,
+  $font-styles: null,
+  $text-aligns: null,
+  $text-decorations: null,
+  $visibilities: null
+) {
+  @if $global-prefix != null {
+    $global-prefix: $global-prefix !global;
+  }
+
+  @if $breakpoints != null {
+    $breakpoints: $breakpoints !global;
+  }
+
+  @if $spacer-base != null {
+    $spacer-base: $spacer-base !global;
+  }
+
+  @if $spacer-levels != null {
+    $spacer-levels: $spacer-levels !global;
+  }
+
+  @if $margin-spacer-levels != null {
+    $margin-spacer-levels: $margin-spacer-levels !global;
+  }
+
+  @if $coordinate-spacer-levels != null {
+    $coordinate-spacer-levels: $coordinate-spacer-levels !global;
+  }
+
+  @if $sizer-base != null {
+    $sizer-base: $sizer-base !global;
+  }
+
+  @if $sizer-levels != null {
+    $sizer-levels: $sizer-levels !global;
+  }
+
+  @if $translate-levels != null {
+    $translate-levels: $translate-levels !global;
+  }
+
+  @if $transition-speeds != null {
+    $transition-speeds: $transition-speeds !global;
+  }
+
+  @if $black != null {
+    $black: $black !global;
+  }
+
+  @if $white != null {
+    $white: $white !global;
+  }
+
+  @if $colors != null {
+    $colors: $colors !global;
+  }
+
+  @if $border-radius-base != null {
+    $border-radius-base: $border-radius-base !global;
+  }
+
+  @if $border-radius-levels != null {
+    $border-radius-levels: $border-radius-levels !global;
+  }
+
+  @if $font-size-base != null {
+    $font-size-base: $font-size-base !global;
+  }
+
+  @if $font-scaling-factor != null {
+    $font-scaling-factor: $font-scaling-factor !global;
+  }
+
+  @if $font-sizes != null {
+    $font-sizes: $font-sizes !global;
+  }
+
+  @if $line-height-levels != null {
+    $line-height-levels: $line-height-levels !global;
+  }
+
+  @if $font-weight-levels != null {
+    $font-weight-levels: $font-weight-levels !global;
+  }
+
+  @if $opacity-name != null {
+    $opacity-name: $opacity-name !global;
+  }
+
+  @if $opacity-levels != null {
+    $opacity-levels: $opacity-levels !global;
+  }
+
+  @if $border-styles != null {
+    $border-styles: $border-styles !global;
+  }
+
+  @if $border-width-base != null {
+    $border-width-base: $border-width-base !global;
+  }
+
+  @if $border-widths != null {
+    $border-widths: $border-widths !global;
+  }
+
+  @if $cursors != null {
+    $cursors: $cursors !global;
+  }
+
+  @if $font-family-code != null {
+    $font-family-code: $font-family-code !global;
+  }
+
+  @if $font-styles != null {
+    $font-styles: $font-styles !global;
+  }
+
+  @if $text-aligns != null {
+    $text-aligns: $text-aligns !global;
+  }
+
+  @if $text-decorations != null {
+    $text-decorations: $text-decorations !global;
+  }
+
+  @if $visibilities != null {
+    $visibilities: $visibilities !global;
+  }
+}

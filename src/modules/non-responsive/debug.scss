@@ -14,46 +14,48 @@ $dataUrlGrid8Solid: 'data:image/gif;base64,R0lGODdhCAAIAPEAAADw/wDx/////wAAACwAA
 $dataUrlGrid16Solid: 'data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/xXy/////ywAAAAAEAAQAAACIZyPKckYDQFsb6ZqD85jZ2+BkwiRFKehhqQCQgDHcgwEBQA7';
 /* stylelint-enable max-line-length */
 
-// TODO: rename debug-grid-8
-#{functions.construct-class-name(variables.$global-prefix, debug-grid)} {
-  background: transparent url($dataUrlGrid8) repeat top left;
-}
+@mixin debug() {
+  // TODO: rename debug-grid-8
+  #{functions.construct-class-name(variables.$global-prefix, debug-grid)} {
+    background: transparent url($dataUrlGrid8) repeat top left;
+  }
 
-#{functions.construct-class-name(variables.$global-prefix, debug-grid-16)} {
-  background: transparent url($dataUrlGrid16) repeat top left;
-}
+  #{functions.construct-class-name(variables.$global-prefix, debug-grid-16)} {
+    background: transparent url($dataUrlGrid16) repeat top left;
+  }
 
-#{functions.construct-class-name(variables.$global-prefix, debug-grid-8-solid)} {
-  background: white url($dataUrlGrid8Solid) repeat top left;
-}
+  #{functions.construct-class-name(variables.$global-prefix, debug-grid-8-solid)} {
+    background: white url($dataUrlGrid8Solid) repeat top left;
+  }
 
-#{functions.construct-class-name(variables.$global-prefix, debug-grid-16-solid)} {
-  background: white url($dataUrlGrid16Solid) repeat top left;
-}
+  #{functions.construct-class-name(variables.$global-prefix, debug-grid-16-solid)} {
+    background: white url($dataUrlGrid16Solid) repeat top left;
+  }
 
-/*
- * Credit to Chris Coyier from CSSTricks for the striped background
- * See https://css-tricks.com/stripes-css/
- */
+  /*
+   * Credit to Chris Coyier from CSSTricks for the striped background
+   * See https://css-tricks.com/stripes-css/
+   */
 
-#{functions.construct-class-name(variables.$global-prefix, debug-striped)} {
-  background:
-    repeating-linear-gradient(
-      -45deg,
-      map.get(variables.$colors, 'black-025'),
-      map.get(variables.$colors, 'black-025') 10px,
-      map.get(variables.$colors, 'black-05') 10px,
-      map.get(variables.$colors, 'black-05') 20px
-    );
-}
+  #{functions.construct-class-name(variables.$global-prefix, debug-striped)} {
+    background:
+      repeating-linear-gradient(
+        -45deg,
+        map.get(variables.$colors, 'black-025'),
+        map.get(variables.$colors, 'black-025') 10px,
+        map.get(variables.$colors, 'black-05') 10px,
+        map.get(variables.$colors, 'black-05') 20px
+      );
+  }
 
-#{functions.construct-class-name(variables.$global-prefix, debug-striped-light)} {
-  background:
-    repeating-linear-gradient(
-      -45deg,
-      map.get(variables.$colors, 'black-025'),
-      map.get(variables.$colors, 'black-025') 10px,
-      transparent 10px,
-      transparent 20px
-    );
+  #{functions.construct-class-name(variables.$global-prefix, debug-striped-light)} {
+    background:
+      repeating-linear-gradient(
+        -45deg,
+        map.get(variables.$colors, 'black-025'),
+        map.get(variables.$colors, 'black-025') 10px,
+        transparent 10px,
+        transparent 20px
+      );
+  }
 }

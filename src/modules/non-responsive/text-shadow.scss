@@ -2,6 +2,8 @@
 @use '../../variables';
 @use 'sass:map';
 
-#{functions.construct-class-name(variables.$global-prefix, text-shadow)} {
-  text-shadow: .1em .1em .1em map.get(variables.$colors, 'black-60');
+@mixin text-shadow() {
+  #{functions.construct-class-name(variables.$global-prefix, text-shadow)} {
+    text-shadow: .1em .1em .1em map.get(variables.$colors, 'black-60');
+  }
 }

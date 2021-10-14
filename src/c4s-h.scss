@@ -1,9 +1,9 @@
 /*
-   Huge viewports
+ *  Huge viewports
  */
 
 @use 'modules/responsive-all';
+@use 'modules/non-responsive-all';
 
-@media only screen and (min-width: 90em) {
-  @include responsive-all.responsive-all(-h);
-}
+@include non-responsive-all.non-responsive-all();
+@include responsive-all.responsive-all(h);

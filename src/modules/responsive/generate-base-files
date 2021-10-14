@@ -7,8 +7,6 @@ for file in _*; do
 
     touch "$newFile"
     cat << EOF > "$newFile"
-@use '../../functions';
-@use '../../variables';
 @use './$baseName';
 
 @include $baseName.$baseName('');

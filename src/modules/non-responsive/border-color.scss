@@ -1,8 +1,10 @@
 @use '../../functions';
 @use '../../variables';
 
-@each $color, $value in variables.$colors {
-  #{functions.construct-class-name(variables.$global-prefix, b-- + $color)} {
-    border-color: $value;
+@mixin border-color() {
+  @each $color, $value in variables.$colors {
+    #{functions.construct-class-name(variables.$global-prefix, b-- + $color)} {
+      border-color: $value;
+    }
   }
 }

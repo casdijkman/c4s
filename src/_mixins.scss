@@ -1,0 +1,30 @@
+@use 'variables';
+@use 'sass:map';
+@use 'sass:string';
+
+@mixin media-breakpoint-up($name) {
+  $breakpoint-map: map-get(variables.$breakpoints, $name);
+
+  @if $name == '' or $name == null {
+    @content;
+  } @else if $breakpoint-map == null {
+    @error 'Unknown breakpoint: ' + $name;
+  } @else {
+    $breakpoint: map-get($breakpoint-map, breakpoint);
+    $media: map-get($breakpoint-map, media);
+
+    @if $media == null {
+      $media: screen;
+    }
+
+    @if $breakpoint == null {
+      @media only #{$media} {
+        @content;
+      }
+    } @else {
+      @media only #{$media} and (min-width: $breakpoint) {
+        @content;
+      }
+    }
+  }
+}

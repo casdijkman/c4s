@@ -1,5 +1,3 @@
-@use '../../functions';
-@use '../../variables';
 @use './line-height';
 
 @include line-height.line-height('');

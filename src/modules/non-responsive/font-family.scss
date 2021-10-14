@@ -1,31 +1,28 @@
 @use '../../functions';
 @use '../../variables';
 
-#{functions.construct-class-name(variables.$global-prefix, sans-serif)} {
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    'avenir next',
-    avenir,
-    'helvetica neue',
-    helvetica,
-    ubuntu,
-    roboto,
-    noto,
-    'segoe ui',
-    arial,
-    sans-serif;
-}
+@mixin font-family() {
+  #{functions.construct-class-name(variables.$global-prefix, sans-serif)} {
+    font-family:
+      -apple-system,
+      BlinkMacSystemFont,
+      'avenir next',
+      avenir,
+      'helvetica neue',
+      helvetica,
+      ubuntu,
+      roboto,
+      noto,
+      'segoe ui',
+      arial,
+      sans-serif;
+  }
 
-#{functions.construct-class-name(variables.$global-prefix, serif)} {
-  font-family:
-    georgia,
-    times,
-    serif;
-}
+  #{functions.construct-class-name(variables.$global-prefix, serif)} {
+    font-family: georgia, times, serif;
+  }
 
-$font-family-code: consolas, monaco, monospace;
-
-#{functions.construct-class-name(variables.$global-prefix, code)} {
-  font-family: $font-family-code;
+  #{functions.construct-class-name(variables.$global-prefix, code)} {
+    font-family: variables.$font-family-code;
+  }
 }

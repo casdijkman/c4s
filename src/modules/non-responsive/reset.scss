@@ -1,50 +1,54 @@
 @use '../../variables';
-@use './font-family';
 @use 'sass:map';
+@use 'sass:string';
 
-html {
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
+@mixin reset() {
+  html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  button {
+    font-size: inherit;
+    font-family: inherit;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 2.75rem;
+    margin-bottom: 1rem;
+    line-height: map.get(variables.$line-height-levels, 'header');
+  }
+
+  h1    { font-size: map.get(variables.$font-sizes, 'f1'); }
+  h2    { font-size: map.get(variables.$font-sizes, 'f2'); }
+  h3    { font-size: map.get(variables.$font-sizes, 'f3'); }
+  h4    { font-size: map.get(variables.$font-sizes, 'f4'); }
+  h5    { font-size: map.get(variables.$font-sizes, 'f5'); }
+  h6    { font-size: map.get(variables.$font-sizes, 'f6'); }
+  small { font-size: map.get(variables.$font-sizes, 'small'); }
+
+  p { line-height: map.get(variables.$line-height-levels, 'text'); }
+
+  code { font-family: variables.$font-family-code; }
 }
-
-body {
-  margin: 0;
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-button {
-  font-size: inherit;
-  font-family: inherit;
-}
-
-// Prevent extra space at the bottom of `img` tags
-img { display: block; }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-top: 2.75rem;
-  margin-bottom: 1rem;
-  line-height: map.get(variables.$line-height-levels, 'header');
-}
-
-h1    { font-size: variables.$font-size-h1; }
-h2    { font-size: variables.$font-size-h2; }
-h3    { font-size: variables.$font-size-h3; }
-h4    { font-size: variables.$font-size-h4; }
-h5    { font-size: variables.$font-size-h5; }
-h6    { font-size: variables.$font-size-h6; }
-small { font-size: variables.$font-size-small; }
-
-p { line-height: map.get(variables.$line-height-levels, 'text'); }
-
-code { font-family: font-family.$font-family-code; }

@@ -8,48 +8,50 @@
 
  */
 
-// Border top between
-#{functions.construct-class-name(variables.$global-prefix, bt-between)} +
-#{functions.construct-class-name(variables.$global-prefix, bt-between)} {
-  border-top-style: solid;
-  border-top-width: 1px;
-}
-
-// Border left between
-#{functions.construct-class-name(variables.$global-prefix, bl-between)} +
-#{functions.construct-class-name(variables.$global-prefix, bl-between)} {
-  border-left-style: solid;
-  border-left-width: 1px;
-}
-
-// Padding top between
-@each $level, $value in variables.$spacer-levels {
-  #{functions.construct-class-name(variables.$global-prefix, pt + $level, between)} +
-  #{functions.construct-class-name(variables.$global-prefix, pt + $level, between)} {
-    padding-top: $value;
+@mixin complex() {
+  // Border top between
+  #{functions.construct-class-name(variables.$global-prefix, bt-between)} +
+  #{functions.construct-class-name(variables.$global-prefix, bt-between)} {
+    border-top-style: solid;
+    border-top-width: 1px;
   }
-}
 
-// Padding left between
-@each $level, $value in variables.$spacer-levels {
-  #{functions.construct-class-name(variables.$global-prefix, pl + $level, between)} +
-  #{functions.construct-class-name(variables.$global-prefix, pl + $level, between)} {
-    padding-left: $value;
+  // Border left between
+  #{functions.construct-class-name(variables.$global-prefix, bl-between)} +
+  #{functions.construct-class-name(variables.$global-prefix, bl-between)} {
+    border-left-style: solid;
+    border-left-width: 1px;
   }
-}
 
-// Margin top between
-@each $level, $value in variables.$spacer-levels {
-  #{functions.construct-class-name(variables.$global-prefix, mt + $level, between)} +
-  #{functions.construct-class-name(variables.$global-prefix, mt + $level, between)} {
-    margin-top: $value;
+  // Padding top between
+  @each $level, $value in variables.$spacer-levels {
+    #{functions.construct-class-name(variables.$global-prefix, pt + $level, between)} +
+    #{functions.construct-class-name(variables.$global-prefix, pt + $level, between)} {
+      padding-top: $value;
+    }
   }
-}
 
-// Margin left between
-@each $level, $value in variables.$spacer-levels {
-  #{functions.construct-class-name(variables.$global-prefix, ml + $level, between)} +
-  #{functions.construct-class-name(variables.$global-prefix, ml + $level, between)} {
-    margin-left: $value;
+  // Padding left between
+  @each $level, $value in variables.$spacer-levels {
+    #{functions.construct-class-name(variables.$global-prefix, pl + $level, between)} +
+    #{functions.construct-class-name(variables.$global-prefix, pl + $level, between)} {
+      padding-left: $value;
+    }
+  }
+
+  // Margin top between
+  @each $level, $value in variables.$spacer-levels {
+    #{functions.construct-class-name(variables.$global-prefix, mt + $level, between)} +
+    #{functions.construct-class-name(variables.$global-prefix, mt + $level, between)} {
+      margin-top: $value;
+    }
+  }
+
+  // Margin left between
+  @each $level, $value in variables.$spacer-levels {
+    #{functions.construct-class-name(variables.$global-prefix, ml + $level, between)} +
+    #{functions.construct-class-name(variables.$global-prefix, ml + $level, between)} {
+      margin-left: $value;
+    }
   }
 }

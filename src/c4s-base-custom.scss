@@ -1,9 +1,9 @@
-/*
- *  Large viewports
- */
-
+@use 'variables';
 @use 'modules/responsive-all';
 @use 'modules/non-responsive-all';
 
+@include variables.configure(
+ // Do configuration
+);
 @include non-responsive-all.non-responsive-all();
-@include responsive-all.responsive-all(l);
+@include responsive-all.responsive-all();

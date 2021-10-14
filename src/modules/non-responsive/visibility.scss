@@ -1,15 +1,10 @@
 @use '../../functions';
 @use '../../variables';
 
-$visibilities: (
-  visible: visible,
-  hidden: hidden,
-  invisible: hidden,
-  // collapse: collapse
-);
-
-@each $name, $value in $visibilities {
-  #{functions.construct-class-name(variables.$global-prefix, $name)} {
-    visibility: $value;
+@mixin visibility() {
+  @each $name, $value in variables.$visibilities {
+    #{functions.construct-class-name(variables.$global-prefix, $name)} {
+      visibility: $value;
+    }
   }
 }

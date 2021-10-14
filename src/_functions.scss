@@ -2,7 +2,7 @@
 @use 'sass:meta';
 @use 'sass:list';
 
-@function pow($number, $exponent) {
+@function power($number, $exponent) {
   $value: 1;
 
   @if $exponent > 0 {
@@ -20,7 +20,7 @@
 }
 
 @function nth-power-of-two($exponent) {
-  @return pow(2, $exponent);
+  @return power(2, $exponent);
 }
 
 @function remove-values-from-list($list, $value) {
@@ -41,6 +41,7 @@
   }
 
   $list: remove-values-from-list($list, '');
+  $list: remove-values-from-list($list, null);
   $dash-separated-string: '';
 
   @each $item in $list {

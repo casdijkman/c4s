@@ -1,8 +1,10 @@
 @use '../../functions';
 @use '../../variables';
 
-@each $color, $value in variables.$colors {
-  #{functions.construct-class-name(variables.$global-prefix, hover, $color)}:hover {
-    color: $value;
+@mixin hover-color() {
+  @each $color, $value in variables.$colors {
+    #{functions.construct-class-name(variables.$global-prefix, hover, $color)}:hover {
+      color: $value;
+    }
   }
 }

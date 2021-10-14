@@ -1,10 +1,12 @@
 /*
    Responsive imports
 
-   These imports are all mixins that are passed a $media-suffix can thus be used inside
+   These imports are all mixins that are passed a $breakpoint-name can thus be used inside
    media queries targeting specific screen sizes. The media suffix is added to the end of
    the CSS rules. When there should be no suffix pass an emtpy string.
  */
+@use '../variables';
+@use '../mixins';
 @use 'responsive/padding';
 @use 'responsive/margin';
 @use 'responsive/width';
@@ -24,23 +26,25 @@
 @use 'responsive/tracking';
 @use 'responsive/measure';
 
-@mixin responsive-all($media-suffix) {
-  @include padding.padding               ($media-suffix);
-  @include margin.margin                 ($media-suffix);
-  @include width.width                   ($media-suffix);
-  @include height.height                 ($media-suffix);
-  @include position.position             ($media-suffix);
-  @include coordinates.coordinates       ($media-suffix);
-  @include display.display               ($media-suffix);
-  @include flex.flex                     ($media-suffix);
-  @include flex-direction.flex-direction ($media-suffix);
-  @include float.float                   ($media-suffix);
-  @include border-radius.border-radius   ($media-suffix);
-  @include font-size.font-size           ($media-suffix);
-  @include line-height.line-height       ($media-suffix);
-  @include font-weight.font-weight       ($media-suffix);
-  @include white-space.white-space       ($media-suffix);
-  @include vertical-align.vertical-align ($media-suffix);
-  @include tracking.tracking             ($media-suffix);
-  @include measure.measure               ($media-suffix);
+@mixin responsive-all($breakpoint-name: null) {
+  @include mixins.media-breakpoint-up($breakpoint-name) {
+    @include padding.padding               ($breakpoint-name);
+    @include margin.margin                 ($breakpoint-name);
+    @include width.width                   ($breakpoint-name);
+    @include height.height                 ($breakpoint-name);
+    @include position.position             ($breakpoint-name);
+    @include coordinates.coordinates       ($breakpoint-name);
+    @include display.display               ($breakpoint-name);
+    @include flex.flex                     ($breakpoint-name);
+    @include flex-direction.flex-direction ($breakpoint-name);
+    @include float.float                   ($breakpoint-name);
+    @include border-radius.border-radius   ($breakpoint-name);
+    @include font-size.font-size           ($breakpoint-name);
+    @include line-height.line-height       ($breakpoint-name);
+    @include font-weight.font-weight       ($breakpoint-name);
+    @include white-space.white-space       ($breakpoint-name);
+    @include vertical-align.vertical-align ($breakpoint-name);
+    @include tracking.tracking             ($breakpoint-name);
+    @include measure.measure               ($breakpoint-name);
+  }
 }

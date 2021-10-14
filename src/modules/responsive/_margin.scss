@@ -1,10 +1,7 @@
 @use '../../functions';
 @use '../../variables';
-@use 'sass:map';
 
-// Add auto as a level for margins with -auto suffix
-// NB: Margin-all and margin-vertical rules do not include the '-auto' suffix
-$margin-spacer-levels: map.merge(variables.$spacer-levels, ('-auto': auto));
+// Note: Margin-all and margin-vertical rules do not include the '-auto' suffix
 
 $margins: (
   m:  margin,
@@ -21,7 +18,7 @@ $margins: (
     @if $property == margin {
       $levels: variables.$spacer-levels;
     } @else {
-      $levels: $margin-spacer-levels;
+      $levels: variables.$margin-spacer-levels;
     }
 
     @each $level, $value in $levels {
@@ -31,19 +28,15 @@ $margins: (
     }
   }
 
-  /*
-     MARGIN HORIZONTAL
-   */
-  @each $level, $value in $margin-spacer-levels {
+  // MARGIN HORIZONTAL
+  @each $level, $value in variables.$margin-spacer-levels {
     #{functions.construct-class-name(variables.$global-prefix, mh + $level, $media-suffix)} {
       margin-left: $value;
       margin-right: $value;
     }
   }
 
-  /*
-     MARGIN VERTICAL
-   */
+  // MARGIN VERTICAL
   @each $level, $value in variables.$spacer-levels {
     #{functions.construct-class-name(variables.$global-prefix, mv + $level, $media-suffix)} {
       margin-top: $value;
