@@ -1,9 +1,11 @@
 @use '../../functions';
 @use '../../variables';
 
+$global-prefix: variables.$global-prefix;
+
 @mixin text-align() {
   @each $name, $value in variables.$text-aligns {
-    #{functions.construct-class-name(variables.$global-prefix, t + $name)} {
+    #{functions.construct-class-name($global-prefix, $name)} {
       text-align: $value;
     }
   }

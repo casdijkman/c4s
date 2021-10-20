@@ -1,28 +1,13 @@
 @use '../../functions';
 @use '../../variables';
+@use 'sass:string';
+
+$global-prefix: variables.$global-prefix;
 
 @mixin font-family() {
-  #{functions.construct-class-name(variables.$global-prefix, sans-serif)} {
-    font-family:
-      -apple-system,
-      BlinkMacSystemFont,
-      'avenir next',
-      avenir,
-      'helvetica neue',
-      helvetica,
-      ubuntu,
-      roboto,
-      noto,
-      'segoe ui',
-      arial,
-      sans-serif;
-  }
-
-  #{functions.construct-class-name(variables.$global-prefix, serif)} {
-    font-family: georgia, times, serif;
-  }
-
-  #{functions.construct-class-name(variables.$global-prefix, code)} {
-    font-family: variables.$font-family-code;
+  @each $name, $value in variables.$font-families {
+    #{functions.construct-class-name($global-prefix, $name)} {
+      font-family: string.unquote($value);
+    }
   }
 }

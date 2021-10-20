@@ -1,9 +1,12 @@
 @use '../../functions';
 @use '../../variables';
 
+$global-prefix: variables.$global-prefix;
+$prefix: variables.$border-style-prefix;
+
 @mixin border-style() {
   @each $border-style in variables.$border-styles {
-    #{functions.construct-class-name(variables.$global-prefix, b-- + $border-style)} {
+    #{functions.construct-class-name($global-prefix, $prefix + $border-style)} {
       border-style: $border-style;
     }
   }

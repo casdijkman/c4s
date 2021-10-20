@@ -1,34 +1,18 @@
 @use '../../functions';
 @use '../../variables';
+@use 'sass:map';
+
+$global-prefix: variables.$global-prefix;
 
 @mixin border() {
-  #{functions.construct-class-name(variables.$global-prefix, ba)} {
-    border-style: solid;
-    border-width: 1px;
-  }
+  @each $name, $map in variables.$borders {
+    $direction: map.get($map, 'border-direction');
+    $property-style: functions.list-to-dash-separated-string((border, $direction, style));
+    $property-width: functions.list-to-dash-separated-string((border, $direction, width));
 
-  #{functions.construct-class-name(variables.$global-prefix, bt)} {
-    border-top-style: solid;
-    border-top-width: 1px;
-  }
-
-  #{functions.construct-class-name(variables.$global-prefix, br)} {
-    border-right-style: solid;
-    border-right-width: 1px;
-  }
-
-  #{functions.construct-class-name(variables.$global-prefix, bb)} {
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-  }
-
-  #{functions.construct-class-name(variables.$global-prefix, bl)} {
-    border-left-style: solid;
-    border-left-width: 1px;
-  }
-
-  #{functions.construct-class-name(variables.$global-prefix, bn)} {
-    border-style: none;
-    border-width: 0;
+    #{functions.construct-class-name($global-prefix, $name)} {
+      #{$property-style}: map.get($map, 'border-style');
+      #{$property-width}: map.get($map, 'border-width');
+    }
   }
 }

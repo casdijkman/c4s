@@ -50,5 +50,5 @@
 
   p { line-height: map.get(variables.$line-height-levels, 'text'); }
 
-  code { font-family: variables.$font-family-code; }
+  code { font-family: string.unquote(map.get(variables.$font-families, 'code')); }
 }

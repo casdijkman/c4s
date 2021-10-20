@@ -3,15 +3,15 @@
 @use 'sass:string';
 
 @mixin media-breakpoint-up($name) {
-  $breakpoint-map: map-get(variables.$breakpoints, $name);
+  $breakpoint-map: map.get(variables.$breakpoints, $name);
 
   @if $name == '' or $name == null {
     @content;
   } @else if $breakpoint-map == null {
     @error 'Unknown breakpoint: ' + $name;
   } @else {
-    $breakpoint: map-get($breakpoint-map, breakpoint);
-    $media: map-get($breakpoint-map, media);
+    $breakpoint: map.get($breakpoint-map, breakpoint);
+    $media: map.get($breakpoint-map, media);
 
     @if $media == null {
       $media: screen;

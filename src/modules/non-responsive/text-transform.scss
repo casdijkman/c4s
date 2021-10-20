@@ -1,12 +1,12 @@
 @use '../../functions';
 @use '../../variables';
 
-@mixin text-transform() {
-  #{functions.construct-class-name(variables.$global-prefix, capitalize)} {
-    text-transform: capitalize;
-  }
+$global-prefix: variables.$global-prefix;
 
-  #{functions.construct-class-name(variables.$global-prefix, uppercase)} {
-    text-transform: uppercase;
+@mixin text-transform() {
+  @each $name, $value in variables.$text-transforms {
+    #{functions.construct-class-name($global-prefix, $name)} {
+      text-transform: $value;
+    }
   }
 }

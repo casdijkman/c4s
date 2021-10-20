@@ -4,7 +4,7 @@
 @use 'sass:map';
 
 /**********
- * GLOBAL *
+ * Global *
  **********/
 
 $global-prefix: '';
@@ -20,20 +20,284 @@ $breakpoints: (
     breakpoint: 60em
   ),
   h: (
-    breakpoint: 90em,
+    breakpoint: 90em
   ),
   p: (
     media: print
   )
 );
 
-/*
-   SPACERS
+/**********
+ * Shared *
+ **********/
 
-   There are eight levels of spacers, including $spacer-0, which is level 0
-   $spacer-0 is 0. After $spacer-1, every next spacer is twice the size of the last
-   Levels  1 through 7 therefore represent the product of $spacer-base with powers of two
-   $spacer-4 and is considered 'medium' size and is the product of $spacer-base and 2^0
+/*
+ * Colors
+ */
+
+$black: #000;
+$white: #fff;
+
+$colors: (
+  /*
+   * Black/gray/white
+   */
+  'black':         $black,
+  'near-black':    #111,
+  'dark-gray':     #333,
+  'mid-gray':      #555,
+  'gray':          #777,
+  'silver':        #999,
+  'light-silver':  #aaa,
+  'moon-gray':     #ccc,
+  'light-gray':    #eee,
+  'near-white':    #f4f4f4,
+  'white':         $white,
+  /*
+   * Red
+   */
+  'dark-red':      #e7040f,
+  'red':           #ff4136,
+  'light-red':     #ff725c,
+  'washed-red':    #ffdfdf,
+  /*
+   * Orange/yellow
+   */
+  'orange':        #ff6300,
+  'gold':          #ffb700,
+  'yellow':        #ffd700,
+  'light-yellow':  #fbf1a9,
+  'washed-yellow': #fffceb,
+  /*
+   * Purple/pink
+   */
+  'purple':        #5e2ca5,
+  'light-purple':  #a463f2,
+  'dark-pink':     #d5008f,
+  'hot-pink':      #ff41b4,
+  'pink':          #ff80cc,
+  'light-pink':    #ffa3d7,
+  /*
+   * Green
+   */
+  'dark-green':    #137752,
+  'green':         #19a974,
+  'light-green':   #9eebcf,
+  'washed-green':  #e8fdf5,
+  /*
+   * Blue
+   */
+  'navy':          #001b44,
+  'dark-blue':     #00449e,
+  'blue':          #357edd,
+  'light-blue':    #96ccff,
+  'lightest-blue': #cdecff,
+  'washed-blue':   #f6fffe,
+  /*
+   * Black opacity variations
+   */
+  'black-90':      color.scale($black, $alpha: -10%),
+  'black-80':      color.scale($black, $alpha: -20%),
+  'black-70':      color.scale($black, $alpha: -30%),
+  'black-60':      color.scale($black, $alpha: -40%),
+  'black-50':      color.scale($black, $alpha: -50%),
+  'black-40':      color.scale($black, $alpha: -60%),
+  'black-30':      color.scale($black, $alpha: -70%),
+  'black-20':      color.scale($black, $alpha: -80%),
+  'black-10':      color.scale($black, $alpha: -90%),
+  'black-05':      color.scale($black, $alpha: -95%),
+  'black-025':     color.scale($black, $alpha: -97.5%),
+  'black-0125':    color.scale($black, $alpha: -98.75%),
+  /*
+   * White opacity variations
+   */
+  'white-90':      color.scale($white, $alpha: -10%),
+  'white-80':      color.scale($white, $alpha: -20%),
+  'white-70':      color.scale($white, $alpha: -30%),
+  'white-60':      color.scale($white, $alpha: -40%),
+  'white-50':      color.scale($white, $alpha: -50%),
+  'white-40':      color.scale($white, $alpha: -60%),
+  'white-30':      color.scale($white, $alpha: -70%),
+  'white-20':      color.scale($white, $alpha: -80%),
+  'white-10':      color.scale($white, $alpha: -90%),
+  'white-05':      color.scale($white, $alpha: -95%),
+  'white-025':     color.scale($white, $alpha: -97.5%),
+  'white-0125':    color.scale($white, $alpha: -98.75%),
+  /*
+   * Transparent
+   */
+  'transparent': transparent
+);
+
+/******************
+ * Non-responsive *
+ ******************/
+
+// Background-color
+$background-color-name: bg;
+
+// Border color
+$border-color-prefix: b--;
+
+// Border
+$-border-style-default: solid;
+$-border-width-default: 1px;
+$borders: (
+  ba: (
+    border-direction: null,
+    border-style: $-border-style-default,
+    border-width: $-border-width-default
+  ),
+  bt: (
+    border-direction: top,
+    border-style: $-border-style-default,
+    border-width: $-border-width-default
+  ),
+  br: (
+    border-direction: right,
+    border-style: $-border-style-default,
+    border-width: $-border-width-default
+  ),
+  bb: (
+    border-direction: bottom,
+    border-style: $-border-style-default,
+    border-width: $-border-width-default
+  ),
+  bl: (
+    border-direction: left,
+    border-style: $-border-style-default,
+    border-width: $-border-width-default
+  ),
+  bn: (
+    border-direction: null,
+    border-style: none,
+    border-width: 0
+  )
+);
+
+// Border styles
+$border-style-prefix: b--;
+$border-styles: [ solid, dotted, dashed, double, groove, ridge, inset, outset ];
+
+// Border width
+$border-width-prefix: bw;
+$border-width-base: 1rem;
+$border-widths: (
+  '1': $border-width-base * functions.nth-power-of-two(-3),
+  '2': $border-width-base * functions.nth-power-of-two(-2),
+  '3': $border-width-base * functions.nth-power-of-two(-1),
+  '4': $border-width-base,
+  '5': $border-width-base * functions.nth-power-of-two(1)
+);
+
+// Box sizing
+$box-sizings: [border-box, content-box];
+
+// Cursor
+$cursor-name: cursor;
+$cursors: pointer, text, none, not-allowed, progress, wait;
+
+// Font family
+$font-families: (
+  sans-serif: '-apple-system, BlinkMacSystemFont, "avenir next", avenir, "helvetica neue", helvetica, ubuntu, roboto, noto, "segoe ui", arial, sans-serif',
+  serif: 'georgia, times, serif',
+  code: 'consolas, monaco, monospace'
+);
+
+// Font style
+$font-styles: (
+  fs-normal: normal,
+  fs-italic: italic,
+  i: italic
+);
+
+// Hover background color
+$hover-background-color-name: hover-bg;
+
+// Hover color
+$hover-color-name: hover;
+
+// Opacity
+$opacity-name: o;
+$opacity-levels: (
+  '100': 1,
+  '90':  .9,
+  '80':  .8,
+  '70':  .7,
+  '60':  .6,
+  '50':  .5,
+  '40':  .4,
+  '30':  .3,
+  '20':  .2,
+  '10':  .1,
+  '05':  .05,
+  '025': .025,
+  '0':   0
+);
+
+// Text align
+$text-aligns: (
+  tl: left,
+  tr: right,
+  tc: center,
+  tj: justify
+);
+
+// Text decoration
+$text-decorations: (
+  underline: underline,
+  line-through: line-through,
+  strike: line-through
+);
+
+// Text shadow
+$text-shadows: (
+  text-shadow: .1em .1em .1em map.get($colors, 'black-60')
+);
+
+// Text transform
+$text-transforms: (
+  capitalize: capitalize,
+  uppercase: uppercase
+);
+
+// Transform
+$-translate-levels: (
+  '0':    0,
+  '100':  100%,
+  'n100': -100%,
+  '50':   50%,
+  'n50':  -50%
+);
+$transform-translate-horizontal-name: 'translateX';
+$transform-translate-horizontal-levels: $-translate-levels;
+$transform-translate-vertical-name: 'translateY';
+$transform-translate-vertical-levels: $-translate-levels;
+
+// Transition
+$transition-name: transition-transform;
+$transition-speeds: (
+  'slow':   .5s,
+  'medium': .25s,
+  'fast':   .15s
+);
+
+// Visibility
+$visibilities: (
+  visible: visible,
+  hidden: hidden,
+  invisible: hidden,
+  // collapse: collapse
+);
+
+// TODO responsive modules
+
+/*
+ * Spacers
+ *
+ * There are eight levels of spacers, the first being level 0 with value 0. Levels 1
+ * through 7 represent the product of $spacer-base with powers of two. Level 4 and is
+ * considered middle size and is the product of $spacer-base and 2^0.
  */
 
 $spacer-base: 2rem;
@@ -96,126 +360,6 @@ $sizer-levels: (
   '-80':         80%,
   '-90':         90%,
   '-100':        100%
-);
-
-/*
-   TRANSLATE
- */
-
-$translate-levels: (
-  '0':    0,
-  '100':  100%,
-  'n100': -100%,
-  '50':   50%,
-  'n50':  -50%
-);
-
-/*
-   TRANSITION SPEED
- */
-
-$transition-speeds: (
-  'slow':   .5s,
-  'medium': .25s,
-  'fast':   .15s
-);
-
-/*
-   COLORS
- */
-
-$black: #000;
-$white: #fff;
-
-$colors: (
-  /*
-     Black/gray/white
-   */
-  'black':         $black,
-  'near-black':    #111,
-  'dark-gray':     #333,
-  'mid-gray':      #555,
-  'gray':          #777,
-  'silver':        #999,
-  'light-silver':  #aaa,
-  'moon-gray':     #ccc,
-  'light-gray':    #eee,
-  'near-white':    #f4f4f4,
-  'white':         $white,
-  /*
-     Red
-   */
-  'dark-red':      #e7040f,
-  'red':           #ff4136,
-  'light-red':     #ff725c,
-  'washed-red':    #ffdfdf,
-  /*
-     Orange/yellow
-   */
-  'orange':        #ff6300,
-  'gold':          #ffb700,
-  'yellow':        #ffd700,
-  'light-yellow':  #fbf1a9,
-  'washed-yellow': #fffceb,
-  /*
-     Purple/pink
-   */
-  'purple':        #5e2ca5,
-  'light-purple':  #a463f2,
-  'dark-pink':     #d5008f,
-  'hot-pink':      #ff41b4,
-  'pink':          #ff80cc,
-  'light-pink':    #ffa3d7,
-  /*
-     Green
-   */
-  'dark-green':    #137752,
-  'green':         #19a974,
-  'light-green':   #9eebcf,
-  'washed-green':  #e8fdf5,
-  /*
-     Blue
-   */
-  'navy':          #001b44,
-  'dark-blue':     #00449e,
-  'blue':          #357edd,
-  'light-blue':    #96ccff,
-  'lightest-blue': #cdecff,
-  'washed-blue':   #f6fffe,
-  /*
-     Black opacity variations
-   */
-  'black-90':      color.scale($black, $alpha: -10%),
-  'black-80':      color.scale($black, $alpha: -20%),
-  'black-70':      color.scale($black, $alpha: -30%),
-  'black-60':      color.scale($black, $alpha: -40%),
-  'black-50':      color.scale($black, $alpha: -50%),
-  'black-40':      color.scale($black, $alpha: -60%),
-  'black-30':      color.scale($black, $alpha: -70%),
-  'black-20':      color.scale($black, $alpha: -80%),
-  'black-10':      color.scale($black, $alpha: -90%),
-  'black-05':      color.scale($black, $alpha: -95%),
-  'black-025':     color.scale($black, $alpha: -97.5%),
-  'black-0125':    color.scale($black, $alpha: -98.75%),
-  /*
-     White opacity variations
-   */
-  'white-90':      color.scale($white, $alpha: -10%),
-  'white-80':      color.scale($white, $alpha: -20%),
-  'white-70':      color.scale($white, $alpha: -30%),
-  'white-60':      color.scale($white, $alpha: -40%),
-  'white-50':      color.scale($white, $alpha: -50%),
-  'white-40':      color.scale($white, $alpha: -60%),
-  'white-30':      color.scale($white, $alpha: -70%),
-  'white-20':      color.scale($white, $alpha: -80%),
-  'white-10':      color.scale($white, $alpha: -90%),
-  'white-05':      color.scale($white, $alpha: -95%),
-  'white-025':     color.scale($white, $alpha: -97.5%),
-  'white-0125':    color.scale($white, $alpha: -98.75%),
-  /*
-     Transparent
-   */
-  'transparent': transparent
 );
 
 /*
@@ -284,102 +428,6 @@ $font-weight-levels: (
   'fw-900':     900,
   'fw-lighter': lighter,
   'fw-bolder':  bolder
-);
-
-/*
-   OPACITY LEVELS
- */
-
-$opacity-name: o;
-
-$opacity-levels: (
-  '100': 1,
-  '90':  .9,
-  '80':  .8,
-  '70':  .7,
-  '60':  .6,
-  '50':  .5,
-  '40':  .4,
-  '30':  .3,
-  '20':  .2,
-  '10':  .1,
-  '05':  .05,
-  '025': .025,
-  '0':   0
-);
-
-/*
-   BORDER STYLES
- */
-
-$border-styles: [ solid, dotted, dashed, double, groove, ridge, inset, outset ];
-
-/*
-   BORDER WIDTHS
- */
-
-$border-width-base: 1rem;
-
-$border-widths: (
-  '1': $border-width-base * functions.nth-power-of-two(-3),
-  '2': $border-width-base * functions.nth-power-of-two(-2),
-  '3': $border-width-base * functions.nth-power-of-two(-1),
-  '4': $border-width-base,
-  '5': $border-width-base * functions.nth-power-of-two(1)
-);
-
-/*
-   CURSORS
- */
-
-$cursors: pointer, text, none, not-allowed, progress, wait;
-
-/*
-   FONT FAMILIES
- */
-
-$font-family-code: consolas, monaco, monospace;
-
-/*
-   FONT STYLES
- */
-
-$font-styles: (
-  fs-normal: normal,
-  fs-italic: italic,
-  i: italic
-);
-
-/*
-   TEXT ALIGNS
- */
-
-$text-aligns: (
-  l: left,
-  r: right,
-  c: center,
-  j: justify
-);
-
-/*
-   TEXT DECORATIONS
- */
-
-$text-decorations: (
-  underline: underline,
-  line-through: line-through,
-  strike: line-through
-);
-
-/*
-   VISIBILITIES
- */
-
-$visibilities: (
-  visible: visible,
-  hidden: hidden,
-  invisible: hidden,
-  // collapse: collapse
 );
 
 /*

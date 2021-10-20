@@ -1,9 +1,12 @@
 @use '../../functions';
 @use '../../variables';
-@use 'sass:map';
+
+$global-prefix: variables.$global-prefix;
 
 @mixin text-shadow() {
-  #{functions.construct-class-name(variables.$global-prefix, text-shadow)} {
-    text-shadow: .1em .1em .1em map.get(variables.$colors, 'black-60');
+  @each $name, $value in variables.$text-shadows {
+    #{functions.construct-class-name($global-prefix, $name)} {
+      text-shadow: $value;
+    }
   }
 }

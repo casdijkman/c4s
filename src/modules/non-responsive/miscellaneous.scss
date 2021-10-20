@@ -1,15 +1,17 @@
 @use '../../functions';
 @use '../../variables';
 
+$global-prefix: variables.$global-prefix;
+
 @mixin miscellaneous() {
-  #{functions.construct-class-name(variables.$global-prefix, list-reset)} {
+  #{functions.construct-class-name($global-prefix, list-reset)} {
     list-style: none;
     padding-left: 0;
     margin-top: 0;
     margin-bottom: 0;
   }
 
-  #{functions.construct-class-name(variables.$global-prefix, stretch)} {
+  #{functions.construct-class-name($global-prefix, stretch)} {
     position: absolute;
     top: 0;
     left: 0;
@@ -17,7 +19,7 @@
     right: 0;
   }
 
-  #{functions.construct-class-name(variables.$global-prefix, stretch-pseudo)}::after {
+  #{functions.construct-class-name($global-prefix, stretch-pseudo)}::after {
     content: '';
     position: absolute;
     top: 0;
@@ -28,7 +30,7 @@
     background-color: transparent;
   }
 
-  #{functions.construct-class-name(variables.$global-prefix, link)} {
+  #{functions.construct-class-name($global-prefix, link)} {
     text-decoration: none;
   }
 }

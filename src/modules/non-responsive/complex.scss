@@ -1,56 +1,57 @@
 @use '../../functions';
 @use '../../variables';
 
-/*
-   Complex rules are CSS rules that are either context-dependent,
-   have more than one selector or more than two properties.
-   These rules are not considered atomic CSS.
+$global-prefix: variables.$global-prefix;
 
+/*
+ * Complex rules are CSS rules that are either context-dependent,
+ * have more than one selector or more than two properties.
+ * These rules are not considered atomic CSS.
  */
 
 @mixin complex() {
   // Border top between
-  #{functions.construct-class-name(variables.$global-prefix, bt-between)} +
-  #{functions.construct-class-name(variables.$global-prefix, bt-between)} {
+  #{functions.construct-class-name($global-prefix, bt-between)} +
+  #{functions.construct-class-name($global-prefix, bt-between)} {
     border-top-style: solid;
     border-top-width: 1px;
   }
 
   // Border left between
-  #{functions.construct-class-name(variables.$global-prefix, bl-between)} +
-  #{functions.construct-class-name(variables.$global-prefix, bl-between)} {
+  #{functions.construct-class-name($global-prefix, bl-between)} +
+  #{functions.construct-class-name($global-prefix, bl-between)} {
     border-left-style: solid;
     border-left-width: 1px;
   }
 
   // Padding top between
   @each $level, $value in variables.$spacer-levels {
-    #{functions.construct-class-name(variables.$global-prefix, pt + $level, between)} +
-    #{functions.construct-class-name(variables.$global-prefix, pt + $level, between)} {
+    #{functions.construct-class-name($global-prefix, pt + $level, between)} +
+    #{functions.construct-class-name($global-prefix, pt + $level, between)} {
       padding-top: $value;
     }
   }
 
   // Padding left between
   @each $level, $value in variables.$spacer-levels {
-    #{functions.construct-class-name(variables.$global-prefix, pl + $level, between)} +
-    #{functions.construct-class-name(variables.$global-prefix, pl + $level, between)} {
+    #{functions.construct-class-name($global-prefix, pl + $level, between)} +
+    #{functions.construct-class-name($global-prefix, pl + $level, between)} {
       padding-left: $value;
     }
   }
 
   // Margin top between
   @each $level, $value in variables.$spacer-levels {
-    #{functions.construct-class-name(variables.$global-prefix, mt + $level, between)} +
-    #{functions.construct-class-name(variables.$global-prefix, mt + $level, between)} {
+    #{functions.construct-class-name($global-prefix, mt + $level, between)} +
+    #{functions.construct-class-name($global-prefix, mt + $level, between)} {
       margin-top: $value;
     }
   }
 
   // Margin left between
   @each $level, $value in variables.$spacer-levels {
-    #{functions.construct-class-name(variables.$global-prefix, ml + $level, between)} +
-    #{functions.construct-class-name(variables.$global-prefix, ml + $level, between)} {
+    #{functions.construct-class-name($global-prefix, ml + $level, between)} +
+    #{functions.construct-class-name($global-prefix, ml + $level, between)} {
       margin-left: $value;
     }
   }
