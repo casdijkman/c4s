@@ -10,8 +10,7 @@ function getNunjucksData() {
 
     for (const file of cssFiles) {
 	const responsive = /\/responsive\//.test(file);
-	let name = path.basename(file, '.css');
-	name = responsive ? name.replace(/-base$/, '') : name;
+	const name = path.basename(file, '.css').replace(/-module$/, '');
 
 	data.files.push({
 	    name,
