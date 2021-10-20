@@ -13,7 +13,7 @@ for directory in "${directories[@]}"; do
     [[ $directory == "responsive" ]] && mixinArgument="''"
 
     for file in _*.scss; do
-	newFile="${file:1}"
+	newFile="${file:1}" # Remove first character (being _)
 	moduleName="${newFile/.scss/}"
 	newFile="${newFile/.scss/-module.scss}"
 

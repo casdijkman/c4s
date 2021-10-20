@@ -17,7 +17,7 @@ echo "@mixin configure("
 
 for variable in "${variables[@]}"; do
     echo -n "  $variable: null"
-    if [[ $variable == ${variables[-1]} ]]; then
+    if [[ $variable == "${variables[-1]}" ]]; then
 	echo
     else
 	echo ","
@@ -33,7 +33,7 @@ for variable in "${variables[@]}"; do
   }
 EOF
 
-    if [[ $variable != ${variables[-1]} ]]; then
+    if [[ $variable != "${variables[-1]}" ]]; then
 	echo
     fi
 done
