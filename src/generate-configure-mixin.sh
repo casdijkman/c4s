@@ -10,7 +10,10 @@ IFS=$'\n\t'
 variables=()
 
 while read -r variable_line; do
-    variables+=("${variable_line//:*/}")
+    variable="${variable_line//:*/}"
+    if [[ $variable != \$-* ]]; then
+	variables+=("$variable")
+    fi
 done < <(grep '^$.*:' _variables.scss)
 
 echo "@mixin configure("

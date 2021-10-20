@@ -290,7 +290,9 @@ $visibilities: (
   // collapse: collapse
 );
 
-// TODO responsive modules
+/**************
+ * Responsive *
+ **************/
 
 /*
  * Spacers
@@ -430,42 +432,61 @@ $font-weight-levels: (
   'fw-bolder':  bolder
 );
 
-/*
-   CONFIGURATION
- */
+/*****************
+ * Configuration *
+ *****************/
 
+/*
+ * Note: The configure mixin below is generated and updated respectively with
+ * 'generate-configure-mixin.sh' and 'update-configure-mixin.sh' scripts.
+ */
 @mixin configure(
   $global-prefix: null,
   $breakpoints: null,
+  $black: null,
+  $white: null,
+  $colors: null,
+  $background-color-name: null,
+  $border-color-prefix: null,
+  $borders: null,
+  $border-style-prefix: null,
+  $border-styles: null,
+  $border-width-prefix: null,
+  $border-width-base: null,
+  $border-widths: null,
+  $box-sizings: null,
+  $cursor-name: null,
+  $cursors: null,
+  $font-families: null,
+  $font-styles: null,
+  $hover-background-color-name: null,
+  $hover-color-name: null,
+  $opacity-name: null,
+  $opacity-levels: null,
+  $text-aligns: null,
+  $text-decorations: null,
+  $text-shadows: null,
+  $text-transforms: null,
+  $transform-translate-horizontal-name: null,
+  $transform-translate-horizontal-levels: null,
+  $transform-translate-vertical-name: null,
+  $transform-translate-vertical-levels: null,
+  $transition-name: null,
+  $transition-speeds: null,
+  $visibilities: null,
   $spacer-base: null,
   $spacer-levels: null,
   $margin-spacer-levels: null,
   $coordinate-spacer-levels: null,
   $sizer-base: null,
   $sizer-levels: null,
-  $translate-levels: null,
-  $transition-speeds: null,
-  $black: null,
-  $white: null,
-  $colors: null,
   $border-radius-base: null,
   $border-radius-levels: null,
   $font-size-base: null,
   $font-scaling-factor: null,
   $font-sizes: null,
   $line-height-levels: null,
-  $font-weight-levels: null,
-  $opacity-name: null,
-  $opacity-levels: null,
-  $border-styles: null,
-  $border-width-base: null,
-  $border-widths: null,
-  $cursors: null,
-  $font-family-code: null,
-  $font-styles: null,
-  $text-aligns: null,
-  $text-decorations: null,
-  $visibilities: null
+  $font-weight-levels: null
 ) {
   @if $global-prefix != null {
     $global-prefix: $global-prefix !global;
@@ -473,6 +494,130 @@ $font-weight-levels: (
 
   @if $breakpoints != null {
     $breakpoints: $breakpoints !global;
+  }
+
+  @if $black != null {
+    $black: $black !global;
+  }
+
+  @if $white != null {
+    $white: $white !global;
+  }
+
+  @if $colors != null {
+    $colors: $colors !global;
+  }
+
+  @if $background-color-name != null {
+    $background-color-name: $background-color-name !global;
+  }
+
+  @if $border-color-prefix != null {
+    $border-color-prefix: $border-color-prefix !global;
+  }
+
+  @if $borders != null {
+    $borders: $borders !global;
+  }
+
+  @if $border-style-prefix != null {
+    $border-style-prefix: $border-style-prefix !global;
+  }
+
+  @if $border-styles != null {
+    $border-styles: $border-styles !global;
+  }
+
+  @if $border-width-prefix != null {
+    $border-width-prefix: $border-width-prefix !global;
+  }
+
+  @if $border-width-base != null {
+    $border-width-base: $border-width-base !global;
+  }
+
+  @if $border-widths != null {
+    $border-widths: $border-widths !global;
+  }
+
+  @if $box-sizings != null {
+    $box-sizings: $box-sizings !global;
+  }
+
+  @if $cursor-name != null {
+    $cursor-name: $cursor-name !global;
+  }
+
+  @if $cursors != null {
+    $cursors: $cursors !global;
+  }
+
+  @if $font-families != null {
+    $font-families: $font-families !global;
+  }
+
+  @if $font-styles != null {
+    $font-styles: $font-styles !global;
+  }
+
+  @if $hover-background-color-name != null {
+    $hover-background-color-name: $hover-background-color-name !global;
+  }
+
+  @if $hover-color-name != null {
+    $hover-color-name: $hover-color-name !global;
+  }
+
+  @if $opacity-name != null {
+    $opacity-name: $opacity-name !global;
+  }
+
+  @if $opacity-levels != null {
+    $opacity-levels: $opacity-levels !global;
+  }
+
+  @if $text-aligns != null {
+    $text-aligns: $text-aligns !global;
+  }
+
+  @if $text-decorations != null {
+    $text-decorations: $text-decorations !global;
+  }
+
+  @if $text-shadows != null {
+    $text-shadows: $text-shadows !global;
+  }
+
+  @if $text-transforms != null {
+    $text-transforms: $text-transforms !global;
+  }
+
+  @if $transform-translate-horizontal-name != null {
+    $transform-translate-horizontal-name: $transform-translate-horizontal-name !global;
+  }
+
+  @if $transform-translate-horizontal-levels != null {
+    $transform-translate-horizontal-levels: $transform-translate-horizontal-levels !global;
+  }
+
+  @if $transform-translate-vertical-name != null {
+    $transform-translate-vertical-name: $transform-translate-vertical-name !global;
+  }
+
+  @if $transform-translate-vertical-levels != null {
+    $transform-translate-vertical-levels: $transform-translate-vertical-levels !global;
+  }
+
+  @if $transition-name != null {
+    $transition-name: $transition-name !global;
+  }
+
+  @if $transition-speeds != null {
+    $transition-speeds: $transition-speeds !global;
+  }
+
+  @if $visibilities != null {
+    $visibilities: $visibilities !global;
   }
 
   @if $spacer-base != null {
@@ -497,26 +642,6 @@ $font-weight-levels: (
 
   @if $sizer-levels != null {
     $sizer-levels: $sizer-levels !global;
-  }
-
-  @if $translate-levels != null {
-    $translate-levels: $translate-levels !global;
-  }
-
-  @if $transition-speeds != null {
-    $transition-speeds: $transition-speeds !global;
-  }
-
-  @if $black != null {
-    $black: $black !global;
-  }
-
-  @if $white != null {
-    $white: $white !global;
-  }
-
-  @if $colors != null {
-    $colors: $colors !global;
   }
 
   @if $border-radius-base != null {
@@ -545,49 +670,5 @@ $font-weight-levels: (
 
   @if $font-weight-levels != null {
     $font-weight-levels: $font-weight-levels !global;
-  }
-
-  @if $opacity-name != null {
-    $opacity-name: $opacity-name !global;
-  }
-
-  @if $opacity-levels != null {
-    $opacity-levels: $opacity-levels !global;
-  }
-
-  @if $border-styles != null {
-    $border-styles: $border-styles !global;
-  }
-
-  @if $border-width-base != null {
-    $border-width-base: $border-width-base !global;
-  }
-
-  @if $border-widths != null {
-    $border-widths: $border-widths !global;
-  }
-
-  @if $cursors != null {
-    $cursors: $cursors !global;
-  }
-
-  @if $font-family-code != null {
-    $font-family-code: $font-family-code !global;
-  }
-
-  @if $font-styles != null {
-    $font-styles: $font-styles !global;
-  }
-
-  @if $text-aligns != null {
-    $text-aligns: $text-aligns !global;
-  }
-
-  @if $text-decorations != null {
-    $text-decorations: $text-decorations !global;
-  }
-
-  @if $visibilities != null {
-    $visibilities: $visibilities !global;
   }
 }
