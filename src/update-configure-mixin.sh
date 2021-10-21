@@ -12,6 +12,7 @@ if [[ ! -f $variablesFile ]] || [[ ! -x $generateMixinFile ]]; then
 fi
 
 firstLine=$($generateMixinFile | head -n 1)
+firstLine=${firstLine:3}
 
 if ! grep -q "$firstLine" $variablesFile; then
     exit 1

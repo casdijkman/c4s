@@ -16,29 +16,22 @@ while read -r variable_line; do
     fi
 done < <(grep '^$.*:' _variables.scss)
 
-echo "@mixin configure("
+echo "// Start generated configure mixin code"
+echo "/* stylelint-disable max-line-length, at-rule-empty-line-before */"
+echo -n "@mixin configure("
 
 for variable in "${variables[@]}"; do
-    echo -n "  $variable: null"
-    if [[ $variable == "${variables[-1]}" ]]; then
-	echo
-    else
-	echo ","
+    echo -n "$variable: null"
+    if [[ $variable != "${variables[-1]}" ]]; then
+	echo -n ", "
     fi
 done
 
-echo ") {"
+echo -n ") { "
 
 for variable in "${variables[@]}"; do
-    cat <<EOF
-  @if $variable != null {
-    $variable: $variable !global;
-  }
-EOF
-
-    if [[ $variable != "${variables[-1]}" ]]; then
-	echo
-    fi
+    echo -n "@if $variable != null { $variable: $variable !global; } "
 done
 
 echo "}"
+echo "/* stylelint-enable max-line-length, at-rule-empty-line-before */"
