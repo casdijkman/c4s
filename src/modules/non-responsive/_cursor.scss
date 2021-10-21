@@ -1,10 +1,10 @@
 @use '../../functions';
 @use '../../variables';
 
-$global-prefix: variables.$global-prefix;
-$name: variables.$cursor-name;
-
 @mixin cursor() {
+  $global-prefix: variables.$global-prefix;
+  $name: variables.$cursor-name;
+
   @each $cursor in variables.$cursors {
     #{functions.construct-class-name($global-prefix, $name, $cursor)} {
       cursor: $cursor;

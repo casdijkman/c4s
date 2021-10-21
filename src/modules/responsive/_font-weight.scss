@@ -1,9 +1,9 @@
 @use '../../functions';
 @use '../../variables';
 
-$global-prefix: variables.$global-prefix;
-
 @mixin font-weight($media-suffix) {
+  $global-prefix: variables.$global-prefix;
+
   @each $name, $value in variables.$font-weight-levels {
     #{functions.construct-class-name($global-prefix, $name, $media-suffix)} {
       font-weight: $value;

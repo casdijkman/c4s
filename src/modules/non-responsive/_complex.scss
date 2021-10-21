@@ -1,8 +1,6 @@
 @use '../../functions';
 @use '../../variables';
 
-$global-prefix: variables.$global-prefix;
-
 /*
  * Complex rules are CSS rules that are either context-dependent,
  * have more than one selector or more than two properties.
@@ -10,6 +8,8 @@ $global-prefix: variables.$global-prefix;
  */
 
 @mixin complex() {
+  $global-prefix: variables.$global-prefix;
+
   // Border top between
   #{functions.construct-class-name($global-prefix, bt-between)} +
   #{functions.construct-class-name($global-prefix, bt-between)} {

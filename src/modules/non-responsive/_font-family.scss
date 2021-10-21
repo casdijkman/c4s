@@ -2,9 +2,9 @@
 @use '../../variables';
 @use 'sass:string';
 
-$global-prefix: variables.$global-prefix;
-
 @mixin font-family() {
+  $global-prefix: variables.$global-prefix;
+
   @each $name, $value in variables.$font-families {
     #{functions.construct-class-name($global-prefix, $name)} {
       font-family: string.unquote($value);

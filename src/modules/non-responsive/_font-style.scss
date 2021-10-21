@@ -1,9 +1,9 @@
 @use '../../functions';
 @use '../../variables';
 
-$global-prefix: variables.$global-prefix;
-
 @mixin font-style() {
+  $global-prefix: variables.$global-prefix;
+
   @each $name, $value in variables.$font-styles {
     #{functions.construct-class-name($global-prefix, $name)} {
       font-style: $value;

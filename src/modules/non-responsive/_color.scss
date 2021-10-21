@@ -1,9 +1,9 @@
 @use '../../functions';
 @use '../../variables';
 
-$global-prefix: variables.$global-prefix;
-
 @mixin color() {
+  $global-prefix: variables.$global-prefix;
+
   @each $color, $value in variables.$colors {
     #{functions.construct-class-name($global-prefix, $color)} {
       color: $value;

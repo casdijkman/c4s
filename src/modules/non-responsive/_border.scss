@@ -2,9 +2,9 @@
 @use '../../variables';
 @use 'sass:map';
 
-$global-prefix: variables.$global-prefix;
-
 @mixin border() {
+  $global-prefix: variables.$global-prefix;
+
   @each $name, $map in variables.$borders {
     $direction: map.get($map, 'border-direction');
     $property-style: functions.list-to-dash-separated-string((border, $direction, style));

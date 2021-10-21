@@ -1,12 +1,12 @@
 @use '../../functions';
 @use '../../variables';
 
-$global-prefix: variables.$global-prefix;
-$name: variables.$hover-color-name;
-
 @mixin hover-color() {
+  $global-prefix: variables.$global-prefix;
+  $name: variables.$hover-color-name;
+
   @each $color, $value in variables.$colors {
-    #{functions.construct-class-name(variables.$global-prefix, hover, $color)}:hover {
+    #{functions.construct-class-name($global-prefix, hover, $color)}:hover {
       color: $value;
     }
   }

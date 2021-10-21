@@ -1,9 +1,9 @@
 @use '../../functions';
 @use '../../variables';
 
-$global-prefix: variables.$global-prefix;
-
 @mixin box-sizing() {
+  $global-prefix: variables.$global-prefix;
+
   @each $box-sizing in variables.$box-sizings {
     #{functions.construct-class-name($global-prefix, $box-sizing)} {
       box-sizing: $box-sizing;

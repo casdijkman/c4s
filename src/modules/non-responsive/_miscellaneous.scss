@@ -1,9 +1,9 @@
 @use '../../functions';
 @use '../../variables';
 
-$global-prefix: variables.$global-prefix;
-
 @mixin miscellaneous() {
+  $global-prefix: variables.$global-prefix;
+
   #{functions.construct-class-name($global-prefix, list-reset)} {
     list-style: none;
     padding-left: 0;

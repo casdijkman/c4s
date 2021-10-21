@@ -2,9 +2,9 @@
 @use '../../variables';
 @use 'sass:map';
 
-$global-prefix: variables.$global-prefix;
-
 @mixin margin($media-suffix) {
+  $global-prefix: variables.$global-prefix;
+
   @each $name, $map in variables.$margins {
     $levels: map.get($map, levels);
     $properties: map.get($map, properties);

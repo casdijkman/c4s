@@ -1,9 +1,9 @@
 @use '../../functions';
 @use '../../variables';
 
-$global-prefix: variables.$global-prefix;
-
 @mixin text-shadow() {
+  $global-prefix: variables.$global-prefix;
+
   @each $name, $value in variables.$text-shadows {
     #{functions.construct-class-name($global-prefix, $name)} {
       text-shadow: $value;

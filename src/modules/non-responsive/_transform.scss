@@ -1,11 +1,11 @@
 @use '../../functions';
 @use '../../variables';
 
-$global-prefix: variables.$global-prefix;
-$name-horizontal: variables.$transform-translate-horizontal-name;
-$name-vertical: variables.$transform-translate-vertical-name;
-
 @mixin transform() {
+  $global-prefix: variables.$global-prefix;
+  $name-horizontal: variables.$transform-translate-horizontal-name;
+  $name-vertical: variables.$transform-translate-vertical-name;
+
   @each $level, $value in variables.$transform-translate-horizontal-levels {
     #{functions.construct-class-name($global-prefix, $name-horizontal, $level)} {
       transform: translateX($value);
