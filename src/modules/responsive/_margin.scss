@@ -1,46 +1,20 @@
 @use '../../functions';
 @use '../../variables';
+@use 'sass:map';
 
-// Note: Margin-all and margin-vertical rules do not include the '-auto' suffix
-
-$margins: (
-  m:  margin,
-  mt: margin-top,
-  mr: margin-right,
-  mb: margin-bottom,
-  ml: margin-left
-);
+$global-prefix: variables.$global-prefix;
 
 @mixin margin($media-suffix) {
-  @each $name, $property in $margins {
-    $levels: ();
-
-    @if $property == margin {
-      $levels: variables.$spacer-levels;
-    } @else {
-      $levels: variables.$margin-spacer-levels;
-    }
+  @each $name, $map in variables.$margins {
+    $levels: map.get($map, levels);
+    $properties: map.get($map, properties);
 
     @each $level, $value in $levels {
-      #{functions.construct-class-name(variables.$global-prefix, $name + $level, $media-suffix)} {
-        #{$property}: $value;
+      #{functions.construct-class-name($global-prefix, $name + $level, $media-suffix)} {
+        @each $property in $properties {
+          #{$property}: $value;
+        }
       }
-    }
-  }
-
-  // MARGIN HORIZONTAL
-  @each $level, $value in variables.$margin-spacer-levels {
-    #{functions.construct-class-name(variables.$global-prefix, mh + $level, $media-suffix)} {
-      margin-left: $value;
-      margin-right: $value;
-    }
-  }
-
-  // MARGIN VERTICAL
-  @each $level, $value in variables.$spacer-levels {
-    #{functions.construct-class-name(variables.$global-prefix, mv + $level, $media-suffix)} {
-      margin-top: $value;
-      margin-bottom: $value;
     }
   }
 }

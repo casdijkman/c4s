@@ -1,4 +1,4 @@
-const maxLineLength = 100;
+const maxLineLength = 92;
 
 module.exports = {
     plugins: [

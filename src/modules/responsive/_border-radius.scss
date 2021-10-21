@@ -1,9 +1,12 @@
 @use '../../functions';
 @use '../../variables';
 
+$global-prefix: variables.$global-prefix;
+$prefix: variables.$border-radius-prefix;
+
 @mixin border-radius($media-suffix) {
   @each $level, $value in variables.$border-radius-levels {
-    #{functions.construct-class-name(variables.$global-prefix, br + $level, $media-suffix)} {
+    #{functions.construct-class-name($global-prefix, $prefix + $level, $media-suffix)} {
       border-radius: $value;
     }
   }

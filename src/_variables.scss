@@ -129,6 +129,56 @@ $colors: (
   'transparent': transparent
 );
 
+/*
+ * Spacers
+ *
+ * There are eight levels of spacers, the first being level 0 with value 0. Levels 1
+ * through 7 represent the product of $spacer-base with powers of two. Level 4 and is
+ * considered middle size and is the product of $spacer-base and 2^0.
+ */
+
+$spacer-base: 2rem;
+$spacer-levels: (
+  '0': 0,
+  '1': $spacer-base * functions.nth-power-of-two(-3),
+  '2': $spacer-base * functions.nth-power-of-two(-2),
+  '3': $spacer-base * functions.nth-power-of-two(-1),
+  '4': $spacer-base,
+  '5': $spacer-base * functions.nth-power-of-two(1),
+  '6': $spacer-base * functions.nth-power-of-two(2),
+  '7': $spacer-base * functions.nth-power-of-two(3)
+);
+
+/*
+ * Sizers
+ *
+ * There are six levels of sizers, the first being level 0 with value 0. For levels 1
+ * through 6, every next level is twice the size, starting at $sizer-base.
+ */
+
+$sizer-base: 1rem;
+$sizer-levels: (
+  '0':           0,
+  '1':           $sizer-base,
+  '2':           $sizer-base * functions.nth-power-of-two(1),
+  '3':           $sizer-base * functions.nth-power-of-two(2),
+  '4':           $sizer-base * functions.nth-power-of-two(3),
+  '5':           $sizer-base * functions.nth-power-of-two(4),
+  '6':           $sizer-base * functions.nth-power-of-two(5),
+  '-10':         10%,
+  '-20':         20%,
+  '-30':         30%,
+  '-third':      math.div(100%, 3),
+  '-40':         40%,
+  '-50':         50%,
+  '-60':         60%,
+  '-two-thirds': math.div(200%, 3),
+  '-70':         70%,
+  '-80':         80%,
+  '-90':         90%,
+  '-100':        100%
+);
+
 /******************
  * Non-responsive *
  ******************/
@@ -199,7 +249,8 @@ $cursors: pointer, text, none, not-allowed, progress, wait;
 
 // Font family
 $font-families: (
-  sans-serif: '-apple-system, BlinkMacSystemFont, "avenir next", avenir, "helvetica neue", helvetica, ubuntu, roboto, noto, "segoe ui", arial, sans-serif',
+  sans-serif: '-apple-system, BlinkMacSystemFont, "avenir next", avenir, ' +
+  '"helvetica neue", helvetica, ubuntu, roboto, noto, "segoe ui", arial, sans-serif',
   serif: 'georgia, times, serif',
   code: 'consolas, monaco, monospace'
 );
@@ -284,92 +335,19 @@ $transition-speeds: (
 
 // Visibility
 $visibilities: (
-  visible: visible,
-  hidden: hidden,
+  visible:   visible,
+  hidden:    hidden,
   invisible: hidden,
-  // collapse: collapse
+  // collapse:  collapse
 );
 
 /**************
  * Responsive *
  **************/
 
-/*
- * Spacers
- *
- * There are eight levels of spacers, the first being level 0 with value 0. Levels 1
- * through 7 represent the product of $spacer-base with powers of two. Level 4 and is
- * considered middle size and is the product of $spacer-base and 2^0.
- */
-
-$spacer-base: 2rem;
-
-$spacer-levels: (
-  '0': 0,
-  '1': $spacer-base * functions.nth-power-of-two(-3),
-  '2': $spacer-base * functions.nth-power-of-two(-2),
-  '3': $spacer-base * functions.nth-power-of-two(-1),
-  '4': $spacer-base,
-  '5': $spacer-base * functions.nth-power-of-two(1),
-  '6': $spacer-base * functions.nth-power-of-two(2),
-  '7': $spacer-base * functions.nth-power-of-two(3)
-);
-
-// Add auto as a level for margins with -auto suffix
-$margin-spacer-levels: map.merge($spacer-levels, ('-auto': auto));
-
-/*
-   COORDINATE SPACERS
-
-   These spacers are used for top, right, bottom and left positioning.
- */
-
-$coordinate-spacer-levels: (
-  '0':   0,
-  '1':   1rem,
-  '2':   2rem,
-  '50':  50%,
-  '100': 100%
-);
-
-/*
-   SIZERS
-
-   There are six levels of sizers, including $sizer-0, which is level 0
-   $sizer-0 is 0. After $sizer-1, every next sizer is twice the size of the last
-   Levels  1 through 5 therefore represent the product of $sizer-base with powers of two
- */
-
-$sizer-base: 1rem;
-
-$sizer-levels: (
-  '0':           0,
-  '1':           $sizer-base,
-  '2':           $sizer-base * functions.nth-power-of-two(1),
-  '3':           $sizer-base * functions.nth-power-of-two(2),
-  '4':           $sizer-base * functions.nth-power-of-two(3),
-  '5':           $sizer-base * functions.nth-power-of-two(4),
-  '6':           $sizer-base * functions.nth-power-of-two(5),
-  '-10':         10%,
-  '-20':         20%,
-  '-30':         30%,
-  '-third':      math.div(100%, 3),
-  '-40':         40%,
-  '-50':         50%,
-  '-60':         60%,
-  '-two-thirds': 100% * math.div(2, 3),
-  '-70':         70%,
-  '-80':         80%,
-  '-90':         90%,
-  '-100':        100%
-);
-
-/*
-   BORDER-RADIUS SIZES
- */
-
+// Border radius
+$border-radius-prefix: br;
 $border-radius-base: 1rem;
-
 $border-radius-levels: (
   '0':     0,
   '1':     $border-radius-base * functions.nth-power-of-two(-3),
@@ -380,16 +358,120 @@ $border-radius-levels: (
   '-pill': 9999px
 );
 
-/*
-   FONT SIZES
+// Coordinates
+$coordinate-spacer-levels: (
+  '0':   0,
+  '1':   1rem,
+  '2':   2rem,
+  '50':  50%,
+  '100': 100%
+);
+$coordinate-directions: (
+  top:    top,
+  right:  right,
+  bottom: bottom,
+  left:   left
+);
 
-   `h1` trough `h6` and `small` font sizes are set along with
-   corresponding classes `.h1` through `.h6` and `.small`
- */
+// Display
+$display-prefix: d;
+$displays: (
+  b:  block,
+  i:  inline,
+  ib: inline-block,
+  n:  none,
+  t:  table,
+  tc: table-cell,
+  f:  flex,
+  if: inline-flex,
+  g:  grid
+);
 
+// Flex direction
+$flex-direction-name: flex;
+$flex-directions: (
+  column:         column,
+  row:            row,
+  column-reverse: column-reverse,
+  row-reverse:    row-reverse
+);
+
+// Flex
+$flex-wrap-name: wrap;
+$flex-wraps: (
+  wrap:         wrap,
+  nowrap:       nowrap,
+  wrap-reverse: wrap-reverse
+);
+$flex-align-items-name: items;
+$flex-align-items: (
+  start:    flex-start,
+  end:      flex-end,
+  center:   center,
+  baseline: baseline,
+  stretch:  stretch
+);
+$flex-align-self-name: self;
+$flex-align-selfs: (
+  start:    flex-start,
+  end:      flex-end,
+  center:   center,
+  baseline: baseline,
+  stretch:  stretch
+);
+$flex-align-content-name: content;
+$flex-align-contents: (
+  start:   flex-start,
+  end:     flex-end,
+  center:  center,
+  between: space-between,
+  around:  space-around,
+  stretch: stretch
+);
+$flex-justify-content-name: justify;
+$flex-justify-contents: (
+  start:   flex-start,
+  end:     flex-end,
+  center:  center,
+  between: space-between,
+  around:  space-around
+);
+$flex-grow-name: flex-grow;
+$flex-grows: (
+  '0': 0,
+  '1': 1
+);
+$flex-shrink-name: flex-shrink;
+$flex-shrinks: (
+  '0': 0,
+  '1': 1
+);
+$flex-order-name: order;
+$flex-orders: (
+  // 1:    1,
+  // 2:    2,
+  // 3:    3,
+  // 4:    4,
+  // 5:    5,
+  // 6:    6,
+  // 7:    7,
+  // 8:    8,
+  // 9:    9,
+  // last: 99999
+);
+
+// Float
+$float-prefix: f;
+$floats: (
+  l: left,
+  r: right,
+  n: none
+);
+
+// Font size
+// Note: The reset module sets the default size for h1-h6 and small based on corresponding values
 $font-size-base: 1em;
 $font-scaling-factor: 1.25;
-
 $font-sizes: (
   f-headline:    6rem,
   f-subheadline: 5rem,
@@ -402,21 +484,7 @@ $font-sizes: (
   small:         $font-size-base * functions.power($font-scaling-factor, -1)
 );
 
-/*
-   LINE HEIGHTS
- */
-
-$line-height-levels: (
-  'solid':  1,
-  'header': 1.15,
-  'text':   1.5,
-  'extra':  2
-);
-
-/*
-   FONT WEIGHTS
- */
-
+// Font weight
 $font-weight-levels: (
   'fw-100':     100,
   'fw-200':     200,
@@ -432,6 +500,131 @@ $font-weight-levels: (
   'fw-bolder':  bolder
 );
 
+// Height
+$height-prefix: h;
+
+// Line height
+$line-height-name: lh;
+$line-height-levels: (
+  'solid':  1,
+  'header': 1.15,
+  'text':   1.5,
+  'extra':  2
+);
+
+// Margin
+$margin-spacer-levels: map.merge($spacer-levels, ('-auto': auto));
+$margins: (
+  m:  (
+    properties: margin,
+    levels: $spacer-levels
+  ),
+  mt: (
+    properties: margin-top,
+    levels: $margin-spacer-levels
+  ),
+  mr: (
+    properties: margin-right,
+    levels: $margin-spacer-levels
+  ),
+  mb: (
+    properties: margin-bottom,
+    levels: $margin-spacer-levels
+  ),
+  ml: (
+    properties: margin-left,
+    levels: $margin-spacer-levels
+  ),
+  mh: (
+    properties: [margin-left margin-right],
+    levels: $margin-spacer-levels
+  ),
+  mv: (
+    properties: [margin-top margin-bottom],
+    levels: $spacer-levels
+  )
+);
+
+// Measure
+$measures: (
+  measure-narrow: 20em,
+  measure:        30em,
+  measure-wide:   34em
+);
+
+// Padding
+$paddings: (
+  p:  (
+    properties: padding,
+    levels: $spacer-levels
+  ),
+  pt: (
+    properties: padding-top,
+    levels: $spacer-levels
+  ),
+  pr: (
+    properties: padding-right,
+    levels: $spacer-levels
+  ),
+  pb: (
+    properties: padding-bottom,
+    levels: $spacer-levels
+  ),
+  pl: (
+    properties: padding-left,
+    levels: $spacer-levels
+  ),
+  ph: (
+    properties: [padding-left padding-right],
+    levels: $spacer-levels
+  ),
+  pv: (
+    properties: [padding-top padding-bottom],
+    levels: $spacer-levels
+  )
+);
+
+// Position
+$positions: (
+  static: static,
+  absolute: absolute,
+  relative: relative,
+  fixed: fixed,
+  sticky: sticky
+);
+
+// Tracking
+// TODO: Rename to letter spacing?
+$trackings: (
+  tracked:       .1em,
+  tracked-tight: -.05em,
+  tracked-mega:  .25em
+);
+
+// Vertical align
+$vertical-align-name: v;
+$vertical-aligns: (
+  mid:         middle,
+  middle:      middle,
+  base:        baseline,
+  top:         top,
+  bottom:      bottom,
+  text-top:    text-top,
+  text-bottom: text-bottom,
+  sub:         sub,
+  super:       super
+);
+
+// White space
+$white-spaces: (
+  nowrap: nowrap,
+  pre: pre,
+  // ws-normal: normal
+);
+
+// Width
+$width-prefix: w;
+
 /*****************
  * Configuration *
  *****************/
@@ -446,6 +639,10 @@ $font-weight-levels: (
   $black: null,
   $white: null,
   $colors: null,
+  $spacer-base: null,
+  $spacer-levels: null,
+  $sizer-base: null,
+  $sizer-levels: null,
   $background-color-name: null,
   $border-color-prefix: null,
   $borders: null,
@@ -474,19 +671,50 @@ $font-weight-levels: (
   $transition-name: null,
   $transition-speeds: null,
   $visibilities: null,
-  $spacer-base: null,
-  $spacer-levels: null,
-  $margin-spacer-levels: null,
-  $coordinate-spacer-levels: null,
-  $sizer-base: null,
-  $sizer-levels: null,
+  $border-radius-prefix: null,
   $border-radius-base: null,
   $border-radius-levels: null,
+  $coordinate-spacer-levels: null,
+  $coordinate-directions: null,
+  $display-prefix: null,
+  $displays: null,
+  $flex-direction-name: null,
+  $flex-directions: null,
+  $flex-wrap-name: null,
+  $flex-wraps: null,
+  $flex-align-items-name: null,
+  $flex-align-items: null,
+  $flex-align-self-name: null,
+  $flex-align-selfs: null,
+  $flex-align-content-name: null,
+  $flex-align-contents: null,
+  $flex-justify-content-name: null,
+  $flex-justify-contents: null,
+  $flex-grow-name: null,
+  $flex-grows: null,
+  $flex-shrink-name: null,
+  $flex-shrinks: null,
+  $flex-order-name: null,
+  $flex-orders: null,
+  $float-prefix: null,
+  $floats: null,
   $font-size-base: null,
   $font-scaling-factor: null,
   $font-sizes: null,
+  $font-weight-levels: null,
+  $height-prefix: null,
+  $line-height-name: null,
   $line-height-levels: null,
-  $font-weight-levels: null
+  $margin-spacer-levels: null,
+  $margins: null,
+  $measures: null,
+  $paddings: null,
+  $positions: null,
+  $trackings: null,
+  $vertical-align-name: null,
+  $vertical-aligns: null,
+  $white-spaces: null,
+  $width-prefix: null
 ) {
   @if $global-prefix != null {
     $global-prefix: $global-prefix !global;
@@ -506,6 +734,22 @@ $font-weight-levels: (
 
   @if $colors != null {
     $colors: $colors !global;
+  }
+
+  @if $spacer-base != null {
+    $spacer-base: $spacer-base !global;
+  }
+
+  @if $spacer-levels != null {
+    $spacer-levels: $spacer-levels !global;
+  }
+
+  @if $sizer-base != null {
+    $sizer-base: $sizer-base !global;
+  }
+
+  @if $sizer-levels != null {
+    $sizer-levels: $sizer-levels !global;
   }
 
   @if $background-color-name != null {
@@ -620,28 +864,8 @@ $font-weight-levels: (
     $visibilities: $visibilities !global;
   }
 
-  @if $spacer-base != null {
-    $spacer-base: $spacer-base !global;
-  }
-
-  @if $spacer-levels != null {
-    $spacer-levels: $spacer-levels !global;
-  }
-
-  @if $margin-spacer-levels != null {
-    $margin-spacer-levels: $margin-spacer-levels !global;
-  }
-
-  @if $coordinate-spacer-levels != null {
-    $coordinate-spacer-levels: $coordinate-spacer-levels !global;
-  }
-
-  @if $sizer-base != null {
-    $sizer-base: $sizer-base !global;
-  }
-
-  @if $sizer-levels != null {
-    $sizer-levels: $sizer-levels !global;
+  @if $border-radius-prefix != null {
+    $border-radius-prefix: $border-radius-prefix !global;
   }
 
   @if $border-radius-base != null {
@@ -650,6 +874,102 @@ $font-weight-levels: (
 
   @if $border-radius-levels != null {
     $border-radius-levels: $border-radius-levels !global;
+  }
+
+  @if $coordinate-spacer-levels != null {
+    $coordinate-spacer-levels: $coordinate-spacer-levels !global;
+  }
+
+  @if $coordinate-directions != null {
+    $coordinate-directions: $coordinate-directions !global;
+  }
+
+  @if $display-prefix != null {
+    $display-prefix: $display-prefix !global;
+  }
+
+  @if $displays != null {
+    $displays: $displays !global;
+  }
+
+  @if $flex-direction-name != null {
+    $flex-direction-name: $flex-direction-name !global;
+  }
+
+  @if $flex-directions != null {
+    $flex-directions: $flex-directions !global;
+  }
+
+  @if $flex-wrap-name != null {
+    $flex-wrap-name: $flex-wrap-name !global;
+  }
+
+  @if $flex-wraps != null {
+    $flex-wraps: $flex-wraps !global;
+  }
+
+  @if $flex-align-items-name != null {
+    $flex-align-items-name: $flex-align-items-name !global;
+  }
+
+  @if $flex-align-items != null {
+    $flex-align-items: $flex-align-items !global;
+  }
+
+  @if $flex-align-self-name != null {
+    $flex-align-self-name: $flex-align-self-name !global;
+  }
+
+  @if $flex-align-selfs != null {
+    $flex-align-selfs: $flex-align-selfs !global;
+  }
+
+  @if $flex-align-content-name != null {
+    $flex-align-content-name: $flex-align-content-name !global;
+  }
+
+  @if $flex-align-contents != null {
+    $flex-align-contents: $flex-align-contents !global;
+  }
+
+  @if $flex-justify-content-name != null {
+    $flex-justify-content-name: $flex-justify-content-name !global;
+  }
+
+  @if $flex-justify-contents != null {
+    $flex-justify-contents: $flex-justify-contents !global;
+  }
+
+  @if $flex-grow-name != null {
+    $flex-grow-name: $flex-grow-name !global;
+  }
+
+  @if $flex-grows != null {
+    $flex-grows: $flex-grows !global;
+  }
+
+  @if $flex-shrink-name != null {
+    $flex-shrink-name: $flex-shrink-name !global;
+  }
+
+  @if $flex-shrinks != null {
+    $flex-shrinks: $flex-shrinks !global;
+  }
+
+  @if $flex-order-name != null {
+    $flex-order-name: $flex-order-name !global;
+  }
+
+  @if $flex-orders != null {
+    $flex-orders: $flex-orders !global;
+  }
+
+  @if $float-prefix != null {
+    $float-prefix: $float-prefix !global;
+  }
+
+  @if $floats != null {
+    $floats: $floats !global;
   }
 
   @if $font-size-base != null {
@@ -664,11 +984,59 @@ $font-weight-levels: (
     $font-sizes: $font-sizes !global;
   }
 
+  @if $font-weight-levels != null {
+    $font-weight-levels: $font-weight-levels !global;
+  }
+
+  @if $height-prefix != null {
+    $height-prefix: $height-prefix !global;
+  }
+
+  @if $line-height-name != null {
+    $line-height-name: $line-height-name !global;
+  }
+
   @if $line-height-levels != null {
     $line-height-levels: $line-height-levels !global;
   }
 
-  @if $font-weight-levels != null {
-    $font-weight-levels: $font-weight-levels !global;
+  @if $margin-spacer-levels != null {
+    $margin-spacer-levels: $margin-spacer-levels !global;
+  }
+
+  @if $margins != null {
+    $margins: $margins !global;
+  }
+
+  @if $measures != null {
+    $measures: $measures !global;
+  }
+
+  @if $paddings != null {
+    $paddings: $paddings !global;
+  }
+
+  @if $positions != null {
+    $positions: $positions !global;
+  }
+
+  @if $trackings != null {
+    $trackings: $trackings !global;
+  }
+
+  @if $vertical-align-name != null {
+    $vertical-align-name: $vertical-align-name !global;
+  }
+
+  @if $vertical-aligns != null {
+    $vertical-aligns: $vertical-aligns !global;
+  }
+
+  @if $white-spaces != null {
+    $white-spaces: $white-spaces !global;
+  }
+
+  @if $width-prefix != null {
+    $width-prefix: $width-prefix !global;
   }
 }

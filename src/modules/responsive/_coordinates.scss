@@ -1,13 +1,12 @@
 @use '../../functions';
 @use '../../variables';
 
-$directions: top, right, bottom, left;
+$global-prefix: variables.$global-prefix;
 
 @mixin coordinates($media-suffix) {
   @each $level, $value in variables.$coordinate-spacer-levels {
-    @each $direction in $directions {
-      // stylelint-disable-next-line max-line-length
-      #{functions.construct-class-name(variables.$global-prefix, $direction, $level, $media-suffix)} {
+    @each $name, $direction in variables.$coordinate-directions {
+      #{functions.construct-class-name($global-prefix, $direction, $level, $media-suffix)} {
         #{$direction}: $value;
       }
     }

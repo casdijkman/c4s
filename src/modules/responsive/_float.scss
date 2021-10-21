@@ -1,15 +1,12 @@
 @use '../../functions';
 @use '../../variables';
 
-$floats: (
-  l: left,
-  r: right,
-  n: none
-);
+$global-prefix: variables.$global-prefix;
+$prefix: variables.$float-prefix;
 
 @mixin float($media-suffix) {
-  @each $name, $value in $floats {
-    #{functions.construct-class-name(variables.$global-prefix, f + $name, $media-suffix)} {
+  @each $name, $value in variables.$floats {
+    #{functions.construct-class-name($global-prefix, $prefix + $name, $media-suffix)} {
       float: $value;
     }
   }

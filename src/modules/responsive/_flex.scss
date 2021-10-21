@@ -1,104 +1,62 @@
 @use '../../functions';
 @use '../../variables';
 
-$flex-wraps: wrap, nowrap, wrap-reverse;
-$flex-aligns: (
-  start: flex-start,
-  end: flex-end,
-  center: center,
-  baseline: baseline,
-  stretch: stretch
-);
-$flex-align-contents: (
-  start: flex-start,
-  end: flex-end,
-  center: center,
-  between: space-between,
-  around: space-around,
-  stretch: stretch
-);
-$flex-justify-contents: (
-  start: flex-start,
-  end: flex-end,
-  center: center,
-  between: space-between,
-  around: space-around
-);
-$flex-grows: (
-  '0': 0,
-  '1': 1
-);
-$flex-shrinks: (
-  '0': 0,
-  '1': 1
-);
-$flex-orders: (
-  1:    1,
-  2:    2,
-  3:    3,
-  4:    4,
-  5:    5,
-  6:    6,
-  7:    7,
-  8:    8,
-  9:    9,
-  last: 99999
-);
+$global-prefix: variables.$global-prefix;
+$wrap-name:     variables.$flex-wrap-name;
+$items-name:    variables.$flex-align-items-name;
+$self-name:     variables.$flex-align-self-name;
+$content-name:  variables.$flex-align-content-name;
+$justify-name:  variables.$flex-justify-content-name;
+$grow-name:     variables.$flex-grow-name;
+$shrink-name:   variables.$flex-shrink-name;
+$order-name:    variables.$flex-order-name;
 
 @mixin flex($media-suffix) {
-  // FLEX WRAP
-  @each $flex-wrap in $flex-wraps {
-    #{functions.construct-class-name(variables.$global-prefix, flex, $flex-wrap, $media-suffix)} {
-      flex-wrap: $flex-wrap;
+  @each $name, $value in variables.$flex-wraps {
+    #{functions.construct-class-name($global-prefix, $wrap-name, $name, $media-suffix)} {
+      flex-wrap: $value;
     }
   }
 
-  @each $name, $value in $flex-aligns {
-    // ALIGN ITEMS
-    #{functions.construct-class-name(variables.$global-prefix, items, $name, $media-suffix)} {
+  @each $name, $value in variables.$flex-align-items {
+    #{functions.construct-class-name($global-prefix, $items-name, $name, $media-suffix)} {
       align-items: $value;
     }
   }
 
-  @each $name, $value in $flex-aligns {
-    // ALIGN SELF
-    #{functions.construct-class-name(variables.$global-prefix, self, $name, $media-suffix)} {
+  @each $name, $value in variables.$flex-align-items {
+    #{functions.construct-class-name($global-prefix, $self-name, $name, $media-suffix)} {
       align-self: $value;
     }
   }
 
-  @each $name, $value in $flex-align-contents {
-    // ALIGN CONTENT
-    #{functions.construct-class-name(variables.$global-prefix, content, $name, $media-suffix)} {
+  @each $name, $value in variables.$flex-align-contents {
+    #{functions.construct-class-name($global-prefix, $content-name, $name, $media-suffix)} {
       align-content: $value;
     }
   }
 
-  @each $name, $value in $flex-justify-contents {
-    // JUSTIFY CONTENT
-    #{functions.construct-class-name(variables.$global-prefix, justify, $name, $media-suffix)} {
+  @each $name, $value in variables.$flex-justify-contents {
+    #{functions.construct-class-name($global-prefix, $justify-name, $name, $media-suffix)} {
       justify-content: $value;
     }
   }
 
-  @each $name, $value in $flex-grows {
-    // FLEX GROW
-    #{functions.construct-class-name(variables.$global-prefix, flex-grow, $name, $media-suffix)} {
+  @each $name, $value in variables.$flex-grows {
+    #{functions.construct-class-name($global-prefix, $grow-name, $name, $media-suffix)} {
       flex-grow: $value;
     }
   }
 
-  @each $name, $value in $flex-shrinks {
-    // FLEX SHRINK
-    #{functions.construct-class-name(variables.$global-prefix, flex-shrink, $name, $media-suffix)} {
+  @each $name, $value in variables.$flex-shrinks {
+    #{functions.construct-class-name($global-prefix, $shrink-name, $name, $media-suffix)} {
       flex-shrink: $value;
     }
   }
 
-  // @each $name, $value in $flex-orders {
-  //   // FLEX ORDER
-  //   #{functions.construct-class-name(variables.$global-prefix, order, $name, $media-suffix)} {
-  //     order: $value;
-  //   }
-  // }
+  @each $name, $value in variables.$flex-orders {
+    #{functions.construct-class-name($global-prefix, $order-name, $name, $media-suffix)} {
+      order: $value;
+    }
+  }
 }

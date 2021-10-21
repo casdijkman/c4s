@@ -1,15 +1,11 @@
 @use '../../functions';
 @use '../../variables';
 
-$trackings: (
-  tracked:        .1em,
-  tracked-tight: -.05em,
-  tracked-mega:   .25em
-);
+$global-prefix: variables.$global-prefix;
 
 @mixin tracking($media-suffix) {
-  @each $name, $value in $trackings {
-    #{functions.construct-class-name(variables.$global-prefix, $name, $media-suffix)} {
+  @each $name, $value in variables.$trackings {
+    #{functions.construct-class-name($global-prefix, $name, $media-suffix)} {
       letter-spacing: $value;
     }
   }

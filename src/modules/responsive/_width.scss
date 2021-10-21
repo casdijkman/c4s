@@ -1,9 +1,12 @@
 @use '../../functions';
 @use '../../variables';
 
+$global-prefix: variables.$global-prefix;
+$prefix: variables.$width-prefix;
+
 @mixin width($media-suffix) {
   @each $level, $value in variables.$sizer-levels {
-    #{functions.construct-class-name(variables.$global-prefix, w + $level, $media-suffix)} {
+    #{functions.construct-class-name($global-prefix, $prefix + $level, $media-suffix)} {
       width: $value;
     }
   }
