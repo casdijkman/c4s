@@ -18,7 +18,7 @@ const destination = 'dist';
 const globs = {
     src: {
 	sass:     './src/**/*.scss',
-	nunjucks: './docs/**/*.njk'
+	nunjucks: './docs/pages/**/*.njk'
     }
 };
 

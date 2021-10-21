@@ -4,21 +4,27 @@ const glob = require('glob');
 const cssLib = require('css');
 
 function getNunjucksData() {
-    const data = { files: [] };
-    const cssFiles = glob.sync('dist/modules/**/*.css')
+    const data = { modules: [] };
+    const cssModules = glob.sync('dist/modules/**/*.css')
 	  .filter((file) => ! /\.min\.css$/.test(file));
 
-    for (const file of cssFiles) {
+    for (const file of cssModules) {
 	const responsive = /\/responsive\//.test(file);
 	const name = path.basename(file, '.css').replace(/-module$/, '');
+	const css = cssLib.parse(fs.readFileSync(file, 'utf8'));
+	// Remove comments from rules array
+	css.stylesheet.rules = css.stylesheet.rules.filter((x) => x.type === 'rule');
 
-	data.files.push({
+	data.modules.push({
 	    name,
 	    file: file.replace(/^dist\/modules\//, ''),
 	    responsive,
-	    css: cssLib.parse(fs.readFileSync(file, 'utf8'))
+	    css
 	});
     }
+
+    // Remove modules that have no rules
+    data.modules = data.modules.filter((x) => x.css.stylesheet.rules.length !== 0);
 
     return data;
 }
