@@ -3,7 +3,7 @@
  */
 
 @use 'variables';
-@use 'modules/load-modules';
+@use 'load-modules';
 @use 'sass:map';
 
 @include variables.configure(
