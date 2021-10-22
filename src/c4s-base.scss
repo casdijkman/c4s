@@ -2,8 +2,10 @@
  * Only base styles, meaning all screen sizes
  */
 
-@use 'modules/responsive-all';
-@use 'modules/non-responsive-all';
+@use 'variables';
+@use 'modules/load-modules';
 
-@include non-responsive-all.non-responsive-all();
-@include responsive-all.responsive-all();
+@include variables.configure(
+  // Do configuration
+);
+@include load-modules.load-modules(null, ());

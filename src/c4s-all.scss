@@ -1,14 +1,11 @@
 /*
- *  All viewports combined, including non-responsive styles
+ * All viewports combined, including non-responsive styles
  */
 
 @use 'variables';
-@use 'modules/responsive-all';
-@use 'modules/non-responsive-all';
+@use 'modules/load-modules';
 
-@include non-responsive-all.non-responsive-all();
-@include responsive-all.responsive-all();
-
-@each $name, $map in variables.$breakpoints {
-  @include responsive-all.responsive-all($name);
-}
+@include variables.configure(
+  // Do configuration
+);
+@include load-modules.load-modules();

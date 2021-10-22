@@ -1,9 +1,18 @@
 /*
- *  Print media
+ * Print media
  */
 
-@use 'modules/responsive-all';
-@use 'modules/non-responsive-all';
+@use 'variables';
+@use 'modules/load-modules';
+@use 'sass:map';
 
-@include non-responsive-all.non-responsive-all();
-@include responsive-all.responsive-all(p);
+@include variables.configure(
+  // Do configuration
+);
+
+$breakpoint: p;
+$breakpoints: (
+  $breakpoint: map.get(variables.$breakpoints, $breakpoint)
+);
+
+@include load-modules.load-modules(null, $breakpoints);
