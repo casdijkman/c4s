@@ -1,11 +1,11 @@
-@use '../../functions';
-@use '../../variables';
+@use '../functions';
+@use '../variables';
 
-@mixin measure($media-suffix) {
+@mixin measure($media: null) {
   $global-prefix: variables.$global-prefix;
 
   @each $name, $value in variables.$measures {
-    #{functions.construct-class-name($global-prefix, $name, $media-suffix)} {
+    #{functions.construct-class-name($global-prefix, $name, $media)} {
       max-width: $value;
     }
   }

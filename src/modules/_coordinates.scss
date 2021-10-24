@@ -1,12 +1,12 @@
-@use '../../functions';
-@use '../../variables';
+@use '../functions';
+@use '../variables';
 
-@mixin coordinates($media-suffix) {
+@mixin coordinates($media: null) {
   $global-prefix: variables.$global-prefix;
 
   @each $level, $value in variables.$coordinate-spacer-levels {
     @each $name, $direction in variables.$coordinate-directions {
-      #{functions.construct-class-name($global-prefix, $direction, $level, $media-suffix)} {
+      #{functions.construct-class-name($global-prefix, $direction, $level, $media)} {
         #{$direction}: $value;
       }
     }

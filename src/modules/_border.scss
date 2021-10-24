@@ -1,8 +1,8 @@
-@use '../../functions';
-@use '../../variables';
+@use '../functions';
+@use '../variables';
 @use 'sass:map';
 
-@mixin border() {
+@mixin border($media: null) {
   $global-prefix: variables.$global-prefix;
 
   @each $name, $map in variables.$borders {
@@ -10,7 +10,7 @@
     $property-style: functions.list-to-dash-separated-string((border, $direction, style));
     $property-width: functions.list-to-dash-separated-string((border, $direction, width));
 
-    #{functions.construct-class-name($global-prefix, $name)} {
+    #{functions.construct-class-name($global-prefix, $name, $media)} {
       #{$property-style}: map.get($map, 'border-style');
       #{$property-width}: map.get($map, 'border-width');
     }

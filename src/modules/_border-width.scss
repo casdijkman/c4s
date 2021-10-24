@@ -1,12 +1,12 @@
-@use '../../functions';
-@use '../../variables';
+@use '../functions';
+@use '../variables';
 
-@mixin border-width() {
+@mixin border-width($media: null) {
   $global-prefix: variables.$global-prefix;
   $prefix: variables.$border-width-prefix;
 
   @each $border-width, $value in variables.$border-widths {
-    #{functions.construct-class-name($global-prefix, $prefix + $border-width)} {
+    #{functions.construct-class-name($global-prefix, $prefix + $border-width, $media)} {
       border-width: $value;
     }
   }

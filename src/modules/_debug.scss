@@ -1,5 +1,5 @@
-@use '../../functions';
-@use '../../variables';
+@use '../functions';
+@use '../variables';
 @use 'sass:map';
 
 /*
@@ -10,27 +10,27 @@
 /* stylelint-disable max-line-length */
 $dataUrlGrid8: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFElEQVR4AWPAC97/9x0eCsAEPgwAVLshdpENIxcAAAAASUVORK5CYII=';
 $dataUrlGrid16: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMklEQVR4AWOgCLz/b0epAa6UGuBOqQHOQHLUgFEDnAbcBZ4UGwDOkiCnkIhdgNgNxAYAiYlD+8sEuo8AAAAASUVORK5CYII=';
-$dataUrlGrid8Solid: 'data:image/gif;base64,R0lGODdhCAAIAPEAAADw/wDx/////wAAACwAAAAACAAIAAACDZQvgaeb/lxbAIKA8y0AOw==';
-$dataUrlGrid16Solid: 'data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/xXy/////ywAAAAAEAAQAAACIZyPKckYDQFsb6ZqD85jZ2+BkwiRFKehhqQCQgDHcgwEBQA7';
+$dataUrlGrid8Solid: 'data:image/gif;base64,R0lGODdhCAAIAPEAAADw/w..//wAAACwAAAAACAAIAAACDZQvgaeb/lxbAIKA8y0AOw==';
+$dataUrlGrid16Solid: 'data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/x..//ywAAAAAEAAQAAACIZyPKckYDQFsb6ZqD85jZ2+BkwiRFKehhqQCQgDHcgwEBQA7';
 /* stylelint-enable max-line-length */
 
-@mixin debug() {
+@mixin debug($media: null) {
   $global-prefix: variables.$global-prefix;
 
   // TODO: rename debug-grid-8
-  #{functions.construct-class-name($global-prefix, debug-grid)} {
+  #{functions.construct-class-name($global-prefix, debug-grid, $media)} {
     background: transparent url($dataUrlGrid8) repeat top left;
   }
 
-  #{functions.construct-class-name($global-prefix, debug-grid-16)} {
+  #{functions.construct-class-name($global-prefix, debug-grid-16, $media)} {
     background: transparent url($dataUrlGrid16) repeat top left;
   }
 
-  #{functions.construct-class-name($global-prefix, debug-grid-8-solid)} {
+  #{functions.construct-class-name($global-prefix, debug-grid-8-solid, $media)} {
     background: white url($dataUrlGrid8Solid) repeat top left;
   }
 
-  #{functions.construct-class-name($global-prefix, debug-grid-16-solid)} {
+  #{functions.construct-class-name($global-prefix, debug-grid-16-solid, $media)} {
     background: white url($dataUrlGrid16Solid) repeat top left;
   }
 
@@ -39,7 +39,7 @@ $dataUrlGrid16Solid: 'data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/xXy/////ywA
    * See https://css-tricks.com/stripes-css/
    */
 
-  #{functions.construct-class-name($global-prefix, debug-striped)} {
+  #{functions.construct-class-name($global-prefix, debug-striped, $media)} {
     background:
       repeating-linear-gradient(
         -45deg,
@@ -50,7 +50,7 @@ $dataUrlGrid16Solid: 'data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/xXy/////ywA
       );
   }
 
-  #{functions.construct-class-name($global-prefix, debug-striped-light)} {
+  #{functions.construct-class-name($global-prefix, debug-striped-light, $media)} {
     background:
       repeating-linear-gradient(
         -45deg,

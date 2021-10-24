@@ -2,28 +2,19 @@
 
 #set -x # Enable debugging
 
-startDirectory=$(dirname "$(realpath "$0")")
-[[ $startDirectory != $(pwd) ]] && echo "Run script from it's own directory" && exit 1
+[[ $(dirname "$(realpath "$0")") != $(pwd) ]] && echo "Run script from it's own directory" && exit 1
 
-directories=(non-responsive responsive)
+for file in ./modules/_*.scss; do
+    baseName=$(basename "$file")
+    newBaseName="${baseName:1}" # Remove first character (being _)
+    moduleName="${newBaseName/.scss/}"
+    newBaseName="${newBaseName/.scss/-module.scss}"
+    newFile="${file/$baseName/$newBaseName}"
 
-for directory in "${directories[@]}"; do
-    cd "$directory" || exit
-
-    [[ $directory == "responsive" ]] && mixinArgument="''"
-
-    for file in _*.scss; do
-	newFile="${file:1}" # Remove first character (being _)
-	moduleName="${newFile/.scss/}"
-	newFile="${newFile/.scss/-module.scss}"
-
-	touch "$newFile"
-	cat << EOF > "$newFile"
+    touch "$newFile"
+    cat << EOF > "$newFile"
 @use './$moduleName';
 
-@include $moduleName.$moduleName($mixinArgument);
+@include $moduleName.$moduleName();
 EOF
-    done
-
-    cd "$startDirectory" || exit
 done

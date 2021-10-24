@@ -1,12 +1,12 @@
-@use '../../functions';
-@use '../../variables';
+@use '../functions';
+@use '../variables';
 
-@mixin flex-direction($media-suffix) {
+@mixin flex-direction($media: null) {
   $global-prefix: variables.$global-prefix;
   $moduleName: variables.$flex-direction-name;
 
   @each $name, $value in variables.$flex-directions {
-    #{functions.construct-class-name($global-prefix, $moduleName, $name, $media-suffix)} {
+    #{functions.construct-class-name($global-prefix, $moduleName, $name, $media)} {
       flex-direction: $value;
     }
   }

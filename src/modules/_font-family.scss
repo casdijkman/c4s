@@ -1,12 +1,12 @@
-@use '../../functions';
-@use '../../variables';
+@use '../functions';
+@use '../variables';
 @use 'sass:string';
 
-@mixin font-family() {
+@mixin font-family($media: null) {
   $global-prefix: variables.$global-prefix;
 
   @each $name, $value in variables.$font-families {
-    #{functions.construct-class-name($global-prefix, $name)} {
+    #{functions.construct-class-name($global-prefix, $name, $media)} {
       font-family: string.unquote($value);
     }
   }

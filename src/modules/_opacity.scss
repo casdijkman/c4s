@@ -1,12 +1,12 @@
-@use '../../functions';
-@use '../../variables';
+@use '../functions';
+@use '../variables';
 
-@mixin opacity() {
+@mixin opacity($media: null) {
   $global-prefix: variables.$global-prefix;
   $name: variables.$opacity-name;
 
   @each $opacity, $value in variables.$opacity-levels {
-    #{functions.construct-class-name($global-prefix, $name, $opacity)} {
+    #{functions.construct-class-name($global-prefix, $name, $opacity, $media)} {
       opacity: $value;
     }
   }

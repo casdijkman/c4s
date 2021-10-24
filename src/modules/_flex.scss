@@ -1,7 +1,7 @@
-@use '../../functions';
-@use '../../variables';
+@use '../functions';
+@use '../variables';
 
-@mixin flex($media-suffix) {
+@mixin flex($media: null) {
   $global-prefix: variables.$global-prefix;
   $wrap-name:     variables.$flex-wrap-name;
   $items-name:    variables.$flex-align-items-name;
@@ -13,49 +13,49 @@
   $order-name:    variables.$flex-order-name;
 
   @each $name, $value in variables.$flex-wraps {
-    #{functions.construct-class-name($global-prefix, $wrap-name, $name, $media-suffix)} {
+    #{functions.construct-class-name($global-prefix, $wrap-name, $name, $media)} {
       flex-wrap: $value;
     }
   }
 
   @each $name, $value in variables.$flex-align-items {
-    #{functions.construct-class-name($global-prefix, $items-name, $name, $media-suffix)} {
+    #{functions.construct-class-name($global-prefix, $items-name, $name, $media)} {
       align-items: $value;
     }
   }
 
   @each $name, $value in variables.$flex-align-items {
-    #{functions.construct-class-name($global-prefix, $self-name, $name, $media-suffix)} {
+    #{functions.construct-class-name($global-prefix, $self-name, $name, $media)} {
       align-self: $value;
     }
   }
 
   @each $name, $value in variables.$flex-align-contents {
-    #{functions.construct-class-name($global-prefix, $content-name, $name, $media-suffix)} {
+    #{functions.construct-class-name($global-prefix, $content-name, $name, $media)} {
       align-content: $value;
     }
   }
 
   @each $name, $value in variables.$flex-justify-contents {
-    #{functions.construct-class-name($global-prefix, $justify-name, $name, $media-suffix)} {
+    #{functions.construct-class-name($global-prefix, $justify-name, $name, $media)} {
       justify-content: $value;
     }
   }
 
   @each $name, $value in variables.$flex-grows {
-    #{functions.construct-class-name($global-prefix, $grow-name, $name, $media-suffix)} {
+    #{functions.construct-class-name($global-prefix, $grow-name, $name, $media)} {
       flex-grow: $value;
     }
   }
 
   @each $name, $value in variables.$flex-shrinks {
-    #{functions.construct-class-name($global-prefix, $shrink-name, $name, $media-suffix)} {
+    #{functions.construct-class-name($global-prefix, $shrink-name, $name, $media)} {
       flex-shrink: $value;
     }
   }
 
   @each $name, $value in variables.$flex-orders {
-    #{functions.construct-class-name($global-prefix, $order-name, $name, $media-suffix)} {
+    #{functions.construct-class-name($global-prefix, $order-name, $name, $media)} {
       order: $value;
     }
   }

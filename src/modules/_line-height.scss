@@ -1,12 +1,12 @@
-@use '../../functions';
-@use '../../variables';
+@use '../functions';
+@use '../variables';
 
-@mixin line-height($media-suffix) {
+@mixin line-height($media: null) {
   $global-prefix: variables.$global-prefix;
   $name: variables.$line-height-name;
 
   @each $level, $value in variables.$line-height-levels {
-    #{functions.construct-class-name($global-prefix, $name, $level, $media-suffix)} {
+    #{functions.construct-class-name($global-prefix, $name, $level, $media)} {
       line-height: $value;
     }
   }

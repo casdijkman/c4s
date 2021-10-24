@@ -1,12 +1,12 @@
-@use '../../functions';
-@use '../../variables';
+@use '../functions';
+@use '../variables';
 
-@mixin transition() {
+@mixin transition($media: null) {
   $global-prefix: variables.$global-prefix;
   $name: variables.$transition-name;
 
   @each $level, $value in variables.$transition-speeds {
-    #{functions.construct-class-name($global-prefix, $name, $level)} {
+    #{functions.construct-class-name($global-prefix, $name, $level, $media)} {
       transition: transform $value ease-in-out;
     }
   }

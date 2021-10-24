@@ -1,11 +1,11 @@
-@use '../../functions';
-@use '../../variables';
+@use '../functions';
+@use '../variables';
 
-@mixin visibility() {
+@mixin visibility($media: null) {
   $global-prefix: variables.$global-prefix;
 
   @each $name, $value in variables.$visibilities {
-    #{functions.construct-class-name($global-prefix, $name)} {
+    #{functions.construct-class-name($global-prefix, $name, $media)} {
       visibility: $value;
     }
   }

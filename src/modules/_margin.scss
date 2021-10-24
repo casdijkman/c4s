@@ -1,8 +1,8 @@
-@use '../../functions';
-@use '../../variables';
+@use '../functions';
+@use '../variables';
 @use 'sass:map';
 
-@mixin margin($media-suffix) {
+@mixin margin($media: null) {
   $global-prefix: variables.$global-prefix;
 
   @each $name, $map in variables.$margins {
@@ -10,7 +10,7 @@
     $properties: map.get($map, properties);
 
     @each $level, $value in $levels {
-      #{functions.construct-class-name($global-prefix, $name + $level, $media-suffix)} {
+      #{functions.construct-class-name($global-prefix, $name + $level, $media)} {
         @each $property in $properties {
           #{$property}: $value;
         }

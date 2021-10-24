@@ -1,12 +1,12 @@
-@use '../../functions';
-@use '../../variables';
+@use '../functions';
+@use '../variables';
 
-@mixin vertical-align($media-suffix) {
+@mixin vertical-align($media: null) {
   $global-prefix: variables.$global-prefix;
   $name: variables.$vertical-align-name;
 
   @each $className, $value in variables.$vertical-aligns {
-    #{functions.construct-class-name($global-prefix, $name, $className, $media-suffix)} {
+    #{functions.construct-class-name($global-prefix, $name, $className, $media)} {
       vertical-align: $value;
     }
   }

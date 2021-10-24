@@ -1,12 +1,12 @@
-@use '../../functions';
-@use '../../variables';
+@use '../functions';
+@use '../variables';
 
-@mixin display($media-suffix) {
+@mixin display($media: null) {
   $global-prefix: variables.$global-prefix;
   $prefix: variables.$display-prefix;
 
   @each $name, $value in variables.$displays {
-    #{functions.construct-class-name($global-prefix, $prefix + $name, $media-suffix)} {
+    #{functions.construct-class-name($global-prefix, $prefix + $name, $media)} {
       display: $value;
     }
   }
