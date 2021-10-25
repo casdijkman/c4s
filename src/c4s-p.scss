@@ -12,7 +12,7 @@
 
 $breakpoint: p;
 $breakpoints: (
-  $breakpoint: map.get(variables.$breakpoints, $breakpoint)
+  $breakpoint: map.get(variables.$breakpoints-all, $breakpoint)
 );
 
 @include load-modules.load-modules(null, $breakpoints);

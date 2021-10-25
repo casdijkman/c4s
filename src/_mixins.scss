@@ -3,7 +3,7 @@
 @use 'sass:string';
 
 @mixin media-breakpoint-up($name) {
-  $breakpoint-map: map.get(variables.$breakpoints, $name);
+  $breakpoint-map: map.get(variables.$breakpoints-all, $name);
 
   @if $name == '' or $name == null {
     @content;

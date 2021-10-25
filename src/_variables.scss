@@ -9,23 +9,15 @@
 
 $global-prefix: '';
 
-$breakpoints: (
-  s: (
-    breakpoint: 20em
-  ),
-  m: (
-    breakpoint: 30em
-  ),
-  l: (
-    breakpoint: 60em
-  ),
-  h: (
-    breakpoint: 90em
-  ),
-  p: (
-    media: print
-  )
+$breakpoints-all: (
+  s: ( breakpoint: 20em ),
+  m: (breakpoint: 30em),
+  l: (breakpoint: 60em),
+  h: (breakpoint: 90em),
+  p: (media: print)
 );
+
+$breakpoints: map.remove($breakpoints-all, 'p');
 
 $modules: (
   /*
