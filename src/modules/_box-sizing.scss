@@ -4,9 +4,9 @@
 @mixin box-sizing($media: null) {
   $global-prefix: variables.$global-prefix;
 
-  @each $box-sizing in variables.$box-sizings {
-    #{functions.construct-class-name($global-prefix, $box-sizing, $media)} {
-      box-sizing: $box-sizing;
+  @each $name, $value in variables.$box-sizings {
+    #{functions.construct-class-name($global-prefix, $name, $media)} {
+      box-sizing: $value;
     }
   }
 }

@@ -2,7 +2,11 @@
 @use 'sass:map';
 @use 'sass:string';
 
-@mixin reset() {
+@mixin reset($media: null) {
+  @if $media != null {
+    @error Reset module is not compatible with responsiveness;
+  }
+
   html {
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;

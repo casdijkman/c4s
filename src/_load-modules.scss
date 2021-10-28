@@ -24,6 +24,7 @@
 @use 'modules/height';
 @use 'modules/hover-background-color';
 @use 'modules/hover-color';
+@use 'modules/letter-spacing';
 @use 'modules/line-height';
 @use 'modules/margin';
 @use 'modules/measure';
@@ -36,7 +37,6 @@
 @use 'modules/text-decoration';
 @use 'modules/text-shadow';
 @use 'modules/text-transform';
-@use 'modules/tracking';
 @use 'modules/transform';
 @use 'modules/transition';
 @use 'modules/vertical-align';
@@ -330,6 +330,18 @@
       }
     }
 
+    @if $module == letter-spacing {
+      @include letter-spacing.letter-spacing();
+
+      @if $responsive {
+        @each $breakpoint, $map in $breakpoints {
+          @include mixins.media-breakpoint-up($breakpoint) {
+            @include letter-spacing.letter-spacing($breakpoint);
+          }
+        }
+      }
+    }
+
     @if $module == line-height {
       @include line-height.line-height();
 
@@ -469,18 +481,6 @@
         @each $breakpoint, $map in $breakpoints {
           @include mixins.media-breakpoint-up($breakpoint) {
             @include text-transform.text-transform($breakpoint);
-          }
-        }
-      }
-    }
-
-    @if $module == tracking {
-      @include tracking.tracking();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include tracking.tracking($breakpoint);
           }
         }
       }

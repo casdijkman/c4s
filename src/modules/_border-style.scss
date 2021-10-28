@@ -5,9 +5,9 @@
   $global-prefix: variables.$global-prefix;
   $prefix: variables.$border-style-prefix;
 
-  @each $border-style in variables.$border-styles {
-    #{functions.construct-class-name($global-prefix, $prefix + $border-style, $media)} {
-      border-style: $border-style;
+  @each $name, $value in variables.$border-styles {
+    #{functions.construct-class-name($global-prefix, $prefix + $name, $media)} {
+      border-style: $value;
     }
   }
 }

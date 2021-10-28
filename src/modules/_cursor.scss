@@ -5,9 +5,9 @@
   $global-prefix: variables.$global-prefix;
   $name: variables.$cursor-name;
 
-  @each $cursor in variables.$cursors {
-    #{functions.construct-class-name($global-prefix, $name, $cursor, $media)} {
-      cursor: $cursor;
+  @each $class-name, $value in variables.$cursors {
+    #{functions.construct-class-name($global-prefix, $name, $class-name, $media)} {
+      cursor: $value;
     }
   }
 }

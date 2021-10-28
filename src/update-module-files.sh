@@ -6,17 +6,14 @@
 
 moduleFileSuffix='-module'
 
+command rm -f ./modules/*-module.scss
+
 for file in ./modules/_*.scss; do
     baseName=$(basename "$file")
     baseNameClean="${baseName:1}" # Remove first character (being _)
     moduleName="${baseNameClean/.scss/}"
     newBaseName="${baseNameClean/.scss/$moduleFileSuffix.scss}"
     moduleFile="${file/$baseName/$newBaseName}"
-
-    if [[ ! -f $moduleFile ]]; then
-	echo "Creating new file: $moduleFile"
-	touch "$moduleFile"
-    fi
 
     cat << EOF > "$moduleFile"
 @use './$moduleName';

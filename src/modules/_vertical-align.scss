@@ -5,8 +5,8 @@
   $global-prefix: variables.$global-prefix;
   $name: variables.$vertical-align-name;
 
-  @each $className, $value in variables.$vertical-aligns {
-    #{functions.construct-class-name($global-prefix, $name, $className, $media)} {
+  @each $class-name, $value in variables.$vertical-aligns {
+    #{functions.construct-class-name($global-prefix, $name, $class-name, $media)} {
       vertical-align: $value;
     }
   }

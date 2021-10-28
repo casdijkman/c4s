@@ -1,63 +1,42 @@
 @use '../functions';
 @use '../variables';
 @use 'sass:map';
-
-/*
- * Credit to Adam Morse from Tachyons for the debug grids
- * See http://tachyons.io/docs/debug-grid/
- */
-
-/* stylelint-disable max-line-length */
-$dataUrlGrid8: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFElEQVR4AWPAC97/9x0eCsAEPgwAVLshdpENIxcAAAAASUVORK5CYII=';
-$dataUrlGrid16: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMklEQVR4AWOgCLz/b0epAa6UGuBOqQHOQHLUgFEDnAbcBZ4UGwDOkiCnkIhdgNgNxAYAiYlD+8sEuo8AAAAASUVORK5CYII=';
-$dataUrlGrid8Solid: 'data:image/gif;base64,R0lGODdhCAAIAPEAAADw/w..//wAAACwAAAAACAAIAAACDZQvgaeb/lxbAIKA8y0AOw==';
-$dataUrlGrid16Solid: 'data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/x..//ywAAAAAEAAQAAACIZyPKckYDQFsb6ZqD85jZ2+BkwiRFKehhqQCQgDHcgwEBQA7';
-/* stylelint-enable max-line-length */
+@use 'sass:list';
 
 @mixin debug($media: null) {
   $global-prefix: variables.$global-prefix;
 
-  // TODO: rename debug-grid-8
-  #{functions.construct-class-name($global-prefix, debug-grid, $media)} {
-    background: transparent url($dataUrlGrid8) repeat top left;
-  }
+  /*
+   * Credit to Adam Morse from Tachyons for the debug grids
+   * See http://tachyons.io/docs/debug-grid/
+   */
+  $grid-name: variables.$debug-grid-name;
 
-  #{functions.construct-class-name($global-prefix, debug-grid-16, $media)} {
-    background: transparent url($dataUrlGrid16) repeat top left;
-  }
+  @each $name, $map in variables.$debug-grids {
+    $background: map.get($map, background);
+    $data-url: map.get($map, data-url);
 
-  #{functions.construct-class-name($global-prefix, debug-grid-8-solid, $media)} {
-    background: white url($dataUrlGrid8Solid) repeat top left;
-  }
-
-  #{functions.construct-class-name($global-prefix, debug-grid-16-solid, $media)} {
-    background: white url($dataUrlGrid16Solid) repeat top left;
+    #{functions.construct-class-name($global-prefix, $grid-name, $name, $media)} {
+      background: #{$background} url($data-url) repeat top left;
+    }
   }
 
   /*
    * Credit to Chris Coyier from CSSTricks for the striped background
    * See https://css-tricks.com/stripes-css/
    */
+  $striped-name: variables.$debug-striped-name;
 
-  #{functions.construct-class-name($global-prefix, debug-striped, $media)} {
-    background:
-      repeating-linear-gradient(
-        -45deg,
-        map.get(variables.$colors, 'black-025'),
-        map.get(variables.$colors, 'black-025') 10px,
-        map.get(variables.$colors, 'black-05') 10px,
-        map.get(variables.$colors, 'black-05') 20px
-      );
-  }
-
-  #{functions.construct-class-name($global-prefix, debug-striped-light, $media)} {
-    background:
-      repeating-linear-gradient(
-        -45deg,
-        map.get(variables.$colors, 'black-025'),
-        map.get(variables.$colors, 'black-025') 10px,
-        transparent 10px,
-        transparent 20px
-      );
+  @each $name, $list in variables.$debug-striped-items {
+    #{functions.construct-class-name($global-prefix, $striped-name, $name, $media)} {
+      background:
+        repeating-linear-gradient(
+          -45deg,
+          list.nth($list, 1),
+          list.nth($list, 1) 10px,
+          list.nth($list, 2) 10px,
+          list.nth($list, 2) 20px
+        );
+    }
   }
 }
