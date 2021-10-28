@@ -1,0 +1,13 @@
+@use '../functions';
+@use '../variables';
+
+@mixin word-break($media: null) {
+  $global-prefix: variables.$global-prefix;
+  $name: variables.$word-break-name;
+
+  @each $class-name, $value in variables.$word-breaks {
+    #{functions.construct-class-name($global-prefix, $name, $class-name, $media)} {
+      word-break: $value;
+    }
+  }
+}

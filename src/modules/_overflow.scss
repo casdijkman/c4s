@@ -1,0 +1,18 @@
+@use '../functions';
+@use '../variables';
+@use 'sass:map';
+
+@mixin overflow($media: null) {
+  $global-prefix: variables.$global-prefix;
+  $name: variables.$overflow-name;
+
+  @each $direction, $map in variables.$overflows {
+    $property: map.get($map, property);
+
+    @each $class, $value in map.get($map, map) {
+      #{functions.construct-class-name($global-prefix, $name, $direction, $class, $media)} {
+        #{functions.list-to-dash-separated-string([overflow, $direction])}: $value;
+      }
+    }
+  }
+}

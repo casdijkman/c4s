@@ -2,6 +2,7 @@
 @use 'variables';
 @use 'mixins';
 @use 'modules/background-color';
+@use 'modules/border-collapse';
 @use 'modules/border-color';
 @use 'modules/border-radius';
 @use 'modules/border';
@@ -30,6 +31,7 @@
 @use 'modules/measure';
 @use 'modules/miscellaneous';
 @use 'modules/opacity';
+@use 'modules/overflow';
 @use 'modules/padding';
 @use 'modules/position';
 @use 'modules/reset';
@@ -43,6 +45,7 @@
 @use 'modules/visibility';
 @use 'modules/white-space';
 @use 'modules/width';
+@use 'modules/word-break';
 
 @mixin load-modules($modules: null, $breakpoints: null) {
   @if $modules == null {
@@ -61,6 +64,18 @@
         @each $breakpoint, $map in $breakpoints {
           @include mixins.media-breakpoint-up($breakpoint) {
             @include background-color.background-color($breakpoint);
+          }
+        }
+      }
+    }
+
+    @if $module == border-collapse {
+      @include border-collapse.border-collapse();
+
+      @if $responsive {
+        @each $breakpoint, $map in $breakpoints {
+          @include mixins.media-breakpoint-up($breakpoint) {
+            @include border-collapse.border-collapse($breakpoint);
           }
         }
       }
@@ -402,6 +417,18 @@
       }
     }
 
+    @if $module == overflow {
+      @include overflow.overflow();
+
+      @if $responsive {
+        @each $breakpoint, $map in $breakpoints {
+          @include mixins.media-breakpoint-up($breakpoint) {
+            @include overflow.overflow($breakpoint);
+          }
+        }
+      }
+    }
+
     @if $module == padding {
       @include padding.padding();
 
@@ -553,6 +580,18 @@
         @each $breakpoint, $map in $breakpoints {
           @include mixins.media-breakpoint-up($breakpoint) {
             @include width.width($breakpoint);
+          }
+        }
+      }
+    }
+
+    @if $module == word-break {
+      @include word-break.word-break();
+
+      @if $responsive {
+        @each $breakpoint, $map in $breakpoints {
+          @include mixins.media-breakpoint-up($breakpoint) {
+            @include word-break.word-break($breakpoint);
           }
         }
       }
