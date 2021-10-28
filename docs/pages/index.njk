@@ -8,32 +8,21 @@
     </h1>
 
     {% for module in modules %}
-	<header class="mb3">
-	    <h2 class="mv0 f4 dib">
-		{{ module.name | replace("-", " ") | title }}
-	    </h2>
-	    <code class="pl3 nowrap">
-		{{ module.file }}
-	    </code>
-	</header>
+	<h2 class="f4">
+	    {{ module.name | replace("-", " ") | title }}
+	</h2>
 
 	<details class="mb4">
 	    <summary class="cursor-pointer">
 		More information
 	    </summary>
 	    {% for rule in module.css.stylesheet.rules %}
-		<dl class="mt4">
-		    <dt class="code">
-			{{ rule.selectors | join(", ") }}
-		    </dt>
-		    <dd class="code">
-			{% for declaration in rule.declarations %}
-			    <div>
-				{{ declaration.property }}: {{ declaration.value }}
-			    </div>
-			{% endfor %}
-		    </dd>
-		</dl>
+		<code>
+		    <pre>
+{{ rule.selectors | join(", ") }} { {% for declaration in rule.declarations %}
+  {{ declaration.property }}: {{ declaration.value }};{% endfor %}
+}</pre>
+		</code>
 
 		<div>
 		    {{ example.example(module.name, rule.selectors, rule.declarations) }}
