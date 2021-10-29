@@ -19,7 +19,7 @@
 	    {% for rule in module.css.stylesheet.rules %}
 		<code>
 		    <pre>
-{{ rule.selectors | join(", ") }} { {% for declaration in rule.declarations %}
+{{ rule.selectors | join(", ") }} {{ "{" }}{% for declaration in rule.declarations %}
   {{ declaration.property }}: {{ declaration.value }};{% endfor %}
 }</pre>
 		</code>
