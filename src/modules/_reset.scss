@@ -4,7 +4,7 @@
 
 @mixin reset($media: null) {
   @if $media != null {
-    @error Reset module is not compatible with responsiveness;
+    @error 'Reset module is not compatible with responsiveness';
   }
 
   html {
@@ -41,18 +41,63 @@
   h6 {
     margin-top: 2.75rem;
     margin-bottom: 1rem;
-    line-height: map.get(variables.$line-height-levels, 'header');
+
+    @if map.get(variables.$line-height-levels, 'header') != null {
+      line-height: map.get(variables.$line-height-levels, 'header');
+    }
   }
 
-  h1    { font-size: map.get(variables.$font-sizes, 'f1'); }
-  h2    { font-size: map.get(variables.$font-sizes, 'f2'); }
-  h3    { font-size: map.get(variables.$font-sizes, 'f3'); }
-  h4    { font-size: map.get(variables.$font-sizes, 'f4'); }
-  h5    { font-size: map.get(variables.$font-sizes, 'f5'); }
-  h6    { font-size: map.get(variables.$font-sizes, 'f6'); }
-  small { font-size: map.get(variables.$font-sizes, 'small'); }
+  @if map.get(variables.$font-sizes, 'f1') != null {
+    h1 {
+      font-size: map.get(variables.$font-sizes, 'f1');
+    }
+  }
 
-  p { line-height: map.get(variables.$line-height-levels, 'text'); }
+  @if map.get(variables.$font-sizes, 'f2') != null {
+    h2 {
+      font-size: map.get(variables.$font-sizes, 'f2');
+    }
+  }
 
-  code { font-family: string.unquote(map.get(variables.$font-families, 'code')); }
+  @if map.get(variables.$font-sizes, 'f3') != null {
+    h3 {
+      font-size: map.get(variables.$font-sizes, 'f3');
+    }
+  }
+
+  @if map.get(variables.$font-sizes, 'f4') != null {
+    h4 {
+      font-size: map.get(variables.$font-sizes, 'f4');
+    }
+  }
+
+  @if map.get(variables.$font-sizes, 'f5') != null {
+    h5 {
+      font-size: map.get(variables.$font-sizes, 'f5');
+    }
+  }
+
+  @if map.get(variables.$font-sizes, 'f6') != null {
+    h6 {
+      font-size: map.get(variables.$font-sizes, 'f6');
+    }
+  }
+
+  @if map.get(variables.$font-sizes, 'small') != null {
+    small {
+      font-size: map.get(variables.$font-sizes, 'small');
+    }
+  }
+
+  @if map.get(variables.$line-height-levels, 'text') != null {
+    p {
+      line-height: map.get(variables.$line-height-levels, 'text');
+    }
+  }
+
+  @if map.get(variables.$font-families, 'code') != null {
+    code {
+      font-family: string.unquote(map.get(variables.$font-families, 'code'));
+    }
+  }
 }
