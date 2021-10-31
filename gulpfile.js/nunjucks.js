@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2021 Cas Dijkman
+//
+// SPDX-License-Identifier: GPL-3.0-only
+
 const fs = require('fs');
 const path = require('path');
 const glob = require('glob');

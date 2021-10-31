@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# SPDX-FileCopyrightText: 2021 Cas Dijkman
+#
+# SPDX-License-Identifier: GPL-3.0-only
+
 #set -x # Enable debugging
 
 [[ $(dirname "$(realpath "$0")") != $(pwd) ]] && echo "Run script from it's own directory" && exit 1
@@ -8,7 +12,7 @@ shopt -s globstar
 IFS=$'\n\t'
 
 variablesFile=./_variables.scss
-externalFile=./c4s-custom.scss
+customFile=./c4s-custom.scss
 
 _getVariables() {
     while read -r variable_line; do
@@ -72,11 +76,12 @@ _variablesFile() {
     _generateMixinDefinition
 }
 
-_externalFile() {
+_customFile() {
+    echo "$(_variablesFileBase)" | head -n 6 | sed 's/\/\*!/\/\*/g'
     echo "// Set the @use statements for variables, load-modules and functions below to the correct paths"
     echo "@use './variables';"
     echo "@use './load-modules';"
-    _variablesFileBase
+    echo "$(_variablesFileBase)" | tail -n +7
     _generateMixinInvocation
     echo "@include load-modules.load-modules();"
 }
@@ -85,8 +90,8 @@ _update() {
     variablesFileContent=$(_variablesFile)
     echo "$variablesFileContent" >$variablesFile
 
-    externalFileContent=$(_externalFile)
-    echo "$externalFileContent" >$externalFile
+    customFileContent=$(_customFile)
+    echo "$customFileContent" >$customFile
 }
 
 _update

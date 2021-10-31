@@ -1,0 +1,8 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: C4S CSS
+Upstream-Contact: Cas Dijkman <cas@dijkman.xyz>
+Source: 
+
+Files: package.json yarn.lock
+Copyright: 2021 Cas Dijkman <cas@dijkman.xyz>
+License: GPL-3.0-only

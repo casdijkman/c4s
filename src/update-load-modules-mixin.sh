@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# SPDX-FileCopyrightText: 2021 Cas Dijkman
+#
+# SPDX-License-Identifier: GPL-3.0-only
+
 #set -x # Enable debugging
 
 [[ $(dirname "$(realpath "$0")") != $(pwd) ]] && echo "Run script from it's own directory" && exit 1
@@ -33,6 +37,14 @@ _getModules() {
 }
 
 _generate(){
+    cat << EOF
+/*
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+EOF
+    echo
     echo "@use 'sass:map';"
     echo "@use 'variables';"
     echo "@use 'mixins';"
