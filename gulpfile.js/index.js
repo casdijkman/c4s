@@ -22,8 +22,9 @@ const destination = 'dist';
 
 const globs = {
     src: {
-	sass:     './src/**/*.scss',
-	nunjucks: './docs/pages/**/*.njk'
+	sass:        './src/**/*.scss',
+	nunjucks:    './docs/pages/**/*.njk',
+	nunjucksAll: './docs/**/*.njk'
     },
     dist: {
 	css:      ['./dist/**/*.css', '!./dist/**/*.min.css'],
@@ -102,7 +103,7 @@ const build = series(clean, compileSass, parallel(compileNunjucks, gzipDist));
 
 function watchFiles() {
     watch(globs.src.sass, build);
-    watch(globs.src.nunjucks, compileNunjucks);
+    watch(globs.src.nunjucksAll, compileNunjucks);
 }
 
 module.exports = {
