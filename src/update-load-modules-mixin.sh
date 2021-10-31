@@ -22,17 +22,23 @@ while ((${#})); do
   shift
 done
 
-_generate(){
-    echo "@use 'sass:map';"
-    echo "@use 'variables';"
-    echo "@use 'mixins';"
-
+_getModules() {
     for file in modules/_*.scss; do
 	baseName=$(basename "$file")
 	newFile="${baseName:1}" # Remove first character (being _)
 	moduleName="${newFile/.scss/}"
 
-	echo "@use 'modules/$moduleName';"
+	echo "$moduleName"
+    done
+}
+
+_generate(){
+    echo "@use 'sass:map';"
+    echo "@use 'variables';"
+    echo "@use 'mixins';"
+
+    for module in $(_getModules); do
+	echo "@use 'modules/$module';"
     done
 
     echo
@@ -45,27 +51,32 @@ _generate(){
     echo "    \$breakpoints: variables.\$breakpoints;"
     echo "  }"
     echo
+
     echo "  @each \$module, \$responsive in \$modules {"
 
-    for file in modules/_*.scss; do
-	baseName=$(basename "$file")
-	newFile="${baseName:1}" # Remove first character (being _)
-	moduleName="${newFile/.scss/}"
-
-	echo "    @if \$module == $moduleName {"
-	echo "      @include $moduleName.$moduleName();"
-	echo
-	echo "      @if \$responsive {"
-	echo "        @each \$breakpoint, \$map in \$breakpoints {"
-	echo "          @include mixins.media-breakpoint-up(\$breakpoint) {"
-	echo "            @include $moduleName.$moduleName(\$breakpoint);"
-	echo "          }"
-	echo "        }"
-	echo "      }"
+    for module in $(_getModules); do
+	echo "    @if \$module == $module {"
+	echo "      @include $module.$module();"
 	echo "    }"
 	echo
     done
 
+    echo "  }"
+    echo
+
+    echo "  @each \$breakpoint, \$map in \$breakpoints {"
+    echo "    @include mixins.media-breakpoint-up(\$breakpoint) {"
+    echo "      @each \$module, \$responsive in \$modules {"
+
+    for module in $(_getModules); do
+	echo "        @if \$module == $module and \$responsive {"
+	echo "          @include $module.$module(\$breakpoint);"
+	echo "        }"
+	echo
+    done
+
+    echo "      }"
+    echo "    }"
     echo "  }"
     echo "}"
 }
@@ -74,7 +85,7 @@ _update() {
     loadModulesFile=./_load-modules.scss
 
     if [[ -f $loadModulesFile ]]; then
-	$0 --generate >$loadModulesFile
+        _generate >$loadModulesFile
     else
 	echo "Load modules file not found, exiting"
 	exit 1

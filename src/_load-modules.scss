@@ -59,543 +59,370 @@
   @each $module, $responsive in $modules {
     @if $module == background-color {
       @include background-color.background-color();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include background-color.background-color($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == border-collapse {
       @include border-collapse.border-collapse();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include border-collapse.border-collapse($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == border-color {
       @include border-color.border-color();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include border-color.border-color($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == border-radius {
       @include border-radius.border-radius();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include border-radius.border-radius($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == border {
       @include border.border();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include border.border($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == border-style {
       @include border-style.border-style();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include border-style.border-style($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == border-width {
       @include border-width.border-width();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include border-width.border-width($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == box-sizing {
       @include box-sizing.box-sizing();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include box-sizing.box-sizing($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == color {
       @include color.color();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include color.color($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == complex {
       @include complex.complex();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include complex.complex($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == coordinates {
       @include coordinates.coordinates();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include coordinates.coordinates($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == cursor {
       @include cursor.cursor();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include cursor.cursor($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == debug {
       @include debug.debug();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include debug.debug($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == display {
       @include display.display();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include display.display($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == flex-direction {
       @include flex-direction.flex-direction();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include flex-direction.flex-direction($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == flex {
       @include flex.flex();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include flex.flex($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == float {
       @include float.float();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include float.float($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == font-family {
       @include font-family.font-family();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include font-family.font-family($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == font-size {
       @include font-size.font-size();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include font-size.font-size($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == font-style {
       @include font-style.font-style();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include font-style.font-style($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == font-weight {
       @include font-weight.font-weight();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include font-weight.font-weight($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == height {
       @include height.height();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include height.height($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == hover-background-color {
       @include hover-background-color.hover-background-color();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include hover-background-color.hover-background-color($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == hover-color {
       @include hover-color.hover-color();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include hover-color.hover-color($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == letter-spacing {
       @include letter-spacing.letter-spacing();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include letter-spacing.letter-spacing($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == line-height {
       @include line-height.line-height();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include line-height.line-height($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == margin {
       @include margin.margin();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include margin.margin($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == measure {
       @include measure.measure();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include measure.measure($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == miscellaneous {
       @include miscellaneous.miscellaneous();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include miscellaneous.miscellaneous($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == opacity {
       @include opacity.opacity();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include opacity.opacity($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == overflow {
       @include overflow.overflow();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include overflow.overflow($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == padding {
       @include padding.padding();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include padding.padding($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == position {
       @include position.position();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include position.position($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == reset {
       @include reset.reset();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include reset.reset($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == text-align {
       @include text-align.text-align();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include text-align.text-align($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == text-decoration {
       @include text-decoration.text-decoration();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include text-decoration.text-decoration($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == text-shadow {
       @include text-shadow.text-shadow();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include text-shadow.text-shadow($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == text-transform {
       @include text-transform.text-transform();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include text-transform.text-transform($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == transform {
       @include transform.transform();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include transform.transform($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == transition {
       @include transition.transition();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include transition.transition($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == vertical-align {
       @include vertical-align.vertical-align();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include vertical-align.vertical-align($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == visibility {
       @include visibility.visibility();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include visibility.visibility($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == white-space {
       @include white-space.white-space();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include white-space.white-space($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == width {
       @include width.width();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include width.width($breakpoint);
-          }
-        }
-      }
     }
 
     @if $module == word-break {
       @include word-break.word-break();
-
-      @if $responsive {
-        @each $breakpoint, $map in $breakpoints {
-          @include mixins.media-breakpoint-up($breakpoint) {
-            @include word-break.word-break($breakpoint);
-          }
-        }
-      }
     }
 
+  }
+
+  @each $breakpoint, $map in $breakpoints {
+    @include mixins.media-breakpoint-up($breakpoint) {
+      @each $module, $responsive in $modules {
+        @if $module == background-color and $responsive {
+          @include background-color.background-color($breakpoint);
+        }
+
+        @if $module == border-collapse and $responsive {
+          @include border-collapse.border-collapse($breakpoint);
+        }
+
+        @if $module == border-color and $responsive {
+          @include border-color.border-color($breakpoint);
+        }
+
+        @if $module == border-radius and $responsive {
+          @include border-radius.border-radius($breakpoint);
+        }
+
+        @if $module == border and $responsive {
+          @include border.border($breakpoint);
+        }
+
+        @if $module == border-style and $responsive {
+          @include border-style.border-style($breakpoint);
+        }
+
+        @if $module == border-width and $responsive {
+          @include border-width.border-width($breakpoint);
+        }
+
+        @if $module == box-sizing and $responsive {
+          @include box-sizing.box-sizing($breakpoint);
+        }
+
+        @if $module == color and $responsive {
+          @include color.color($breakpoint);
+        }
+
+        @if $module == complex and $responsive {
+          @include complex.complex($breakpoint);
+        }
+
+        @if $module == coordinates and $responsive {
+          @include coordinates.coordinates($breakpoint);
+        }
+
+        @if $module == cursor and $responsive {
+          @include cursor.cursor($breakpoint);
+        }
+
+        @if $module == debug and $responsive {
+          @include debug.debug($breakpoint);
+        }
+
+        @if $module == display and $responsive {
+          @include display.display($breakpoint);
+        }
+
+        @if $module == flex-direction and $responsive {
+          @include flex-direction.flex-direction($breakpoint);
+        }
+
+        @if $module == flex and $responsive {
+          @include flex.flex($breakpoint);
+        }
+
+        @if $module == float and $responsive {
+          @include float.float($breakpoint);
+        }
+
+        @if $module == font-family and $responsive {
+          @include font-family.font-family($breakpoint);
+        }
+
+        @if $module == font-size and $responsive {
+          @include font-size.font-size($breakpoint);
+        }
+
+        @if $module == font-style and $responsive {
+          @include font-style.font-style($breakpoint);
+        }
+
+        @if $module == font-weight and $responsive {
+          @include font-weight.font-weight($breakpoint);
+        }
+
+        @if $module == height and $responsive {
+          @include height.height($breakpoint);
+        }
+
+        @if $module == hover-background-color and $responsive {
+          @include hover-background-color.hover-background-color($breakpoint);
+        }
+
+        @if $module == hover-color and $responsive {
+          @include hover-color.hover-color($breakpoint);
+        }
+
+        @if $module == letter-spacing and $responsive {
+          @include letter-spacing.letter-spacing($breakpoint);
+        }
+
+        @if $module == line-height and $responsive {
+          @include line-height.line-height($breakpoint);
+        }
+
+        @if $module == margin and $responsive {
+          @include margin.margin($breakpoint);
+        }
+
+        @if $module == measure and $responsive {
+          @include measure.measure($breakpoint);
+        }
+
+        @if $module == miscellaneous and $responsive {
+          @include miscellaneous.miscellaneous($breakpoint);
+        }
+
+        @if $module == opacity and $responsive {
+          @include opacity.opacity($breakpoint);
+        }
+
+        @if $module == overflow and $responsive {
+          @include overflow.overflow($breakpoint);
+        }
+
+        @if $module == padding and $responsive {
+          @include padding.padding($breakpoint);
+        }
+
+        @if $module == position and $responsive {
+          @include position.position($breakpoint);
+        }
+
+        @if $module == reset and $responsive {
+          @include reset.reset($breakpoint);
+        }
+
+        @if $module == text-align and $responsive {
+          @include text-align.text-align($breakpoint);
+        }
+
+        @if $module == text-decoration and $responsive {
+          @include text-decoration.text-decoration($breakpoint);
+        }
+
+        @if $module == text-shadow and $responsive {
+          @include text-shadow.text-shadow($breakpoint);
+        }
+
+        @if $module == text-transform and $responsive {
+          @include text-transform.text-transform($breakpoint);
+        }
+
+        @if $module == transform and $responsive {
+          @include transform.transform($breakpoint);
+        }
+
+        @if $module == transition and $responsive {
+          @include transition.transition($breakpoint);
+        }
+
+        @if $module == vertical-align and $responsive {
+          @include vertical-align.vertical-align($breakpoint);
+        }
+
+        @if $module == visibility and $responsive {
+          @include visibility.visibility($breakpoint);
+        }
+
+        @if $module == white-space and $responsive {
+          @include white-space.white-space($breakpoint);
+        }
+
+        @if $module == width and $responsive {
+          @include width.width($breakpoint);
+        }
+
+        @if $module == word-break and $responsive {
+          @include word-break.word-break($breakpoint);
+        }
+
+      }
+    }
   }
 }
