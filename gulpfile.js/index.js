@@ -27,8 +27,8 @@ const globs = {
 	nunjucksAll: './docs/**/*.njk'
     },
     dist: {
-	css:      ['./dist/**/*.css', '!./dist/**/*.min.css'],
-	cssAll:   './dist/**/*.css'
+	css:         ['./dist/**/*.css', '!./dist/**/*.min.css'],
+	cssAll:      './dist/**/*.css'
     }
 };
 
@@ -46,6 +46,10 @@ function compileSass() {
 	}))
 	.pipe(sass.sync().on('error', sass.logError))
 	.pipe(postcss([ autoprefixer ]))
+	.pipe(rename({ extname: '.raw.css' }))
+	.pipe(dest(destination))
+	.pipe(rename({ extname: '' }))     // Remove .css extension (from .raw.css)
+	.pipe(rename({ extname: '.css' })) // Replace .raw extension with .css
 	.pipe(csso({ forceMediaMerge: true }))
 	.pipe(rename({ extname: '.min.css' }))
 	.pipe(dest(destination))           // Output optimized css files as .min.css

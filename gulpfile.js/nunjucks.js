@@ -5,12 +5,11 @@ const cssLib = require('css');
 
 function getNunjucksData() {
     const data = { modules: [] };
-    const cssModules = glob.sync('dist/modules/**/*.css')
-	  .filter((file) => ! /\.min\.css$/.test(file));
 
-    for (const file of cssModules) {
-	const name = path.basename(file, '.css');
+    for (const file of glob.sync('dist/modules/**/*.raw.css')) {
+	const name = path.basename(file, '.raw.css');
 	const css = cssLib.parse(fs.readFileSync(file, 'utf8'));
+
 	// Remove comments from rules array
 	css.stylesheet.rules = css.stylesheet.rules.filter((x) => x.type === 'rule');
 
