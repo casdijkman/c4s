@@ -7,27 +7,11 @@
 	<span class="tracked-tight">C4S</span> docu&shy;menta&shy;tion
     </h1>
 
-    {% for module in modules %}
-	<h2 class="f4">
-	    {{ module.name | replace("-", " ") | title }}
-	</h2>
+    <a href="/example.html" class="db link ph3 pv2">
+	Examples
+    </a>
 
-	<details class="mb4">
-	    <summary class="cursor-pointer">
-		More information
-	    </summary>
-	    {% for rule in module.css.stylesheet.rules %}
-		<code>
-		    <pre>
-{{ rule.selectors | join(", ") }} {{ "{" }}{% for declaration in rule.declarations %}
-  {{ declaration.property }}: {{ declaration.value }};{% endfor %}
-}</pre>
-		</code>
-
-		<div>
-		    {{ example.example(module.name, rule.selectors, rule.declarations) }}
-		</div>
-	    {% endfor %}
-	</details>
-    {% endfor %}
+    <a href="/list.html" class="db link ph3 pv2">
+	List of rules
+    </a>
 {% endblock %}

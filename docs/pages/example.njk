@@ -1,0 +1,35 @@
+{% extends "docs/layouts/default.njk" %}
+
+{% import "docs/macros/example.njk" as example %}
+
+{% block content %}
+    <h1 class="mt0 mb4">
+	<span class="tracked-tight">C4S</span> docu&shy;menta&shy;tion
+    </h1>
+
+    {% for module in modules %}
+	<h2 class="f4">
+	    {{ module.name | replace("-", " ") | title }}
+	</h2>
+
+	<details class="mb4">
+	    <summary class="p2 cursor-pointer">
+		More information
+	    </summary>
+	    {% for rule in module.css.stylesheet.rules %}
+		<div class="pv3 pl3 mb4 bl b--silver">
+		    <code>
+			<pre class="mt0">
+{{ rule.selectors | join(", ") }} {{ "{" }}{% for declaration in rule.declarations %}
+  {{ declaration.property }}: {{ declaration.value }};{% endfor %}
+}</pre>
+		    </code>
+
+		    <div>
+			{{ example.example(module.name, rule.selectors, rule.declarations) }}
+		    </div>
+		</div>
+	    {% endfor %}
+	</details>
+    {% endfor %}
+{% endblock %}
