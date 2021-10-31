@@ -3,10 +3,6 @@
 {% import "docs/macros/example.njk" as example %}
 
 {% block content %}
-    <h1 class="mt0 mb4">
-	<span class="tracked-tight">C4S</span> docu&shy;menta&shy;tion
-    </h1>
-
     {% for module in modules %}
 	<h2 class="f4">
 	    {{ module.name | replace("-", " ") | title }}
