@@ -29,8 +29,4 @@
     pointer-events: auto;
     background-color: transparent;
   }
-
-  #{functions.construct-class-name($global-prefix, link, $media)} {
-    text-decoration: none;
-  }
 }

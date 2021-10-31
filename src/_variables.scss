@@ -169,7 +169,11 @@ $colors: (
   /*
    * Transparent
    */
-  'transparent': transparent
+  'transparent': transparent,
+  /*
+   * Keywords
+   */
+  'inherit': inherit
 );
 
 /*
@@ -723,7 +727,8 @@ $text-aligns: (
 $text-decorations: (
   'underline':    underline,
   'line-through': line-through,
-  'strike':       line-through
+  'strike':       line-through,
+  'link':         none
 );
 
 /*
