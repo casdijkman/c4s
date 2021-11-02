@@ -6,6 +6,7 @@
 
 @use '../functions';
 @use '../variables';
+@use '../mixins';
 @use 'sass:map';
 @use 'sass:list';
 
@@ -13,8 +14,8 @@
   $global-prefix: variables.$global-prefix;
 
   /*
-   * Credit to Adam Morse from Tachyons for the debug grids
-   * See http://tachyons.io/docs/debug-grid/
+   * Credit to Adam Morse from Tachyons for the debug grids and outlines
+   * See http://tachyons.io/docs/debug-grid/ and http://tachyons.io/docs/debug/
    */
   $grid-name: variables.$debug-grid-name;
 
@@ -25,6 +26,10 @@
     #{functions.construct-class-name($global-prefix, $grid-name, $name, $media)} {
       background: #{$background} url($data-url) repeat top left;
     }
+  }
+
+  .debug-outlines * {
+    outline: 1px solid gold;
   }
 
   /*
@@ -43,6 +48,16 @@
           list.nth($list, 2) 10px,
           list.nth($list, 2) 20px
         );
+    }
+  }
+
+  .show-breakpoints::before {
+    content: '[breakpoint: base] ';
+
+    @each $breakpoint, $map in variables.$breakpoints {
+      @include mixins.media-breakpoint-up($breakpoint) {
+        content: '[breakpoint: #{$breakpoint}] ';
+      }
     }
   }
 }
