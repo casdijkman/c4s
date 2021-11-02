@@ -621,6 +621,11 @@ $margins: (
     'properties': [margin-left margin-right],
     'levels': $margin-spacer-levels
   ),
+  // Use alias center for mh-auto
+  '': (
+    'properties': [margin-left margin-right],
+    'levels': ('center': auto)
+  ),
   'mv': (
     'properties': [margin-top margin-bottom],
     'levels': $spacer-levels
@@ -734,6 +739,7 @@ $text-decorations: (
   'underline':    underline,
   'line-through': line-through,
   'strike':       line-through,
+  'no-underline': none,
   'link':         none
 );
 
