@@ -21,6 +21,8 @@ const htmlmin = require('gulp-htmlmin');
 const beautifier = require('gulp-jsbeautifier');
 const stylelint = require('gulp-stylelint');
 const eslint = require('gulp-eslint');
+const browserSync = require('browser-sync').create();
+const reload = browserSync.reload;
 
 const destination = 'dist';
 
@@ -32,7 +34,8 @@ const globs = {
     },
     dist: {
 	css:         ['./dist/**/*.css', '!./dist/**/*.min.css'],
-	cssAll:      './dist/**/*.css'
+	cssAll:      './dist/**/*.css',
+	html:        './dist/**/*.html'
     }
 };
 
@@ -60,7 +63,8 @@ function compileSass() {
 	.pipe(prettier())
 	.pipe(rename({ extname: '' }))     // Remove .css extension (from .min.css)
 	.pipe(rename({ extname: '.css' })) // Replace .min extension with .css
-	.pipe(dest(destination));          // Output pretty-printed optimized files as .css
+	.pipe(dest(destination))           // Output pretty-printed optimized files as .css
+        .pipe(reload({ stream: true }));
 }
 
 function compileNunjucks() {
@@ -107,18 +111,25 @@ function clean() {
     return del(destination);
 }
 
+function serve() {
+     browserSync.init({	server: destination, notify: false });
+}
+
 const build = series(clean, compileSass, parallel(compileNunjucks, gzipDist));
 
 function watchFiles() {
     watch(globs.src.sass, build);
     watch(globs.src.nunjucksAll, compileNunjucks);
+    watch(globs.dist.html).on('change', reload);
 }
 
 module.exports = {
     nunjucks: compileNunjucks,
     sass: compileSass,
     clean,
+    serve,
     build,
-    default: series(build, watchFiles),
+    buildWatch: series(build, watchFiles),
+    default: series(build, parallel(watchFiles, serve)),
     lint: parallel(lintSass, lintCss, lintJs)
 };

@@ -35,7 +35,7 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build",
-    "demo": "browser-sync dist",
+    "serve": "gulp serve",
     "lint": "gulp lint",
     "lint-rc": "yarn eslint .*.js --ignore-pattern '!.*'"
   }
