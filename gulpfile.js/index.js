@@ -22,7 +22,6 @@ const beautifier = require('gulp-jsbeautifier');
 const stylelint = require('gulp-stylelint');
 const eslint = require('gulp-eslint');
 const browserSync = require('browser-sync').create();
-const reload = browserSync.reload;
 
 const destination = 'dist';
 
@@ -64,7 +63,7 @@ function compileSass() {
 	.pipe(rename({ extname: '' }))     // Remove .css extension (from .min.css)
 	.pipe(rename({ extname: '.css' })) // Replace .min extension with .css
 	.pipe(dest(destination))           // Output pretty-printed optimized files as .css
-        .pipe(reload({ stream: true }));
+        .pipe(browserSync.reload({ stream: true }));
 }
 
 function compileNunjucks() {
@@ -112,7 +111,7 @@ function clean() {
 }
 
 function serve() {
-     browserSync.init({	server: destination, notify: false });
+    return browserSync.init({ server: destination, notify: false });
 }
 
 const build = series(clean, compileSass, parallel(compileNunjucks, gzipDist));
@@ -120,7 +119,7 @@ const build = series(clean, compileSass, parallel(compileNunjucks, gzipDist));
 function watchFiles() {
     watch(globs.src.sass, build);
     watch(globs.src.nunjucksAll, compileNunjucks);
-    watch(globs.dist.html).on('change', reload);
+    watch(globs.dist.html, () => { browserSync.reload(); });
 }
 
 module.exports = {
