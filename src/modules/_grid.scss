@@ -1,0 +1,34 @@
+/*
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
+@use '../functions';
+@use '../variables';
+
+@mixin grid($media: null) {
+  $global-prefix: variables.$global-prefix;
+  $name: variables.$column-name;
+
+  #{functions.construct-class-name($global-prefix, variables.$row-name, $media)} {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #{functions.construct-class-name($global-prefix, $name, $media)} {
+    flex: 1 0 0%;
+  }
+
+  @each $class-name, $value in variables.$columns {
+    #{functions.construct-class-name($global-prefix, $name, $class-name, $media)} {
+      flex: 0 0 auto;
+    }
+  }
+
+  @each $class-name, $value in variables.$columns {
+    #{functions.construct-class-name($global-prefix, $name, $class-name, $media)} {
+      width: $value;
+    }
+  }
+}

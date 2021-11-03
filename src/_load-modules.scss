@@ -28,6 +28,7 @@
 @use 'modules/font-size';
 @use 'modules/font-style';
 @use 'modules/font-weight';
+@use 'modules/grid';
 @use 'modules/height';
 @use 'modules/hover-background-color';
 @use 'modules/hover-color';
@@ -145,6 +146,10 @@
 
     @if $module == font-weight {
       @include font-weight.font-weight();
+    }
+
+    @if $module == grid {
+      @include grid.grid();
     }
 
     @if $module == height {
@@ -330,6 +335,10 @@
 
         @if $module == font-weight and $responsive {
           @include font-weight.font-weight($breakpoint);
+        }
+
+        @if $module == grid and $responsive {
+          @include grid.grid($breakpoint);
         }
 
         @if $module == height and $responsive {

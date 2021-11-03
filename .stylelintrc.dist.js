@@ -13,6 +13,7 @@ module.exports = {
 	'no-missing-end-of-source-newline': null,
 	'value-list-comma-newline-after': null,
 	'declaration-colon-newline-after': null,
-	'comment-empty-line-before': null
+	'comment-empty-line-before': null,
+	'no-duplicate-selectors': null
     }
 };
