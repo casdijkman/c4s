@@ -7,45 +7,38 @@ SPDX-License-Identifier: GPL-3.0-only
 {% extends "docs/layouts/default.njk" %}
 
 {% block content %}
-    <div class="overflow-x-auto overflow-x-visible-m">
-	<table class="tl border-collapse w-100">
-	    <tr class="f5">
-		<th class="ph3 pv2 sticky top-0 bg-white" style="box-shadow: 0 -1px rgba(0, 0, 0, 0.2) inset;">
-		    Selectors
-		</th>
-		<th class="ph3 pv2 sticky top-0 bg-white" style="box-shadow: 0 -1px rgba(0, 0, 0, 0.2) inset;">
-		    Declarations
-		</th>
-		<th class="ph3 pv2 sticky top-0 bg-white" style="box-shadow: 0 -1px rgba(0, 0, 0, 0.2) inset;">
-		    Module
-		</th>
-	    </tr>
-
-	    {% for module in modules %}
-		{% for rule in module.css.stylesheet.rules %}
-		    <tr class="bt b--black-20">
-			<td class="p2">
-			    {% for selector in rule.selectors %}
-				{{ selector }}
-				{% if not loop.last %}
-				    <br>
-				{% endif %}
-			    {% endfor %}
-			</td>
-			<td class="p2 word-break-word">
-			    {% for declaration in rule.declarations %}
-				{{ declaration.property }}: {{ declaration.value }};
-				{% if not loop.last %}
-				    <br>
-				{% endif %}
-			    {% endfor %}
-			</td>
-			<td class="p2">
-			    {{ module.name }}
-			</td>
-		    </tr>
-		{% endfor %}
-	    {% endfor %}
-	</table>
+    <div class="row f5 b sticky top-0 bg-white bb bw1 b--black-20">
+	<div class="col-12 col-3-m col-2-l p2">
+	    Selectors
+	</div>
+	<div class="col-12 col-m p2">
+	    Declarations
+	</div>
+	<div class="col-12 col-2-m p2">
+	    Module
+	</div>
     </div>
+
+    {% for module in modules %}
+	{% for rule in module.css.stylesheet.rules %}
+	    <div class="row bt b--black-20">
+		<div class="col-12 col-3-m col-2-l p2">
+		    {% for selector in rule.selectors %}
+			{{ selector }}{% if not loop.last %},<br>{% endif %}
+		    {% endfor %}
+		</div>
+		<div class="col-12 col-m p2 word-break-word">
+		    {% for declaration in rule.declarations %}
+			{{ declaration.property }}: {{ declaration.value }};
+			{% if not loop.last %}
+			    <br>
+			{% endif %}
+		    {% endfor %}
+		</div>
+		<div class="col-12 col-2-m p2">
+		    {{ module.name }}
+		</div>
+	    </div>
+	{% endfor %}
+    {% endfor %}
 {% endblock %}
