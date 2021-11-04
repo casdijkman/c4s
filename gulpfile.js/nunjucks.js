@@ -6,6 +6,7 @@ const fs = require('fs');
 const path = require('path');
 const glob = require('glob');
 const cssLib = require('css');
+const highlight = require('highlight.js');
 
 function getNunjucksData() {
     const data = { modules: [] };
@@ -44,6 +45,12 @@ function getNunjucksEnv(env) {
 
     env.addFilter('getClassesFromSelectors', (selectors) => {
 	return selectors.map((selector) => getClassFromSelector(selector));
+    });
+
+    env.addFilter('highlight', (textInput, languageInput) => {
+	const text = textInput.replace(/&quot;/g, '"');
+	const language = languageInput || 'css';
+	return highlight.highlight(text, { language }).value;
     });
 
     return env;

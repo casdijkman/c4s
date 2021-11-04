@@ -119,7 +119,10 @@ const build = series(clean, compileSass, parallel(compileNunjucks, gzipDist));
 function watchFiles() {
     watch(globs.src.sass, build);
     watch(globs.src.nunjucksAll, compileNunjucks);
-    watch(globs.dist.html, () => { browserSync.reload(); });
+    watch(globs.dist.html, (cb) => {
+	browserSync.reload();
+	cb();
+    });
 }
 
 module.exports = {

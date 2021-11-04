@@ -9,8 +9,68 @@ SPDX-License-Identifier: GPL-3.0-only
 {% import "docs/macros/example.njk" as example %}
 
 {% block content %}
+    <style>
+     /*	https://github.com/highlightjs/highlight.js/blob/main/src/styles/vs.css */
+
+     .hljs-comment,
+     .hljs-quote,
+     .hljs-variable {
+       color: #008000;
+     }
+
+     .hljs-keyword,
+     .hljs-selector-tag,
+     .hljs-built_in,
+     .hljs-name,
+     .hljs-tag {
+       color: #00f;
+     }
+
+     .hljs-string,
+     .hljs-title,
+     .hljs-section,
+     .hljs-attribute,
+     .hljs-literal,
+     .hljs-template-tag,
+     .hljs-template-variable,
+     .hljs-type,
+     .hljs-addition {
+       color: #a31515;
+     }
+
+     .hljs-deletion,
+     .hljs-selector-attr,
+     .hljs-selector-pseudo,
+     .hljs-meta {
+       color: #2b91af;
+     }
+
+     .hljs-doctag {
+       color: #808080;
+     }
+
+     .hljs-attr {
+       color: #f00;
+     }
+
+     .hljs-symbol,
+     .hljs-bullet,
+     .hljs-link {
+       color: #00b0e8;
+     }
+
+
+     .hljs-emphasis {
+       font-style: italic;
+     }
+
+     .hljs-strong {
+       font-weight: bold;
+     }
+    </style>
+
     {% for module in modules %}
-	<h2 class="f4">
+	<h2 class="f4 mt0">
 	    {{ module.name | replace("-", " ") | title }}
 	</h2>
 
@@ -20,14 +80,15 @@ SPDX-License-Identifier: GPL-3.0-only
 	    </summary>
 	    {% for rule in module.css.stylesheet.rules %}
 		<div class="pv3 pl3 mb4 bl b--silver">
-		    <code>
-			<pre class="mt0">
-{{ rule.selectors | join(", ") }} {{ "{" }}{% for declaration in rule.declarations %}
+		    {% set ruleText %}{{ rule.selectors | join(", ") }} {{ "{" }}{% for declaration in rule.declarations %}
   {{ declaration.property }}: {{ declaration.value }};{% endfor %}
-}</pre>
-		    </code>
+}{% endset %}
 
-		    <div>
+		    <div class="overflow-x-auto mt4-between">
+			<pre class="hljs dib mv0"><code>{{ ruleText | highlight | safe }}</code></pre>
+		    </div>
+
+		    <div class="mt4-between hide-empty">
 			{{ example.example(module.name, rule.selectors, rule.declarations) }}
 		    </div>
 		</div>
