@@ -32,6 +32,7 @@
 @use 'modules/height';
 @use 'modules/hover-background-color';
 @use 'modules/hover-color';
+@use 'modules/hover';
 @use 'modules/letter-spacing';
 @use 'modules/line-height';
 @use 'modules/margin';
@@ -162,6 +163,10 @@
 
     @if $module == hover-color {
       @include hover-color.hover-color();
+    }
+
+    @if $module == hover {
+      @include hover.hover();
     }
 
     @if $module == letter-spacing {
@@ -351,6 +356,10 @@
 
         @if $module == hover-color and $responsive {
           @include hover-color.hover-color($breakpoint);
+        }
+
+        @if $module == hover and $responsive {
+          @include hover.hover($breakpoint);
         }
 
         @if $module == letter-spacing and $responsive {

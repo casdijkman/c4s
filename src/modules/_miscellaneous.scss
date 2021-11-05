@@ -35,4 +35,8 @@
     pointer-events: auto;
     background-color: transparent;
   }
+
+  #{functions.construct-class-name($global-prefix, dn-empty, $media)}:empty {
+    display: none;
+  }
 }

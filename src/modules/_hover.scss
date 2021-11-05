@@ -1,0 +1,79 @@
+/*
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
+@use '../functions';
+@use '../variables';
+
+@mixin hover($media: null) {
+  $global-prefix: variables.$global-prefix;
+
+  #{functions.construct-class-name($global-prefix, dim, $media)} {
+    transition: opacity .15s ease-in;
+
+    &:hover,
+    &:focus {
+      opacity: .5;
+    }
+  }
+
+  #{functions.construct-class-name($global-prefix, grow, $media)} {
+    &,
+    &-large {
+      transition: transform .25s ease-out;
+    }
+
+    &:hover,
+    &:focus {
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(.9);
+    }
+
+    &-large {
+      &:hover,
+      &:focus {
+        transform: scale(1.2);
+      }
+
+      &:active {
+        transform: scale(.95);
+      }
+    }
+  }
+
+  #{functions.construct-class-name($global-prefix, link, $media)} {
+    text-decoration: none;
+    transition: color .15s ease-in;
+
+    &:focus {
+      outline: 1px dotted currentColor;
+    }
+  }
+
+  #{functions.construct-class-name($global-prefix, hide-child, $media)} {
+    $child: functions.construct-class-name($global-prefix, child, $media);
+
+    #{$child} {
+      opacity: 0;
+      transition: opacity .15s ease-in;
+    }
+
+    &:hover #{$child},
+    &:focus #{$child},
+    &:active #{$child} {
+      opacity: 1;
+    }
+  }
+
+  #{functions.construct-class-name($global-prefix, hover-underline, $media)} {
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
