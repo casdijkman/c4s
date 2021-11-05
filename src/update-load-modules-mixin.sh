@@ -33,6 +33,8 @@ _getModules() {
 	moduleName="${newFile/.scss/}"
 
 	echo "$moduleName"
+
+	[[ $1 == "first" ]] && return
     done
 }
 
@@ -67,12 +69,20 @@ EOF
     echo "  @each \$module, \$responsive in \$modules {"
 
     for module in $(_getModules); do
-	echo "    @if \$module == $module {"
-	echo "      @include $module.$module();"
-	echo "    }"
-	echo
+	if [[ $module == $(_getModules first) ]]; then
+    	    echo "    @if \$module == $module {"
+	    echo "      @include $module.$module();"
+	    echo "    }"
+	else
+	    echo "    @else if \$module == $module {"
+	    echo "      @include $module.$module();"
+	    echo "    }"
+	fi
     done
 
+    echo "    @else {"
+    echo "      @error 'Module not found:' \$module;"
+    echo "    }"
     echo "  }"
     echo
 
@@ -81,10 +91,15 @@ EOF
     echo "      @each \$module, \$responsive in \$modules {"
 
     for module in $(_getModules); do
-	echo "        @if \$module == $module and \$responsive {"
-	echo "          @include $module.$module(\$breakpoint);"
-	echo "        }"
-	echo
+	if [[ $module == $(_getModules first) ]]; then
+	    echo "        @if \$module == $module and \$responsive {"
+	    echo "          @include $module.$module(\$breakpoint);"
+	    echo "        }"
+	else
+	    echo "        @else if \$module == $module and \$responsive {"
+	    echo "          @include $module.$module(\$breakpoint);"
+	    echo "        }"
+	fi
     done
 
     echo "      }"

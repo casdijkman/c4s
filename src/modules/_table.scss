@@ -1,0 +1,32 @@
+/*
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
+@use '../functions';
+@use '../variables';
+
+@mixin table($media: null) {
+  $global-prefix: variables.$global-prefix;
+
+  #{functions.construct-class-name($global-prefix, collapse, $media)} {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  $stripe-name: variables.$table-stripe-name;
+
+  @each $name, $value in variables.$table-stripes {
+    $class-name: functions.construct-class-name(
+      $global-prefix,
+      $stripe-name,
+      $name,
+      $media
+    );
+
+    #{$class-name}:nth-child(odd) {
+      background-color: $value;
+    }
+  }
+}
