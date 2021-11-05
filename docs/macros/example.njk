@@ -11,8 +11,8 @@ SPDX-License-Identifier: GPL-3.0-only
 {% endmacro %}
 
 {% macro exampleNotFound() %}
-    <div class="">
-	Example not found
+    <div class="o-50">
+	(Example not found)
     </div>
 {% endmacro %}
 
@@ -44,23 +44,38 @@ SPDX-License-Identifier: GPL-3.0-only
 		</div>
 	    </div>
 	{% elif r/pt.-between$/.test(firstClass) %}
-	    {# TODO #}
+	    <div class="dib ba bg-black-10 {{ firstClass }}">
+		{{ caption }}
+	    </div>
+	    <div class="dib ba bg-black-10 {{ firstClass }}">
+		{{ caption }}
+	    </div>
 	{% elif r/pl.-between$/.test(firstClass) %}
-	    {# TODO #}
+	    <div class="dib ba bg-black-10 {{ firstClass }}">
+		{{ caption }}
+	    </div>
+	    <div class="dib ba bg-black-10 {{ firstClass }}">
+		{{ caption }}
+	    </div>
 	{% elif r/mt.-between$/.test(firstClass) %}
-	    {# TODO #}
+	   <div class="dt ba bg-black-10 {{ firstClass }}">
+		{{ caption }}
+	    </div>
+	    <div class="dt ba bg-black-10 {{ firstClass }}">
+		{{ caption }}
+	    </div>
 	{% elif r/ml.-between$/.test(firstClass) %}
-	    {# TODO #}
+	     <div class="dib ba bg-black-10 {{ firstClass }}">
+		{{ caption }}
+	    </div>
+	    <div class="dib ba bg-black-10 {{ firstClass }}">
+		{{ caption }}
+	    </div>
 	{% else %}
 	    {{ exampleNotFound() }}
 	{% endif %}
     {% elif type === "reset" %}
-	{#
-
-	These rules should speak for themselves, they overrides some 'harmful' defaults
-	and set defaults for header font sizes, line heights etc.
-
-	#}
+	{{ exampleNotFound() }}
     {% elif type === "color" %}
 	<div class="dib ba p3">
 	    <div class="dib p1 {{ firstClass }}">
@@ -145,17 +160,16 @@ SPDX-License-Identifier: GPL-3.0-only
 	    {{ caption }}
 	</div>
     {% elif type === "text-align" %}
-	<div class="p3 ba {{ firstClass }}">
-	    {{ caption }}
-	    {% if firstClass == "tj" %}
-		&mdash;	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+	<div class="ph3 ba measure {{ firstClass }}">
+	    <p>
+		{{ caption }}
+	    </p>
+	    <p class="o-50">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
 		veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-		commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-		velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-		cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-		est laborum.
-	    {% endif %}
+		commodo consequat.
+	    </p>
 	</div>
     {% elif type === "opacity" %}
 	<div class="dib bg-black white p3 {{ firstClass }}">
@@ -199,15 +213,18 @@ SPDX-License-Identifier: GPL-3.0-only
 	    </div>
 	</div>
     {% elif type === "transition" %}
-	{# TODO #}
+	{{ exampleNotFound() }}
     {% elif type === "visibility" %}
 	<div class="dib bg-black white p1 {{ firstClass }}">
 	    {{ caption }}
 	</div>
     {% elif type === "box-sizing" %}
-	{% set width = "256px" %}
-	<div class="bt bb br bw5 {{ firstClass }}" style="width: {{ width }};">
-	    {{ caption }} and width {{ width }}
+	<div class="tc debug-striped w5 p3 mb2">
+	    Element with class w5
+	</div>
+
+	<div class="ba bw5 p2 w5 {{ firstClass }}">
+	    {{ caption }} and w5
 	</div>
     {% elif type === "cursor" %}
 	<div class="dib ba p3 {{ firstClass }}">
@@ -217,11 +234,11 @@ SPDX-License-Identifier: GPL-3.0-only
 	{% if firstClass === "list-reset" %}
 	    <ul class="dib ba p3 {{ firstClass }}">
 		{% for i in [1, 2, 3] %}
-		    <li>List item in <code>ul</code> with class {{ firstClass }}</li>
+		    <li>List item in <code>&lt;ul&gt;</code> with class {{ firstClass }}</li>
 		{% endfor %}
 	    </ul>
-	{% elif firstClass === "stretch" or firstClass === "stretch-pseudo" %}
-	    <div class="w6 h4 ba relative">
+	{% elif r/stretch.*/.test(firstClass) %}
+	    <div class="measure h4 ba relative">
 		<a class="dib p3 debug-striped {{ firstClass }}" href="javascript:;">
 		    {{ caption }}
 		</a>
@@ -231,6 +248,12 @@ SPDX-License-Identifier: GPL-3.0-only
 		<a class="{{ firstClass }}" href="javascript:;">
 		    {{ caption }}
 		</a>
+	    </div>
+	{% elif firstClass === "dn-empty" %}
+	    <div class="dib debug-striped ba p3 {{ firstClass }}">
+		{{ caption }}
+	    </div>
+	    <div class="dib debug-striped ba p3 {{ firstClass }}">
 	    </div>
 	{% else %}
 	    {{ exampleNotFound() }}
@@ -244,9 +267,7 @@ SPDX-License-Identifier: GPL-3.0-only
 	    {{ caption }}
 	</div>
     {% elif type === "margin" %}
-	{% set autoRegex = r/[rlh]-auto$/ %}
-
-	{% if autoRegex.test(firstClass) %}
+	{% if r/[rlh]-auto$/.test(firstClass) %}
 	    <div class="ba">
 		<div class="w4 white bg-black {{ firstClass }}">
 		    {{ caption }}
@@ -270,7 +291,7 @@ SPDX-License-Identifier: GPL-3.0-only
 	    {{ caption }}
         </div>
     {% elif type === "position" %}
-	{# TODO #}
+	{{ exampleNotFound() }}
     {% elif type === "coordinates" %}
 	<div class="relative ba w-50 h4">
 	    <div class="dib white bg-black absolute {{ firstClass }}">
@@ -278,9 +299,37 @@ SPDX-License-Identifier: GPL-3.0-only
 	    </div>
 	</div>
     {% elif type === "display" %}
-	{# TODO #}
+	<div class="bg-black-10 p3 {{ firstClass }}">
+	    {{ caption }}
+	</div>
     {% elif type === "flex" %}
-	{# TODO #}
+	{% if r/.*wrap.*/.test(firstClass) %}
+	    <div class="df measure ba p1 {{ firstClass }}">
+		<div class="p2 m1 debug-striped ba">
+		    Child of element with class {{ firstClass }}
+		</div>
+		{% for i in [2, 3, 4, 5] %}
+		    <div class="p2 m1 debug-striped ba">
+			Child {{ i }}
+		    </div>
+		{% endfor %}
+	    </div>
+	{% elif r/^items-.*/.test(firstClass) %}
+	    <div class="debug-striped p2 df h5 measure {{ firstClass }}">
+		<div class="col-6 p2">
+		    <div class="ba p2 h-100">
+			Child of element with class {{ firstClass }}
+		    </div>
+		</div>
+		<div class="col-6 p2">
+		    <div class="f2 ba p2 h-100">
+			Child 2
+		    </div>
+		</div>
+	    </div>
+	{% else %}
+	    {{ exampleNotFound() }}
+	{% endif %}
     {% elif type === "flex-direction" %}
 	<div class="dif {{ firstClass }}">
 	    {% for i in [1, 2, 3] %}
@@ -316,13 +365,15 @@ SPDX-License-Identifier: GPL-3.0-only
 	    {{ caption }}
 	</div>
     {% elif type === "white-space" %}
-	<div class="w5 bg-black-10 {{ firstClass }}">
+	<div class="w4 bg-black-10 p2 ba {{ firstClass }}">
 	    {{ caption }}
-	    {{ caption | replace(" ", "   ") }}
+	    <!--! -->
+	    {{ caption }}
+	    <!--! -->
 	</div>
     {% elif type === "vertical-align" %}
 	<div class="dib bg-black white lh-extra ph2">
-	    <div class="dib bg-red {{ firstClass }}" style="height: .4em; width: .4em;"></div>
+	    <div class="dib ba b--red bw2 mr2 {{ firstClass }}"></div>
 	    {{ caption }}
 	</div>
     {% elif type === "tracking" %}
@@ -333,7 +384,25 @@ SPDX-License-Identifier: GPL-3.0-only
 	<div class="bg-black white {{ firstClass }}">
 	    {{ caption }}
 	</div>
+    {% elif type === "border-collapse" %}
+	<table class="ba {{ firstClass }}">
+	    <thead>
+		<td class="ba p1">
+		    {{ caption }}
+		</td>
+	    </thead>
+	</table>
+    {% elif type === "word-break" %}
+	<div class="ba ph3 w4 {{ firstClass }}">
+	    <p>
+		{{ caption }}
+	    </p>
+	    <p class="o-60">
+		{{ caption | replace(" ", "") }}
+	    </p>
+	</div>
     {% else %}
+	not yet specified
 	{{ exampleNotFound() }}
     {% endif %}
 {% endmacro %}

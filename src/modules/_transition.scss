@@ -11,9 +11,19 @@
   $global-prefix: variables.$global-prefix;
   $name: variables.$transition-name;
 
-  @each $level, $value in variables.$transition-speeds {
-    #{functions.construct-class-name($global-prefix, $name, $level, $media)} {
-      transition: transform $value ease-in-out;
+  @each $class-name, $transition in variables.$transition-properties {
+    @each $level, $value in variables.$transition-speeds {
+      $constructed-class-name: functions.construct-class-name(
+        $global-prefix,
+        $name,
+        $class-name,
+        $level,
+        $media
+      );
+
+      #{$constructed-class-name} {
+        transition: $transition $value ease-in-out;
+      }
     }
   }
 }
