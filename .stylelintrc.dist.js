@@ -14,6 +14,7 @@ module.exports = {
 	'value-list-comma-newline-after': null,
 	'declaration-colon-newline-after': null,
 	'comment-empty-line-before': null,
-	'no-duplicate-selectors': null
+	'no-duplicate-selectors': null,
+	'selector-list-comma-newline-after': null
     }
 };

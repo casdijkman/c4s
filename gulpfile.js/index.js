@@ -111,7 +111,8 @@ function clean() {
 }
 
 function serve() {
-    return browserSync.init({ server: destination, notify: false });
+    browserSync.init({ server: destination, notify: false });
+    watch(globs.dist.html).on('change', () => {	browserSync.reload(); });
 }
 
 const build = series(clean, compileSass, parallel(compileNunjucks, gzipDist));
@@ -119,10 +120,6 @@ const build = series(clean, compileSass, parallel(compileNunjucks, gzipDist));
 function watchFiles() {
     watch(globs.src.sass, build);
     watch(globs.src.nunjucksAll, compileNunjucks);
-    watch(globs.dist.html, (cb) => {
-	browserSync.reload();
-	cb();
-    });
 }
 
 module.exports = {
