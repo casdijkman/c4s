@@ -11,8 +11,16 @@
   $global-prefix: variables.$global-prefix;
   $prefix: variables.$height-prefix;
 
-  @each $level, $value in variables.$sizer-levels {
+  @each $level, $value in variables.$heights {
     #{functions.construct-class-name($global-prefix, $prefix + $level, $media)} {
+      height: $value;
+    }
+  }
+
+  $vh-prefix: variables.$view-height-prefix;
+
+  @each $level, $value in variables.$view-heights {
+    #{functions.construct-class-name($global-prefix, $vh-prefix + $level, $media)} {
       height: $value;
     }
   }

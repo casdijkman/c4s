@@ -11,7 +11,7 @@
   $global-prefix: variables.$global-prefix;
   $prefix: variables.$width-prefix;
 
-  @each $level, $value in variables.$sizer-levels {
+  @each $level, $value in variables.$widths {
     #{functions.construct-class-name($global-prefix, $prefix + $level, $media)} {
       width: $value;
     }
