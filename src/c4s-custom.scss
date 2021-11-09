@@ -64,6 +64,7 @@ $modules: (
   'padding':                true,
   'margin':                 true,
   'width':                  true,
+  'max-width':              true,
   'height':                 true,
   'position':               true,
   'coordinates':            true,
@@ -209,7 +210,7 @@ $spacer-levels: (
 /*
  * Sizers
  *
- * Used in height and width modules
+ * Used in height, width and max-width modules
  */
 $sizer-base: 1rem;
 $sizer-scale: (
@@ -222,28 +223,45 @@ $sizer-scale: (
   '6':           $sizer-base * functions.nth-power-of-two(5)
 );
 
-$widths: map.merge($sizer-scale, (
-  '-10':         10%,
-  '-20':         20%,
-  '-30':         30%,
-  '-third':      math.div(100%, 3),
-  '-40':         40%,
-  '-50':         50%,
-  '-60':         60%,
-  '-two-thirds': math.div(200%, 3),
-  '-70':         70%,
-  '-80':         80%,
-  '-90':         90%,
-  '-100':        100%
-));
+$widths: map.merge(
+  $sizer-scale,
+  (
+    '-10':         10%,
+    '-20':         20%,
+    '-30':         30%,
+    '-third':      math.div(100%, 3),
+    '-40':         40%,
+    '-50':         50%,
+    '-60':         60%,
+    '-two-thirds': math.div(200%, 3),
+    '-70':         70%,
+    '-80':         80%,
+    '-90':         90%,
+    '-100':        100%
+  )
+);
 
-$heights: map.merge($sizer-scale, (
-  '-25':         25%,
-  '-50':         50%,
-  '-75':         75%,
-  '-100':        100%,
-  '-inherit':    inherit
-));
+$max-widths: map.merge(
+  $sizer-scale,
+  (
+    '7':           $sizer-base * functions.nth-power-of-two(5) * 1.5,
+    '8':           $sizer-base * functions.nth-power-of-two(6),
+    '9':           $sizer-base * functions.nth-power-of-two(6) * 1.5,
+    '-100':        100%,
+    '-none':       none
+  )
+);
+
+$heights: map.merge(
+  $sizer-scale,
+  (
+    '-25':         25%,
+    '-50':         50%,
+    '-75':         75%,
+    '-100':        100%,
+    '-inherit':    inherit
+  )
+);
 
 /***********
  * MODULES *
@@ -674,6 +692,11 @@ $margins: (
 );
 
 /*
+ * Max width
+ */
+$max-width-prefix: mw;
+
+/*
  * Measure
  */
 $measures: (
@@ -895,6 +918,6 @@ $word-breaks: (
  * Do not manually edit the configure mixin or add any code below the mixin
  */
 /* stylelint-disable max-line-length, at-rule-empty-line-before */
-@include variables.configure($global-prefix: $global-prefix, $breakpoints-all: $breakpoints-all, $breakpoints: $breakpoints, $modules: $modules, $black: $black, $white: $white, $colors: $colors, $spacer-base: $spacer-base, $spacer-levels: $spacer-levels, $sizer-base: $sizer-base, $sizer-scale: $sizer-scale, $widths: $widths, $heights: $heights, $background-color-name: $background-color-name, $border-color-prefix: $border-color-prefix, $border-radius-prefix: $border-radius-prefix, $border-radius-base: $border-radius-base, $border-radius-levels: $border-radius-levels, $borders: $borders, $border-style-prefix: $border-style-prefix, $border-styles: $border-styles, $border-width-prefix: $border-width-prefix, $border-width-base: $border-width-base, $border-widths: $border-widths, $box-sizings: $box-sizings, $coordinate-spacer-levels: $coordinate-spacer-levels, $coordinate-directions: $coordinate-directions, $cursor-name: $cursor-name, $cursors: $cursors, $debug-grid-name: $debug-grid-name, $debug-grids: $debug-grids, $debug-striped-name: $debug-striped-name, $debug-striped-items: $debug-striped-items, $display-prefix: $display-prefix, $displays: $displays, $flex-direction-name: $flex-direction-name, $flex-directions: $flex-directions, $flex-wrap-name: $flex-wrap-name, $flex-wraps: $flex-wraps, $flex-align-items-name: $flex-align-items-name, $flex-align-items: $flex-align-items, $flex-align-self-name: $flex-align-self-name, $flex-align-selfs: $flex-align-selfs, $flex-align-content-name: $flex-align-content-name, $flex-align-contents: $flex-align-contents, $flex-justify-content-name: $flex-justify-content-name, $flex-justify-contents: $flex-justify-contents, $flex-grow-name: $flex-grow-name, $flex-grows: $flex-grows, $flex-shrink-name: $flex-shrink-name, $flex-shrinks: $flex-shrinks, $flex-order-name: $flex-order-name, $flex-orders: $flex-orders, $float-prefix: $float-prefix, $floats: $floats, $font-families: $font-families, $font-size-base: $font-size-base, $font-scaling-factor: $font-scaling-factor, $font-sizes: $font-sizes, $font-styles: $font-styles, $font-weight-levels: $font-weight-levels, $column-name: $column-name, $row-name: $row-name, $number-of-columns: $number-of-columns, $columns: $columns, $height-prefix: $height-prefix, $view-height-prefix: $view-height-prefix, $view-heights: $view-heights, $hover-background-color-name: $hover-background-color-name, $hover-color-name: $hover-color-name, $letter-spacings: $letter-spacings, $line-height-name: $line-height-name, $line-height-levels: $line-height-levels, $margin-spacer-levels: $margin-spacer-levels, $margins: $margins, $measures: $measures, $opacity-name: $opacity-name, $opacity-levels: $opacity-levels, $overflow-name: $overflow-name, $overflows: $overflows, $paddings: $paddings, $positions: $positions, $table-stripe-name: $table-stripe-name, $table-stripes: $table-stripes, $text-aligns: $text-aligns, $text-decorations: $text-decorations, $text-shadows: $text-shadows, $text-transforms: $text-transforms, $transform-translate-horizontal-name: $transform-translate-horizontal-name, $transform-translate-horizontal-levels: $transform-translate-horizontal-levels, $transform-translate-vertical-name: $transform-translate-vertical-name, $transform-translate-vertical-levels: $transform-translate-vertical-levels, $transition-name: $transition-name, $transition-properties: $transition-properties, $transition-speeds: $transition-speeds, $vertical-align-name: $vertical-align-name, $vertical-aligns: $vertical-aligns, $visibilities: $visibilities, $white-spaces: $white-spaces, $width-prefix: $width-prefix, $word-break-name: $word-break-name, $word-breaks: $word-breaks, );
+@include variables.configure($global-prefix: $global-prefix, $breakpoints-all: $breakpoints-all, $breakpoints: $breakpoints, $modules: $modules, $black: $black, $white: $white, $colors: $colors, $spacer-base: $spacer-base, $spacer-levels: $spacer-levels, $sizer-base: $sizer-base, $sizer-scale: $sizer-scale, $widths: $widths, $max-widths: $max-widths, $heights: $heights, $background-color-name: $background-color-name, $border-color-prefix: $border-color-prefix, $border-radius-prefix: $border-radius-prefix, $border-radius-base: $border-radius-base, $border-radius-levels: $border-radius-levels, $borders: $borders, $border-style-prefix: $border-style-prefix, $border-styles: $border-styles, $border-width-prefix: $border-width-prefix, $border-width-base: $border-width-base, $border-widths: $border-widths, $box-sizings: $box-sizings, $coordinate-spacer-levels: $coordinate-spacer-levels, $coordinate-directions: $coordinate-directions, $cursor-name: $cursor-name, $cursors: $cursors, $debug-grid-name: $debug-grid-name, $debug-grids: $debug-grids, $debug-striped-name: $debug-striped-name, $debug-striped-items: $debug-striped-items, $display-prefix: $display-prefix, $displays: $displays, $flex-direction-name: $flex-direction-name, $flex-directions: $flex-directions, $flex-wrap-name: $flex-wrap-name, $flex-wraps: $flex-wraps, $flex-align-items-name: $flex-align-items-name, $flex-align-items: $flex-align-items, $flex-align-self-name: $flex-align-self-name, $flex-align-selfs: $flex-align-selfs, $flex-align-content-name: $flex-align-content-name, $flex-align-contents: $flex-align-contents, $flex-justify-content-name: $flex-justify-content-name, $flex-justify-contents: $flex-justify-contents, $flex-grow-name: $flex-grow-name, $flex-grows: $flex-grows, $flex-shrink-name: $flex-shrink-name, $flex-shrinks: $flex-shrinks, $flex-order-name: $flex-order-name, $flex-orders: $flex-orders, $float-prefix: $float-prefix, $floats: $floats, $font-families: $font-families, $font-size-base: $font-size-base, $font-scaling-factor: $font-scaling-factor, $font-sizes: $font-sizes, $font-styles: $font-styles, $font-weight-levels: $font-weight-levels, $column-name: $column-name, $row-name: $row-name, $number-of-columns: $number-of-columns, $columns: $columns, $height-prefix: $height-prefix, $view-height-prefix: $view-height-prefix, $view-heights: $view-heights, $hover-background-color-name: $hover-background-color-name, $hover-color-name: $hover-color-name, $letter-spacings: $letter-spacings, $line-height-name: $line-height-name, $line-height-levels: $line-height-levels, $margin-spacer-levels: $margin-spacer-levels, $margins: $margins, $max-width-prefix: $max-width-prefix, $measures: $measures, $opacity-name: $opacity-name, $opacity-levels: $opacity-levels, $overflow-name: $overflow-name, $overflows: $overflows, $paddings: $paddings, $positions: $positions, $table-stripe-name: $table-stripe-name, $table-stripes: $table-stripes, $text-aligns: $text-aligns, $text-decorations: $text-decorations, $text-shadows: $text-shadows, $text-transforms: $text-transforms, $transform-translate-horizontal-name: $transform-translate-horizontal-name, $transform-translate-horizontal-levels: $transform-translate-horizontal-levels, $transform-translate-vertical-name: $transform-translate-vertical-name, $transform-translate-vertical-levels: $transform-translate-vertical-levels, $transition-name: $transition-name, $transition-properties: $transition-properties, $transition-speeds: $transition-speeds, $vertical-align-name: $vertical-align-name, $vertical-aligns: $vertical-aligns, $visibilities: $visibilities, $white-spaces: $white-spaces, $width-prefix: $width-prefix, $word-break-name: $word-break-name, $word-breaks: $word-breaks, );
 /* stylelint-enable max-line-length, at-rule-empty-line-before */
 @include load-modules.load-modules();

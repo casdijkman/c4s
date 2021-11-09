@@ -35,6 +35,7 @@
 @use 'modules/letter-spacing';
 @use 'modules/line-height';
 @use 'modules/margin';
+@use 'modules/max-width';
 @use 'modules/measure';
 @use 'modules/miscellaneous';
 @use 'modules/opacity';
@@ -148,6 +149,9 @@
     }
     @else if $module == margin {
       @include margin.margin();
+    }
+    @else if $module == max-width {
+      @include max-width.max-width();
     }
     @else if $module == measure {
       @include measure.measure();
@@ -297,6 +301,9 @@
         }
         @else if $module == margin and $responsive {
           @include margin.margin($breakpoint);
+        }
+        @else if $module == max-width and $responsive {
+          @include max-width.max-width($breakpoint);
         }
         @else if $module == measure and $responsive {
           @include measure.measure($breakpoint);

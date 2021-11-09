@@ -1,0 +1,35 @@
+/*
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
+@use '../functions';
+@use '../variables';
+@use 'sass:map';
+
+@mixin max-width($media: null) {
+  $global-prefix: variables.$global-prefix;
+  $prefix: variables.$max-width-prefix;
+
+  @each $level, $value in variables.$max-widths {
+    #{functions.construct-class-name($global-prefix, $prefix + $level, $media)} {
+      max-width: $value;
+    }
+  }
+
+  $breakpoint: map.get(variables.$breakpoints-all, $media);
+  $breakpoint-value: null;
+
+  @if $breakpoint != null {
+    $breakpoint-value: map.get($breakpoint, 'breakpoint');
+
+    @if $breakpoint-value != null {
+      // Note how this selector does not contain the $media suffix since
+      // the same class (.container) applies to all breakpoints.
+      #{functions.construct-class-name($global-prefix, container)} {
+        max-width: $breakpoint-value - 2em;
+      }
+    }
+  }
+}
