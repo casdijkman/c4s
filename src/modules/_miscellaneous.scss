@@ -17,7 +17,7 @@
     margin-bottom: 0;
   }
 
-  #{functions.construct-class-name($global-prefix, stretch, $media)} {
+  %stretch {
     position: absolute;
     top: 0;
     left: 0;
@@ -25,18 +25,25 @@
     right: 0;
   }
 
+  #{functions.construct-class-name($global-prefix, stretch, $media)} {
+    @extend %stretch;
+  }
+
   #{functions.construct-class-name($global-prefix, stretch-pseudo, $media)}::after {
+    @extend %stretch;
+
     content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
     pointer-events: auto;
     background-color: transparent;
   }
 
   #{functions.construct-class-name($global-prefix, dn-empty, $media)}:empty {
     display: none;
+  }
+
+  #{functions.construct-class-name($global-prefix, truncate, $media)} {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

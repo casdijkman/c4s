@@ -8,8 +8,7 @@
 @use '../variables';
 
 /*
- * Complex rules are CSS rules that are either context-dependent,
- * have more than one selector or more than two properties.
+ * Complex rules are CSS rules that are context-dependent.
  * These rules are not considered atomic CSS.
  */
 
