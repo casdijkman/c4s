@@ -27,7 +27,7 @@ const destination = 'dist';
 
 const globs = {
     src: {
-	staticFiles: 'favicon.ico',
+	staticFiles: ['favicon.ico', 'logo.svg', '.htaccess'],
 	sass:        './src/**/*.scss',
 	nunjucks:    './docs/pages/**/*.njk',
 	nunjucksAll: './docs/**/*.njk'
@@ -121,7 +121,7 @@ function serve() {
     watch(globs.dist.html).on('change', () => { browserSync.reload(); });
 }
 
-const build = series(clean, copyStaticFiles, compileSass, parallel(compileNunjucks, gzipDist));
+const build = series(clean, copyStaticFiles, compileSass, gzipDist, compileNunjucks);
 
 function watchFiles() {
     watch(globs.src.sass, build);
