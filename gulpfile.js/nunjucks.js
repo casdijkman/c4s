@@ -9,25 +9,36 @@ const cssLib = require('css');
 const highlight = require('highlight.js');
 
 function getNunjucksData() {
-    const data = { modules: [] };
+    const data = {
+	files: [],
+	version: require('../package.json').version
+    };
 
-    for (const file of glob.sync('dist/modules/**/*.raw.css')) {
-	const name = path.basename(file, '.raw.css');
+    for (const file of glob.sync('dist/**/*.css')) {
+	const baseName = path.basename(file);
+	const name = baseName.split('.')[0];
 	const css = cssLib.parse(fs.readFileSync(file, 'utf8'));
 
 	// Remove comments from rules array
 	css.stylesheet.rules = css.stylesheet.rules.filter((x) => x.type === 'rule');
 
-	data.modules.push({
+	data.files.push({
 	    name,
-	    file: file.replace(/^dist\/modules\//, ''),
+	    baseName,
+	    file: file.replace(/^dist/, ''),
+	    isModule:   /module/.test(file),
+	    isMinified: /.min.css$/.test(file),
+	    isRaw:      /.raw.css$/.test(file),
+	    isCustom:   /-custom./.test(file),
+	    size:       fs.statSync(file).size,
+	    gzipSize:   fs.statSync(`${file}.gz`).size,
 	    css
 	});
     }
 
-    data.modules = data.modules.filter((x) => {
+    data.files = data.files.filter((x) => {
 	const hasRules = x.css.stylesheet.rules.length > 0;
-	if (!hasRules) console.warn('Module has no rules:', x.name);
+	if (!hasRules) console.warn('File has no rules:', x.name);
 	return hasRules;
     });
 
@@ -51,6 +62,10 @@ function getNunjucksEnv(env) {
 	const text = textInput.replace(/&quot;/g, '"');
 	const language = languageInput || 'css';
 	return highlight.highlight(text, { language }).value;
+    });
+
+    env.addFilter('formatInteger', (integer) => {
+	return new Intl.NumberFormat('en-GB').format(integer);
     });
 
     return env;

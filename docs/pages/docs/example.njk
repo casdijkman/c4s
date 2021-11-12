@@ -8,6 +8,8 @@ SPDX-License-Identifier: GPL-3.0-only
 
 {% import "docs/macros/example.njk" as example %}
 
+{% set description = "C4S CSS documentation examples page" %}
+
 {% block content %}
     <style>
      /*	https://github.com/highlightjs/highlight.js/blob/main/src/styles/vs.css */
@@ -69,30 +71,32 @@ SPDX-License-Identifier: GPL-3.0-only
      }
     </style>
 
-    {% for module in modules %}
-	<h2 class="f4 mt0">
-	    {{ module.name | replace("-", " ") | title }}
-	</h2>
+    {% for file in files %}
+	{% if file.isModule and file.isRaw %}
+	    <h2 class="f4 mt0">
+		{{ file.name | replace("-", " ") | title }}
+	    </h2>
 
-	<details class="mb4">
-	    <summary class="p2 cursor-pointer">
-		More information
-	    </summary>
-	    {% for rule in module.css.stylesheet.rules %}
-		<div class="pv3 pl3 mb4 bl b--silver">
-		    {% set ruleText %}{{ rule.selectors | join(", ") }} {{ "{" }}{% for declaration in rule.declarations %}
+	    <details class="mb4">
+		<summary class="p2 cursor-pointer">
+		    More information
+		</summary>
+		{% for rule in file.css.stylesheet.rules %}
+		    <div class="pv3 pl3 mb4 bl b--silver">
+			{% set ruleText %}{{ rule.selectors | join(", ") }} {{ "{" }}{% for declaration in rule.declarations %}
   {{ declaration.property }}: {{ declaration.value }};{% endfor %}
 }{% endset %}
 
-		    <div class="overflow-x-auto mt4-between">
-			<pre class="hljs dib mv0"><code>{{ ruleText | highlight | safe }}</code></pre>
-		    </div>
+			<div class="overflow-x-auto mt4-between">
+			    <pre class="hljs dib mv0"><code>{{ ruleText | highlight | safe }}</code></pre>
+			</div>
 
-		    <div class="mt4-between hide-empty">
-			{{ example.example(module.name, rule.selectors, rule.declarations) }}
+			<div class="mt4-between hide-empty">
+			    {{ example.example(file.name, rule.selectors, rule.declarations) }}
+			</div>
 		    </div>
-		</div>
-	    {% endfor %}
-	</details>
+		{% endfor %}
+	    </details>
+	{% endif %}
     {% endfor %}
 {% endblock %}
