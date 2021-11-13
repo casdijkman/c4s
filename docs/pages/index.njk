@@ -54,9 +54,9 @@ SPDX-License-Identifier: GPL-3.0-only
     </h2>
 
     {% for file in files %}
-	{% if not file.isRaw and file.name == "c4s-all" %}
+	{% if not file.isRaw and file.name == "c4s" %}
 	    <a class="dib white link bg-blue br-pill lh-solid ph4 pv3 m2 nowrap" href="{{ file.file }}" download>
-		Download {{ file.name }}
+		Download C4S
 
 		{% if file.isMinified %}
 		    minified

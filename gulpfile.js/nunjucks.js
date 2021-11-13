@@ -25,7 +25,8 @@ function getNunjucksData() {
 	data.files.push({
 	    name,
 	    baseName,
-	    file: file.replace(/^dist/, ''),
+	    file:       file.replace(/^dist/, ''),
+	    isMain:     /c4s/.test(file),
 	    isModule:   /module/.test(file),
 	    isMinified: /.min.css$/.test(file),
 	    isRaw:      /.raw.css$/.test(file),
@@ -40,6 +41,17 @@ function getNunjucksData() {
 	const hasRules = x.css.stylesheet.rules.length > 0;
 	if (!hasRules) console.warn('File has no rules:', x.name);
 	return hasRules;
+    });
+
+    data.files.sort((a, b) => {
+	const order = ['', 'base', 's', 'm', 'l', 'h', 'p', 'custom', 'prefixed'];
+	const getValue = (file) => {
+	    const value = order.indexOf(file.name.replace(/^c4s-?/, ''));
+	    if (value >= 0) return value;
+	    console.error(`Could not order file '${file.name}'`);
+	};
+	if (! a.isMain || ! b.isMain) return 0;
+	return getValue(a) - getValue(b);
     });
 
     return data;

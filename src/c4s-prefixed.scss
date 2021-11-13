@@ -1,0 +1,17 @@
+/*
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
+/*
+ * All viewports combined, including non-responsive styles
+ */
+
+@use 'variables';
+@use 'load-modules';
+
+@include variables.configure(
+  $global-prefix: 'c4s'
+);
+@include load-modules.load-modules();
