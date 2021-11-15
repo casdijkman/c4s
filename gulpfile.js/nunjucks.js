@@ -7,6 +7,7 @@ const path = require('path');
 const glob = require('glob');
 const cssLib = require('css');
 const highlight = require('highlight.js');
+const prettyBytes = require('pretty-bytes');
 
 function getNunjucksData() {
     const data = {
@@ -18,6 +19,8 @@ function getNunjucksData() {
 	const baseName = path.basename(file);
 	const name = baseName.split('.')[0];
 	const css = cssLib.parse(fs.readFileSync(file, 'utf8'));
+	const size = fs.statSync(file).size;
+	const gzipSize = fs.statSync(`${file}.gz`).size;
 
 	// Remove comments from rules array
 	css.stylesheet.rules = css.stylesheet.rules.filter((x) => x.type === 'rule');
@@ -25,14 +28,16 @@ function getNunjucksData() {
 	data.files.push({
 	    name,
 	    baseName,
-	    file:       file.replace(/^dist/, ''),
-	    isMain:     /c4s/.test(file),
-	    isModule:   /module/.test(file),
-	    isMinified: /.min.css$/.test(file),
-	    isRaw:      /.raw.css$/.test(file),
-	    isCustom:   /-custom./.test(file),
-	    size:       fs.statSync(file).size,
-	    gzipSize:   fs.statSync(`${file}.gz`).size,
+	    file:           file.replace(/^dist/, ''),
+	    isMain:         /c4s/.test(file),
+	    isModule:       /module/.test(file),
+	    isMinified:     /.min.css$/.test(file),
+	    isRaw:          /.raw.css$/.test(file),
+	    isCustom:       /-custom./.test(file),
+	    size,
+	    sizePretty:     prettyBytes(size),
+	    gzipSize,
+	    gzipSizePretty: prettyBytes(gzipSize),
 	    css
 	});
     }

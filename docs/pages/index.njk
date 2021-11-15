@@ -19,11 +19,11 @@ SPDX-License-Identifier: GPL-3.0-only
 	     (minified)
 	 {% endif %}
      </td>
-     <td class="ph2 pv1">
-	 {{ file.size | formatInteger }}
+     <td class="ph2 pv1" title="{{ file.size | formatInteger }} bytes">
+	 {{ file.sizePretty }}
      </td>
-     <td class="ph2 pv1">
-	 {{ file.gzipSize | formatInteger }}
+     <td class="ph2 pv1" title="{{ file.gzipSize | formatInteger}} bytes">
+	 {{ file.gzipSizePretty }}
      </td>
      <td class="ph2 pv1">
 	 <a class="db link dark-blue hover-underline tc" href="{{ file.file }}" download>
@@ -76,10 +76,10 @@ SPDX-License-Identifier: GPL-3.0-only
 		    Name
 		</td>
 		<td class="p2">
-		    Size (bytes)
+		    Size
 		</td>
 		<td class="p2">
-		    Size gzipped (bytes)
+		    Size gzipped
 		</td>
 		<td class="p2" id="file-download">
 		    Download
@@ -105,10 +105,10 @@ SPDX-License-Identifier: GPL-3.0-only
 		    Name
 		</td>
 		<td class="p2">
-		    Size (bytes)
+		    Size
 		</td>
 		<td class="p2">
-		    Size gzipped (bytes)
+		    Size gzipped
 		</td>
 		<td class="p2" id="file-download">
 		    Download
