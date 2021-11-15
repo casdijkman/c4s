@@ -46,4 +46,21 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
+  #{functions.construct-class-name($global-prefix, svg-wrapper, $media)} {
+    width: 1.5rem;
+    height: 1.5rem;
+    max-height: 100%;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      vertical-align: top;
+    }
+  }
+
+  #{functions.construct-class-name($global-prefix, sr-only, $media)} {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+  }
 }

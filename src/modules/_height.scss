@@ -24,4 +24,8 @@
       height: $value;
     }
   }
+
+  #{functions.construct-class-name($global-prefix, min-vh-100, $media)} {
+    min-height: 100vh;
+  }
 }
