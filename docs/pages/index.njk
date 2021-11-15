@@ -29,7 +29,7 @@ SPDX-License-Identifier: GPL-3.0-only
 	 <a class="db link dark-blue hover-underline tc" href="{{ file.file }}" download>
 	     <span class="sr-only">Download</span>
 	     <div class="svg-wrapper dib">
-		 <svg aria-labelledby="file-download" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><path d="M336,176h40a40,40,0,0,1,40,40V424a40,40,0,0,1-40,40H136a40,40,0,0,1-40-40V216a40,40,0,0,1,40-40h40" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><polyline points="176 272 256 352 336 272" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><line x1="256" y1="48" x2="256" y2="336" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/></svg>
+		 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><title>Download</title><path d="M336,176h40a40,40,0,0,1,40,40V424a40,40,0,0,1-40,40H136a40,40,0,0,1-40-40V216a40,40,0,0,1,40-40h40" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><polyline points="176 272 256 352 336 272" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><line x1="256" y1="48" x2="256" y2="336" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/></svg>
 	     </div>
 	 </a>
      </td>
@@ -69,7 +69,7 @@ SPDX-License-Identifier: GPL-3.0-only
 	Files
     </h2>
 
-    <div class="dib br3 ba b--moon-gray">
+    <div class="overflow-x-auto">
 	<table class="collapse lh-text">
 	    <tr class="stripe-light b">
 		<td class="p2">
@@ -81,14 +81,14 @@ SPDX-License-Identifier: GPL-3.0-only
 		<td class="p2">
 		    Size gzipped
 		</td>
-		<td class="p2" id="file-download">
+		<td class="p2">
 		    Download
 		</td>
 	    </tr>
 
 	    {% for file in files %}
 		{% if not file.isRaw and not file.isModule and not file.isCustom %}
-		   {{ renderFileRow(file) }}
+		    {{ renderFileRow(file) }}
 		{% endif %}
 	    {% endfor %}
 	</table>
@@ -98,7 +98,7 @@ SPDX-License-Identifier: GPL-3.0-only
 	  Modules
     </h2>
 
-    <div class="dib br3 ba b--moon-gray">
+    <div class="overflow-x-auto">
 	<table class="collapse lh-text">
 	    <tr class="stripe-light b">
 		<td class="p2">
@@ -110,7 +110,7 @@ SPDX-License-Identifier: GPL-3.0-only
 		<td class="p2">
 		    Size gzipped
 		</td>
-		<td class="p2" id="file-download">
+		<td class="p2">
 		    Download
 		</td>
 	    </tr>
