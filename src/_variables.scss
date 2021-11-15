@@ -16,8 +16,8 @@
 $global-prefix: '';
 
 $breakpoints-all: (
-  's': ( 'breakpoint': 20em ),
-  'm': ( 'breakpoint': 30em ),
+  's': ( 'breakpoint': 30em ),
+  'm': ( 'breakpoint': 40em ),
   'l': ( 'breakpoint': 60em ),
   'h': ( 'breakpoint': 90em ),
   'p': ( 'media': print )
@@ -56,6 +56,7 @@ $modules: (
   'cursor':                 false,
   'hover':                  false,
   'table':                  false,
+  'spanning-breakpoints':   false,
   'miscellaneous':          false,
   'debug':                  false,
   'padding':                true,

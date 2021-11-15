@@ -29,6 +29,26 @@
   @return power(2, $exponent);
 }
 
+@function compatible-hardened($number1, $number2) {
+  @if $number1 == null or $number2 == null {
+    @return false;
+  } @else {
+    @return math.compatible($number1, $number2);
+  }
+}
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' {
+    @return math.div($number, ($number * 0 + 1));
+  } @else {
+    @error 'Wrong parameter, not a number ' + $number;
+  }
+}
+
+@function em-to-rem($em) {
+  @return strip-unit($em) * 1rem;
+}
+
 @function remove-values-from-list($list, $value) {
   $new-list: ();
 

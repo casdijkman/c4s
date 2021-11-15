@@ -50,14 +50,4 @@
         );
     }
   }
-
-  .show-breakpoints::before {
-    content: '[breakpoint: base] ';
-
-    @each $breakpoint, $map in variables.$breakpoints {
-      @include mixins.media-breakpoint-up($breakpoint) {
-        content: '[breakpoint: #{$breakpoint}] ';
-      }
-    }
-  }
 }

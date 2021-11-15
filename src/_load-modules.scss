@@ -43,6 +43,7 @@
 @use 'modules/padding';
 @use 'modules/position';
 @use 'modules/reset';
+@use 'modules/spanning-breakpoints';
 @use 'modules/table';
 @use 'modules/text-align';
 @use 'modules/text-decoration';
@@ -173,6 +174,9 @@
     }
     @else if $module == reset {
       @include reset.reset();
+    }
+    @else if $module == spanning-breakpoints {
+      @include spanning-breakpoints.spanning-breakpoints();
     }
     @else if $module == table {
       @include table.table();
@@ -325,6 +329,9 @@
         }
         @else if $module == reset and $responsive {
           @include reset.reset($breakpoint);
+        }
+        @else if $module == spanning-breakpoints and $responsive {
+          @include spanning-breakpoints.spanning-breakpoints($breakpoint);
         }
         @else if $module == table and $responsive {
           @include table.table($breakpoint);
