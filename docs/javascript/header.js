@@ -44,7 +44,7 @@ function showHeader() {
 
 if (header) {
     for (const breakpoint in breakpoints) {
-	matchMediaUp(breakpoint).addListener(setHeaderHeight);
+        matchMediaUp(breakpoint).addListener(setHeaderHeight);
     }
 
     setHeaderHeight();
