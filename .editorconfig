@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: 2021 Cas Dijkman
+#
+# SPDX-License-Identifier: GPL-3.0-only
+
+# See https://editorconfig.org/#file-format
+
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+[*.{js,scss,json,njk}]
+indent_style = space
+charset = utf-8
+
+[*.scss]
+indent_size = 2
+
+[*.{js,njk}]
+indent_size = 4
+
+[package.json]
+indent_size = 2
