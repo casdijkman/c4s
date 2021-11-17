@@ -3,6 +3,6 @@ Upstream-Name: C4S CSS
 Upstream-Contact: Cas Dijkman <cas@dijkman.xyz>
 Source: 
 
-Files: package.json yarn.lock favicon.ico
+Files: package.json yarn.lock favicon.ico logo.svg
 Copyright: 2021 Cas Dijkman <cas@dijkman.xyz>
 License: GPL-3.0-only
