@@ -95,7 +95,15 @@ module.exports = {
             }
         ],
         'space-before-blocks': 'error',
-        'spaced-comment': 'warn',
+        'spaced-comment': [
+            'warn',
+            'always',
+            {
+                block: {
+                    exceptions: ['!']
+                }
+            }
+        ],
         'switch-colon-spacing': [
             'error',
             {
