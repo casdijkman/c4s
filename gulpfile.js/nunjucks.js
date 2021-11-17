@@ -85,6 +85,14 @@ function getNunjucksEnv(env) {
 	return new Intl.NumberFormat('en-GB').format(integer);
     });
 
+    env.addFilter('slug', (string) => {
+        return string.toLowerCase()
+            .replace(/[^ -~]/g, ' ')
+            .replace(/[^0-9a-z]/g, ' ').trim()
+            .replace(/ /g, '-')
+            .replace(/-{2,}/g, '-');
+    });
+
     return env;
 }
 

@@ -8,15 +8,16 @@ SPDX-License-Identifier: GPL-3.0-only
 <html lang="en">
     <head>
 	<meta charset="utf-8">
-	<title>My CSS library demo</title>
+	<title>C4S CSS library documentation</title>
 	<meta name="description" content="{{ description }}">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="/c4s.css" rel="stylesheet">
+	<link href="/c4s.css?v={{ version | slug }}" rel="stylesheet">
+	<script defer="defer" src="/js/main.js?v={{ version | slug }}"></script>
     </head>
     <body class="sans-serif">
 	<div class="df flex-column min-vh-100">
-	    <div class="js-header sticky w-100 top-0 bg-white bb b--moon-gray" style="z-index: 1;">
-		<div class="container center p3 pb2">
+	    <div class="js-header sticky w-100 top-0 bg-white bb b--moon-gray transition-transform-medium" style="z-index: 1;">
+		<div class="container-m center p3 pb2">
 		    <div class="df items-center">
 			<a href="/" class="link inherit">
 			    <h1 class="mv0 lh-solid">
@@ -29,121 +30,15 @@ SPDX-License-Identifier: GPL-3.0-only
 		</div>
 	    </div>
 
-	    <div class="relative flex-grow-1">
-		<div class="container center p3">
+	    <main class="relative flex-grow-1">
+		<div class="container-m center p3">
 		    {% block content %}{% endblock %}
 		</div>
-	    </div>
+	    </main>
 
 	    {# <footer>
 	    footer
 	    </footer> #}
 	</div>
-
-	<script>
-	 (function() {
-	     const breakpoints = {
-		 // base is anything smaller than s
-		 s: '20em',
-		 m: '30em',
-		 l: '60em',
-		 h: '90em'
-	     };
-	     const breakpointKeys = Object.keys(breakpoints);
-
-	     function matchMedia(mediaName, direction) {
-		 const breakpoint = breakpoints[mediaName];
-		 const upperBreakpoint = Object.values(breakpoints)[breakpointKeys.indexOf(mediaName) + 1];
-
-		 if (typeof breakpoint === 'undefined') {
-		     throw new Error('Breakpoint not found');
-		     return;
-		 }
-
-		 switch (direction) {
-		     case 'down': return window.matchMedia(`(max-width: ${breakpoint})`);
-		     case 'up': return window.matchMedia(`(min-width: ${breakpoint})`);
-		     case 'only':
-			 if (typeof upperBreakpoint === 'undefined') {
-			     return matchMedia(mediaName, 'up');
-			 } else {
-			     return window.matchMedia(`(min-width: ${breakpoint}) and (max-width: ${upperBreakpoint})`);
-			 }
-		     default: throw new Error('Unknown breakpoint direction');
-		 }
-	     }
-
-	     function matchMediaDown(mediaName) {
-		 try {
-		     return matchMedia(mediaName, 'down');
-		 } catch (e) {
-		     console.error(e);
-		 }
-	     }
-
-	     function matchMediaUp(mediaName) {
-		 try {
-		     return matchMedia(mediaName, 'up');
-		 } catch (e) {
-		     console.error(e);
-		 }
-	     }
-
-	     function matchMediaOnly(mediaName) {
-		 try {
-		     return matchMedia(mediaName, 'only');
-		 } catch (e) {
-		     console.error(e);
-		 }
-	     }
-
-	     function isMediaDown(mediaName) {
-		 try {
-		     return matchMedia(mediaName, 'down').matches;
-		 } catch (e) {
-		     console.error(e);
-		 }
-	     }
-
-	     function isMediaUp(mediaName) {
-		 try {
-		     return matchMedia(mediaName, 'up').matches;
-		 } catch (e) {
-		     console.error(e);
-		 }
-	     }
-
-	     function isMediaOnly(mediaName) {
-		 try {
-		     return matchMedia(mediaName, 'only').matches;
-		 } catch (e) {
-		     console.error(e);
-		 }
-	     }
-
-	     function getMediaName() {
-		 let result = 'xs';
-		 breakpointKeys.forEach(function (breakpoint) {
-		     if (typeof breakpoint === 'string' && isMediaOnly(breakpoint)) {
-			 result = breakpoint;
-		     }
-		 });
-		 return result;
-	     }
-
-	     function setHeaderHeight() {
-		 const header = document.querySelector('.js-header');
-		 const height = `${header.clientHeight}px`;
-		 document.documentElement.style.setProperty('--header-height', height);
-	     }
-
-	     window.addEventListener('DOMContentLoaded', () => {
-		 for (const breakpoint in breakpoints) {
-		     matchMediaUp(breakpoint).addListener(setHeaderHeight);
-		 }
-		 setHeaderHeight();
-	     });
-	 })();
-	</script>
     </body>
 </html>

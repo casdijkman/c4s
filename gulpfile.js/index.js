@@ -19,6 +19,7 @@ const nunjucksRender = require('gulp-nunjucks-render');
 const data = require('gulp-data');
 const htmlmin = require('gulp-htmlmin');
 const beautifier = require('gulp-jsbeautifier');
+const exec = require('child_process').exec;
 const stylelint = require('gulp-stylelint');
 const eslint = require('gulp-eslint');
 const browserSync = require('browser-sync').create();
@@ -30,7 +31,8 @@ const globs = {
 	staticFiles: ['favicon.ico', 'logo.svg', '.htaccess'],
 	sass:        './src/**/*.scss',
 	nunjucks:    './docs/pages/**/*.njk',
-	nunjucksAll: './docs/**/*.njk'
+	nunjucksAll: './docs/**/*.njk',
+	javascript:  './docs/javascript/**/*.js'
     },
     dist: {
 	css:         ['./dist/**/*.css', '!./dist/**/*.min.css'],
@@ -87,6 +89,17 @@ function compileNunjucks() {
 	.pipe(dest(destination));
 }
 
+function compileJavascript(cb) {
+    exec('yarn run webpack --mode production', function (err, stdout, stderr) {
+        if (stderr) {
+            console.warn(stdout);
+            console.error(stderr);
+        }
+        cb(err);
+    });
+
+}
+
 function lintSass() {
     return src(globs.src.sass)
 	.pipe(stylelint(stylelintOptions));
@@ -100,7 +113,7 @@ function lintCss() {
 }
 
 function lintJs() {
-    return src(['**/*.js', '!node_modules/**'])
+    return src(['**/*.js', '!node_modules/**', '!dist/**'])
 	.pipe(eslint())
 	.pipe(eslint.format())
 	.pipe(eslint.failAfterError());
@@ -121,11 +134,12 @@ function serve() {
     watch(globs.dist.html).on('change', () => { browserSync.reload(); });
 }
 
-const build = series(clean, copyStaticFiles, compileSass, gzipDist, compileNunjucks);
+const build = series(clean, series(copyStaticFiles, compileSass, compileJavascript), gzipDist, compileNunjucks);
 
 function watchFiles() {
     watch(globs.src.sass, build);
     watch(globs.src.nunjucksAll, compileNunjucks);
+    watch(globs.src.javascript, compileJavascript);
 }
 
 module.exports = {
