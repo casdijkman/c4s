@@ -77,11 +77,11 @@ _variablesFile() {
 }
 
 _customFile() {
-    echo "$(_variablesFileBase)" | head -n 6 | sed 's/\/\*!/\/\*/g'
+    _variablesFileBase | head -n 6 | sed 's/\/\*!/\/\*/g'
     echo "// Set the @use statements for variables, load-modules and functions below to the correct paths"
     echo "@use './variables';"
     echo "@use './load-modules';"
-    echo "$(_variablesFileBase)" | tail -n +7
+    _variablesFileBase | tail -n +7
     _generateMixinInvocation
     echo "@include load-modules.load-modules();"
 }
