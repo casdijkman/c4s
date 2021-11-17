@@ -3,8 +3,8 @@
   "version": "0.3.2",
   "description": "Concise Configurable Composable Classes Stylesheets",
   "author": "Cas Dijkman",
-  "license": "GNU GPL v3",
-  "private": true,
+  "license": "GPL-3.0-only",
+  "private": false,
   "devDependencies": {
     "@babel/preset-env": "^7.16.4",
     "autoprefixer": "^10.3.7",
