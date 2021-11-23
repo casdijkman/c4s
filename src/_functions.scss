@@ -49,6 +49,16 @@
   @return strip-unit($em) * 1rem;
 }
 
+@function number-to-class-name($number) {
+  @if meta.type-of($number) != 'number' {
+    @error 'Wrong parameter, not an number ' + meta.type-of($number);
+  } @else if $number >= 0 {
+    @return '#{$number}';
+  } @else {
+    @return 'n' + $number * -1;
+  }
+}
+
 @function remove-values-from-list($list, $value) {
   $new-list: ();
 
@@ -62,7 +72,7 @@
 }
 
 @function list-to-dash-separated-string($list) {
-  @if meta.type-of($list) != list and meta.type-of($list) != arglist{
+  @if meta.type-of($list) != list and meta.type-of($list) != arglist {
     @error 'Wrong parameter, not a list ' + meta.type-of($list);
   }
 

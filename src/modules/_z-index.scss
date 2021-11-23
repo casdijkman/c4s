@@ -1,0 +1,19 @@
+/*
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
+@use '../functions';
+@use '../variables';
+
+@mixin z-index($media: null) {
+  $global-prefix: variables.$global-prefix;
+  $name: variables.$z-index-name;
+
+  @each $class-name, $value in variables.$z-indexes {
+    #{functions.construct-class-name($global-prefix, $name, $class-name, $media)} {
+      z-index: $value;
+    }
+  }
+}

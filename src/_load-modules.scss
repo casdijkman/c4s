@@ -56,6 +56,7 @@
 @use 'modules/white-space';
 @use 'modules/width';
 @use 'modules/word-break';
+@use 'modules/z-index';
 
 @mixin load-modules($modules: null, $breakpoints: null) {
   @if $modules == null {
@@ -214,6 +215,9 @@
     @else if $module == word-break {
       @include word-break.word-break();
     }
+    @else if $module == z-index {
+      @include z-index.z-index();
+    }
     @else {
       @error 'Module not found:' $module;
     }
@@ -368,6 +372,9 @@
         }
         @else if $module == word-break and $responsive {
           @include word-break.word-break($breakpoint);
+        }
+        @else if $module == z-index and $responsive {
+          @include z-index.z-index($breakpoint);
         }
       }
     }
