@@ -41,6 +41,7 @@
 @use 'modules/max-width';
 @use 'modules/measure';
 @use 'modules/miscellaneous';
+@use 'modules/object-fit';
 @use 'modules/opacity';
 @use 'modules/overflow';
 @use 'modules/padding';
@@ -54,6 +55,7 @@
 @use 'modules/text-transform';
 @use 'modules/transform';
 @use 'modules/transition';
+@use 'modules/user-select';
 @use 'modules/vertical-align';
 @use 'modules/visibility';
 @use 'modules/white-space';
@@ -173,6 +175,9 @@
     @else if $module == miscellaneous {
       @include miscellaneous.miscellaneous();
     }
+    @else if $module == object-fit {
+      @include object-fit.object-fit();
+    }
     @else if $module == opacity {
       @include opacity.opacity();
     }
@@ -211,6 +216,9 @@
     }
     @else if $module == transition {
       @include transition.transition();
+    }
+    @else if $module == user-select {
+      @include user-select.user-select();
     }
     @else if $module == vertical-align {
       @include vertical-align.vertical-align();
@@ -340,6 +348,9 @@
         @else if $module == miscellaneous and $responsive {
           @include miscellaneous.miscellaneous($breakpoint);
         }
+        @else if $module == object-fit and $responsive {
+          @include object-fit.object-fit($breakpoint);
+        }
         @else if $module == opacity and $responsive {
           @include opacity.opacity($breakpoint);
         }
@@ -378,6 +389,9 @@
         }
         @else if $module == transition and $responsive {
           @include transition.transition($breakpoint);
+        }
+        @else if $module == user-select and $responsive {
+          @include user-select.user-select($breakpoint);
         }
         @else if $module == vertical-align and $responsive {
           @include vertical-align.vertical-align($breakpoint);

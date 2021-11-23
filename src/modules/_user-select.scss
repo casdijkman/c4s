@@ -7,13 +7,13 @@
 @use '../functions';
 @use '../variables';
 
-@mixin background-size($media: null) {
+@mixin user-select($media: null) {
   $global-prefix: variables.$global-prefix;
-  $name: variables.$background-size-name;
+  $name: variables.$user-select-name;
 
-  @each $class-name, $value in variables.$background-sizes {
+  @each $class-name, $value in variables.$user-selects {
     #{functions.construct-class-name($global-prefix, $name, $class-name, $media)} {
-      background-size: $value;
+      user-select: $value;
     }
   }
 }
