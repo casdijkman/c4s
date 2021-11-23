@@ -1,0 +1,29 @@
+/*
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
+@use '../functions';
+@use '../variables';
+@use 'sass:list';
+@use 'sass:string';
+@use 'sass:meta';
+
+@mixin aspect-ratio($media: null) {
+  $global-prefix: variables.$global-prefix;
+  $name: variables.$aspect-ratio-name;
+
+  @each $class-name, $value in variables.$aspect-ratios {
+    #{functions.construct-class-name($global-prefix, $name, $class-name, $media)} {
+      @if meta.type-of($value) == list {
+        $x: list.nth($value, 1);
+        $y: list.nth($value, 2);
+
+        aspect-ratio: $x string.unquote('/') $y;
+      } @else {
+        aspect-ratio: $value;
+      }
+    }
+  }
+}

@@ -7,6 +7,7 @@
 @use 'sass:map';
 @use 'variables';
 @use 'mixins';
+@use 'modules/aspect-ratio';
 @use 'modules/background-clip';
 @use 'modules/background-color';
 @use 'modules/background-repeat';
@@ -73,7 +74,10 @@
   }
 
   @each $module, $responsive in $modules {
-    @if $module == background-clip {
+    @if $module == aspect-ratio {
+      @include aspect-ratio.aspect-ratio();
+    }
+    @else if $module == background-clip {
       @include background-clip.background-clip();
     }
     @else if $module == background-color {
@@ -246,7 +250,10 @@
   @each $breakpoint, $map in $breakpoints {
     @include mixins.media-breakpoint-up($breakpoint) {
       @each $module, $responsive in $modules {
-        @if $module == background-clip and $responsive {
+        @if $module == aspect-ratio and $responsive {
+          @include aspect-ratio.aspect-ratio($breakpoint);
+        }
+        @else if $module == background-clip and $responsive {
           @include background-clip.background-clip($breakpoint);
         }
         @else if $module == background-color and $responsive {
