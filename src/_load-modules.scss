@@ -9,6 +9,7 @@
 @use 'mixins';
 @use 'modules/background-clip';
 @use 'modules/background-color';
+@use 'modules/background-repeat';
 @use 'modules/border-color';
 @use 'modules/border-radius';
 @use 'modules/border';
@@ -74,6 +75,9 @@
     }
     @else if $module == background-color {
       @include background-color.background-color();
+    }
+    @else if $module == background-repeat {
+      @include background-repeat.background-repeat();
     }
     @else if $module == border-color {
       @include border-color.border-color();
@@ -235,6 +239,9 @@
         }
         @else if $module == background-color and $responsive {
           @include background-color.background-color($breakpoint);
+        }
+        @else if $module == background-repeat and $responsive {
+          @include background-repeat.background-repeat($breakpoint);
         }
         @else if $module == border-color and $responsive {
           @include border-color.border-color($breakpoint);
