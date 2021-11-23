@@ -16,4 +16,10 @@
       float: $value;
     }
   }
+
+  #{functions.construct-class-name($global-prefix, clearfix, $media)}::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
 }
