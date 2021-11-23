@@ -10,6 +10,7 @@
 @use 'modules/background-clip';
 @use 'modules/background-color';
 @use 'modules/background-repeat';
+@use 'modules/background-size';
 @use 'modules/border-color';
 @use 'modules/border-radius';
 @use 'modules/border';
@@ -78,6 +79,9 @@
     }
     @else if $module == background-repeat {
       @include background-repeat.background-repeat();
+    }
+    @else if $module == background-size {
+      @include background-size.background-size();
     }
     @else if $module == border-color {
       @include border-color.border-color();
@@ -242,6 +246,9 @@
         }
         @else if $module == background-repeat and $responsive {
           @include background-repeat.background-repeat($breakpoint);
+        }
+        @else if $module == background-size and $responsive {
+          @include background-size.background-size($breakpoint);
         }
         @else if $module == border-color and $responsive {
           @include border-color.border-color($breakpoint);

@@ -1,0 +1,18 @@
+/*
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
+@use '../functions';
+@use '../variables';
+
+@mixin background-size($media: null) {
+  $global-prefix: variables.$global-prefix;
+
+  @each $name, $value in variables.$background-sizes {
+    #{functions.construct-class-name($global-prefix, $name, $media)} {
+      background-size: $value;
+    }
+  }
+}
