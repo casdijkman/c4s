@@ -35,7 +35,7 @@ const globs = {
         javascript:  './docs/javascript/**/*.js'
     },
     dist: {
-        css:         ['./dist/**/*.css', '!./dist/**/*.min.css'],
+        css:         ['./dist/**/*.css', '!./dist/**/*.min.css', '!./dist/**/*.raw.css'],
         cssAll:      './dist/**/*.css',
         html:        './dist/**/*.html'
     }
