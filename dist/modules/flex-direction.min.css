@@ -1,0 +1,6 @@
+/*!
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+.flex-column{flex-direction:column}.flex-row{flex-direction:row}.flex-column-reverse{flex-direction:column-reverse}.flex-row-reverse{flex-direction:row-reverse}

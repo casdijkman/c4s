@@ -1,0 +1,29 @@
+/*!
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+.b--solid {
+  border-style: solid;
+}
+.b--dotted {
+  border-style: dotted;
+}
+.b--dashed {
+  border-style: dashed;
+}
+.b--double {
+  border-style: double;
+}
+.b--groove {
+  border-style: groove;
+}
+.b--ridge {
+  border-style: ridge;
+}
+.b--inset {
+  border-style: inset;
+}
+.b--outset {
+  border-style: outset;
+}

@@ -1,0 +1,32 @@
+/*!
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+.f-headline {
+  font-size: 6rem;
+}
+.f-subheadline {
+  font-size: 5rem;
+}
+.f1 {
+  font-size: 3.0517578125em;
+}
+.f2 {
+  font-size: 2.44140625em;
+}
+.f3 {
+  font-size: 1.953125em;
+}
+.f4 {
+  font-size: 1.5625em;
+}
+.f5 {
+  font-size: 1.25em;
+}
+.f6 {
+  font-size: 1em;
+}
+.small {
+  font-size: 0.8em;
+}

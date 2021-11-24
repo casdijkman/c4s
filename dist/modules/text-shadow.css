@@ -1,0 +1,8 @@
+/*!
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+.text-shadow {
+  text-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.6);
+}

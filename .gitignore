@@ -18,5 +18,8 @@ yarn-error.log*
 .\#*
 
 ### Project specific ###
-dist/
+dist/**/*
+!dist/modules/
+!dist/**/*.css
+dist/**/*.raw.css
 NOTES.md
