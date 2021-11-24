@@ -5,7 +5,7 @@
 import { breakpoints, matchMediaUp } from './helpers/breakpoints';
 import throttle from './helpers/throttle';
 
-const header = document.querySelector('.js-header');
+export const header = document.querySelector('.js-header');
 const headerHideClass = 'translateY-n100';
 
 function setHeaderHeight() {
@@ -18,7 +18,7 @@ let directionalScrollMemo = window.scrollY;
 let scrollingUp = false;
 const hideHeaderThreshold = header.clientHeight;
 
-function onScroll() {
+export function onScroll() {
     const newScrollY = window.scrollY;
     const newScrollingUp = newScrollY < previousScrollY;
     const newScrollMemo = scrollingUp === newScrollingUp ? null : newScrollY;
@@ -36,7 +36,7 @@ function isHeaderHidden() {
     return header.classList.contains(headerHideClass);
 }
 
-function hideHeader() {
+export function hideHeader() {
     header.classList.add(headerHideClass);
     setHeaderHeight();
 }

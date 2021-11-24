@@ -71,33 +71,47 @@ SPDX-License-Identifier: GPL-3.0-only
      }
     </style>
 
-    {% for file in files %}
-        {% if file.isModule and file.isRaw %}
-            <h2 class="f4 mt0">
-                {{ file.name | replace("-", " ") | title }}
-            </h2>
+    <div class="js-sticky df flex-nowrap sticky bg-white overflow-x-auto transition-medium" style="top: var(--header-height);">
+        {% for file in files %}
+            {% if file.isModule and file.isRaw %}
+                <a href="#{{ file.name }}" class="link black p3 bl-between bb b--moon-gray nowrap">
+                    {{ file.name }}
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
 
-            <details class="mb4">
-                <summary class="p2 cursor-pointer">
-                    More information
-                </summary>
+    <div class="container center p2 p3-s">
+        {% for file in files %}
+            {% if file.isModule and file.isRaw %}
+                <div id="{{ file.name | slug }}" class="relative" style="bottom: var(--sticky-height);"></div>
 
-                {% for rule in file.css.stylesheet.rules %}
-                    <div class="pv3 pl3 mb4 bl b--silver">
-                        {% set ruleText %}{{ rule.selectors | join(", ") }} {{ "{" }}{% for declaration in rule.declarations %}
-                        {{ declaration.property }}: {{ declaration.value }};{% endfor %}
-                        }{% endset %}
+                <h2 class="f4 mt0">
+                    {{ file.name | replace("-", " ") | title }}
+                </h2>
 
-                        <div class="overflow-x-auto mt4-between">
-                            <pre class="hljs dib mv0"><code>{{ ruleText | highlight | safe }}</code></pre>
+                <details class="mb4">
+                    <summary class="p2 cursor-pointer">
+                        More information
+                    </summary>
+
+                    {% for rule in file.css.stylesheet.rules %}
+                        <div class="pv3 pl3 mb4 bl b--silver">
+                            {% set ruleText %}{{ rule.selectors | join(", ") }} {{ "{" }}{% for declaration in rule.declarations %}
+  {{ declaration.property }}: {{ declaration.value }};{% endfor %}
+}{% endset %}
+
+                            <div class="overflow-x-auto mt4-between">
+                                <pre class="hljs dib mv0"><code>{{ ruleText | highlight | safe }}</code></pre>
+                            </div>
+
+                            <div class="mt4-between hide-empty">
+                                {{ example.example(file.name, rule.selectors, rule.declarations) }}
+                            </div>
                         </div>
-
-                        <div class="mt4-between hide-empty">
-                            {{ example.example(file.name, rule.selectors, rule.declarations) }}
-                        </div>
-                    </div>
-                {% endfor %}
-            </details>
-        {% endif %}
-    {% endfor %}
+                    {% endfor %}
+                </details>
+            {% endif %}
+        {% endfor %}
+    </div>
 {% endblock %}

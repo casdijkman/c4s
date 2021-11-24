@@ -37,89 +37,91 @@ SPDX-License-Identifier: GPL-3.0-only
 {% endmacro %}
 
 {% block content %}
-    <h2 class="mt0">
-        Documentation
-    </h2>
+    <div class="container center p2 p3-s">
+        <h2 class="mt0">
+            Documentation
+        </h2>
 
-    <a href="/docs/example.html" class="db link dark-blue hover-underline ph3 pv2">
-        Examples
-    </a>
+        <a href="/docs/example.html" class="db link dark-blue hover-underline ph3 pv2">
+            Examples
+        </a>
 
-    <a href="/docs/list.html" class="db dark-blue link hover-underline ph3 pv2">
-        List of rules
-    </a>
+        <a href="/docs/list.html" class="db dark-blue link hover-underline ph3 pv2">
+            List of rules
+        </a>
 
-    <h2>
-        Downloads
-    </h2>
+        <h2>
+            Downloads
+        </h2>
 
-    {% for file in files %}
-        {% if not file.isRaw and file.name == "c4s" %}
-            <a class="dib white link bg-dark-blue br-pill lh-solid ph4 pv3 m2 nowrap" href="{{ file.file }}" download>
-                Download C4S
+        {% for file in files %}
+            {% if not file.isRaw and file.name == "c4s" %}
+                <a class="dib white link bg-dark-blue br-pill lh-solid ph4 pv3 m2 nowrap" href="{{ file.file }}" download>
+                    Download C4S
 
-                {% if file.isMinified %}
-                    minified
-                {% endif %}
-            </a>
-        {% endif %}
-    {% endfor %}
+                    {% if file.isMinified %}
+                        minified
+                    {% endif %}
+                </a>
+            {% endif %}
+        {% endfor %}
 
-    <h2>
-        Files
-    </h2>
+        <h2>
+            Files
+        </h2>
 
-    <div class="overflow-x-auto">
-        <table class="collapse lh-text">
-            <tr class="stripe-light b">
-                <td class="p2">
-                    Name
-                </td>
-                <td class="p2">
-                    Size
-                </td>
-                <td class="p2">
-                    Size gzipped
-                </td>
-                <td class="p2">
-                    Download
-                </td>
-            </tr>
+        <div class="overflow-x-auto">
+            <table class="collapse lh-text">
+                <tr class="stripe-light b">
+                    <td class="p2">
+                        Name
+                    </td>
+                    <td class="p2">
+                        Size
+                    </td>
+                    <td class="p2">
+                        Size gzipped
+                    </td>
+                    <td class="p2">
+                        Download
+                    </td>
+                </tr>
 
-            {% for file in files %}
-                {% if not file.isRaw and not file.isModule and not file.isCustom %}
-                    {{ renderFileRow(file) }}
-                {% endif %}
-            {% endfor %}
-        </table>
-    </div>
+                {% for file in files %}
+                    {% if not file.isRaw and not file.isModule and not file.isCustom %}
+                        {{ renderFileRow(file) }}
+                    {% endif %}
+                {% endfor %}
+            </table>
+        </div>
 
-    <h2>
-        Modules ({{ files | rejectattr('isMinified') | rejectattr('isRaw') | selectattr('isModule') | length }})
-    </h2>
+        <h2>
+            Modules ({{ files | rejectattr('isMinified') | rejectattr('isRaw') | selectattr('isModule') | length }})
+        </h2>
 
-    <div class="overflow-x-auto">
-        <table class="collapse lh-text">
-            <tr class="stripe-light b">
-                <td class="p2">
-                    Name
-                </td>
-                <td class="p2">
-                    Size
-                </td>
-                <td class="p2">
-                    Size gzipped
-                </td>
-                <td class="p2">
-                    Download
-                </td>
-            </tr>
+        <div class="overflow-x-auto">
+            <table class="collapse lh-text">
+                <tr class="stripe-light b">
+                    <td class="p2">
+                        Name
+                    </td>
+                    <td class="p2">
+                        Size
+                    </td>
+                    <td class="p2">
+                        Size gzipped
+                    </td>
+                    <td class="p2">
+                        Download
+                    </td>
+                </tr>
 
-            {% for file in files %}
-                {% if not file.isRaw and file.isModule %}
-                    {{ renderFileRow(file) }}
-                {% endif %}
-            {% endfor %}
-        </table>
+                {% for file in files %}
+                    {% if not file.isRaw and file.isModule %}
+                        {{ renderFileRow(file) }}
+                    {% endif %}
+                {% endfor %}
+            </table>
+        </div>
     </div>
 {% endblock %}

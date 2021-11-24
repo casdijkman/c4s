@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-3.0-only
 {% set description = "C4S CSS documentation list of rules page" %}
 
 {% block content %}
-    <div class="mw8 center">
+    <div class="mw8 center p2 p3-s">
         <div class="row f5 b sticky bg-white bb bw1 b--black-20 transition-medium" style="top: var(--header-height);">
             <div class="col-12 col-3-m col-2-l p2">
                 Selectors
@@ -32,12 +32,19 @@ SPDX-License-Identifier: GPL-3.0-only
                             {% endfor %}
                         </div>
                         <div class="col-12 col-m p2 word-break-word">
-                            {% for declaration in rule.declarations %}
-                                {{ declaration.property }}: {{ declaration.value }};
-                                {% if not loop.last %}
-                                    <br>
-                                {% endif %}
-                            {% endfor %}
+                            {% if rule.declarations.length === 1 %}
+                                {% for declaration in rule.declarations %}
+                                    {{ declaration.property }}: {{ declaration.value }};
+                                {% endfor %}
+                            {% else %}
+                                <ul class="list-reset bl pv1 pl3 b--moon-gray bw2">
+                                    {% for declaration in rule.declarations %}
+                                        <li>
+                                            {{ declaration.property }}: {{ declaration.value }};
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
                         </div>
                         <div class="col-12 col-2-m p2">
                             {{ file.name }}
