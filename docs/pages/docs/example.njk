@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-3.0-only
 
 {% block content %}
     <style>
-     /*	https://github.com/highlightjs/highlight.js/blob/main/src/styles/vs.css */
+     /* https://github.com/highlightjs/highlight.js/blob/main/src/styles/vs.css */
 
      .hljs-comment,
      .hljs-quote,
@@ -72,31 +72,32 @@ SPDX-License-Identifier: GPL-3.0-only
     </style>
 
     {% for file in files %}
-	{% if file.isModule and file.isRaw %}
-	    <h2 class="f4 mt0">
-		{{ file.name | replace("-", " ") | title }}
-	    </h2>
+        {% if file.isModule and file.isRaw %}
+            <h2 class="f4 mt0">
+                {{ file.name | replace("-", " ") | title }}
+            </h2>
 
-	    <details class="mb4">
-		<summary class="p2 cursor-pointer">
-		    More information
-		</summary>
-		{% for rule in file.css.stylesheet.rules %}
-		    <div class="pv3 pl3 mb4 bl b--silver">
-			{% set ruleText %}{{ rule.selectors | join(", ") }} {{ "{" }}{% for declaration in rule.declarations %}
-  {{ declaration.property }}: {{ declaration.value }};{% endfor %}
-}{% endset %}
+            <details class="mb4">
+                <summary class="p2 cursor-pointer">
+                    More information
+                </summary>
 
-			<div class="overflow-x-auto mt4-between">
-			    <pre class="hljs dib mv0"><code>{{ ruleText | highlight | safe }}</code></pre>
-			</div>
+                {% for rule in file.css.stylesheet.rules %}
+                    <div class="pv3 pl3 mb4 bl b--silver">
+                        {% set ruleText %}{{ rule.selectors | join(", ") }} {{ "{" }}{% for declaration in rule.declarations %}
+                        {{ declaration.property }}: {{ declaration.value }};{% endfor %}
+                        }{% endset %}
 
-			<div class="mt4-between hide-empty">
-			    {{ example.example(file.name, rule.selectors, rule.declarations) }}
-			</div>
-		    </div>
-		{% endfor %}
-	    </details>
-	{% endif %}
+                        <div class="overflow-x-auto mt4-between">
+                            <pre class="hljs dib mv0"><code>{{ ruleText | highlight | safe }}</code></pre>
+                        </div>
+
+                        <div class="mt4-between hide-empty">
+                            {{ example.example(file.name, rule.selectors, rule.declarations) }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </details>
+        {% endif %}
     {% endfor %}
 {% endblock %}

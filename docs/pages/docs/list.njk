@@ -10,41 +10,41 @@ SPDX-License-Identifier: GPL-3.0-only
 
 {% block content %}
     <div class="mw8 center">
-	<div class="row f5 b sticky bg-white bb bw1 b--black-20 transition-medium" style="top: var(--header-height);">
-	    <div class="col-12 col-3-m col-2-l p2">
-		Selectors
-	    </div>
-	    <div class="col-12 col-m p2">
-		Declarations
-	    </div>
-	    <div class="col-12 col-2-m p2">
-		Module
-	    </div>
-	</div>
+        <div class="row f5 b sticky bg-white bb bw1 b--black-20 transition-medium" style="top: var(--header-height);">
+            <div class="col-12 col-3-m col-2-l p2">
+                Selectors
+            </div>
+            <div class="col-12 col-m p2">
+                Declarations
+            </div>
+            <div class="col-12 col-2-m p2">
+                Module
+            </div>
+        </div>
 
-	{% for file in files %}
-	    {% if file.isModule and file.isRaw %}
-		{% for rule in file.css.stylesheet.rules %}
-		    <div class="row bt b--black-20">
-			<div class="col-12 col-3-m col-2-l p2">
-			    {% for selector in rule.selectors %}
-				{{ selector }}{% if not loop.last %},<br>{% endif %}
-			    {% endfor %}
-			</div>
-			<div class="col-12 col-m p2 word-break-word">
-			    {% for declaration in rule.declarations %}
-				{{ declaration.property }}: {{ declaration.value }};
-				{% if not loop.last %}
-				    <br>
-				{% endif %}
-			    {% endfor %}
-			</div>
-			<div class="col-12 col-2-m p2">
-			    {{ file.name }}
-			</div>
-		    </div>
-		{% endfor %}
-	    {% endif %}
-	{% endfor %}
+        {% for file in files %}
+            {% if file.isModule and file.isRaw %}
+                {% for rule in file.css.stylesheet.rules %}
+                    <div class="row bt b--black-20">
+                        <div class="col-12 col-3-m col-2-l p2">
+                            {% for selector in rule.selectors %}
+                                {{ selector }}{% if not loop.last %},<br>{% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="col-12 col-m p2 word-break-word">
+                            {% for declaration in rule.declarations %}
+                                {{ declaration.property }}: {{ declaration.value }};
+                                {% if not loop.last %}
+                                    <br>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="col-12 col-2-m p2">
+                            {{ file.name }}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
     </div>
 {% endblock %}
