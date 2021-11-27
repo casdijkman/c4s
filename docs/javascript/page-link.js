@@ -4,31 +4,34 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-import { header, onScroll, hideHeader } from './header';
+import { header, preventOpenHeader } from './header';
 
 function setStickyHeight() {
     const sticky = document.querySelectorAll('.js-sticky');
     let height = 0;
 
     sticky.forEach((element) => {
-        height += element.getBoundingClientRect().height;
+        if (!element.dataset.hidden) {
+            height += element.getBoundingClientRect().height;
+        }
     });
 
-    document.documentElement.style.setProperty('--sticky-height', `${height}px`);
+    document.documentElement.style.setProperty('--sticky-height', `${Math.ceil(height)}px`);
 }
 
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (event) => {
-        const scrollTo = document.querySelector(event.target.attributes.href.value);
+        const scrollToHash = event.target.attributes.href.value;
+        const scrollTo = document.querySelector(scrollToHash);
         if (!scrollTo) return;
         event.preventDefault();
 
         if (header) {
-            onScroll();
-            hideHeader();
+            preventOpenHeader();
         }
 
         setStickyHeight();
         scrollTo.scrollIntoView();
+        window.location.hash = scrollToHash;
     });
 });
