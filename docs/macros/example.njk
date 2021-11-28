@@ -10,9 +10,12 @@ SPDX-License-Identifier: GFDL-1.3-only
     </div>
 {% endmacro %}
 
-{% macro exampleNotFound() %}
+{% macro exampleNotFound(reason) %}
     <div class="o-50">
-        (Example not found)
+        (Example not found
+        {%- if reason -%}
+            , {{ reason }}
+        {%- endif -%})
     </div>
 {% endmacro %}
 
@@ -20,7 +23,7 @@ SPDX-License-Identifier: GFDL-1.3-only
     {% set firstSelector %}{{ selectors | first }}{% endset %}
     {% set firstClass %}{{ firstSelector | getClassFromSelector }}{% endset %}
     {% set readableClasses %}{{ selectors | getClassesFromSelectors | join(" or ") }}{% endset %}
-    {% set caption = "Element with class " + readableClasses %}
+    {% set caption = "Element with class <code class=\"bg-black-05\">" + readableClasses + "</code>" %}
 
     {% if type === "complex" %}
         {% if firstClass === "bt-between" %}
@@ -28,7 +31,7 @@ SPDX-License-Identifier: GFDL-1.3-only
                 <div class="dif flex-column">
                     {% for i in [1, 2, 3] %}
                         <div class="bg-black-10 p1 {{ firstClass }}">
-                            {{ caption }}
+                            {{ caption | safe }}
                         </div>
                     {% endfor %}
                 </div>
@@ -38,38 +41,38 @@ SPDX-License-Identifier: GFDL-1.3-only
                 <div class="df">
                     {% for i in [1, 2, 3] %}
                         <div class="dib bg-black-10 p1 {{ firstClass }}">
-                            {{ caption }}
+                            {{ caption | safe }}
                         </div>
                     {% endfor %}
                 </div>
             </div>
         {% elif r/pt.-between$/.test(firstClass) %}
             <div class="dib ba bg-black-10 {{ firstClass }}">
-                {{ caption }}
+                {{ caption | safe }}
             </div>
             <div class="dib ba bg-black-10 {{ firstClass }}">
-                {{ caption }}
+                {{ caption | safe }}
             </div>
         {% elif r/pl.-between$/.test(firstClass) %}
             <div class="dib ba bg-black-10 {{ firstClass }}">
-                {{ caption }}
+                {{ caption | safe }}
             </div>
             <div class="dib ba bg-black-10 {{ firstClass }}">
-                {{ caption }}
+                {{ caption | safe }}
             </div>
         {% elif r/mt.-between$/.test(firstClass) %}
             <div class="dt ba bg-black-10 {{ firstClass }}">
-                {{ caption }}
+                {{ caption | safe }}
             </div>
             <div class="dt ba bg-black-10 {{ firstClass }}">
-                {{ caption }}
+                {{ caption | safe }}
             </div>
         {% elif r/ml.-between$/.test(firstClass) %}
             <div class="dib ba bg-black-10 {{ firstClass }}">
-                {{ caption }}
+                {{ caption | safe }}
             </div>
             <div class="dib ba bg-black-10 {{ firstClass }}">
-                {{ caption }}
+                {{ caption | safe }}
             </div>
         {% else %}
             {{ exampleNotFound() }}
@@ -79,90 +82,89 @@ SPDX-License-Identifier: GFDL-1.3-only
     {% elif type === "color" %}
         <div class="dib ba p3">
             <div class="dib p1 {{ firstClass }}">
-                {{ caption }}
+                {{ caption | safe }}
             </div>
             <br>
             <div class="dib bg-black p1 {{ firstClass }}">
-                {{ caption }}
+                {{ caption | safe }}
             </div>
         </div>
     {% elif type === "hover-color" %}
         <div class="dib p3 ba">
             <div class="dib {{ firstClass }}">
-                {{ caption }}
+                {{ caption | safe }}
             </div>
             <br>
             <div class="dib bg-black white {{ firstClass }}">
-                {{ caption }}
+                {{ caption | safe }}
             </div>
         </div>
     {% elif type === "background-color" %}
         {% call exampleBox(firstClass, caption) %}
             <div class="p3 {{ firstClass }}">
-                <div class="pt3-between">{{ caption }}</div>
-                <div class="white text-shadow pt3-between">{{ caption }}</div>
+                <div class="pt3-between">{{ caption | safe }}</div>
+                <div class="white text-shadow pt3-between">{{ caption | safe }}</div>
             </div>
         {% endcall %}
     {% elif type === "hover-background-color" %}
         <div class="dib p3 ba">
             <div class="dib {{ firstClass }}">
-                {{ caption }}
+                {{ caption | safe }}
             </div>
             <br>
             <div class="dib white {{ firstClass }}">
-                {{ caption }}
+                {{ caption | safe }}
             </div>
         </div>
     {% elif type === "border" %}
         <div class="dib bg-black-10 p1 {{ firstClass }}">
-            {{ caption }}
+            {{ caption | safe }}
         </div>
     {% elif type === "border-width" %}
         <div class="dib p1 ba {{ firstClass }}">
-            {{ caption }}
+            {{ caption | safe }}
         </div>
     {% elif type === "border-color" %}
-        <div class="dib p3">
-            <div class="dib ba p2 {{ firstClass }}">
-                {{ caption }}
+        <div class="dt p3">
+            <div class="ba p2 {{ firstClass }}">
+                {{ caption | safe }}
             </div>
         </div>
-        <br>
-        <div class="dib bg-black white p3 mt3">
+        <div class="dt bg-black white p3">
             <div class="ba p2 {{ firstClass }}">
-                {{ caption }}
+                {{ caption | safe }}
             </div>
         </div>
     {% elif type === "border-style" %}
         <div class="dib ba bw2 p1 {{ firstClass }}">
-            {{ caption }}
+            {{ caption | safe }}
         </div>
     {% elif type === "font-family" %}
         <div class="{{ firstClass }}">
-            {{ caption }}
+            {{ caption | safe }}
         </div>
     {% elif type === "font-style" %}
         <div class="dib p3 ba">
             <div class="{{ firstClass }}">
-                {{ caption }}
+                {{ caption | safe }}
             </div>
         </div>
     {% elif type === "text-decoration" %}
         <div class="dib p3 ba {{ firstClass }}">
-            {{ caption }}
+            {{ caption | safe }}
         </div>
     {% elif type === "text-shadow" %}
         <div class="dib p3 ba {{ firstClass }}">
-            {{ caption }}
+            {{ caption | safe }}
         </div>
     {% elif type === "text-transform" %}
         <div class="dib p3 ba {{ firstClass }}">
-            {{ caption }}
+            {{ caption | safe }}
         </div>
     {% elif type === "text-align" %}
         <div class="ph3 ba measure {{ firstClass }}">
             <p>
-                {{ caption }}
+                {{ caption | safe }}
             </p>
             <p class="o-50">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -173,14 +175,14 @@ SPDX-License-Identifier: GFDL-1.3-only
         </div>
     {% elif type === "opacity" %}
         <div class="dib bg-black white p3 {{ firstClass }}">
-            {{ caption }}
+            {{ caption | safe }}
         </div>
     {% elif type === "transform" %}
         {% macro transformBox(firstClass, caption, containerClass, boxClass, textClass) %}
             <div class="top-0 left-50 translateX-n50 w-third {{ containerClass }}">
                 <div class="p2 ba {{ firstClass }} {{ boxClass }}">
                     <span class="{{ textClass }}">
-                        {{ caption }}
+                        {{ caption | safe }}
                     </span>
                 </div>
             </div>
@@ -216,7 +218,7 @@ SPDX-License-Identifier: GFDL-1.3-only
         {{ exampleNotFound() }}
     {% elif type === "visibility" %}
         <div class="dib bg-black white p1 {{ firstClass }}">
-            {{ caption }}
+            {{ caption | safe }}
         </div>
     {% elif type === "box-sizing" %}
         <div class="tc debug-striped w5 p3 mb2">
@@ -224,11 +226,11 @@ SPDX-License-Identifier: GFDL-1.3-only
         </div>
 
         <div class="ba bw5 p2 w5 {{ firstClass }}">
-            {{ caption }} and w5
+            {{ caption | safe }} and w5
         </div>
     {% elif type === "cursor" %}
         <div class="dib ba p3 {{ firstClass }}">
-            {{ caption }}
+            {{ caption | safe }}
         </div>
     {% elif type === "miscellaneous" %}
         {% if firstClass === "list-reset" %}
@@ -240,18 +242,18 @@ SPDX-License-Identifier: GFDL-1.3-only
         {% elif r/stretch.*/.test(firstClass) %}
             <div class="measure h4 ba relative">
                 <a class="dib p3 debug-striped {{ firstClass }}" href="javascript:;">
-                    {{ caption }}
+                    {{ caption | safe }}
                 </a>
             </div>
         {% elif firstClass === "link" %}
             <div class="dib p3 ba">
                 <a class="{{ firstClass }}" href="javascript:;">
-                    {{ caption }}
+                    {{ caption | safe }}
                 </a>
             </div>
         {% elif firstClass === "dn-empty" %}
             <div class="dib debug-striped ba p3 {{ firstClass }}">
-                {{ caption }}
+                {{ caption | safe }}
             </div>
             <div class="dib debug-striped ba p3 {{ firstClass }}">
             </div>
@@ -260,47 +262,47 @@ SPDX-License-Identifier: GFDL-1.3-only
         {% endif %}
     {% elif type === "debug" %}
         <div class="p4 {{ firstClass }}">
-            {{ caption }}
+            {{ caption | safe }}
         </div>
     {% elif type === "padding" %}
         <div class="dib white bg-black {{ firstClass }}">
-            {{ caption }}
+            {{ caption | safe }}
         </div>
     {% elif type === "margin" %}
         {% if r/[rlh]-auto$/.test(firstClass) %}
             <div class="ba">
                 <div class="w4 white bg-black {{ firstClass }}">
-                    {{ caption }}
+                    {{ caption | safe }}
                 </div>
             </div>
         {% else %}
             <div class="dib ba">
                 <div class="dib white bg-black {{ firstClass }}">
-                    {{ caption }}
+                    {{ caption | safe }}
                 </div>
             </div>
         {% endif %}
     {% elif type === "width" %}
         <div class="ba">
             <div class="dib white bg-black {{ firstClass }}">
-                {{ caption }}
+                {{ caption | safe }}
             </div>
         </div>
     {% elif type === "height" %}
         <div class="dib white bg-black {{ firstClass }}">
-            {{ caption }}
+            {{ caption | safe }}
         </div>
     {% elif type === "position" %}
         {{ exampleNotFound() }}
     {% elif type === "coordinates" %}
         <div class="relative ba w-50 h4">
             <div class="dib white bg-black absolute {{ firstClass }}">
-                {{ caption }}
+                {{ caption | safe }}
             </div>
         </div>
     {% elif type === "display" %}
         <div class="bg-black-10 p3 {{ firstClass }}">
-            {{ caption }}
+            {{ caption | safe }}
         </div>
     {% elif type === "flex" %}
         {% if r/.*wrap.*/.test(firstClass) %}
@@ -343,66 +345,73 @@ SPDX-License-Identifier: GFDL-1.3-only
     {% elif type === "float" %}
         <div class="ba w5 h4">
             <div class="dib white bg-black {{ firstClass }}">
-                {{ caption }}
+                {{ caption | safe }}
             </div>
         </div>
     {% elif type === "border-radius" %}
         <div class="dib p3 ba {{ firstClass }}">
-            {{ caption }}
+            {{ caption | safe }}
         </div>
     {% elif type === "font-size" %}
         <span class="{{ firstClass }}">
-            {{ caption }}
+            {{ caption | safe }}
         </span>
     {% elif type === "line-height" %}
         <div class="dib bg-black white">
             <span class="{{ firstClass }}">
-                {{ caption }}
+                {{ caption | safe }}
             </span>
         </div>
     {% elif type === "font-weight" %}
         <div class="{{ firstClass }}">
-            {{ caption }}
+            {{ caption | safe }}
         </div>
     {% elif type === "white-space" %}
         <div class="w4 bg-black-10 p2 ba {{ firstClass }}">
-            {{ caption }}
+            {{ caption | safe }}
             <!--! -->
-            {{ caption }}
+            {{ caption | safe }}
             <!--! -->
         </div>
     {% elif type === "vertical-align" %}
         <div class="dib bg-black white lh-extra ph2">
             <div class="dib ba b--red bw2 mr2 {{ firstClass }}"></div>
-            {{ caption }}
+            {{ caption | safe }}
         </div>
     {% elif type === "tracking" %}
         <span class="{{ firstClass }}">
-            {{ caption }}
+            {{ caption | safe }}
         </span>
     {% elif type === "measure" %}
         <div class="bg-black white {{ firstClass }}">
-            {{ caption }}
+            {{ caption | safe }}
         </div>
     {% elif type === "border-collapse" %}
         <table class="ba {{ firstClass }}">
             <thead>
                 <td class="ba p1">
-                    {{ caption }}
+                    {{ caption | safe }}
                 </td>
             </thead>
         </table>
     {% elif type === "word-break" %}
         <div class="ba ph3 w4 {{ firstClass }}">
             <p>
-                {{ caption }}
+                {{ caption | safe }}
             </p>
             <p class="o-60">
-                {{ caption | replace(" ", "") }}
+                ElementWithClass{{ firstClass | title }}ToIllustrateWordBreakingWithLongWords
             </p>
         </div>
+    {% elif type === "aspect-ratio" %}
+        <div class="df items-center justify-center ba h5 p3 tc {{ firstClass }}">
+            <span>{{ caption | safe }}</span>
+        </div>
+    {% elif type === "background-clip" %}
+        <div class="ba f1 b black-20 bg-cover {{ firstClass }}" style="background-image: url('https://place.dog/800/500');">
+            {{ caption | safe }}
+        </div>
     {% else %}
-        not yet specified
-        {{ exampleNotFound() }}
+        {{ exampleNotFound("not yet specified") }}
     {% endif %}
 {% endmacro %}

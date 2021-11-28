@@ -35,3 +35,5 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
         window.location.hash = scrollToHash;
     });
 });
+
+setStickyHeight();

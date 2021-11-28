@@ -9,7 +9,7 @@ SPDX-License-Identifier: GFDL-1.3-only
 {% set description = "C4S CSS documentation list of rules page" %}
 
 {% block content %}
-    <div class="mw8 center p2 p3-s">
+    <div class="mw8 center p3">
         <div class="row f5 b sticky bg-white bb bw1 b--black-20 transition-medium" style="top: var(--header-height);">
             <div class="col-12 col-3-m col-2-l p2">
                 Selectors
@@ -17,7 +17,7 @@ SPDX-License-Identifier: GFDL-1.3-only
             <div class="col-12 col-m p2">
                 Declarations
             </div>
-            <div class="col-12 col-2-m p2">
+            <div class="col-12 col-3-m col-2-l p2">
                 Module
             </div>
         </div>
@@ -46,8 +46,12 @@ SPDX-License-Identifier: GFDL-1.3-only
                                 </ul>
                             {% endif %}
                         </div>
-                        <div class="col-12 col-2-m p2">
-                            {{ file.name }}
+                        <div class="col-12 col-3-m col-2-l">
+                            <a href="{{ file.file | replace(".raw", "") }}"
+                                class="dib link dark-blue hover-underline p2"
+                                title="View module">
+                                {{ file.name }}
+                            </a>
                         </div>
                     </div>
                 {% endfor %}
