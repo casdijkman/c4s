@@ -17,7 +17,7 @@
     margin-bottom: 0;
   }
 
-  %stretch {
+  #{functions.construct-class-name($global-prefix, stretch, $media)} {
     position: absolute;
     top: 0;
     left: 0;
@@ -25,13 +25,12 @@
     right: 0;
   }
 
-  #{functions.construct-class-name($global-prefix, stretch, $media)} {
-    @extend %stretch;
-  }
-
   #{functions.construct-class-name($global-prefix, stretch-pseudo, $media)}::after {
-    @extend %stretch;
-
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     content: '';
     pointer-events: auto;
     background-color: transparent;
