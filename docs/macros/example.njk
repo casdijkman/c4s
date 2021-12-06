@@ -23,7 +23,7 @@ SPDX-License-Identifier: GFDL-1.3-only
     {% set firstSelector %}{{ selectors | first }}{% endset %}
     {% set firstClass %}{{ firstSelector | getClassFromSelector }}{% endset %}
     {% set readableClasses %}{{ selectors | getClassesFromSelectors | join(" or ") }}{% endset %}
-    {% set caption = "Element with class <code class=\"bg-black-05\">" + readableClasses + "</code>" %}
+    {% set caption = "Element with class <code>" + readableClasses + "</code>" %}
 
     {% if type === "complex" %}
         {% if firstClass === "bt-between" %}
@@ -408,7 +408,8 @@ SPDX-License-Identifier: GFDL-1.3-only
             <span>{{ caption | safe }}</span>
         </div>
     {% elif type === "background-clip" %}
-        <div class="ba f1 b black-20 bg-cover {{ firstClass }}" style="background-image: url('https://place.dog/800/500');">
+        <div class="ba f1 b black-20 bg-cover {{ firstClass }}"
+            style="background-image: repeating-linear-gradient(-45deg, transparent 0 10px, black 10px 20px);">
             {{ caption | safe }}
         </div>
     {% else %}
