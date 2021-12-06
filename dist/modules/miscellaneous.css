@@ -9,6 +9,15 @@
   margin-top: 0;
   margin-bottom: 0;
 }
+.button-reset {
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  background-color: inherit;
+  text-align: inherit;
+  border-style: none;
+  padding: 0;
+}
 .stretch,
 .stretch-pseudo::after {
   position: absolute;

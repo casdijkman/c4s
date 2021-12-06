@@ -110,6 +110,7 @@
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
 }
 body {
   margin: 0;
@@ -119,10 +120,6 @@ body {
 ::after,
 ::before {
   box-sizing: inherit;
-}
-button {
-  font-size: inherit;
-  font-family: inherit;
 }
 img {
   display: block;
@@ -164,6 +161,56 @@ p {
 }
 code {
   font-family: consolas, monaco, monospace;
+}
+.c4s-list-reset {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.c4s-button-reset {
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  background-color: inherit;
+  text-align: inherit;
+  border-style: none;
+  padding: 0;
+}
+.c4s-stretch,
+.c4s-stretch-pseudo::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.c4s-stretch-pseudo::after {
+  content: "";
+  pointer-events: auto;
+  background-color: transparent;
+}
+.c4s-dn-empty:empty {
+  display: none;
+}
+.c4s-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.c4s-svg-wrapper {
+  width: 1.5rem;
+  height: 1.5rem;
+  max-height: 100%;
+}
+.c4s-svg-wrapper svg {
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+}
+.c4s-sr-only {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
 }
 .c4s-black,
 .c4s-hover-black:hover {
@@ -1237,47 +1284,6 @@ code {
 }
 .c4s-show-breakpoints::before {
   content: "[breakpoint: base] ";
-}
-.c4s-list-reset {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-.c4s-stretch,
-.c4s-stretch-pseudo::after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-.c4s-stretch-pseudo::after {
-  content: "";
-  pointer-events: auto;
-  background-color: transparent;
-}
-.c4s-dn-empty:empty {
-  display: none;
-}
-.c4s-truncate {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.c4s-svg-wrapper {
-  width: 1.5rem;
-  height: 1.5rem;
-  max-height: 100%;
-}
-.c4s-svg-wrapper svg {
-  width: 100%;
-  height: 100%;
-  vertical-align: top;
-}
-.c4s-sr-only {
-  position: absolute;
-  clip: rect(0, 0, 0, 0);
 }
 .c4s-debug-grid {
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFElEQVR4AWPAC97/9x0eCsAEPgwAVLshdpENIxcAAAAASUVORK5CYII=)

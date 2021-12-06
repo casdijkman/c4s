@@ -5,6 +5,7 @@
  */
 
 @use '../variables';
+@use 'sass:color';
 @use 'sass:map';
 @use 'sass:string';
 
@@ -16,6 +17,16 @@
   html {
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
+
+    @if variables.$document-scroll-behavior {
+      scroll-behavior: variables.$document-scroll-behavior;
+    }
+
+    @if variables.$document-bg-color {
+      @if color.change(variables.$document-bg-color, $alpha: 1) != white {
+        background-color: variables.$document-bg-color;
+      }
+    }
   }
 
   body {
@@ -27,11 +38,6 @@
   *::before,
   *::after {
     box-sizing: inherit;
-  }
-
-  button {
-    font-size: inherit;
-    font-family: inherit;
   }
 
   img {

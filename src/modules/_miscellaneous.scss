@@ -17,6 +17,16 @@
     margin-bottom: 0;
   }
 
+  #{functions.construct-class-name($global-prefix, button-reset, $media)} {
+    font-size: inherit;
+    font-family: inherit;
+    line-height: inherit;
+    background-color: inherit;
+    text-align: inherit;
+    border-style: none;
+    padding: 0;
+  }
+
   #{functions.construct-class-name($global-prefix, stretch, $media)} {
     position: absolute;
     top: 0;
