@@ -139,6 +139,8 @@ const build = series(
     gzipDist, compileNunjucks
 );
 
+const buildWatchServe = series(build, parallel(watchFiles, serve));
+
 function watchFiles() {
     watch(globs.src.sass, build);
     watch(globs.src.nunjucksAll, compileNunjucks);
@@ -152,6 +154,7 @@ module.exports = {
     serve,
     build,
     buildWatch: series(build, watchFiles),
-    default: series(build, parallel(watchFiles, serve)),
+    buildWatchServe,
+    default: buildWatchServe,
     lint: parallel(lintSass, lintCss, lintJs)
 };
