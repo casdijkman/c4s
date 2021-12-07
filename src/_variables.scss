@@ -488,7 +488,9 @@ $displays: (
   'tc': table-cell,
   'f':  flex,
   'if': inline-flex,
-  'g':  grid
+  'g':  grid,
+  'c':  contents,
+  'fr': flow-root
 );
 
 /*

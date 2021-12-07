@@ -2071,6 +2071,12 @@ code {
 .dg {
   display: grid;
 }
+.dc {
+  display: contents;
+}
+.dfr {
+  display: flow-root;
+}
 .flex-wrap {
   flex-wrap: wrap;
 }

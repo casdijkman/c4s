@@ -3,4 +3,4 @@
  *
  * SPDX-License-Identifier: GPL-3.0-only
  */
-.db{display:block}.di{display:inline}.dib{display:inline-block}.dn{display:none}.dt{display:table}.dtc{display:table-cell}.df{display:flex}.dif{display:inline-flex}.dg{display:grid}
+.db{display:block}.di{display:inline}.dib{display:inline-block}.dn{display:none}.dt{display:table}.dtc{display:table-cell}.df{display:flex}.dif{display:inline-flex}.dg{display:grid}.dc{display:contents}.dfr{display:flow-root}
