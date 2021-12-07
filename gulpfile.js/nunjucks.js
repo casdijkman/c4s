@@ -9,10 +9,12 @@ const cssLib = require('css');
 const highlight = require('highlight.js');
 const prettyBytes = require('pretty-bytes');
 
+const { version } = require('./constants');
+
 function getNunjucksData() {
     const data = {
         files: [],
-        version: require('../package.json').version
+        version
     };
 
     for (const file of glob.sync('dist/**/*.css')) {

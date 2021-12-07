@@ -1,6 +1,6 @@
 /*!
+ * C4S CSS, version 0.3.7 <https://c4s.website>
  * SPDX-FileCopyrightText: 2021 Cas Dijkman
- *
  * SPDX-License-Identifier: GPL-3.0-only
  */
 .user-select-none{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.user-select-all{-webkit-user-select:all;-moz-user-select:all;user-select:all}.user-select-text{-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text}
