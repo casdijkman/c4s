@@ -21,13 +21,15 @@
 .dtc {
   display: table-cell;
 }
-.df {
+.df,
+.flex {
   display: flex;
 }
 .dif {
   display: inline-flex;
 }
-.dg {
+.dg,
+.grid {
   display: grid;
 }
 .dc {

@@ -9,10 +9,9 @@
 
 @mixin display($media: null) {
   $global-prefix: variables.$global-prefix;
-  $prefix: variables.$display-prefix;
 
   @each $name, $value in variables.$displays {
-    #{functions.construct-class-name($global-prefix, $prefix + $name, $media)} {
+    #{functions.construct-class-name($global-prefix, $name, $media)} {
       display: $value;
     }
   }

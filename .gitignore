@@ -23,3 +23,4 @@ dist/**/*
 !dist/**/*.css
 dist/**/*.raw.css
 NOTES.md
+**/scratch-*

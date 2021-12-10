@@ -1307,7 +1307,7 @@ code {
   outline: 1px solid gold;
 }
 .debug-striped {
-  background: repeating-linear-gradient(
+  background-image: repeating-linear-gradient(
     -45deg,
     rgba(0, 0, 0, 0.025),
     rgba(0, 0, 0, 0.025) 10px,
@@ -1316,7 +1316,7 @@ code {
   );
 }
 .debug-striped-light {
-  background: repeating-linear-gradient(
+  background-image: repeating-linear-gradient(
     -45deg,
     rgba(0, 0, 0, 0.025),
     rgba(0, 0, 0, 0.025) 10px,
@@ -2044,37 +2044,37 @@ code {
 .left-100 {
   left: 100%;
 }
-.db {
+.b {
   display: block;
 }
-.di {
+.i {
   display: inline;
 }
-.dib {
+.ib {
   display: inline-block;
 }
-.dn {
+.n {
   display: none;
 }
-.dt {
+.t {
   display: table;
 }
-.dtc {
+.tc {
   display: table-cell;
 }
-.df {
+.f {
   display: flex;
 }
-.dif {
+.if {
   display: inline-flex;
 }
-.dg {
+.g {
   display: grid;
 }
-.dc {
+.c {
   display: contents;
 }
-.dfr {
+.fr {
   display: flow-root;
 }
 .flex-wrap {
@@ -3175,37 +3175,37 @@ code {
   .left-100-s {
     left: 100%;
   }
-  .db-s {
+  .b-s {
     display: block;
   }
-  .di-s {
+  .i-s {
     display: inline;
   }
-  .dib-s {
+  .ib-s {
     display: inline-block;
   }
-  .dn-s {
+  .n-s {
     display: none;
   }
-  .dt-s {
+  .t-s {
     display: table;
   }
-  .dtc-s {
+  .tc-s {
     display: table-cell;
   }
-  .df-s {
+  .f-s {
     display: flex;
   }
-  .dif-s {
+  .if-s {
     display: inline-flex;
   }
-  .dg-s {
+  .g-s {
     display: grid;
   }
-  .dc-s {
+  .c-s {
     display: contents;
   }
-  .dfr-s {
+  .fr-s {
     display: flow-root;
   }
   .flex-wrap-s {
@@ -4308,37 +4308,37 @@ code {
   .left-100-m {
     left: 100%;
   }
-  .db-m {
+  .b-m {
     display: block;
   }
-  .di-m {
+  .i-m {
     display: inline;
   }
-  .dib-m {
+  .ib-m {
     display: inline-block;
   }
-  .dn-m {
+  .n-m {
     display: none;
   }
-  .dt-m {
+  .t-m {
     display: table;
   }
-  .dtc-m {
+  .tc-m {
     display: table-cell;
   }
-  .df-m {
+  .f-m {
     display: flex;
   }
-  .dif-m {
+  .if-m {
     display: inline-flex;
   }
-  .dg-m {
+  .g-m {
     display: grid;
   }
-  .dc-m {
+  .c-m {
     display: contents;
   }
-  .dfr-m {
+  .fr-m {
     display: flow-root;
   }
   .flex-wrap-m {
@@ -5442,37 +5442,37 @@ code {
   .left-100-l {
     left: 100%;
   }
-  .db-l {
+  .b-l {
     display: block;
   }
-  .di-l {
+  .i-l {
     display: inline;
   }
-  .dib-l {
+  .ib-l {
     display: inline-block;
   }
-  .dn-l {
+  .n-l {
     display: none;
   }
-  .dt-l {
+  .t-l {
     display: table;
   }
-  .dtc-l {
+  .tc-l {
     display: table-cell;
   }
-  .df-l {
+  .f-l {
     display: flex;
   }
-  .dif-l {
+  .if-l {
     display: inline-flex;
   }
-  .dg-l {
+  .g-l {
     display: grid;
   }
-  .dc-l {
+  .c-l {
     display: contents;
   }
-  .dfr-l {
+  .fr-l {
     display: flow-root;
   }
   .flex-wrap-l {
@@ -6577,37 +6577,37 @@ code {
   .left-100-h {
     left: 100%;
   }
-  .db-h {
+  .b-h {
     display: block;
   }
-  .di-h {
+  .i-h {
     display: inline;
   }
-  .dib-h {
+  .ib-h {
     display: inline-block;
   }
-  .dn-h {
+  .n-h {
     display: none;
   }
-  .dt-h {
+  .t-h {
     display: table;
   }
-  .dtc-h {
+  .tc-h {
     display: table-cell;
   }
-  .df-h {
+  .f-h {
     display: flex;
   }
-  .dif-h {
+  .if-h {
     display: inline-flex;
   }
-  .dg-h {
+  .g-h {
     display: grid;
   }
-  .dc-h {
+  .c-h {
     display: contents;
   }
-  .dfr-h {
+  .fr-h {
     display: flow-root;
   }
   .flex-wrap-h {

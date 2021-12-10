@@ -40,7 +40,7 @@
 
   @each $name, $list in variables.$debug-striped-items {
     #{functions.construct-class-name($global-prefix, $striped-name, $name, $media)} {
-      background:
+      background-image:
         repeating-linear-gradient(
           -45deg,
           list.nth($list, 1),

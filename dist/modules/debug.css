@@ -25,7 +25,7 @@
   outline: 1px solid gold;
 }
 .debug-striped {
-  background: repeating-linear-gradient(
+  background-image: repeating-linear-gradient(
     -45deg,
     rgba(0, 0, 0, 0.025),
     rgba(0, 0, 0, 0.025) 10px,
@@ -34,10 +34,19 @@
   );
 }
 .debug-striped-light {
-  background: repeating-linear-gradient(
+  background-image: repeating-linear-gradient(
     -45deg,
     rgba(0, 0, 0, 0.025),
     rgba(0, 0, 0, 0.025) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+.debug-striped-black {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #000,
+    #000 10px,
     transparent 10px,
     transparent 20px
   );

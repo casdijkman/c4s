@@ -40,7 +40,7 @@
   background-color: #e7040f;
 }
 .hover-bg-red:hover {
-  background-color: #ff4136;
+  background-color: #ff4036;
 }
 .hover-bg-light-red:hover {
   background-color: #ff725c;
@@ -49,13 +49,13 @@
   background-color: #ffdfdf;
 }
 .hover-bg-orange:hover {
-  background-color: #ff6300;
+  background-color: #ff6200;
 }
 .hover-bg-gold:hover {
   background-color: #ffb700;
 }
 .hover-bg-yellow:hover {
-  background-color: gold;
+  background-color: #ffd900;
 }
 .hover-bg-light-yellow:hover {
   background-color: #fbf1a9;
@@ -67,13 +67,13 @@
   background-color: #5e2ca5;
 }
 .hover-bg-light-purple:hover {
-  background-color: #a463f2;
+  background-color: #a363f2;
 }
 .hover-bg-dark-pink:hover {
-  background-color: #d5008f;
+  background-color: #d5008e;
 }
 .hover-bg-hot-pink:hover {
-  background-color: #ff41b4;
+  background-color: #ff41b3;
 }
 .hover-bg-pink:hover {
   background-color: #ff80cc;
@@ -97,7 +97,7 @@
   background-color: #001b44;
 }
 .hover-bg-dark-blue:hover {
-  background-color: #00449e;
+  background-color: #00459e;
 }
 .hover-bg-blue:hover {
   background-color: #357edd;
