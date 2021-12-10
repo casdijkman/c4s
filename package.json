@@ -1,6 +1,6 @@
 {
   "name": "c4s-css",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "Concise Configurable Composable Classes Stylesheets",
   "author": "Cas Dijkman",
   "license": "GPL-3.0-only",
