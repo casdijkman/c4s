@@ -5,4 +5,7 @@
  */
 
 import './header';
-import './page-link';
+
+if (/\/example.html$/.test(window.location.pathname)) {
+    import('./example-page').then();
+}
