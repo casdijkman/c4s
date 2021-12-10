@@ -1,11 +1,17 @@
 {#
-SPDX-FileCopyrightText: 2021 Cas Dijkman
+    SPDX-FileCopyrightText: 2021 Cas Dijkman
 
-SPDX-License-Identifier: GFDL-1.3-only
+    SPDX-License-Identifier: GFDL-1.3-only
 #}
 
-{% macro exampleBox(firstClass, caption) %}
-    <div class="dib debug-striped-light p3 ba b--black-10">
+{% macro exampleBoxDark(firstClass, caption, debugClass = "debug-striped-black", borderColorClass = "b--black") %}
+    <div class="dib p3 ba {{ borderColorClass }} {{ debugClass }}">
+        {{ caller(firstClass, caption) }}
+    </div>
+{% endmacro %}
+
+{% macro exampleBox(firstClass, caption, debugClass = "debug-striped-light", borderColorClass = "b--black-10") %}
+    <div class="dib p3 ba {{ borderColorClass }} {{ debugClass }}">
         {{ caller(firstClass, caption) }}
     </div>
 {% endmacro %}
@@ -25,7 +31,87 @@ SPDX-License-Identifier: GFDL-1.3-only
     {% set readableClasses %}{{ selectors | getClassesFromSelectors | join(" or ") }}{% endset %}
     {% set caption = "Element with class <code>" + readableClasses + "</code>" %}
 
-    {% if type === "complex" %}
+    {% if type === "" %}
+    {% elif type === "aspect-ratio" %}
+        <div class="df items-center justify-center ba h5 p3 tc {{ firstClass }}">
+            <span>{{ caption | safe }}</span>
+        </div>
+    {% elif type === "background-clip" %}
+        <div class="ba f1 b black-20 debug-striped-black {{ firstClass }}"
+            style="background-image: repeating-linear-gradient(-45deg, transparent 0 10px, black 10px 20px);">
+            {{ caption | safe }}
+        </div>
+    {% elif type === "background-color" %}
+        {% if r/^bg-white-/.test(firstClass) %}
+              {% call exampleBoxDark(firstClass, caption) %}
+                  <div class="p3 {{ firstClass }}">
+                      <div class="pt3-between">{{ caption | safe }}</div>
+                      <div class="white text-shadow pt3-between">{{ caption | safe }}</div>
+                  </div>
+              {% endcall %}
+        {% else %}
+              {% call exampleBox(firstClass, caption) %}
+                  <div class="p3 {{ firstClass }}">
+                      <div class="pt3-between">{{ caption | safe }}</div>
+                      <div class="white text-shadow pt3-between">{{ caption | safe }}</div>
+                  </div>
+              {% endcall %}
+        {% endif %}
+    {% elif type === "background-repeat" %}
+          {% call exampleBox(firstClass, caption) %}
+              <div class="p3 {{ firstClass }}" style="background-image: url('/logo.svg'); background-size: 7rem;">
+                  <div class="p2 bg-white-90">
+                      {{ caption | safe }}
+                  </div>
+              </div>
+          {% endcall %}
+    {% elif type === "background-size" %}
+          {{ exampleNotFound() }}
+    {% elif type === "border-color" %}
+        <div class="dt p3">
+            <div class="ba p2 {{ firstClass }}">
+                {{ caption | safe }}
+            </div>
+        </div>
+        <div class="dt bg-black white p3">
+            <div class="ba p2 {{ firstClass }}">
+                {{ caption | safe }}
+            </div>
+        </div>
+    {% elif type === "border-radius" %}
+        <div class="dib p3 ba {{ firstClass }}">
+            {{ caption | safe }}
+        </div>
+    {% elif type === "border-style" %}
+        <div class="dib ba bw2 p1 {{ firstClass }}">
+            {{ caption | safe }}
+        </div>
+    {% elif type === "border-width" %}
+        <div class="dib p1 ba {{ firstClass }}">
+            {{ caption | safe }}
+        </div>
+    {% elif type === "border" %}
+        <div class="dib bg-black-10 p1 {{ firstClass }}">
+            {{ caption | safe }}
+        </div>
+    {% elif type === "box-sizing" %}
+        <div class="tc debug-striped w5 p3 mb2">
+            Element with class w5
+        </div>
+        <div class="ba bw5 p2 w5 {{ firstClass }}">
+            {{ caption | safe }} and w5
+        </div>
+    {% elif type === "color" %}
+        <div class="dib ba p3">
+            <div class="dib p1 {{ firstClass }}">
+                {{ caption | safe }}
+            </div>
+            <br>
+            <div class="dib bg-black p1 {{ firstClass }}">
+                {{ caption | safe }}
+            </div>
+        </div>
+    {% elif type === "complex" %}
         {% if firstClass === "bt-between" %}
             <div class="dib ba p3">
                 <div class="dif flex-column">
@@ -77,35 +163,94 @@ SPDX-License-Identifier: GFDL-1.3-only
         {% else %}
             {{ exampleNotFound() }}
         {% endif %}
-    {% elif type === "reset" %}
-        {{ exampleNotFound() }}
-    {% elif type === "color" %}
-        <div class="dib ba p3">
-            <div class="dib p1 {{ firstClass }}">
-                {{ caption | safe }}
-            </div>
-            <br>
-            <div class="dib bg-black p1 {{ firstClass }}">
+   {% elif type === "coordinates" %}
+        <div class="relative ba w-50 h4">
+            <div class="dib white bg-black absolute {{ firstClass }}">
                 {{ caption | safe }}
             </div>
         </div>
-    {% elif type === "hover-color" %}
+    {% elif type === "cursor" %}
+        <div class="dib ba p3 {{ firstClass }}">
+            {{ caption | safe }}
+        </div>
+    {% elif type === "debug" %}
+        <div class="p4 {{ firstClass }}">
+            <span class="p2 bg-white-90">
+                {{ caption | safe }}
+            </span>
+        </div>
+    {% elif type === "display" %}
+        <div class="bg-black-10 p3 {{ firstClass }}">
+            {{ caption | safe }}
+        </div>
+    {% elif type === "flex-direction" %}
+        <div class="dif {{ firstClass }}">
+            {% for i in [1, 2, 3] %}
+                <div class="p2">
+                    <div class="bg-black white">
+                        Child {{ i }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+   {% elif type === "flex" %}
+        {% if r/.*wrap.*/.test(firstClass) %}
+            <div class="df measure ba p1 {{ firstClass }}">
+                <div class="p2 m1 debug-striped ba">
+                    Child of element with class {{ firstClass }}
+                </div>
+                {% for i in [2, 3, 4, 5] %}
+                    <div class="p2 m1 debug-striped ba">
+                        Child {{ i }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% elif r/^items-.*/.test(firstClass) %}
+            <div class="debug-striped p2 df h5 measure {{ firstClass }}">
+                <div class="col-6 p2">
+                    <div class="ba p2 h-100">
+                        Child of element with class {{ firstClass }}
+                    </div>
+                </div>
+                <div class="col-6 p2">
+                    <div class="f2 ba p2 h-100">
+                        Child 2
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            {{ exampleNotFound() }}
+        {% endif %}
+    {% elif type === "float" %}
+        <div class="ba w5 h4">
+            <div class="dib white bg-black {{ firstClass }}">
+                {{ caption | safe }}
+            </div>
+        </div>
+    {% elif type === "font-family" %}
+        <div class="{{ firstClass }}">
+            {{ caption | safe }}
+        </div>
+    {% elif type === "font-size" %}
+        <span class="{{ firstClass }}">
+            {{ caption | safe }}
+        </span>
+    {% elif type === "font-style" %}
         <div class="dib p3 ba">
-            <div class="dib {{ firstClass }}">
-                {{ caption | safe }}
-            </div>
-            <br>
-            <div class="dib bg-black white {{ firstClass }}">
+            <div class="{{ firstClass }}">
                 {{ caption | safe }}
             </div>
         </div>
-    {% elif type === "background-color" %}
-        {% call exampleBox(firstClass, caption) %}
-            <div class="p3 {{ firstClass }}">
-                <div class="pt3-between">{{ caption | safe }}</div>
-                <div class="white text-shadow pt3-between">{{ caption | safe }}</div>
-            </div>
-        {% endcall %}
+    {% elif type === "font-weight" %}
+        <div class="{{ firstClass }}">
+            {{ caption | safe }}
+        </div>
+    {% elif type === "grid" %}
+        {{ exampleNotFound() }}
+    {% elif type === "height" %}
+        <div class="dib white bg-black {{ firstClass }}">
+            {{ caption | safe }}
+        </div>
     {% elif type === "hover-background-color" %}
         <div class="dib p3 ba">
             <div class="dib {{ firstClass }}">
@@ -116,38 +261,138 @@ SPDX-License-Identifier: GFDL-1.3-only
                 {{ caption | safe }}
             </div>
         </div>
-    {% elif type === "border" %}
-        <div class="dib bg-black-10 p1 {{ firstClass }}">
-            {{ caption | safe }}
-        </div>
-    {% elif type === "border-width" %}
-        <div class="dib p1 ba {{ firstClass }}">
-            {{ caption | safe }}
-        </div>
-    {% elif type === "border-color" %}
-        <div class="dt p3">
-            <div class="ba p2 {{ firstClass }}">
-                {{ caption | safe }}
-            </div>
-        </div>
-        <div class="dt bg-black white p3">
-            <div class="ba p2 {{ firstClass }}">
-                {{ caption | safe }}
-            </div>
-        </div>
-    {% elif type === "border-style" %}
-        <div class="dib ba bw2 p1 {{ firstClass }}">
-            {{ caption | safe }}
-        </div>
-    {% elif type === "font-family" %}
-        <div class="{{ firstClass }}">
-            {{ caption | safe }}
-        </div>
-    {% elif type === "font-style" %}
+   {% elif type === "hover-color" %}
         <div class="dib p3 ba">
-            <div class="{{ firstClass }}">
+            <div class="dib {{ firstClass }}">
                 {{ caption | safe }}
             </div>
+            <br>
+            <div class="dib bg-black white {{ firstClass }}">
+                {{ caption | safe }}
+            </div>
+        </div>
+    {% elif type === "hover" %}
+        {{ exampleNotFound() }}
+    {% elif type === "letter-spacing" %}
+        <span class="{{ firstClass }}">
+            {{ caption | safe }}
+        </span>
+    {% elif type === "line-height" %}
+        <div class="dib bg-black white">
+            <span class="{{ firstClass }}">
+                {{ caption | safe }}
+            </span>
+        </div>
+    {% elif type === "margin" %}
+        {% if r/[rlh]-auto$/.test(firstClass) %}
+            <div class="ba">
+                <div class="w4 white bg-black {{ firstClass }}">
+                    {{ caption | safe }}
+                </div>
+            </div>
+        {% else %}
+            <div class="dib ba">
+                <div class="dib white bg-black {{ firstClass }}">
+                    {{ caption | safe }}
+                </div>
+            </div>
+        {% endif %}
+    {% elif type === "max-width" %}
+        {{ exampleNotFound() }}
+    {% elif type === "measure" %}
+        <div class="bg-black white {{ firstClass }}">
+            {{ caption | safe }}
+        </div>
+    {% elif type === "miscellaneous" %}
+        {% if firstClass === "list-reset" %}
+            <ul class="dib ba p3 {{ firstClass }}">
+                {% for i in [1, 2, 3] %}
+                    <li>List item in <code>&lt;ul&gt;</code> with class {{ firstClass }}</li>
+                {% endfor %}
+            </ul>
+        {% elif r/stretch.*/.test(firstClass) %}
+            <div class="measure h4 ba relative">
+                <a class="dib p3 debug-striped {{ firstClass }}" href="javascript:;">
+                    {{ caption | safe }}
+                </a>
+            </div>
+        {% elif firstClass === "link" %}
+            <div class="dib p3 ba">
+                <a class="{{ firstClass }}" href="javascript:;">
+                    {{ caption | safe }}
+                </a>
+            </div>
+        {% elif firstClass === "dn-empty" %}
+            <div class="dib debug-striped ba p3 {{ firstClass }}">
+                {{ caption | safe }}
+            </div>
+            <div class="dib debug-striped ba p3 {{ firstClass }}">
+            </div>
+        {% else %}
+            {{ exampleNotFound() }}
+        {% endif %}
+    {% elif type === "object-fit" %}
+        {{ exampleNotFound() }}
+    {% elif type === "opacity" %}
+        <div class="dib bg-black white p3 {{ firstClass }}">
+            {{ caption | safe }}
+        </div>
+    {% elif type === "overflow" %}
+        {{ exampleNotFound() }}
+    {% elif type === "padding" %}
+        <div class="dib white bg-black {{ firstClass }}">
+            {{ caption | safe }}
+        </div>
+    {% elif type === "position" %}
+        {{ exampleNotFound() }}
+    {% elif type === "reset" %}
+        {# Does not have examples #}
+    {% elif type === "spanning-breakpoints" %}
+        {{ exampleNotFound() }}
+    {% elif type === "table" %}
+        {% if firstClass === "collapse" %}
+            <table class="ba {{ firstClass }}">
+                <tr>
+                    <td class="ba p1">
+                        {{ caption | safe }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ba p1">
+                        {{ caption | safe }}
+                    </td>
+                </tr>
+            </table>
+        {% else %}
+            <table class="ba collapse">
+                <tr class="{{ firstClass }}">
+                    <td class="ba p1">
+                        {{ caption | safe }}
+                    </td>
+                </tr>
+                <tr class="{{ firstClass }}">
+                    <td class="ba p1">
+                        {{ caption | safe }}
+                    </td>
+                </tr>
+                <tr class="{{ firstClass }}">
+                    <td class="ba p1">
+                        {{ caption | safe }}
+                    </td>
+                </tr>
+            </table>
+        {% endif %}
+    {% elif type === "text-align" %}
+        <div class="ph3 ba measure {{ firstClass }}">
+            <p>
+                {{ caption | safe }}
+            </p>
+            <p class="o-50">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat.
+            </p>
         </div>
     {% elif type === "text-decoration" %}
         <div class="dib p3 ba {{ firstClass }}">
@@ -161,25 +406,9 @@ SPDX-License-Identifier: GFDL-1.3-only
         <div class="dib p3 ba {{ firstClass }}">
             {{ caption | safe }}
         </div>
-    {% elif type === "text-align" %}
-        <div class="ph3 ba measure {{ firstClass }}">
-            <p>
-                {{ caption | safe }}
-            </p>
-            <p class="o-50">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat.
-            </p>
-        </div>
-    {% elif type === "opacity" %}
-        <div class="dib bg-black white p3 {{ firstClass }}">
-            {{ caption | safe }}
-        </div>
     {% elif type === "transform" %}
         {% macro transformBox(firstClass, caption, containerClass, boxClass, textClass) %}
-            <div class="top-0 left-50 translateX-n50 w-third {{ containerClass }}">
+            <div class="top-0 left-50 translateX-n50 w-third word-break-word {{ containerClass }}">
                 <div class="p2 ba {{ firstClass }} {{ boxClass }}">
                     <span class="{{ textClass }}">
                         {{ caption | safe }}
@@ -216,154 +445,15 @@ SPDX-License-Identifier: GFDL-1.3-only
         </div>
     {% elif type === "transition" %}
         {{ exampleNotFound() }}
+    {% elif type === "user-select" %}
+        {{ exampleNotFound() }}
+    {% elif type === "vertical-align" %}
+        <div class="dib bg-black white lh-extra ph2">
+            <div class="dib ba b--red bw2 mr2 {{ firstClass }}"></div>
+            {{ caption | safe }}
+        </div>
     {% elif type === "visibility" %}
         <div class="dib bg-black white p1 {{ firstClass }}">
-            {{ caption | safe }}
-        </div>
-    {% elif type === "box-sizing" %}
-        <div class="tc debug-striped w5 p3 mb2">
-            Element with class w5
-        </div>
-
-        <div class="ba bw5 p2 w5 {{ firstClass }}">
-            {{ caption | safe }} and w5
-        </div>
-    {% elif type === "cursor" %}
-        <div class="dib ba p3 {{ firstClass }}">
-            {{ caption | safe }}
-        </div>
-    {% elif type === "miscellaneous" %}
-        {% if firstClass === "list-reset" %}
-            <ul class="dib ba p3 {{ firstClass }}">
-                {% for i in [1, 2, 3] %}
-                    <li>List item in <code>&lt;ul&gt;</code> with class {{ firstClass }}</li>
-                {% endfor %}
-            </ul>
-        {% elif r/stretch.*/.test(firstClass) %}
-            <div class="measure h4 ba relative">
-                <a class="dib p3 debug-striped {{ firstClass }}" href="javascript:;">
-                    {{ caption | safe }}
-                </a>
-            </div>
-        {% elif firstClass === "link" %}
-            <div class="dib p3 ba">
-                <a class="{{ firstClass }}" href="javascript:;">
-                    {{ caption | safe }}
-                </a>
-            </div>
-        {% elif firstClass === "dn-empty" %}
-            <div class="dib debug-striped ba p3 {{ firstClass }}">
-                {{ caption | safe }}
-            </div>
-            <div class="dib debug-striped ba p3 {{ firstClass }}">
-            </div>
-        {% else %}
-            {{ exampleNotFound() }}
-        {% endif %}
-    {% elif type === "debug" %}
-        <div class="p4 {{ firstClass }}">
-            {{ caption | safe }}
-        </div>
-    {% elif type === "padding" %}
-        <div class="dib white bg-black {{ firstClass }}">
-            {{ caption | safe }}
-        </div>
-    {% elif type === "margin" %}
-        {% if r/[rlh]-auto$/.test(firstClass) %}
-            <div class="ba">
-                <div class="w4 white bg-black {{ firstClass }}">
-                    {{ caption | safe }}
-                </div>
-            </div>
-        {% else %}
-            <div class="dib ba">
-                <div class="dib white bg-black {{ firstClass }}">
-                    {{ caption | safe }}
-                </div>
-            </div>
-        {% endif %}
-    {% elif type === "width" %}
-        <div class="ba">
-            <div class="dib white bg-black {{ firstClass }}">
-                {{ caption | safe }}
-            </div>
-        </div>
-    {% elif type === "height" %}
-        <div class="dib white bg-black {{ firstClass }}">
-            {{ caption | safe }}
-        </div>
-    {% elif type === "position" %}
-        {{ exampleNotFound() }}
-    {% elif type === "coordinates" %}
-        <div class="relative ba w-50 h4">
-            <div class="dib white bg-black absolute {{ firstClass }}">
-                {{ caption | safe }}
-            </div>
-        </div>
-    {% elif type === "display" %}
-        <div class="bg-black-10 p3 {{ firstClass }}">
-            {{ caption | safe }}
-        </div>
-    {% elif type === "flex" %}
-        {% if r/.*wrap.*/.test(firstClass) %}
-            <div class="df measure ba p1 {{ firstClass }}">
-                <div class="p2 m1 debug-striped ba">
-                    Child of element with class {{ firstClass }}
-                </div>
-                {% for i in [2, 3, 4, 5] %}
-                    <div class="p2 m1 debug-striped ba">
-                        Child {{ i }}
-                    </div>
-                {% endfor %}
-            </div>
-        {% elif r/^items-.*/.test(firstClass) %}
-            <div class="debug-striped p2 df h5 measure {{ firstClass }}">
-                <div class="col-6 p2">
-                    <div class="ba p2 h-100">
-                        Child of element with class {{ firstClass }}
-                    </div>
-                </div>
-                <div class="col-6 p2">
-                    <div class="f2 ba p2 h-100">
-                        Child 2
-                    </div>
-                </div>
-            </div>
-        {% else %}
-            {{ exampleNotFound() }}
-        {% endif %}
-    {% elif type === "flex-direction" %}
-        <div class="dif {{ firstClass }}">
-            {% for i in [1, 2, 3] %}
-                <div class="p2">
-                    <div class="bg-black white">
-                        Child {{ i }}
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    {% elif type === "float" %}
-        <div class="ba w5 h4">
-            <div class="dib white bg-black {{ firstClass }}">
-                {{ caption | safe }}
-            </div>
-        </div>
-    {% elif type === "border-radius" %}
-        <div class="dib p3 ba {{ firstClass }}">
-            {{ caption | safe }}
-        </div>
-    {% elif type === "font-size" %}
-        <span class="{{ firstClass }}">
-            {{ caption | safe }}
-        </span>
-    {% elif type === "line-height" %}
-        <div class="dib bg-black white">
-            <span class="{{ firstClass }}">
-                {{ caption | safe }}
-            </span>
-        </div>
-    {% elif type === "font-weight" %}
-        <div class="{{ firstClass }}">
             {{ caption | safe }}
         </div>
     {% elif type === "white-space" %}
@@ -373,27 +463,12 @@ SPDX-License-Identifier: GFDL-1.3-only
             {{ caption | safe }}
             <!--! -->
         </div>
-    {% elif type === "vertical-align" %}
-        <div class="dib bg-black white lh-extra ph2">
-            <div class="dib ba b--red bw2 mr2 {{ firstClass }}"></div>
-            {{ caption | safe }}
+    {% elif type === "width" %}
+        <div class="ba">
+            <div class="dib white bg-black {{ firstClass }}">
+                {{ caption | safe }}
+            </div>
         </div>
-    {% elif type === "tracking" %}
-        <span class="{{ firstClass }}">
-            {{ caption | safe }}
-        </span>
-    {% elif type === "measure" %}
-        <div class="bg-black white {{ firstClass }}">
-            {{ caption | safe }}
-        </div>
-    {% elif type === "border-collapse" %}
-        <table class="ba {{ firstClass }}">
-            <thead>
-                <td class="ba p1">
-                    {{ caption | safe }}
-                </td>
-            </thead>
-        </table>
     {% elif type === "word-break" %}
         <div class="ba ph3 w4 {{ firstClass }}">
             <p>
@@ -403,15 +478,8 @@ SPDX-License-Identifier: GFDL-1.3-only
                 ElementWithClass{{ firstClass | title }}ToIllustrateWordBreakingWithLongWords
             </p>
         </div>
-    {% elif type === "aspect-ratio" %}
-        <div class="df items-center justify-center ba h5 p3 tc {{ firstClass }}">
-            <span>{{ caption | safe }}</span>
-        </div>
-    {% elif type === "background-clip" %}
-        <div class="ba f1 b black-20 bg-cover {{ firstClass }}"
-            style="background-image: repeating-linear-gradient(-45deg, transparent 0 10px, black 10px 20px);">
-            {{ caption | safe }}
-        </div>
+    {% elif type === "z-index" %}
+        {{ exampleNotFound() }}
     {% else %}
         {{ exampleNotFound("not yet specified") }}
     {% endif %}
