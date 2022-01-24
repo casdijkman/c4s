@@ -1,6 +1,6 @@
 /*
+ * C4S CSS, version {{ version }} <https://c4s.website>
  * SPDX-FileCopyrightText: 2021 Cas Dijkman
- *
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
@@ -102,63 +102,64 @@ $modules: (
  *
  * Used in border-color, background-color, color, hover-background-color and hover-color modules
  */
-$black: #000;
-$white: #fff;
+$black: hsl(0, 0%, 0%);
+$white: hsl(0, 0%, 100%);
+
 $colors: (
   /*
    * Black/gray/white
    */
   'black':         $black,
-  'near-black':    #111,
-  'dark-gray':     #333,
-  'mid-gray':      #555,
-  'gray':          #777,
-  'silver':        #999,
-  'light-silver':  #aaa,
-  'moon-gray':     #ccc,
-  'light-gray':    #eee,
-  'near-white':    #f4f4f4,
+  'near-black':    hsl(0, 0%, 6.7%),
+  'dark-gray':     hsl(0, 0%, 20%),
+  'mid-gray':      hsl(0, 0%, 33.3%),
+  'gray':          hsl(0, 0%, 46.7%),
+  'silver':        hsl(0, 0%, 60%),
+  'light-silver':  hsl(0, 0%, 66.7%),
+  'moon-gray':     hsl(0, 0%, 80%),
+  'light-gray':    hsl(0, 0%, 93.3%),
+  'near-white':    hsl(0, 0%, 95.7%),
   'white':         $white,
   /*
    * Red
    */
-  'dark-red':      #e7040f,
-  'red':           #ff4136,
-  'light-red':     #ff725c,
-  'washed-red':    #ffdfdf,
+  'dark-red':      hsl(357, 96.6%, 46.1%),
+  'red':           hsl(3, 100%, 60.6%),
+  'light-red':     hsl(8, 100%, 68%),
+  'washed-red':    hsl(0, 100%, 93.7%),
   /*
    * Orange/yellow
    */
-  'orange':        #ff6300,
-  'gold':          #ffb700,
-  'yellow':        #ffd700,
-  'light-yellow':  #fbf1a9,
-  'washed-yellow': #fffceb,
+  'orange':        hsl(23, 100%, 50%),
+  'gold':          hsl(43, 100%, 50%),
+  'yellow':        hsl(51, 100%, 50%),
+  'light-yellow':  hsl(53, 91.1%, 82.4%),
+  'washed-yellow': hsl(51, 100%, 96.1%),
   /*
    * Purple/pink
    */
-  'purple':        #5e2ca5,
-  'light-purple':  #a463f2,
-  'dark-pink':     #d5008f,
-  'hot-pink':      #ff41b4,
-  'pink':          #ff80cc,
-  'light-pink':    #ffa3d7,
+  'purple':        hsl(265, 57.9%, 41%),
+  'light-purple':  hsl(267, 84.6%, 66.9%),
+  'dark-pink':     hsl(320, 100%, 41.8%),
+  'hot-pink':      hsl(324, 100%, 62.7%),
+  'pink':          hsl(324, 100%, 75.1%),
+  'light-pink':    hsl(326, 100%, 82%),
   /*
    * Green
    */
-  'dark-green':    #137752,
-  'green':         #19a974,
-  'light-green':   #9eebcf,
-  'washed-green':  #e8fdf5,
+  'dark-green':    hsl(158, 72.5%, 27.1%),
+  'green':         hsl(158, 74.2%, 38%),
+  'light-green':   hsl(158, 65.8%, 77.1%),
+  'washed-green':  hsl(157, 84%, 95.1%),
   /*
    * Blue
    */
-  'navy':          #001b44,
-  'dark-blue':     #00449e,
-  'blue':          #357edd,
-  'light-blue':    #96ccff,
-  'lightest-blue': #cdecff,
-  'washed-blue':   #f6fffe,
+  'navy':          hsl(216, 100%, 13.3%),
+  'dark-blue':     hsl(214, 100%, 31%),
+  'blue':          hsl(214, 71.2%, 53.7%),
+  'light-blue':    hsl(209, 100%, 79.4%),
+  'lightest-blue': hsl(203, 100%, 90.2%),
+  'washed-blue':   hsl(173, 100%, 98.2%),
   /*
    * Black opacity variations
    */
@@ -475,25 +476,27 @@ $debug-grids: (
 $debug-striped-name: debug-striped;
 $debug-striped-items: (
   '':      [ map.get($colors, 'black-025'), map.get($colors, 'black-05') ],
-  'light': [ map.get($colors, 'black-025'), transparent ]
+  'light': [ map.get($colors, 'black-025'), transparent ],
+  'black': [ map.get($colors, 'black'), transparent ]
 );
 
 /*
  * Display
  */
-$display-prefix: d;
 $displays: (
-  'b':  block,
-  'i':  inline,
-  'ib': inline-block,
-  'n':  none,
-  't':  table,
-  'tc': table-cell,
-  'f':  flex,
-  'if': inline-flex,
-  'g':  grid,
-  'c':  contents,
-  'fr': flow-root
+  'db':   block,
+  'di':   inline,
+  'dib':  inline-block,
+  'dn':   none,
+  'dt':   table,
+  'dtc':  table-cell,
+  'df':   flex,
+  'flex': flex,
+  'dif':  inline-flex,
+  'dg':   grid,
+  'grid': grid,
+  'dc':   contents,
+  'dfr':  flow-root
 );
 
 /*
@@ -1051,6 +1054,6 @@ $z-index-end: 9;
  */
 
 /* stylelint-disable max-line-length, at-rule-empty-line-before */
-@include variables.configure($global-prefix: $global-prefix, $breakpoints-all: $breakpoints-all, $breakpoints: $breakpoints, $modules: $modules, $black: $black, $white: $white, $colors: $colors, $spacer-base: $spacer-base, $spacer-levels: $spacer-levels, $sizer-base: $sizer-base, $sizer-scale: $sizer-scale, $widths: $widths, $max-widths: $max-widths, $heights: $heights, $aspect-ratio-name: $aspect-ratio-name, $aspect-ratios: $aspect-ratios, $background-clip-name: $background-clip-name, $background-clips: $background-clips, $background-color-name: $background-color-name, $background-repeat-name: $background-repeat-name, $background-repeats: $background-repeats, $background-size-name: $background-size-name, $background-sizes: $background-sizes, $border-color-prefix: $border-color-prefix, $border-radius-prefix: $border-radius-prefix, $border-radius-base: $border-radius-base, $border-radius-levels: $border-radius-levels, $borders: $borders, $border-style-prefix: $border-style-prefix, $border-styles: $border-styles, $border-width-prefix: $border-width-prefix, $border-width-base: $border-width-base, $border-widths: $border-widths, $box-sizings: $box-sizings, $coordinate-spacer-levels: $coordinate-spacer-levels, $coordinate-directions: $coordinate-directions, $cursor-name: $cursor-name, $cursors: $cursors, $debug-grid-name: $debug-grid-name, $debug-grids: $debug-grids, $debug-striped-name: $debug-striped-name, $debug-striped-items: $debug-striped-items, $display-prefix: $display-prefix, $displays: $displays, $flex-direction-name: $flex-direction-name, $flex-directions: $flex-directions, $flex-wrap-name: $flex-wrap-name, $flex-wraps: $flex-wraps, $flex-align-items-name: $flex-align-items-name, $flex-align-items: $flex-align-items, $flex-align-self-name: $flex-align-self-name, $flex-align-selfs: $flex-align-selfs, $flex-align-content-name: $flex-align-content-name, $flex-align-contents: $flex-align-contents, $flex-justify-content-name: $flex-justify-content-name, $flex-justify-contents: $flex-justify-contents, $flex-grow-name: $flex-grow-name, $flex-grows: $flex-grows, $flex-shrink-name: $flex-shrink-name, $flex-shrinks: $flex-shrinks, $flex-order-name: $flex-order-name, $flex-orders: $flex-orders, $float-prefix: $float-prefix, $floats: $floats, $font-families: $font-families, $font-size-base: $font-size-base, $font-scaling-factor: $font-scaling-factor, $font-sizes: $font-sizes, $font-styles: $font-styles, $font-weight-levels: $font-weight-levels, $column-name: $column-name, $row-name: $row-name, $number-of-columns: $number-of-columns, $columns: $columns, $height-prefix: $height-prefix, $view-height-prefix: $view-height-prefix, $view-heights: $view-heights, $hover-background-color-name: $hover-background-color-name, $hover-color-name: $hover-color-name, $letter-spacings: $letter-spacings, $line-height-name: $line-height-name, $line-height-levels: $line-height-levels, $margin-levels: $margin-levels, $margin-levels-negative: $margin-levels-negative, $margins: $margins, $max-width-prefix: $max-width-prefix, $measures: $measures, $object-fits: $object-fits, $opacity-name: $opacity-name, $opacity-levels: $opacity-levels, $overflow-name: $overflow-name, $overflows: $overflows, $paddings: $paddings, $positions: $positions, $document-bg-color: $document-bg-color, $document-scroll-behavior: $document-scroll-behavior, $table-stripe-name: $table-stripe-name, $table-stripes: $table-stripes, $text-aligns: $text-aligns, $text-decorations: $text-decorations, $text-shadows: $text-shadows, $text-transforms: $text-transforms, $transform-translate-horizontal-name: $transform-translate-horizontal-name, $transform-translate-horizontal-levels: $transform-translate-horizontal-levels, $transform-translate-vertical-name: $transform-translate-vertical-name, $transform-translate-vertical-levels: $transform-translate-vertical-levels, $transition-name: $transition-name, $transition-properties: $transition-properties, $transition-speeds: $transition-speeds, $user-select-name: $user-select-name, $user-selects: $user-selects, $vertical-align-name: $vertical-align-name, $vertical-aligns: $vertical-aligns, $visibilities: $visibilities, $white-spaces: $white-spaces, $width-prefix: $width-prefix, $word-break-name: $word-break-name, $word-breaks: $word-breaks, $z-index-name: $z-index-name, $z-indexes: $z-indexes, $z-index-start: $z-index-start, $z-index-end: $z-index-end, );
+@include variables.configure($global-prefix: $global-prefix, $breakpoints-all: $breakpoints-all, $breakpoints: $breakpoints, $modules: $modules, $black: $black, $white: $white, $colors: $colors, $spacer-base: $spacer-base, $spacer-levels: $spacer-levels, $sizer-base: $sizer-base, $sizer-scale: $sizer-scale, $widths: $widths, $max-widths: $max-widths, $heights: $heights, $aspect-ratio-name: $aspect-ratio-name, $aspect-ratios: $aspect-ratios, $background-clip-name: $background-clip-name, $background-clips: $background-clips, $background-color-name: $background-color-name, $background-repeat-name: $background-repeat-name, $background-repeats: $background-repeats, $background-size-name: $background-size-name, $background-sizes: $background-sizes, $border-color-prefix: $border-color-prefix, $border-radius-prefix: $border-radius-prefix, $border-radius-base: $border-radius-base, $border-radius-levels: $border-radius-levels, $borders: $borders, $border-style-prefix: $border-style-prefix, $border-styles: $border-styles, $border-width-prefix: $border-width-prefix, $border-width-base: $border-width-base, $border-widths: $border-widths, $box-sizings: $box-sizings, $coordinate-spacer-levels: $coordinate-spacer-levels, $coordinate-directions: $coordinate-directions, $cursor-name: $cursor-name, $cursors: $cursors, $debug-grid-name: $debug-grid-name, $debug-grids: $debug-grids, $debug-striped-name: $debug-striped-name, $debug-striped-items: $debug-striped-items, $displays: $displays, $flex-direction-name: $flex-direction-name, $flex-directions: $flex-directions, $flex-wrap-name: $flex-wrap-name, $flex-wraps: $flex-wraps, $flex-align-items-name: $flex-align-items-name, $flex-align-items: $flex-align-items, $flex-align-self-name: $flex-align-self-name, $flex-align-selfs: $flex-align-selfs, $flex-align-content-name: $flex-align-content-name, $flex-align-contents: $flex-align-contents, $flex-justify-content-name: $flex-justify-content-name, $flex-justify-contents: $flex-justify-contents, $flex-grow-name: $flex-grow-name, $flex-grows: $flex-grows, $flex-shrink-name: $flex-shrink-name, $flex-shrinks: $flex-shrinks, $flex-order-name: $flex-order-name, $flex-orders: $flex-orders, $float-prefix: $float-prefix, $floats: $floats, $font-families: $font-families, $font-size-base: $font-size-base, $font-scaling-factor: $font-scaling-factor, $font-sizes: $font-sizes, $font-styles: $font-styles, $font-weight-levels: $font-weight-levels, $column-name: $column-name, $row-name: $row-name, $number-of-columns: $number-of-columns, $columns: $columns, $height-prefix: $height-prefix, $view-height-prefix: $view-height-prefix, $view-heights: $view-heights, $hover-background-color-name: $hover-background-color-name, $hover-color-name: $hover-color-name, $letter-spacings: $letter-spacings, $line-height-name: $line-height-name, $line-height-levels: $line-height-levels, $margin-levels: $margin-levels, $margin-levels-negative: $margin-levels-negative, $margins: $margins, $max-width-prefix: $max-width-prefix, $measures: $measures, $object-fits: $object-fits, $opacity-name: $opacity-name, $opacity-levels: $opacity-levels, $overflow-name: $overflow-name, $overflows: $overflows, $paddings: $paddings, $positions: $positions, $document-bg-color: $document-bg-color, $document-scroll-behavior: $document-scroll-behavior, $table-stripe-name: $table-stripe-name, $table-stripes: $table-stripes, $text-aligns: $text-aligns, $text-decorations: $text-decorations, $text-shadows: $text-shadows, $text-transforms: $text-transforms, $transform-translate-horizontal-name: $transform-translate-horizontal-name, $transform-translate-horizontal-levels: $transform-translate-horizontal-levels, $transform-translate-vertical-name: $transform-translate-vertical-name, $transform-translate-vertical-levels: $transform-translate-vertical-levels, $transition-name: $transition-name, $transition-properties: $transition-properties, $transition-speeds: $transition-speeds, $user-select-name: $user-select-name, $user-selects: $user-selects, $vertical-align-name: $vertical-align-name, $vertical-aligns: $vertical-aligns, $visibilities: $visibilities, $white-spaces: $white-spaces, $width-prefix: $width-prefix, $word-break-name: $word-break-name, $word-breaks: $word-breaks, $z-index-name: $z-index-name, $z-indexes: $z-indexes, $z-index-start: $z-index-start, $z-index-end: $z-index-end, );
 /* stylelint-enable max-line-length, at-rule-empty-line-before */
 @include load-modules.load-modules();
