@@ -1,5 +1,5 @@
 /*!
- * C4S CSS, version 0.3.9 <https://c4s.website>
+ * C4S CSS, version 0.4.0 <https://c4s.website>
  * SPDX-FileCopyrightText: 2021 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
@@ -210,147 +210,147 @@ code {
 }
 .black,
 .hover-black:hover {
-  color: hsl(0deg, 0%, 0%);
+  color: #000;
 }
 .hover-near-black:hover,
 .near-black {
-  color: hsl(0deg, 0%, 6.7%);
+  color: #111;
 }
 .dark-gray,
 .hover-dark-gray:hover {
-  color: hsl(0deg, 0%, 20%);
+  color: #333;
 }
 .hover-mid-gray:hover,
 .mid-gray {
-  color: hsl(0deg, 0%, 33.3%);
+  color: #555;
 }
 .gray,
 .hover-gray:hover {
-  color: hsl(0deg, 0%, 46.7%);
+  color: #777;
 }
 .hover-silver:hover,
 .silver {
-  color: hsl(0deg, 0%, 60%);
+  color: #999;
 }
 .hover-light-silver:hover,
 .light-silver {
-  color: hsl(0deg, 0%, 66.7%);
+  color: #aaa;
 }
 .hover-moon-gray:hover,
 .moon-gray {
-  color: hsl(0deg, 0%, 80%);
+  color: #ccc;
 }
 .hover-light-gray:hover,
 .light-gray {
-  color: hsl(0deg, 0%, 93.3%);
+  color: #eee;
 }
 .hover-near-white:hover,
 .near-white {
-  color: hsl(0deg, 0%, 95.7%);
+  color: #f4f4f4;
 }
 .hover-white:hover,
 .white {
-  color: hsl(0deg, 0%, 100%);
+  color: #fff;
 }
 .dark-red,
 .hover-dark-red:hover {
-  color: hsl(357deg, 96.6%, 46.1%);
+  color: #e7040f;
 }
 .hover-red:hover,
 .red {
-  color: hsl(3deg, 100%, 60.6%);
+  color: #ff4136;
 }
 .hover-light-red:hover,
 .light-red {
-  color: hsl(8deg, 100%, 68%);
+  color: #ff725c;
 }
 .hover-washed-red:hover,
 .washed-red {
-  color: hsl(0deg, 100%, 93.7%);
+  color: #ffdfdf;
 }
 .hover-orange:hover,
 .orange {
-  color: hsl(23deg, 100%, 50%);
+  color: #ff6300;
 }
 .gold,
 .hover-gold:hover {
-  color: hsl(43deg, 100%, 50%);
+  color: #ffb700;
 }
 .hover-yellow:hover,
 .yellow {
-  color: hsl(51deg, 100%, 50%);
+  color: gold;
 }
 .hover-light-yellow:hover,
 .light-yellow {
-  color: hsl(53deg, 91.1%, 82.4%);
+  color: #fbf1a9;
 }
 .hover-washed-yellow:hover,
 .washed-yellow {
-  color: hsl(51deg, 100%, 96.1%);
+  color: #fffceb;
 }
 .hover-purple:hover,
 .purple {
-  color: hsl(265deg, 57.9%, 41%);
+  color: #5e2ca5;
 }
 .hover-light-purple:hover,
 .light-purple {
-  color: hsl(267deg, 84.6%, 66.9%);
+  color: #a463f2;
 }
 .dark-pink,
 .hover-dark-pink:hover {
-  color: hsl(320deg, 100%, 41.8%);
+  color: #d5008f;
 }
 .hot-pink,
 .hover-hot-pink:hover {
-  color: hsl(324deg, 100%, 62.7%);
+  color: #ff41b4;
 }
 .hover-pink:hover,
 .pink {
-  color: hsl(324deg, 100%, 75.1%);
+  color: #ff80cc;
 }
 .hover-light-pink:hover,
 .light-pink {
-  color: hsl(326deg, 100%, 82%);
+  color: #ffa3d7;
 }
 .dark-green,
 .hover-dark-green:hover {
-  color: hsl(158deg, 72.5%, 27.1%);
+  color: #137752;
 }
 .green,
 .hover-green:hover {
-  color: hsl(158deg, 74.2%, 38%);
+  color: #19a974;
 }
 .hover-light-green:hover,
 .light-green {
-  color: hsl(158deg, 65.8%, 77.1%);
+  color: #9eebcf;
 }
 .hover-washed-green:hover,
 .washed-green {
-  color: hsl(157deg, 84%, 95.1%);
+  color: #e8fdf5;
 }
 .hover-navy:hover,
 .navy {
-  color: hsl(216deg, 100%, 13.3%);
+  color: #001b44;
 }
 .dark-blue,
 .hover-dark-blue:hover {
-  color: hsl(214deg, 100%, 31%);
+  color: #00449e;
 }
 .blue,
 .hover-blue:hover {
-  color: hsl(214deg, 71.2%, 53.7%);
+  color: #357edd;
 }
 .hover-light-blue:hover,
 .light-blue {
-  color: hsl(209deg, 100%, 79.4%);
+  color: #96ccff;
 }
 .hover-lightest-blue:hover,
 .lightest-blue {
-  color: hsl(203deg, 100%, 90.2%);
+  color: #cdecff;
 }
 .hover-washed-blue:hover,
 .washed-blue {
-  color: hsl(173deg, 100%, 98.2%);
+  color: #f6fffe;
 }
 .black-90,
 .hover-black-90:hover {
@@ -458,147 +458,147 @@ code {
 }
 .bg-black,
 .hover-bg-black:hover {
-  background-color: hsl(0deg, 0%, 0%);
+  background-color: #000;
 }
 .bg-near-black,
 .hover-bg-near-black:hover {
-  background-color: hsl(0deg, 0%, 6.7%);
+  background-color: #111;
 }
 .bg-dark-gray,
 .hover-bg-dark-gray:hover {
-  background-color: hsl(0deg, 0%, 20%);
+  background-color: #333;
 }
 .bg-mid-gray,
 .hover-bg-mid-gray:hover {
-  background-color: hsl(0deg, 0%, 33.3%);
+  background-color: #555;
 }
 .bg-gray,
 .hover-bg-gray:hover {
-  background-color: hsl(0deg, 0%, 46.7%);
+  background-color: #777;
 }
 .bg-silver,
 .hover-bg-silver:hover {
-  background-color: hsl(0deg, 0%, 60%);
+  background-color: #999;
 }
 .bg-light-silver,
 .hover-bg-light-silver:hover {
-  background-color: hsl(0deg, 0%, 66.7%);
+  background-color: #aaa;
 }
 .bg-moon-gray,
 .hover-bg-moon-gray:hover {
-  background-color: hsl(0deg, 0%, 80%);
+  background-color: #ccc;
 }
 .bg-light-gray,
 .hover-bg-light-gray:hover {
-  background-color: hsl(0deg, 0%, 93.3%);
+  background-color: #eee;
 }
 .bg-near-white,
 .hover-bg-near-white:hover {
-  background-color: hsl(0deg, 0%, 95.7%);
+  background-color: #f4f4f4;
 }
 .bg-white,
 .hover-bg-white:hover {
-  background-color: hsl(0deg, 0%, 100%);
+  background-color: #fff;
 }
 .bg-dark-red,
 .hover-bg-dark-red:hover {
-  background-color: hsl(357deg, 96.6%, 46.1%);
+  background-color: #e7040f;
 }
 .bg-red,
 .hover-bg-red:hover {
-  background-color: hsl(3deg, 100%, 60.6%);
+  background-color: #ff4136;
 }
 .bg-light-red,
 .hover-bg-light-red:hover {
-  background-color: hsl(8deg, 100%, 68%);
+  background-color: #ff725c;
 }
 .bg-washed-red,
 .hover-bg-washed-red:hover {
-  background-color: hsl(0deg, 100%, 93.7%);
+  background-color: #ffdfdf;
 }
 .bg-orange,
 .hover-bg-orange:hover {
-  background-color: hsl(23deg, 100%, 50%);
+  background-color: #ff6300;
 }
 .bg-gold,
 .hover-bg-gold:hover {
-  background-color: hsl(43deg, 100%, 50%);
+  background-color: #ffb700;
 }
 .bg-yellow,
 .hover-bg-yellow:hover {
-  background-color: hsl(51deg, 100%, 50%);
+  background-color: gold;
 }
 .bg-light-yellow,
 .hover-bg-light-yellow:hover {
-  background-color: hsl(53deg, 91.1%, 82.4%);
+  background-color: #fbf1a9;
 }
 .bg-washed-yellow,
 .hover-bg-washed-yellow:hover {
-  background-color: hsl(51deg, 100%, 96.1%);
+  background-color: #fffceb;
 }
 .bg-purple,
 .hover-bg-purple:hover {
-  background-color: hsl(265deg, 57.9%, 41%);
+  background-color: #5e2ca5;
 }
 .bg-light-purple,
 .hover-bg-light-purple:hover {
-  background-color: hsl(267deg, 84.6%, 66.9%);
+  background-color: #a463f2;
 }
 .bg-dark-pink,
 .hover-bg-dark-pink:hover {
-  background-color: hsl(320deg, 100%, 41.8%);
+  background-color: #d5008f;
 }
 .bg-hot-pink,
 .hover-bg-hot-pink:hover {
-  background-color: hsl(324deg, 100%, 62.7%);
+  background-color: #ff41b4;
 }
 .bg-pink,
 .hover-bg-pink:hover {
-  background-color: hsl(324deg, 100%, 75.1%);
+  background-color: #ff80cc;
 }
 .bg-light-pink,
 .hover-bg-light-pink:hover {
-  background-color: hsl(326deg, 100%, 82%);
+  background-color: #ffa3d7;
 }
 .bg-dark-green,
 .hover-bg-dark-green:hover {
-  background-color: hsl(158deg, 72.5%, 27.1%);
+  background-color: #137752;
 }
 .bg-green,
 .hover-bg-green:hover {
-  background-color: hsl(158deg, 74.2%, 38%);
+  background-color: #19a974;
 }
 .bg-light-green,
 .hover-bg-light-green:hover {
-  background-color: hsl(158deg, 65.8%, 77.1%);
+  background-color: #9eebcf;
 }
 .bg-washed-green,
 .hover-bg-washed-green:hover {
-  background-color: hsl(157deg, 84%, 95.1%);
+  background-color: #e8fdf5;
 }
 .bg-navy,
 .hover-bg-navy:hover {
-  background-color: hsl(216deg, 100%, 13.3%);
+  background-color: #001b44;
 }
 .bg-dark-blue,
 .hover-bg-dark-blue:hover {
-  background-color: hsl(214deg, 100%, 31%);
+  background-color: #00449e;
 }
 .bg-blue,
 .hover-bg-blue:hover {
-  background-color: hsl(214deg, 71.2%, 53.7%);
+  background-color: #357edd;
 }
 .bg-light-blue,
 .hover-bg-light-blue:hover {
-  background-color: hsl(209deg, 100%, 79.4%);
+  background-color: #96ccff;
 }
 .bg-lightest-blue,
 .hover-bg-lightest-blue:hover {
-  background-color: hsl(203deg, 100%, 90.2%);
+  background-color: #cdecff;
 }
 .bg-washed-blue,
 .hover-bg-washed-blue:hover {
-  background-color: hsl(173deg, 100%, 98.2%);
+  background-color: #f6fffe;
 }
 .bg-black-90,
 .hover-bg-black-90:hover {
@@ -793,112 +793,112 @@ code {
   border-width: 2rem;
 }
 .b--black {
-  border-color: hsl(0deg, 0%, 0%);
+  border-color: #000;
 }
 .b--near-black {
-  border-color: hsl(0deg, 0%, 6.7%);
+  border-color: #111;
 }
 .b--dark-gray {
-  border-color: hsl(0deg, 0%, 20%);
+  border-color: #333;
 }
 .b--mid-gray {
-  border-color: hsl(0deg, 0%, 33.3%);
+  border-color: #555;
 }
 .b--gray {
-  border-color: hsl(0deg, 0%, 46.7%);
+  border-color: #777;
 }
 .b--silver {
-  border-color: hsl(0deg, 0%, 60%);
+  border-color: #999;
 }
 .b--light-silver {
-  border-color: hsl(0deg, 0%, 66.7%);
+  border-color: #aaa;
 }
 .b--moon-gray {
-  border-color: hsl(0deg, 0%, 80%);
+  border-color: #ccc;
 }
 .b--light-gray {
-  border-color: hsl(0deg, 0%, 93.3%);
+  border-color: #eee;
 }
 .b--near-white {
-  border-color: hsl(0deg, 0%, 95.7%);
+  border-color: #f4f4f4;
 }
 .b--white {
-  border-color: hsl(0deg, 0%, 100%);
+  border-color: #fff;
 }
 .b--dark-red {
-  border-color: hsl(357deg, 96.6%, 46.1%);
+  border-color: #e7040f;
 }
 .b--red {
-  border-color: hsl(3deg, 100%, 60.6%);
+  border-color: #ff4136;
 }
 .b--light-red {
-  border-color: hsl(8deg, 100%, 68%);
+  border-color: #ff725c;
 }
 .b--washed-red {
-  border-color: hsl(0deg, 100%, 93.7%);
+  border-color: #ffdfdf;
 }
 .b--orange {
-  border-color: hsl(23deg, 100%, 50%);
+  border-color: #ff6300;
 }
 .b--gold {
-  border-color: hsl(43deg, 100%, 50%);
+  border-color: #ffb700;
 }
 .b--yellow {
-  border-color: hsl(51deg, 100%, 50%);
+  border-color: gold;
 }
 .b--light-yellow {
-  border-color: hsl(53deg, 91.1%, 82.4%);
+  border-color: #fbf1a9;
 }
 .b--washed-yellow {
-  border-color: hsl(51deg, 100%, 96.1%);
+  border-color: #fffceb;
 }
 .b--purple {
-  border-color: hsl(265deg, 57.9%, 41%);
+  border-color: #5e2ca5;
 }
 .b--light-purple {
-  border-color: hsl(267deg, 84.6%, 66.9%);
+  border-color: #a463f2;
 }
 .b--dark-pink {
-  border-color: hsl(320deg, 100%, 41.8%);
+  border-color: #d5008f;
 }
 .b--hot-pink {
-  border-color: hsl(324deg, 100%, 62.7%);
+  border-color: #ff41b4;
 }
 .b--pink {
-  border-color: hsl(324deg, 100%, 75.1%);
+  border-color: #ff80cc;
 }
 .b--light-pink {
-  border-color: hsl(326deg, 100%, 82%);
+  border-color: #ffa3d7;
 }
 .b--dark-green {
-  border-color: hsl(158deg, 72.5%, 27.1%);
+  border-color: #137752;
 }
 .b--green {
-  border-color: hsl(158deg, 74.2%, 38%);
+  border-color: #19a974;
 }
 .b--light-green {
-  border-color: hsl(158deg, 65.8%, 77.1%);
+  border-color: #9eebcf;
 }
 .b--washed-green {
-  border-color: hsl(157deg, 84%, 95.1%);
+  border-color: #e8fdf5;
 }
 .b--navy {
-  border-color: hsl(216deg, 100%, 13.3%);
+  border-color: #001b44;
 }
 .b--dark-blue {
-  border-color: hsl(214deg, 100%, 31%);
+  border-color: #00449e;
 }
 .b--blue {
-  border-color: hsl(214deg, 71.2%, 53.7%);
+  border-color: #357edd;
 }
 .b--light-blue {
-  border-color: hsl(209deg, 100%, 79.4%);
+  border-color: #96ccff;
 }
 .b--lightest-blue {
-  border-color: hsl(203deg, 100%, 90.2%);
+  border-color: #cdecff;
 }
 .b--washed-blue {
-  border-color: hsl(173deg, 100%, 98.2%);
+  border-color: #f6fffe;
 }
 .b--black-90 {
   border-color: rgba(0, 0, 0, 0.9);
@@ -1321,8 +1321,8 @@ code {
 .debug-striped-black {
   background-image: repeating-linear-gradient(
     -45deg,
-    hsl(0deg, 0%, 0%),
-    hsl(0deg, 0%, 0%) 10px,
+    #000,
+    #000 10px,
     transparent 10px,
     transparent 20px
   );
