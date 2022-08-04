@@ -6,14 +6,24 @@
 
 @use '../functions';
 @use '../variables';
+@use 'sass:map';
+@use 'sass:meta';
 
 @mixin border-radius($media: null) {
   $global-prefix: variables.$global-prefix;
   $prefix: variables.$border-radius-prefix;
 
-  @each $level, $value in variables.$border-radius-levels {
-    #{functions.construct-class-name($global-prefix, $prefix + $level, $media)} {
-      border-radius: $value;
+  @each $name, $value in variables.$border-radius-levels {
+    #{functions.construct-class-name($global-prefix, $prefix + $name, $media)} {
+      @if meta.type-of($value) == map {
+        @each $direction, $radius-value in $value {
+          $property: functions.list-to-dash-separated-string((border, $direction, radius));
+
+          #{$property}: $radius-value;
+        }
+      } @else {
+        border-radius: $value;
+      }
     }
   }
 }
