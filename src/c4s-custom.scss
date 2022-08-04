@@ -1,5 +1,5 @@
 /*
- * C4S CSS, version {{ version }} <https://c4s.website>
+ * C4S CSS, version 0.3.9 <https://c4s.website>
  * SPDX-FileCopyrightText: 2021 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
@@ -238,6 +238,7 @@ $widths: map.merge(
   (
     '-10':         10%,
     '-20':         20%,
+    '-25':         25%,
     '-30':         30%,
     '-third':      math.div(100%, 3),
     '-40':         40%,
@@ -245,9 +246,11 @@ $widths: map.merge(
     '-60':         60%,
     '-two-thirds': math.div(200%, 3),
     '-70':         70%,
+    '-75':         75%,
     '-80':         80%,
     '-90':         90%,
-    '-100':        100%
+    '-100':        100%,
+    '-auto':       auto
   )
 );
 
@@ -265,10 +268,12 @@ $max-widths: map.merge(
 $heights: map.merge(
   $sizer-scale,
   (
+    '-0':          0,
     '-25':         25%,
     '-50':         50%,
     '-75':         75%,
     '-100':        100%,
+    '-auto':       auto,
     '-inherit':    inherit
   )
 );
@@ -335,13 +340,17 @@ $border-color-prefix: b--;
 $border-radius-prefix: br;
 $border-radius-base: 1rem;
 $border-radius-levels: (
-  '0':     0,
-  '1':     $border-radius-base * functions.nth-power-of-two(-3),
-  '2':     $border-radius-base * functions.nth-power-of-two(-2),
-  '3':     $border-radius-base * functions.nth-power-of-two(-1),
-  '4':     $border-radius-base,
-  '-100':  100%,
-  '-pill': 9999px
+  '0':        0,
+  '1':        $border-radius-base * functions.nth-power-of-two(-3),
+  '2':        $border-radius-base * functions.nth-power-of-two(-2),
+  '3':        $border-radius-base * functions.nth-power-of-two(-1),
+  '4':        $border-radius-base,
+  '-100':     100%,
+  '-pill':    9999px,
+  '--top':    (bottom-right: 0, bottom-left: 0),
+  '--right':  (top-left: 0, bottom-left: 0),
+  '--bottom': (top-right: 0, top-left: 0),
+  '--left':   (top-right: 0, bottom-right: 0)
 );
 
 /*
@@ -554,7 +563,8 @@ $flex-justify-contents: (
   'end':     flex-end,
   'center':  center,
   'between': space-between,
-  'around':  space-around
+  'around':  space-around,
+  'evenly':  space-evenly
 );
 
 $flex-grow-name: flex-grow;
@@ -701,10 +711,10 @@ $letter-spacings: (
  */
 $line-height-name: lh;
 $line-height-levels: (
-  'solid':  1,
-  'header': 1.15,
-  'text':   1.5,
-  'extra':  2
+  'solid': 1,
+  'title': 1.15,
+  'copy':  1.5,
+  'extra': 2
 );
 
 /*

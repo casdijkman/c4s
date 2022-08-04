@@ -25,7 +25,7 @@ const stylelint = require('gulp-stylelint');
 const eslint = require('gulp-eslint');
 const browserSync = require('browser-sync').create();
 
-const { version } = require('./constants');
+const { VERSION } = require('./constants');
 const destination = 'dist';
 
 const globs = {
@@ -62,7 +62,7 @@ function compileSass() {
         }))
         .pipe(sass.sync().on('error', sass.logError))
         .pipe(postcss([ autoprefixer ]))
-        .pipe(replace('{{ version }}', version))
+        .pipe(replace('{{ VERSION }}', VERSION))
         .pipe(rename({ extname: '.raw.css' }))
         .pipe(dest(destination))
         .pipe(rename({ extname: '' }))     // Remove .css extension (from .raw.css)

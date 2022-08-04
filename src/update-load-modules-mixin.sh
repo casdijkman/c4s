@@ -28,11 +28,11 @@ done
 
 _getModules() {
     for file in modules/_*.scss; do
-	baseName=$(basename "$file")
-	newFile="${baseName:1}" # Remove first character (being _)
-	moduleName="${newFile/.scss/}"
+	basename=$(basename "$file")
+	new_file="${basename:1}" # Remove first character (being _)
+	module_name="${new_file/.scss/}"
 
-	echo "$moduleName"
+	echo "$module_name"
 
 	[[ $1 == "first" ]] && return
     done
@@ -109,10 +109,10 @@ EOF
 }
 
 _update() {
-    loadModulesFile=./_load-modules.scss
+    load_modules_file=./_load-modules.scss
 
-    if [[ -f $loadModulesFile ]]; then
-        _generate >$loadModulesFile
+    if [[ -f $load_modules_file ]]; then
+        _generate >$load_modules_file
     else
 	echo "Load modules file not found, exiting"
 	exit 1
