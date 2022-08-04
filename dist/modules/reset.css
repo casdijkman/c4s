@@ -29,7 +29,6 @@ h5,
 h6 {
   margin-top: 2.75rem;
   margin-bottom: 1rem;
-  line-height: 1.15;
 }
 h1 {
   font-size: 3.0517578125em;
@@ -51,9 +50,6 @@ h6 {
 }
 small {
   font-size: 0.8em;
-}
-p {
-  line-height: 1.5;
 }
 code {
   font-family: consolas, monaco, monospace;

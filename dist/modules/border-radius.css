@@ -24,3 +24,23 @@
 .br-pill {
   border-radius: 9999px;
 }
+.br--right,
+.br--top {
+  border-bottom-left-radius: 0;
+}
+.br--top {
+  border-bottom-right-radius: 0;
+}
+.br--right {
+  border-top-left-radius: 0;
+}
+.br--bottom,
+.br--left {
+  border-top-right-radius: 0;
+}
+.br--bottom {
+  border-top-left-radius: 0;
+}
+.br--left {
+  border-bottom-right-radius: 0;
+}

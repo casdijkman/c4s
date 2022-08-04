@@ -75,6 +75,9 @@
 .justify-around {
   justify-content: space-around;
 }
+.justify-evenly {
+  justify-content: space-evenly;
+}
 .flex-grow-0 {
   flex-grow: 0;
 }
