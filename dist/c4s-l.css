@@ -2010,7 +2010,6 @@ code {
   position: fixed;
 }
 .sticky {
-  position: -webkit-sticky;
   position: sticky;
 }
 .top-0 {
@@ -3202,7 +3201,6 @@ code {
     position: fixed;
   }
   .sticky-l {
-    position: -webkit-sticky;
     position: sticky;
   }
   .top-0-l {

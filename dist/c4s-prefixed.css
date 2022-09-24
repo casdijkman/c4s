@@ -2011,7 +2011,6 @@ code {
   position: fixed;
 }
 .c4s-sticky {
-  position: -webkit-sticky;
   position: sticky;
 }
 .c4s-top-0 {
@@ -3178,7 +3177,6 @@ code {
     position: fixed;
   }
   .c4s-sticky-s {
-    position: -webkit-sticky;
     position: sticky;
   }
   .c4s-top-0-s {
@@ -4347,7 +4345,6 @@ code {
     position: fixed;
   }
   .c4s-sticky-m {
-    position: -webkit-sticky;
     position: sticky;
   }
   .c4s-top-0-m {
@@ -5517,7 +5514,6 @@ code {
     position: fixed;
   }
   .c4s-sticky-l {
-    position: -webkit-sticky;
     position: sticky;
   }
   .c4s-top-0-l {
@@ -6688,7 +6684,6 @@ code {
     position: fixed;
   }
   .c4s-sticky-h {
-    position: -webkit-sticky;
     position: sticky;
   }
   .c4s-top-0-h {
