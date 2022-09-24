@@ -45,6 +45,17 @@
     max-width: 100%;
   }
 
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+  }
+
   h1,
   h2,
   h3,
@@ -54,8 +65,8 @@
     margin-top: 2.75rem;
     margin-bottom: 1rem;
 
-    @if map.get(variables.$line-height-levels, 'header') != null {
-      line-height: map.get(variables.$line-height-levels, 'header');
+    @if map.get(variables.$line-height-levels, 'title') != null {
+      line-height: map.get(variables.$line-height-levels, 'title');
     }
   }
 
@@ -101,9 +112,9 @@
     }
   }
 
-  @if map.get(variables.$line-height-levels, 'text') != null {
+  @if map.get(variables.$line-height-levels, 'copy') != null {
     p {
-      line-height: map.get(variables.$line-height-levels, 'text');
+      line-height: map.get(variables.$line-height-levels, 'copy');
     }
   }
 

@@ -29,18 +29,12 @@
 
   #{functions.construct-class-name($global-prefix, stretch, $media)} {
     position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    inset: 0;
   }
 
   #{functions.construct-class-name($global-prefix, stretch-pseudo, $media)}::after {
     position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    inset: 0;
     content: '';
     pointer-events: auto;
     background-color: transparent;

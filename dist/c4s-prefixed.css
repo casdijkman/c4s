@@ -125,6 +125,16 @@ img {
   display: block;
   max-width: 100%;
 }
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
 h1,
 h2,
 h3,
@@ -133,6 +143,7 @@ h5,
 h6 {
   margin-top: 2.75rem;
   margin-bottom: 1rem;
+  line-height: 1.15;
 }
 h1 {
   font-size: 3.0517578125em;
@@ -155,6 +166,9 @@ h6 {
 small {
   font-size: 0.8em;
 }
+p {
+  line-height: 1.5;
+}
 code {
   font-family: consolas, monaco, monospace;
 }
@@ -173,15 +187,13 @@ code {
   border-style: none;
   padding: 0;
 }
-.c4s-stretch,
-.c4s-stretch-pseudo::after {
+.c4s-stretch {
   position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  inset: 0;
 }
 .c4s-stretch-pseudo::after {
+  position: absolute;
+  inset: 0;
   content: "";
   pointer-events: auto;
   background-color: transparent;
