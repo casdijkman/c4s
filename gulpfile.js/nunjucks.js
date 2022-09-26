@@ -8,6 +8,7 @@ const glob = require('glob');
 const cssLib = require('css');
 const highlight = require('highlight.js');
 const prettyBytes = require('pretty-bytes');
+const loremIpsum = require('lorem-ipsum');
 
 const { VERSION } = require('./constants');
 
@@ -93,6 +94,14 @@ function getNunjucksEnv(env) {
             .replace(/[^0-9a-z]/g, ' ').trim()
             .replace(/ /g, '-')
             .replace(/-{2,}/g, '-');
+    });
+
+    env.addFilter('loremIpsum', (_, amountOfParagraphs = 1) => {
+        return loremIpsum.loremIpsum({
+            count: amountOfParagraphs,
+            format: 'html',
+            units: 'paragraphs'
+        });
     });
 
     return env;

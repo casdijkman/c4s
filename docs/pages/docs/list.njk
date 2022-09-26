@@ -21,7 +21,7 @@ SPDX-License-Identifier: GFDL-1.3-only
 
         {% for file in files %}
             {% if file.isModule and file.isRaw %}
-                <div class="row bt b--black-20 sticky bg-white bb bw1 ph2" style="top: var(--sticky-height);">
+                <div class="row bt b--black-20 sticky bg-white bb bw1 ph2" style="top: var(--sticky-height, 115px);">
                     <div class="flex flex-wrap items-center justify-between w-100">
                         <h2 class="f5 mv0 nowrap">
                             Module <span class="dib ba br3 ph2 pv1 mv1 lh-solid">{{ file.name }}</span>

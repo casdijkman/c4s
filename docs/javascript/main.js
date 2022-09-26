@@ -16,3 +16,7 @@ for (const breakpoint in breakpoints) {
 if (/\/example.html$/.test(window.location.pathname)) {
     import('./example-page').then();
 }
+
+if (/.*test.html$/.test(window.location.pathname)) {
+    import('./test-page').then();
+}
