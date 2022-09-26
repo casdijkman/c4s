@@ -18,8 +18,14 @@
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
 
-    @if variables.$document-scroll-behavior {
-      scroll-behavior: variables.$document-scroll-behavior;
+    @if variables.$enable-smooth-scroll {
+      @if variables.$force-smooth-scroll {
+        scroll-behavior: smooth;
+      } @else {
+        @media (prefers-reduced-motion: no-preference) {
+          scroll-behavior: smooth;
+        }
+      }
     }
 
     @if variables.$document-bg-color {
@@ -40,9 +46,10 @@
     box-sizing: inherit;
   }
 
-  img {
+  img:where(:not(.#{variables.$prevent-reset-class})) {
     display: block;
     max-width: 100%;
+    height: auto;
   }
 
   button,
