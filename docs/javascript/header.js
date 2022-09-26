@@ -7,6 +7,7 @@
 import { breakpoints, matchMediaUp } from './helpers/breakpoints';
 import throttle from './helpers/throttle';
 import { debug } from './helpers/constants';
+import { setStickyHeight } from './sticky';
 
 export const header = document.querySelector('.js-header');
 const headerHideClass = 'translateY-n100';
@@ -71,20 +72,23 @@ function isHeaderHidden() {
 
 export function hideHeader() {
     const maxViewPortHeight = 1000;
-    if (document.documentElement.clientHeight < maxViewPortHeight) {
-        header.classList.add(headerHideClass);
-        header.dataset.hidden = true;
-        setHeaderHeight();
-    }
+    if (document.documentElement.clientHeight > maxViewPortHeight) return;
+    header.classList.add(headerHideClass);
+    header.dataset.hidden = true;
+    setHeaderHeight();
+    setStickyHeight();
 }
 
 function showHeader() {
     header.classList.remove(headerHideClass);
     delete header.dataset.hidden;
     setHeaderHeight();
+    setStickyHeight();
 }
 
-if (header) {
+function initialize() {
+    if (!header) return;
+
     for (const breakpoint in breakpoints) {
         matchMediaUp(breakpoint).addListener(setHeaderHeight);
     }
@@ -95,3 +99,5 @@ if (header) {
         throttle(onScroll, throttleMs, preventOpen);
     });
 }
+
+initialize();

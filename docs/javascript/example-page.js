@@ -5,23 +5,10 @@
  */
 
 import { header, preventOpenHeader } from './header';
-
-function setStickyHeight() {
-    const sticky = document.querySelectorAll('.js-sticky');
-    let height = 0;
-
-    sticky.forEach((element) => {
-        if (!element.dataset.hidden) {
-            height += element.getBoundingClientRect().height;
-        }
-    });
-
-    document.documentElement.style.setProperty('--sticky-height', `${Math.ceil(height)}px`);
-}
+import { setStickyHeight } from './sticky';
 
 function openExample(data) {
-    const { target } = data;
-    const { details } = data;
+    const { target, details } = data;
     if (details) details.open = true;
     if (target) target.scrollIntoView();
 }
@@ -52,9 +39,9 @@ function updateHash(hash) {
 }
 
 function getDataFromHash(hash) {
-    const target = document.querySelector(hash),
-          details = target ? target.parentElement.querySelector('details') : null,
-          link = document.querySelector(`[href="${hash}"]`);
+    const target = document.querySelector(hash);
+    const details = target ? target.parentElement.querySelector('details') : null;
+    const link = document.querySelector(`[href="${hash}"]`);
     return { hash, target, details, link };
 }
 
@@ -81,10 +68,10 @@ document.querySelectorAll('summary').forEach((summary) => {
     });
 });
 
-setStickyHeight();
-
-if (window.location.hash) {
+function initialize() {
     const data = getDataFromHash(window.location.hash);
     updateLinks(data);
     openExample(data);
 }
+
+if (window.location.hash) initialize();
