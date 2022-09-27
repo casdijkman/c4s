@@ -159,5 +159,8 @@ module.exports = {
     buildWatch: series(build, watchFiles),
     buildWatchServe,
     default: buildWatchServe,
-    lint: parallel(lintSass, lintCss, lintJs)
+    lint: parallel(lintSass, lintCss, lintJs),
+    lintSass,
+    lintCss,
+    lintJs
 };
