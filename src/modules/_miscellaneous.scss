@@ -66,4 +66,8 @@
     position: absolute;
     clip: rect(0, 0, 0, 0);
   }
+
+  #{functions.construct-class-name($global-prefix, isolate, $media)} {
+    isolation: isolate;
+  }
 }
