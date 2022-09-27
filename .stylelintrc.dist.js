@@ -15,6 +15,8 @@ module.exports = {
         'declaration-colon-newline-after': null,
         'comment-empty-line-before': null,
         'no-duplicate-selectors': null,
-        'selector-list-comma-newline-after': null
+        'selector-list-comma-newline-after': null,
+        'declaration-empty-line-before': null,
+        'indentation': null
     }
 };

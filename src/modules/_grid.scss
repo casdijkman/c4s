@@ -31,4 +31,10 @@
       width: $value;
     }
   }
+
+  #{functions.construct-class-name($global-prefix, column-gap, $media)} {
+    --column-gap: 1rem;
+
+    column-gap: var(--column-gap);
+  }
 }

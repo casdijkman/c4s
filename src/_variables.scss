@@ -668,8 +668,16 @@ $number-of-columns: 12;
 $columns: ('auto': auto);
 
 @for $i from 1 through $number-of-columns {
-  $current-column: ('#{$i}': math.div(100%, $number-of-columns) * $i);
-  $columns: map.merge($columns, $current-column);
+  $columns-per-row: math.div($number-of-columns, $i);
+  $width: math.div(100%, $number-of-columns) * $i;
+  $width-with-gap:
+    calc($width - var(--column-gap, 0px) + var(--column-gap, 0px) / $columns-per-row);
+
+  @if $i == $number-of-columns {
+    $columns: map.merge($columns, ('#{$i}': 100%));
+  } @else {
+    $columns: map.merge($columns, ('#{$i}': $width-with-gap));
+  }
 }
 
 /*
