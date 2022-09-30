@@ -37,4 +37,8 @@
 
     column-gap: var(--column-gap);
   }
+
+  #{functions.construct-class-name($global-prefix, row-gap, $media)} {
+    row-gap: 1rem;
+  }
 }
