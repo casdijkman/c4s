@@ -30,7 +30,12 @@ const destination = 'dist';
 
 const globs = {
     src: {
-        staticFiles: ['favicon.ico', 'logo.svg', '.htaccess'],
+        staticFiles: [
+            'favicon.ico',
+            'logo.svg',
+            '.htaccess',
+            './docs/assets/**'
+        ],
         sass:        './src/**/*.scss',
         nunjucks:    './docs/pages/**/*.njk',
         nunjucksAll: './docs/**/*.njk',
@@ -51,7 +56,7 @@ const stylelintOptions = {
 };
 
 function copyStaticFiles() {
-    return src(globs.src.staticFiles)
+    return src(globs.src.staticFiles, { base: '.' })
         .pipe(dest(destination));
 }
 
@@ -145,6 +150,7 @@ const build = series(
 const buildWatchServe = series(build, parallel(watchFiles, serve));
 
 function watchFiles() {
+    watch(globs.src.staticFiles, copyStaticFiles);
     watch(globs.src.sass, build);
     watch(globs.src.nunjucksAll, compileNunjucks);
     watch(globs.src.javascript, compileJavascript);
