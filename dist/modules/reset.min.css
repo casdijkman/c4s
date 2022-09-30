@@ -1,6 +1,6 @@
 /*!
- * C4S CSS, version 0.4.2 <https://c4s.website>
+ * C4S CSS, version 0.4.3 <https://c4s.website>
  * SPDX-FileCopyrightText: 2021 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
-html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0;box-sizing:border-box}*,::after,::before{box-sizing:inherit}img:where(:not(.prevent)){display:block;max-width:100%;height:auto}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}h1,h2,h3,h4,h5,h6{margin-top:2.75rem;margin-bottom:1rem;line-height:1.15}h1{font-size:3.0517578125em}h2{font-size:2.44140625em}h3{font-size:1.953125em}h4{font-size:1.5625em}h5{font-size:1.25em}h6{font-size:1em}small{font-size:.8em}p{line-height:1.5}code{font-family:consolas,monaco,monospace}@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0;box-sizing:border-box}*,::after,::before{box-sizing:inherit}img:where(:not(.no-reset)){display:block;max-width:100%;height:auto}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}h1,h2,h3,h4,h5,h6{margin-top:2.75rem;margin-bottom:1rem;line-height:1.15}h1{font-size:3.0517578125em}h2{font-size:2.44140625em}h3{font-size:1.953125em}h4{font-size:1.5625em}h5{font-size:1.25em}h6{font-size:1em}small{font-size:.8em}p{line-height:1.5}code{font-family:consolas,monaco,monospace}@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}

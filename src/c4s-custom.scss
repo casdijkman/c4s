@@ -1,5 +1,5 @@
 /*
- * C4S CSS, version 0.4.2 <https://c4s.website>
+ * C4S CSS, version 0.4.3 <https://c4s.website>
  * SPDX-FileCopyrightText: 2021 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
@@ -675,7 +675,12 @@ $columns: ('auto': auto);
   $width: math.div(100%, $number-of-columns) * $i;
   $width-with-gap:
     calc($width - var(--column-gap, 0px) + var(--column-gap, 0px) / $columns-per-row);
-  $columns: map.merge($columns, ('#{$i}': $width-with-gap));
+
+  @if $i == $number-of-columns {
+    $columns: map.merge($columns, ('#{$i}': 100%));
+  } @else {
+    $columns: map.merge($columns, ('#{$i}': $width-with-gap));
+  }
 }
 
 /*

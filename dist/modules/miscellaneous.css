@@ -1,5 +1,5 @@
 /*!
- * C4S CSS, version 0.4.2 <https://c4s.website>
+ * C4S CSS, version 0.4.3 <https://c4s.website>
  * SPDX-FileCopyrightText: 2021 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
@@ -49,4 +49,7 @@
 .sr-only {
   position: absolute;
   clip: rect(0, 0, 0, 0);
+}
+.isolate {
+  isolation: isolate;
 }
