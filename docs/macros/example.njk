@@ -223,6 +223,16 @@
                     </div>
                 </div>
             </div>
+        {% elif r/^self-/.test(firstClass) %}
+            {{ exampleNotFound(type + " align-self") }}
+        {% elif r/^content-/.test(firstClass) %}
+            {{ exampleNotFound(type + " align-content") }}
+        {% elif r/^justify-/.test(firstClass) %}
+            {{ exampleNotFound(type + " justify-content") }}
+        {% elif r/^flex-(grow|shrink)/.test(firstClass) %}
+            {{ exampleNotFound(type + " grow/shrink") }}
+        {% elif r/^order/.test(firstClass) %}
+            {{ exampleNotFound(type + " order") }}
         {% else %}
             {{ exampleNotFound(type) }}
         {% endif %}
@@ -251,7 +261,37 @@
             {{ caption | safe }}
         </div>
     {% elif type === "grid" %}
-        {{ exampleNotFound(type) }}
+        {% if r/-gap$/.test(firstClass) %}
+            <div class="row {{ firstClass }}">
+                <div class="col-12">
+                    {{ caption | safe }}
+                </div>
+                <div class="col-6 debug-striped ba b--black-10 p2">
+                    col-6
+                </div>
+                <div class="col-3 debug-striped ba b--black-10 p2">
+                    col-3
+                </div>
+                <div class="col-3 debug-striped ba b--black-10 p2">
+                    col-3
+                </div>
+                <div class="col-3 debug-striped ba b--black-10 p2">
+                    col-3
+                </div>
+                <div class="col-6 debug-striped ba b--black-10 p2">
+                    col-6
+                </div>
+                <div class="col-3 debug-striped ba b--black-10 p2">
+                    col-3
+                </div>
+            </div>
+        {% elif r/^row/.test(firstClass) %}
+            {{ exampleNotFound(type + " row") }}
+        {% elif r/^col/.test(firstClass) %}
+            {{ exampleNotFound(type + " col") }}
+        {% else %}
+            {{ exampleNotFound(type) }}
+        {% endif %}
     {% elif type === "height" %}
         <div class="dib white bg-black {{ firstClass }}">
             {{ caption | safe }}
@@ -303,7 +343,15 @@
             </div>
         {% endif %}
     {% elif type === "max-width" %}
-        {{ exampleNotFound(type) }}
+        <div class="overflow-x-auto">
+            <div class="dib ba b--black-20 debug-striped-light pv3 {{ firstClass }}">
+                {{ caption | safe }}
+                <div class="ba b--black-20 debug-striped p2 mt2"
+                    style="width: 2000px;">
+                    Very wide child element
+                </div>
+            </div>
+        </div>
     {% elif type === "measure" %}
         <div class="bg-black white {{ firstClass }}">
             {{ caption | safe }}
@@ -351,7 +399,24 @@
     {% elif type === "position" %}
         {{ exampleNotFound(type) }}
     {% elif type === "reset" %}
-        {# Does not have examples #}
+        {% if r/h\d/.test(firstClass) and selectors.length == 6 %}
+            header margins
+            {{ exampleNotFound(type) }}
+        {% elif r/h\d/.test(firstClass) %}
+            header
+            {{ exampleNotFound(type) }}
+        {% elif firstClass == "small" %}
+            small
+            {{ exampleNotFound(type) }}
+        {% elif firstClass == "p" %}
+            paragraph
+            {{ exampleNotFound(type) }}
+        {% elif firstClass == "code" %}
+            code
+            {{ exampleNotFound(type) }}
+        {% else %}
+            {# Does not have example #}
+        {% endif %}
     {% elif type === "spanning-breakpoints" %}
         {{ exampleNotFound(type) }}
     {% elif type === "table" %}

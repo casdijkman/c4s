@@ -6,7 +6,7 @@
 
 import { header, preventOpenHeader } from './header';
 import { setStickyHeight } from './sticky';
-import { debugLog } from './helpers/constants';
+import { debug, debugLog } from './helpers/constants';
 
 function openExample(data) {
     const { target, details } = data;
@@ -46,6 +46,24 @@ function getDataFromHash(hash) {
     return { hash, target, details, link };
 }
 
+function debugExamples() {
+    const examplesNotFound = document.querySelectorAll('[data-example-not-found]');
+    if (examplesNotFound) {
+        debugLog(examplesNotFound.length, 'examples not found');
+        examplesNotFound.forEach((example) => debugLog(example));
+    }
+
+    const excludedModules = ['reset'];
+    const examplesEmpty = document.querySelectorAll('.js-example:empty');
+    examplesEmpty?.forEach((example) => {
+        const isExcluded = excludedModules.some(
+            (module) => document.querySelector(`#${module}`)
+                .parentNode.querySelector('details')?.contains(example)
+        );
+        if (! isExcluded) debugLog(example);
+    });
+}
+
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (event) => {
         const hash = event.target.attributes.href.value;
@@ -76,8 +94,7 @@ function initialize() {
         openExample(data);
     }
 
-    const examples = document.querySelectorAll('[data-example-not-found]');
-    examples?.forEach((example) => debugLog(example));
+    if (debug) debugExamples();
 }
 
 initialize();
