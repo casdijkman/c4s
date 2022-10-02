@@ -6,6 +6,7 @@
 
 import { header, preventOpenHeader } from './header';
 import { setStickyHeight } from './sticky';
+import { debugLog } from './helpers/constants';
 
 function openExample(data) {
     const { target, details } = data;
@@ -69,9 +70,14 @@ document.querySelectorAll('summary').forEach((summary) => {
 });
 
 function initialize() {
-    const data = getDataFromHash(window.location.hash);
-    updateLinks(data);
-    openExample(data);
+    if (window.location.hash) {
+        const data = getDataFromHash(window.location.hash);
+        updateLinks(data);
+        openExample(data);
+    }
+
+    const examples = document.querySelectorAll('[data-example-not-found]');
+    examples?.forEach((example) => debugLog(example));
 }
 
-if (window.location.hash) initialize();
+initialize();

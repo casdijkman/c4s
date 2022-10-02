@@ -16,8 +16,8 @@
     </div>
 {% endmacro %}
 
-{% macro exampleNotFound(reason) %}
-    <div class="o-50">
+{% macro exampleNotFound(type, reason) %}
+    <div class="o-50" data-example-not-found="{{ type }}">
         (Example not found
         {%- if reason -%}
             , {{ reason }}
@@ -32,6 +32,7 @@
     {% set caption = "Element with class <code>" + readableClasses + "</code>" %}
 
     {% if type === "" %}
+        <div data-example-not-found="no type"></div>
     {% elif type === "aspect-ratio" %}
         <div class="df items-center justify-center ba h5 p3 tc {{ firstClass }}">
             <span>{{ caption | safe }}</span>
@@ -66,7 +67,11 @@
               </div>
           {% endcall %}
     {% elif type === "background-size" %}
-          {{ exampleNotFound() }}
+          <div class="ratio-16x9 mw6 relative">
+              <div class="stretch {{ firstClass }}"
+                  style="background-image: url('/docs/assets/500x400.jpg')">
+              </div>
+          </div>
     {% elif type === "border-color" %}
         <div class="dt p3">
             <div class="ba p2 {{ firstClass }}">
@@ -161,7 +166,7 @@
                 {{ caption | safe }}
             </div>
         {% else %}
-            {{ exampleNotFound() }}
+            {{ exampleNotFound(type) }}
         {% endif %}
    {% elif type === "coordinates" %}
         <div class="relative ba w-50 h4">
@@ -219,7 +224,7 @@
                 </div>
             </div>
         {% else %}
-            {{ exampleNotFound() }}
+            {{ exampleNotFound(type) }}
         {% endif %}
     {% elif type === "float" %}
         <div class="ba w5 h4">
@@ -246,7 +251,7 @@
             {{ caption | safe }}
         </div>
     {% elif type === "grid" %}
-        {{ exampleNotFound() }}
+        {{ exampleNotFound(type) }}
     {% elif type === "height" %}
         <div class="dib white bg-black {{ firstClass }}">
             {{ caption | safe }}
@@ -272,7 +277,7 @@
             </div>
         </div>
     {% elif type === "hover" %}
-        {{ exampleNotFound() }}
+        {{ exampleNotFound(type) }}
     {% elif type === "letter-spacing" %}
         <span class="{{ firstClass }}">
             {{ caption | safe }}
@@ -298,7 +303,7 @@
             </div>
         {% endif %}
     {% elif type === "max-width" %}
-        {{ exampleNotFound() }}
+        {{ exampleNotFound(type) }}
     {% elif type === "measure" %}
         <div class="bg-black white {{ firstClass }}">
             {{ caption | safe }}
@@ -329,26 +334,26 @@
             <div class="dib debug-striped ba p3 {{ firstClass }}">
             </div>
         {% else %}
-            {{ exampleNotFound() }}
+            {{ exampleNotFound(type) }}
         {% endif %}
     {% elif type === "object-fit" %}
-        {{ exampleNotFound() }}
+        {{ exampleNotFound(type) }}
     {% elif type === "opacity" %}
         <div class="dib bg-black white p3 {{ firstClass }}">
             {{ caption | safe }}
         </div>
     {% elif type === "overflow" %}
-        {{ exampleNotFound() }}
+        {{ exampleNotFound(type) }}
     {% elif type === "padding" %}
         <div class="dib white bg-black {{ firstClass }}">
             {{ caption | safe }}
         </div>
     {% elif type === "position" %}
-        {{ exampleNotFound() }}
+        {{ exampleNotFound(type) }}
     {% elif type === "reset" %}
         {# Does not have examples #}
     {% elif type === "spanning-breakpoints" %}
-        {{ exampleNotFound() }}
+        {{ exampleNotFound(type) }}
     {% elif type === "table" %}
         {% if firstClass === "collapse" %}
             <table class="ba {{ firstClass }}">
@@ -444,9 +449,9 @@
             </div>
         </div>
     {% elif type === "transition" %}
-        {{ exampleNotFound() }}
+        {{ exampleNotFound(type) }}
     {% elif type === "user-select" %}
-        {{ exampleNotFound() }}
+        {{ exampleNotFound(type) }}
     {% elif type === "vertical-align" %}
         <div class="dib bg-black white lh-extra ph2">
             <div class="dib ba b--red bw2 mr2 {{ firstClass }}"></div>
@@ -479,8 +484,8 @@
             </p>
         </div>
     {% elif type === "z-index" %}
-        {{ exampleNotFound() }}
+        {{ exampleNotFound(type) }}
     {% else %}
-        {{ exampleNotFound("not yet specified") }}
+        {{ exampleNotFound(type, "not yet specified") }}
     {% endif %}
 {% endmacro %}
