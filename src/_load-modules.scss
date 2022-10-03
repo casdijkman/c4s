@@ -17,6 +17,7 @@
 @use 'modules/border';
 @use 'modules/border-style';
 @use 'modules/border-width';
+@use 'modules/box-shadow';
 @use 'modules/box-sizing';
 @use 'modules/color';
 @use 'modules/complex';
@@ -103,6 +104,9 @@
     }
     @else if $module == border-width {
       @include border-width.border-width();
+    }
+    @else if $module == box-shadow {
+      @include box-shadow.box-shadow();
     }
     @else if $module == box-sizing {
       @include box-sizing.box-sizing();
@@ -279,6 +283,9 @@
         }
         @else if $module == border-width and $responsive {
           @include border-width.border-width($breakpoint);
+        }
+        @else if $module == box-shadow and $responsive {
+          @include box-shadow.box-shadow($breakpoint);
         }
         @else if $module == box-sizing and $responsive {
           @include box-sizing.box-sizing($breakpoint);

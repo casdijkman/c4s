@@ -99,6 +99,16 @@
         <div class="dib bg-black-10 p1 {{ firstClass }}">
             {{ caption | safe }}
         </div>
+    {% elif type === "box-shadow" %}
+        <div class="row column-gap row-gap">
+            <div class="col-auto p3 {{ firstClass }}">
+                {{ caption | safe }}
+            </div>
+
+            <div class="col-auto p3 br-pill {{ firstClass }}">
+                {{ caption | safe }}
+            </div>
+        </div>
     {% elif type === "box-sizing" %}
         <div class="tc debug-striped w5 p3 mb2">
             Element with class w5
