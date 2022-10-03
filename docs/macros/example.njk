@@ -67,9 +67,9 @@
               </div>
           {% endcall %}
     {% elif type === "background-size" %}
-          <div class="ratio-16x9 mw6 relative">
-              <div class="stretch {{ firstClass }}"
-                  style="background-image: url('/docs/assets/500x400.jpg')">
+          <div class="measure">
+              <div class="ratio-16x9 overflow-auto resize p3">
+                  <div class="w-100 h-100 {{ firstClass }}" style="background-image: url('/docs/assets/500x400.jpg')"></div>
               </div>
           </div>
     {% elif type === "border-color" %}
