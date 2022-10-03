@@ -6,3 +6,7 @@ Source:
 Files: package.json yarn.lock favicon.ico logo.svg
 Copyright: 2021 Cas Dijkman <cas@dijkman.xyz>
 License: GPL-3.0-only
+
+Files: docs/assets/500x400.jpg
+Copyright: USFWS
+License: CC0-1.0

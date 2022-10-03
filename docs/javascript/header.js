@@ -1,6 +1,8 @@
-// SPDX-FileCopyrightText: 2021 Cas Dijkman
-//
-// SPDX-License-Identifier: GPL-3.0-only
+/*
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
 
 /* eslint-disable no-console */
 
@@ -24,7 +26,7 @@ let preventOpenTimeout;
 const thresholdBuffer = 30;
 const threshold = (header?.clientHeight || 0) + thresholdBuffer;
 
-function onScroll(dummy = false) {
+function handleScroll(dummy = false) {
     const newScrollY = window.scrollY;
     const newScrollingUp = newScrollY < previousScrollY;
     const forceShow = newScrollY < header.clientHeight;
@@ -93,7 +95,7 @@ function initialize() {
     }
 
     setHeaderHeight();
-    document.addEventListener('throttled-scroll', () => onScroll(preventOpen));
+    document.addEventListener('throttled-scroll', () => handleScroll(preventOpen));
 }
 
 initialize();

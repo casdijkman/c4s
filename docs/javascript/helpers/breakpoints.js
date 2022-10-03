@@ -1,6 +1,8 @@
-// SPDX-FileCopyrightText: 2021 Cas Dijkman
-//
-// SPDX-License-Identifier: GPL-3.0-only
+/*
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
 
 export const breakpoints = {
     // base is anything smaller than s
@@ -25,7 +27,9 @@ function matchMedia(mediaName, direction) {
         if (typeof upperBreakpoint === 'undefined') {
             return matchMedia(mediaName, 'up');
         } else {
-            return window.matchMedia(`(min-width: ${breakpoint}) and (max-width: ${upperBreakpoint})`);
+            return window.matchMedia(
+                `(min-width: ${breakpoint}) and (max-width: ${upperBreakpoint})`
+            );
         }
     default: throw new Error('Unknown breakpoint direction');
     }

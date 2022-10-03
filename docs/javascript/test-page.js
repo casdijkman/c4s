@@ -1,3 +1,9 @@
+/*
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
 const formElement = document.querySelector('#font-size-form');
 const input = formElement.querySelector('.js-input');
 const showValue = formElement.querySelector('.js-value');

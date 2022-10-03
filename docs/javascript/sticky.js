@@ -1,3 +1,9 @@
+/*
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
 export function setStickyHeight() {
     const sticky = document.querySelectorAll('.js-sticky');
     let height = 0;
