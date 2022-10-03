@@ -5,7 +5,6 @@
 /* eslint-disable no-console */
 
 import { breakpoints, matchMediaUp } from './helpers/breakpoints';
-import throttle from './helpers/throttle';
 import { debug } from './helpers/constants';
 import { setStickyHeight } from './sticky';
 
@@ -94,10 +93,7 @@ function initialize() {
     }
 
     setHeaderHeight();
-    const throttleMs = 300;
-    document.addEventListener('scroll', () => {
-        throttle(onScroll, throttleMs, preventOpen);
-    });
+    document.addEventListener('throttled-scroll', () => onScroll(preventOpen));
 }
 
 initialize();
