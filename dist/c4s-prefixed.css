@@ -1,5 +1,5 @@
 /*!
- * C4S CSS, version 0.4.4 <https://c4s.website>
+ * C4S CSS, version 0.4.5 <https://c4s.website>
  * SPDX-FileCopyrightText: 2021 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
@@ -1168,6 +1168,15 @@ code {
 .c4s-hidden,
 .c4s-invisible {
   visibility: hidden;
+}
+.c4s-shadow-small {
+  box-shadow: 0 0.125rem 0.5rem 0.125rem rgba(0, 0, 0, 0.2);
+}
+.c4s-shadow {
+  box-shadow: 0 0.5rem 1rem 0.125rem rgba(0, 0, 0, 0.2);
+}
+.c4s-shadow-big {
+  box-shadow: 0 1rem 2rem 0.25rem rgba(0, 0, 0, 0.2);
 }
 .c4s-border-box {
   box-sizing: border-box;

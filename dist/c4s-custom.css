@@ -1,5 +1,5 @@
 /*!
- * C4S CSS, version 0.4.4 <https://c4s.website>
+ * C4S CSS, version 0.4.5 <https://c4s.website>
  * SPDX-FileCopyrightText: 2021 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
@@ -1168,6 +1168,15 @@ code {
 .invisible {
   visibility: hidden;
 }
+.shadow-small {
+  box-shadow: 0 0.125rem 0.5rem 0.125rem rgba(0, 0, 0, 0.2);
+}
+.shadow {
+  box-shadow: 0 0.5rem 1rem 0.125rem rgba(0, 0, 0, 0.2);
+}
+.shadow-big {
+  box-shadow: 0 1rem 2rem 0.25rem rgba(0, 0, 0, 0.2);
+}
 .border-box {
   box-sizing: border-box;
 }
@@ -2075,41 +2084,6 @@ code {
 .left-100 {
   left: 100%;
 }
-.db {
-  display: block;
-}
-.di {
-  display: inline;
-}
-.dib {
-  display: inline-block;
-}
-.dn {
-  display: none;
-}
-.dt {
-  display: table;
-}
-.dtc {
-  display: table-cell;
-}
-.df,
-.flex {
-  display: flex;
-}
-.dif {
-  display: inline-flex;
-}
-.dg,
-.grid {
-  display: grid;
-}
-.dc {
-  display: contents;
-}
-.dfr {
-  display: flow-root;
-}
 .flex-wrap {
   flex-wrap: wrap;
 }
@@ -2327,6 +2301,41 @@ code {
 }
 .row-gap {
   row-gap: 1rem;
+}
+.db {
+  display: block;
+}
+.di {
+  display: inline;
+}
+.dib {
+  display: inline-block;
+}
+.dn {
+  display: none;
+}
+.dt {
+  display: table;
+}
+.dtc {
+  display: table-cell;
+}
+.df,
+.flex {
+  display: flex;
+}
+.dif {
+  display: inline-flex;
+}
+.dg,
+.grid {
+  display: grid;
+}
+.dc {
+  display: contents;
+}
+.dfr {
+  display: flow-root;
 }
 .overflow-visible {
   overflow: visible;
@@ -3278,41 +3287,6 @@ code {
   .left-100-s {
     left: 100%;
   }
-  .db-s {
-    display: block;
-  }
-  .di-s {
-    display: inline;
-  }
-  .dib-s {
-    display: inline-block;
-  }
-  .dn-s {
-    display: none;
-  }
-  .dt-s {
-    display: table;
-  }
-  .dtc-s {
-    display: table-cell;
-  }
-  .df-s,
-  .flex-s {
-    display: flex;
-  }
-  .dif-s {
-    display: inline-flex;
-  }
-  .dg-s,
-  .grid-s {
-    display: grid;
-  }
-  .dc-s {
-    display: contents;
-  }
-  .dfr-s {
-    display: flow-root;
-  }
   .flex-wrap-s {
     flex-wrap: wrap;
   }
@@ -3530,6 +3504,41 @@ code {
   }
   .row-gap-s {
     row-gap: 1rem;
+  }
+  .db-s {
+    display: block;
+  }
+  .di-s {
+    display: inline;
+  }
+  .dib-s {
+    display: inline-block;
+  }
+  .dn-s {
+    display: none;
+  }
+  .dt-s {
+    display: table;
+  }
+  .dtc-s {
+    display: table-cell;
+  }
+  .df-s,
+  .flex-s {
+    display: flex;
+  }
+  .dif-s {
+    display: inline-flex;
+  }
+  .dg-s,
+  .grid-s {
+    display: grid;
+  }
+  .dc-s {
+    display: contents;
+  }
+  .dfr-s {
+    display: flow-root;
   }
   .overflow-visible-s {
     overflow: visible;
@@ -4476,41 +4485,6 @@ code {
   .left-100-m {
     left: 100%;
   }
-  .db-m {
-    display: block;
-  }
-  .di-m {
-    display: inline;
-  }
-  .dib-m {
-    display: inline-block;
-  }
-  .dn-m {
-    display: none;
-  }
-  .dt-m {
-    display: table;
-  }
-  .dtc-m {
-    display: table-cell;
-  }
-  .df-m,
-  .flex-m {
-    display: flex;
-  }
-  .dif-m {
-    display: inline-flex;
-  }
-  .dg-m,
-  .grid-m {
-    display: grid;
-  }
-  .dc-m {
-    display: contents;
-  }
-  .dfr-m {
-    display: flow-root;
-  }
   .flex-wrap-m {
     flex-wrap: wrap;
   }
@@ -4728,6 +4702,41 @@ code {
   }
   .row-gap-m {
     row-gap: 1rem;
+  }
+  .db-m {
+    display: block;
+  }
+  .di-m {
+    display: inline;
+  }
+  .dib-m {
+    display: inline-block;
+  }
+  .dn-m {
+    display: none;
+  }
+  .dt-m {
+    display: table;
+  }
+  .dtc-m {
+    display: table-cell;
+  }
+  .df-m,
+  .flex-m {
+    display: flex;
+  }
+  .dif-m {
+    display: inline-flex;
+  }
+  .dg-m,
+  .grid-m {
+    display: grid;
+  }
+  .dc-m {
+    display: contents;
+  }
+  .dfr-m {
+    display: flow-root;
   }
   .overflow-visible-m {
     overflow: visible;
@@ -5675,41 +5684,6 @@ code {
   .left-100-l {
     left: 100%;
   }
-  .db-l {
-    display: block;
-  }
-  .di-l {
-    display: inline;
-  }
-  .dib-l {
-    display: inline-block;
-  }
-  .dn-l {
-    display: none;
-  }
-  .dt-l {
-    display: table;
-  }
-  .dtc-l {
-    display: table-cell;
-  }
-  .df-l,
-  .flex-l {
-    display: flex;
-  }
-  .dif-l {
-    display: inline-flex;
-  }
-  .dg-l,
-  .grid-l {
-    display: grid;
-  }
-  .dc-l {
-    display: contents;
-  }
-  .dfr-l {
-    display: flow-root;
-  }
   .flex-wrap-l {
     flex-wrap: wrap;
   }
@@ -5927,6 +5901,41 @@ code {
   }
   .row-gap-l {
     row-gap: 1rem;
+  }
+  .db-l {
+    display: block;
+  }
+  .di-l {
+    display: inline;
+  }
+  .dib-l {
+    display: inline-block;
+  }
+  .dn-l {
+    display: none;
+  }
+  .dt-l {
+    display: table;
+  }
+  .dtc-l {
+    display: table-cell;
+  }
+  .df-l,
+  .flex-l {
+    display: flex;
+  }
+  .dif-l {
+    display: inline-flex;
+  }
+  .dg-l,
+  .grid-l {
+    display: grid;
+  }
+  .dc-l {
+    display: contents;
+  }
+  .dfr-l {
+    display: flow-root;
   }
   .overflow-visible-l {
     overflow: visible;
@@ -6875,41 +6884,6 @@ code {
   .left-100-h {
     left: 100%;
   }
-  .db-h {
-    display: block;
-  }
-  .di-h {
-    display: inline;
-  }
-  .dib-h {
-    display: inline-block;
-  }
-  .dn-h {
-    display: none;
-  }
-  .dt-h {
-    display: table;
-  }
-  .dtc-h {
-    display: table-cell;
-  }
-  .df-h,
-  .flex-h {
-    display: flex;
-  }
-  .dif-h {
-    display: inline-flex;
-  }
-  .dg-h,
-  .grid-h {
-    display: grid;
-  }
-  .dc-h {
-    display: contents;
-  }
-  .dfr-h {
-    display: flow-root;
-  }
   .flex-wrap-h {
     flex-wrap: wrap;
   }
@@ -7127,6 +7101,41 @@ code {
   }
   .row-gap-h {
     row-gap: 1rem;
+  }
+  .db-h {
+    display: block;
+  }
+  .di-h {
+    display: inline;
+  }
+  .dib-h {
+    display: inline-block;
+  }
+  .dn-h {
+    display: none;
+  }
+  .dt-h {
+    display: table;
+  }
+  .dtc-h {
+    display: table-cell;
+  }
+  .df-h,
+  .flex-h {
+    display: flex;
+  }
+  .dif-h {
+    display: inline-flex;
+  }
+  .dg-h,
+  .grid-h {
+    display: grid;
+  }
+  .dc-h {
+    display: contents;
+  }
+  .dfr-h {
+    display: flow-root;
   }
   .overflow-visible-h {
     overflow: visible;
