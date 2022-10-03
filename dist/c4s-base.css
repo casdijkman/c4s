@@ -1,5 +1,5 @@
 /*!
- * C4S CSS, version 0.4.3 <https://c4s.website>
+ * C4S CSS, version 0.4.4 <https://c4s.website>
  * SPDX-FileCopyrightText: 2021 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
@@ -2075,41 +2075,6 @@ code {
 .left-100 {
   left: 100%;
 }
-.db {
-  display: block;
-}
-.di {
-  display: inline;
-}
-.dib {
-  display: inline-block;
-}
-.dn {
-  display: none;
-}
-.dt {
-  display: table;
-}
-.dtc {
-  display: table-cell;
-}
-.df,
-.flex {
-  display: flex;
-}
-.dif {
-  display: inline-flex;
-}
-.dg,
-.grid {
-  display: grid;
-}
-.dc {
-  display: contents;
-}
-.dfr {
-  display: flow-root;
-}
 .flex-wrap {
   flex-wrap: wrap;
 }
@@ -2327,6 +2292,41 @@ code {
 }
 .row-gap {
   row-gap: 1rem;
+}
+.db {
+  display: block;
+}
+.di {
+  display: inline;
+}
+.dib {
+  display: inline-block;
+}
+.dn {
+  display: none;
+}
+.dt {
+  display: table;
+}
+.dtc {
+  display: table-cell;
+}
+.df,
+.flex {
+  display: flex;
+}
+.dif {
+  display: inline-flex;
+}
+.dg,
+.grid {
+  display: grid;
+}
+.dc {
+  display: contents;
+}
+.dfr {
+  display: flow-root;
 }
 .overflow-visible {
   overflow: visible;
