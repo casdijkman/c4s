@@ -1,0 +1,18 @@
+{% import "docs/macros/example.njk" as example %}
+
+{% for file in files | selectattr("isModule") | selectattr("isRaw") %}
+    {% if file.name === "aspect-ratio" %}
+        {% for rule in file.css.stylesheet.rules %}
+            {% call example.generic(file, rule) %}
+                {% set firstSelector %}{{ rule.selectors | first }}{% endset %}
+                {% set firstClass %}{{ firstSelector | getClassFromSelector }}{% endset %}
+                {% set readableClasses %}{{ rule.selectors | getClassesFromSelectors | join(" or ") }}{% endset %}
+                {% set caption = "Element with class <code>" + readableClasses + "</code>" %}
+
+                <div class="df items-center justify-center ba h5 p3 tc {{ firstClass }}">
+                    <span>{{ caption | safe }}</span>
+                </div>
+            {% endcall %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}

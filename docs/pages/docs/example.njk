@@ -95,21 +95,26 @@ SPDX-License-Identifier: GFDL-1.3-only
                         More information
                     </summary>
 
-                    {% for rule in file.css.stylesheet.rules %}
-                        <div class="pv3 pl3 mt4-between bl b--silver">
-                            {% set ruleText %}{{ rule.selectors | join(", ") }} {{ "{" }}{% for declaration in rule.declarations %}
+                    {% set includeHtml %}{% include "docs/partials/" + file.name + ".njk" ignore missing %}{% endset %}
+                    {% if includeHtml %}
+                        {{ includeHtml | safe }}
+                    {% else %}
+                        {% for rule in file.css.stylesheet.rules %}
+                            <div class="pv3 pl3 mt4-between bl b--silver">
+                                {% set ruleText %}{{ rule.selectors | join(", ") }} {{ "{" }}{% for declaration in rule.declarations %}
   {{ declaration.property }}: {{ declaration.value }};{% endfor %}
 }{% endset %}
 
-                            <div class="overflow-x-auto mt4-between">
-                                <pre class="hljs dib mv0"><code>{{ ruleText | highlight | safe }}</code></pre>
-                            </div>
+                                <div class="overflow-x-auto mt4-between">
+                                    <pre class="hljs dib mv0"><code>{{ ruleText | highlight | safe }}</code></pre>
+                                </div>
 
-                            <div class="js-example mt4-between dn-empty">
-                                {{ example.example(file.name, rule.selectors, rule.declarations) }}
+                                <div class="js-example mt4-between dn-empty">
+                                    {{ example.example(file.name, rule.selectors, rule.declarations) }}
+                                </div>
                             </div>
-                        </div>
-                    {% endfor %}
+                        {% endfor %}
+                    {% endif %}
                 </details>
             </div>
         {% endfor %}
