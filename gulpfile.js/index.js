@@ -10,22 +10,21 @@ const sass = require('gulp-sass')(require('sass'));
 sass.compiler = require('sass');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
-const replace = require('gulp-replace');
 const csso = require('gulp-csso');
 const rename = require('gulp-rename');
 const prettier = require('gulp-prettier');
 const gzip = require('gulp-gzip');
 const del = require('del');
+const childProcess = require('child_process');
+const path = require('path');
 const nunjucksRender = require('gulp-nunjucks-render');
 const data = require('gulp-data');
 const htmlmin = require('gulp-htmlmin');
 const beautifier = require('gulp-jsbeautifier');
-const exec = require('child_process').exec;
 const stylelint = require('gulp-stylelint');
 const eslint = require('gulp-eslint');
 const browserSync = require('browser-sync').create();
 
-const { VERSION } = require('./constants');
 const destination = 'dist';
 
 const globs = {
@@ -62,12 +61,11 @@ function copyStaticFiles() {
 
 function compileSass() {
     return src(globs.src.sass)
-        .pipe(rename((path) => {
-            path.basename = path.basename.replace(/-module$/, '');
+        .pipe(rename((filePath) => {
+            filePath.basename = filePath.basename.replace(/-module$/, '');
         }))
         .pipe(sass.sync().on('error', sass.logError))
         .pipe(postcss([ autoprefixer ]))
-        .pipe(replace('{{ VERSION }}', VERSION))
         .pipe(rename({ extname: '.raw.css' }))
         .pipe(dest(destination))
         .pipe(rename({ extname: '' }))     // Remove .css extension (from .raw.css)
@@ -98,14 +96,8 @@ function compileNunjucks() {
 }
 
 function compileJavascript(cb) {
-    exec('yarn run webpack --mode production', function (err, stdout, stderr) {
-        if (stderr) {
-            console.warn(stdout);
-            console.error(stderr);
-        }
-        cb(err);
-    });
-
+    childProcess.execSync('yarn run webpack --mode production');
+    cb();
 }
 
 function lintSass() {
@@ -137,13 +129,19 @@ function clean() {
     return del(destination);
 }
 
+function runUpdateScripts(cb) {
+    const options = { cwd: path.join(__dirname, '../src') };
+    childProcess.execFileSync(path.join(__dirname, '../src/update-all.sh'), options);
+    cb();
+}
+
 function serve() {
     browserSync.init({ server: destination, notify: false });
     watch(globs.dist.html).on('change', () => { browserSync.reload(); });
 }
 
 const build = series(
-    clean, series(copyStaticFiles, compileSass, compileJavascript),
+    clean, runUpdateScripts, series(copyStaticFiles, compileSass, compileJavascript),
     gzipDist, compileNunjucks
 );
 
