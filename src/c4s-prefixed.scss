@@ -11,7 +11,6 @@
 @use 'variables';
 @use 'load-modules';
 
-@include variables.configure(
-  $global-prefix: 'c4s'
-);
+variables.$global-prefix: 'c4s';
+
 @include load-modules.load-modules();

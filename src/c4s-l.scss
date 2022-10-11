@@ -12,13 +12,11 @@
 @use 'load-modules';
 @use 'sass:map';
 
-@include variables.configure(
-  // Do configuration
-);
-
 $breakpoint: l;
-$breakpoints: (
-  $breakpoint: map.get(variables.$breakpoints, $breakpoint)
-);
 
-@include load-modules.load-modules(null, $breakpoints);
+@include load-modules.load-modules(
+  null,
+  (
+    $breakpoint: map.get(variables.$breakpoints-all, $breakpoint)
+  )
+);

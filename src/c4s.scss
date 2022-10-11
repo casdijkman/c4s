@@ -11,7 +11,4 @@
 @use 'variables';
 @use 'load-modules';
 
-@include variables.configure(
-  // Do configuration
-);
 @include load-modules.load-modules();
