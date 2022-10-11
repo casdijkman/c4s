@@ -42,11 +42,5 @@ _generate_custom_file() {
     echo "@include load-modules.load-modules();"
 }
 
-_update() {
-    custom_file_content=$(_generate_custom_file)
-    search_string="{{ VERSION }}"
-    replace_string=$(jq --raw-output ".version" <../package.json)
-    echo "${custom_file_content//$search_string/$replace_string}" | sed 's/\/\*!/\/\*/g' >$custom_file
-}
-
-_update
+custom_file_content=$(_generate_custom_file)
+echo "$custom_file_content" | sed 's/\/\*!/\/\*/g' >$custom_file
