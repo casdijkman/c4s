@@ -26,8 +26,8 @@ for file in ./modules/_*.scss; do
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './$module_name';
+@use './${module_name}';
 
-@include $module_name.$module_name();
+@include ${module_name}.${module_name}();
 EOF
 done
