@@ -12,7 +12,7 @@ shopt -s globstar
 IFS=$'\n\t'
 
 variables_file=./_variables.scss
-custom_file=./c4s-custom.scss
+custom_file=./c4s-custom-verbose.scss
 
 _get_variables() {
     while read -r variable_line; do
