@@ -21,6 +21,7 @@ function getNunjucksData() {
     for (const file of glob.sync('dist/**/*.css')) {
         const baseName = path.basename(file);
         const name = baseName.split('.')[0];
+        const fileClean = file.replace(/^dist/, '');
         const css = cssLib.parse(fs.readFileSync(file, 'utf8'));
         const size = fs.statSync(file).size;
         const gzipSize = fs.statSync(`${file}.gz`).size;
@@ -28,15 +29,20 @@ function getNunjucksData() {
         // Remove comments from rules array
         css.stylesheet.rules = css.stylesheet.rules.filter((x) => x.type === 'rule');
 
+        if (css.stylesheet.rules.length === 0) {
+            console.warn('File has no rules:', name);
+            continue;
+        }
+
         data.files.push({
             name,
             baseName,
-            file:           file.replace(/^dist/, ''),
-            isMain:         /c4s/.test(file),
-            isModule:       /module/.test(file),
-            isMinified:     /.min.css$/.test(file),
-            isRaw:          /.raw.css$/.test(file),
-            isCustom:       /-custom./.test(file),
+            file:           fileClean,
+            isMain:         /^\/c4s/.test(fileClean),
+            isModule:       /^\/modules\//.test(fileClean),
+            isMinified:     /\.min\.css$/.test(fileClean),
+            isRaw:          /\.raw\.css$/.test(fileClean),
+            isCustom:       /-custom/.test(fileClean),
             size,
             sizePretty:     prettyBytes(size),
             gzipSize,
@@ -45,20 +51,14 @@ function getNunjucksData() {
         });
     }
 
-    data.files = data.files.filter((x) => {
-        const hasRules = x.css.stylesheet.rules.length > 0;
-        if (!hasRules) console.warn('File has no rules:', x.name);
-        return hasRules;
-    });
-
     data.files.sort((a, b) => {
-        const order = ['', 'base', 's', 'm', 'l', 'h', 'p', 'custom', 'prefixed'];
+        if (! a.isMain || ! b.isMain || a.isCustom || b.isCustom) return 0;
+        const order = ['', 'base', 's', 'm', 'l', 'h', 'p', 'prefixed'];
         const getValue = (file) => {
             const value = order.indexOf(file.name.replace(/^c4s-?/, ''));
-            if (value >= 0) return value;
-            console.error(`Could not order file '${file.name}'`);
+            if (value === -1) console.warn(`[nunjucks.js] Could not sort file '${file.name}'`);
+            return value;
         };
-        if (! a.isMain || ! b.isMain) return 0;
         return getValue(a) - getValue(b);
     });
 

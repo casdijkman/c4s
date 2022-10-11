@@ -1,0 +1,34 @@
+/*
+ * C4S CSS, version 0.4.5 <https://c4s.website>
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
+// Set the @use statements for variables, load-modules and functions below to the correct paths
+@use './variables';
+@use './load-modules';
+@use 'sass:map';
+
+/*
+   Overwrite variables here, before loading modules.
+   Below are two examples that you can use.
+ */
+
+// First, an example of how to exclude a module from being loaded
+
+/*
+  variables.$modules: map.remove(variables.$modules, 'reset');
+*/
+
+// Then, an example of how to add your favorite color to the mix
+
+/*
+  variables.$colors: map.merge(
+    variables.$colors,
+    (
+      favorite-color: hotpink
+    )
+  );
+*/
+
+@include load-modules.load-modules();
