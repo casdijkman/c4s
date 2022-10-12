@@ -1,0 +1,30 @@
+{#
+SPDX-FileCopyrightText: 2021 Cas Dijkman
+
+SPDX-License-Identifier: GFDL-1.3-only
+#}
+
+{% import "docs/macros/example.njk" as example %}
+
+{% for file in files | selectattr("isModule") | selectattr("isRaw") %}
+    {% if file.name === "max-width" %}
+        {% for rule in file.css.stylesheet.rules %}
+            {% call example.generic(file, rule) %}
+                {% set firstSelector %}{{ rule.selectors | first }}{% endset %}
+                {% set firstClass %}{{ firstSelector | getClassFromSelector }}{% endset %}
+                {% set readableClasses %}{{ rule.selectors | getClassesFromSelectors | join(" or ") }}{% endset %}
+                {% set caption = "Element with class <code>" + readableClasses + "</code>" %}
+
+                 <div class="overflow-x-auto">
+                     <div class="dib ba b--black-20 debug-striped-light pv3 {{ firstClass }}">
+                         {{ caption | safe }}
+                         <div class="ba b--black-20 debug-striped p2 mt2"
+                             style="width: 2000px;">
+                             Very wide child element
+                         </div>
+                     </div>
+                 </div>
+            {% endcall %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}

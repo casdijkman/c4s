@@ -1,0 +1,22 @@
+{#
+    SPDX-FileCopyrightText: 2021 Cas Dijkman
+
+    SPDX-License-Identifier: GFDL-1.3-only
+#}
+
+{% import "docs/macros/example.njk" as example %}
+
+{% for file in files | selectattr("isModule") | selectattr("isRaw") %}
+    {% if file.name === "overflow" %}
+        {% for rule in file.css.stylesheet.rules %}
+            {% call example.generic(file, rule) %}
+                {% set firstSelector %}{{ rule.selectors | first }}{% endset %}
+                {% set firstClass %}{{ firstSelector | getClassFromSelector }}{% endset %}
+                {% set readableClasses %}{{ rule.selectors | getClassesFromSelectors | join(" or ") }}{% endset %}
+                {% set caption = "Element with class <code>" + readableClasses + "</code>" %}
+
+                {{ example.exampleNotFound(file.name) }}
+            {% endcall %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}

@@ -1,0 +1,48 @@
+{#
+SPDX-FileCopyrightText: 2021 Cas Dijkman
+
+SPDX-License-Identifier: GFDL-1.3-only
+#}
+
+{% import "docs/macros/example.njk" as example %}
+
+{% for file in files | selectattr("isModule") | selectattr("isRaw") %}
+    {% if file.name === "miscellaneous" %}
+        {% for rule in file.css.stylesheet.rules %}
+            {% call example.generic(file, rule) %}
+                {% set firstSelector %}{{ rule.selectors | first }}{% endset %}
+                {% set firstClass %}{{ firstSelector | getClassFromSelector }}{% endset %}
+                {% set readableClasses %}{{ rule.selectors | getClassesFromSelectors | join(" or ") }}{% endset %}
+                {% set caption = "Element with class <code>" + readableClasses + "</code>" %}
+
+                 {% if firstClass === "list-reset" %}
+                     <ul class="dib ba p3 {{ firstClass }}">
+                         {% for i in [1, 2, 3] %}
+                             <li>List item in <code>&lt;ul&gt;</code> with class {{ firstClass }}</li>
+                         {% endfor %}
+                     </ul>
+                 {% elif r/stretch.*/.test(firstClass) %}
+                     <div class="measure h4 ba relative">
+                         <a class="dib p3 debug-striped {{ firstClass }}" href="javascript:;">
+                             {{ caption | safe }}
+                         </a>
+                     </div>
+                 {% elif firstClass === "link" %}
+                     <div class="dib p3 ba">
+                         <a class="{{ firstClass }}" href="javascript:;">
+                             {{ caption | safe }}
+                         </a>
+                     </div>
+                 {% elif firstClass === "dn-empty" %}
+                     <div class="dib debug-striped ba p3 {{ firstClass }}">
+                         {{ caption | safe }}
+                     </div>
+                     <div class="dib debug-striped ba p3 {{ firstClass }}">
+                     </div>
+                 {% else %}
+                     {{ example.exampleNotFound(file.name) }}
+                 {% endif %}
+            {% endcall %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}

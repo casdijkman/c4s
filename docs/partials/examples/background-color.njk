@@ -1,0 +1,36 @@
+{#
+SPDX-FileCopyrightText: 2021 Cas Dijkman
+
+SPDX-License-Identifier: GFDL-1.3-only
+#}
+
+{% import "docs/macros/example.njk" as example %}
+
+{% for file in files | selectattr("isModule") | selectattr("isRaw") %}
+    {% if file.name === "background-color" %}
+        {% for rule in file.css.stylesheet.rules %}
+            {% call example.generic(file, rule) %}
+                {% set firstSelector %}{{ rule.selectors | first }}{% endset %}
+                {% set firstClass %}{{ firstSelector | getClassFromSelector }}{% endset %}
+                {% set readableClasses %}{{ rule.selectors | getClassesFromSelectors | join(" or ") }}{% endset %}
+                {% set caption = "Element with class <code>" + readableClasses + "</code>" %}
+
+                {% if r/^bg-white-/.test(firstClass) %}
+                    {% call example.exampleBoxDark(firstClass, caption) %}
+                        <div class="p3 {{ firstClass }}">
+                            <div class="pt3-between">{{ caption | safe }}</div>
+                            <div class="white text-shadow pt3-between">{{ caption | safe }}</div>
+                        </div>
+                    {% endcall %}
+                {% else %}
+                    {% call example.exampleBox(firstClass, caption) %}
+                        <div class="p3 {{ firstClass }}">
+                            <div class="pt3-between">{{ caption | safe }}</div>
+                            <div class="white text-shadow pt3-between">{{ caption | safe }}</div>
+                        </div>
+                    {% endcall %}
+                 {% endif %}
+            {% endcall %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}

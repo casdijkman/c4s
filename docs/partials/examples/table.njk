@@ -1,0 +1,53 @@
+{#
+SPDX-FileCopyrightText: 2021 Cas Dijkman
+
+SPDX-License-Identifier: GFDL-1.3-only
+#}
+
+{% import "docs/macros/example.njk" as example %}
+
+{% for file in files | selectattr("isModule") | selectattr("isRaw") %}
+    {% if file.name === "table" %}
+        {% for rule in file.css.stylesheet.rules %}
+            {% call example.generic(file, rule) %}
+                {% set firstSelector %}{{ rule.selectors | first }}{% endset %}
+                {% set firstClass %}{{ firstSelector | getClassFromSelector }}{% endset %}
+                {% set readableClasses %}{{ rule.selectors | getClassesFromSelectors | join(" or ") }}{% endset %}
+                {% set caption = "Element with class <code>" + readableClasses + "</code>" %}
+
+                 {% if firstClass === "collapse" %}
+                     <table class="ba {{ firstClass }}">
+                         <tr>
+                             <td class="ba p1">
+                                 {{ caption | safe }}
+                             </td>
+                         </tr>
+                         <tr>
+                             <td class="ba p1">
+                                 {{ caption | safe }}
+                             </td>
+                         </tr>
+                     </table>
+                 {% else %}
+                     <table class="ba collapse">
+                         <tr class="{{ firstClass }}">
+                             <td class="ba p1">
+                                 {{ caption | safe }}
+                             </td>
+                         </tr>
+                         <tr class="{{ firstClass }}">
+                             <td class="ba p1">
+                                 {{ caption | safe }}
+                             </td>
+                         </tr>
+                         <tr class="{{ firstClass }}">
+                             <td class="ba p1">
+                                 {{ caption | safe }}
+                             </td>
+                         </tr>
+                     </table>
+                 {% endif %}
+            {% endcall %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}

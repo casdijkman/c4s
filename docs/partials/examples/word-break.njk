@@ -1,0 +1,29 @@
+{#
+SPDX-FileCopyrightText: 2021 Cas Dijkman
+
+SPDX-License-Identifier: GFDL-1.3-only
+#}
+
+{% import "docs/macros/example.njk" as example %}
+
+{% for file in files | selectattr("isModule") | selectattr("isRaw") %}
+    {% if file.name === "word-break" %}
+        {% for rule in file.css.stylesheet.rules %}
+            {% call example.generic(file, rule) %}
+                {% set firstSelector %}{{ rule.selectors | first }}{% endset %}
+                {% set firstClass %}{{ firstSelector | getClassFromSelector }}{% endset %}
+                {% set readableClasses %}{{ rule.selectors | getClassesFromSelectors | join(" or ") }}{% endset %}
+                {% set caption = "Element with class <code>" + readableClasses + "</code>" %}
+
+                <div class="ba ph3 w4 {{ firstClass }}">
+                    <p>
+                        {{ caption | safe }}
+                    </p>
+                    <p class="o-60">
+                        ElementWithClass{{ firstClass | title }}ToIllustrateWordBreakingWithLongWords
+                    </p>
+                </div>
+            {% endcall %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}

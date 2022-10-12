@@ -1,0 +1,39 @@
+{#
+    SPDX-FileCopyrightText: 2021 Cas Dijkman
+
+    SPDX-License-Identifier: GFDL-1.3-only
+#}
+
+{% import "docs/macros/example.njk" as example %}
+
+{% for file in files | selectattr("isModule") | selectattr("isRaw") %}
+    {% if file.name === "reset" %}
+        {% for rule in file.css.stylesheet.rules %}
+            {% call example.generic(file, rule) %}
+                {% set firstSelector %}{{ rule.selectors | first }}{% endset %}
+                {% set firstClass %}{{ firstSelector | getClassFromSelector }}{% endset %}
+                {% set readableClasses %}{{ rule.selectors | getClassesFromSelectors | join(" or ") }}{% endset %}
+                {% set caption = "Element with class <code>" + readableClasses + "</code>" %}
+
+                {% if r/h\d/.test(firstClass) and selectors.length == 6 %}
+                    header margins
+                    {{ example.exampleNotFound(file.name) }}
+                {% elif r/h\d/.test(firstClass) %}
+                    header
+                    {{ example.exampleNotFound(file.name) }}
+                {% elif firstClass == "small" %}
+                    small
+                    {{ example.exampleNotFound(file.name) }}
+                {% elif firstClass == "p" %}
+                    paragraph
+                    {{ example.exampleNotFound(file.name) }}
+                {% elif firstClass == "code" %}
+                    code
+                    {{ example.exampleNotFound(file.name) }}
+                {% else %}
+                    {# Does not have example #}
+                {% endif %}
+            {% endcall %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}

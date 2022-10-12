@@ -1,0 +1,57 @@
+{#
+SPDX-FileCopyrightText: 2021 Cas Dijkman
+
+SPDX-License-Identifier: GFDL-1.3-only
+#}
+
+{% import "docs/macros/example.njk" as example %}
+
+{% for file in files | selectattr("isModule") | selectattr("isRaw") %}
+    {% if file.name === "transform" %}
+        {% for rule in file.css.stylesheet.rules %}
+            {% call example.generic(file, rule) %}
+                {% set firstSelector %}{{ rule.selectors | first }}{% endset %}
+                {% set firstClass %}{{ firstSelector | getClassFromSelector }}{% endset %}
+                {% set readableClasses %}{{ rule.selectors | getClassesFromSelectors | join(" or ") }}{% endset %}
+                {% set caption = "Element with class <code>" + readableClasses + "</code>" %}
+
+                {% macro transformBox(firstClass, caption, containerClass, boxClass, textClass) %}
+                    <div class="top-0 left-50 translateX-n50 w-third word-break-word {{ containerClass }}">
+                        <div class="p2 ba {{ firstClass }} {{ boxClass }}">
+                            <span class="{{ textClass }}">
+                                {{ caption | safe }}
+                            </span>
+                        </div>
+                    </div>
+                {% endmacro %}
+
+                {% set paddingClass %}
+                    {% if r/Y-100$/.test(firstClass) %}
+                        pb6 pb5-m pt3 pt4-s
+                    {% elif r/Y-n100$/.test(firstClass) %}
+                        pt6 pt5-m pb3 pb4-s
+                    {% elif r/Y-50$/.test(firstClass) %}
+                        pb5 pb4-m pt3 pt4-s
+                    {% elif r/Y-n50$/.test(firstClass) %}
+                        pt5 pt4-m pb3 pb4-s
+                    {% else %}
+                        pv3
+                    {% endif %}
+                {% endset %}
+
+                <div class="{{ paddingClass }}">
+                    <div class="relative">
+                        {# Placeholder #}
+                        {{ transformBox(firstClass, caption, "hidden") }}
+
+                        {# Ghost #}
+                        {{ transformBox("", caption, "absolute o-40", "debug-striped b--dashed", "hidden") }}
+
+                        {# Visible element #}
+                        {{ transformBox(firstClass, caption, "absolute") }}
+                    </div>
+                </div>
+            {% endcall %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}

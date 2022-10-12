@@ -1,0 +1,72 @@
+{#
+SPDX-FileCopyrightText: 2021 Cas Dijkman
+
+SPDX-License-Identifier: GFDL-1.3-only
+#}
+
+{% import "docs/macros/example.njk" as example %}
+
+{% for file in files | selectattr("isModule") | selectattr("isRaw") %}
+    {% if file.name === "complex" %}
+        {% for rule in file.css.stylesheet.rules %}
+            {% call example.generic(file, rule) %}
+                {% set firstSelector %}{{ rule.selectors | first }}{% endset %}
+                {% set firstClass %}{{ firstSelector | getClassFromSelector }}{% endset %}
+                {% set readableClasses %}{{ rule.selectors | getClassesFromSelectors | join(" or ") }}{% endset %}
+                {% set caption = "Element with class <code>" + readableClasses + "</code>" %}
+
+                {% if firstClass === "bt-between" %}
+                    <div class="dib ba p3">
+                        <div class="dif flex-column">
+                            {% for i in [1, 2, 3] %}
+                                <div class="bg-black-10 p1 {{ firstClass }}">
+                                    {{ caption | safe }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% elif firstClass === "bl-between" %}
+                    <div class="dib ba p3">
+                        <div class="df">
+                            {% for i in [1, 2, 3] %}
+                                <div class="dib bg-black-10 p1 {{ firstClass }}">
+                                    {{ caption | safe }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% elif r/pt.-between$/.test(firstClass) %}
+                    <div class="dib ba bg-black-10 {{ firstClass }}">
+                        {{ caption | safe }}
+                    </div>
+                    <div class="dib ba bg-black-10 {{ firstClass }}">
+                        {{ caption | safe }}
+                    </div>
+                {% elif r/pl.-between$/.test(firstClass) %}
+                    <div class="dib ba bg-black-10 {{ firstClass }}">
+                        {{ caption | safe }}
+                    </div>
+                    <div class="dib ba bg-black-10 {{ firstClass }}">
+                        {{ caption | safe }}
+                    </div>
+                {% elif r/mt.-between$/.test(firstClass) %}
+                    <div class="dt ba bg-black-10 {{ firstClass }}">
+                        {{ caption | safe }}
+                    </div>
+                    <div class="dt ba bg-black-10 {{ firstClass }}">
+                        {{ caption | safe }}
+                    </div>
+                {% elif r/ml.-between$/.test(firstClass) %}
+                    <div class="dib ba bg-black-10 {{ firstClass }}">
+                        {{ caption | safe }}
+                    </div>
+                    <div class="dib ba bg-black-10 {{ firstClass }}">
+                        {{ caption | safe }}
+                    </div>
+                {% else %}
+                    {{ example.exampleNotFound(file.name) }}
+                {% endif %}
+            {% endcall %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}
