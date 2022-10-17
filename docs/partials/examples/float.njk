@@ -1,7 +1,7 @@
 {#
-SPDX-FileCopyrightText: 2021 Cas Dijkman
+    SPDX-FileCopyrightText: 2021 Cas Dijkman
 
-SPDX-License-Identifier: GFDL-1.3-only
+    SPDX-License-Identifier: GFDL-1.3-only
 #}
 
 {% import "docs/macros/example.njk" as example %}
@@ -15,11 +15,38 @@ SPDX-License-Identifier: GFDL-1.3-only
                 {% set readableClasses %}{{ rule.selectors | getClassesFromSelectors | join(" or ") }}{% endset %}
                 {% set caption = "Element with class <code>" + readableClasses + "</code>" %}
 
-                <div class="ba w5 h4">
-                    <div class="dib white bg-black {{ firstClass }}">
-                        {{ caption | safe }}
+                {% if firstClass === "clearfix" %}
+                    <div class="mb6 measure">
+                        <div class="p3 ba mt3-between {{ firstClass }}">
+                            <figure class="w4 m0 fl mr3">
+                                <img src="/docs/assets/500x400.jpg"
+                                    alt="Image of a bear">
+                                <figcaption class="pt2">Floated image</figcaption>
+                            </figure>
+
+                            {{ caption | safe }}
+                        </div>
+                        <div class="p3 ba mt3-between">
+                            <figure class="w4 m0 fl mr3">
+                                <img src="/docs/assets/500x400.jpg"
+                                    alt="Image of a bear">
+                                <figcaption class="pt2">Floated image</figcaption>
+                            </figure>
+
+                            Element without class <code>clearfix</code>
+                        </div>
                     </div>
-                </div>
+                {% else %}
+                    <div class="p3 ba measure">
+                        <figure class="w4 m2 {{ firstClass }}">
+                            <img src="/docs/assets/500x400.jpg"
+                                alt="Image of a bear">
+                            <figcaption class="pt2">{{ caption | safe }}</figcaption>
+                        </figure>
+
+                        {{ "" | loremIpsum(1) | safe }}
+                    </div>
+                {% endif %}
             {% endcall %}
         {% endfor %}
     {% endif %}

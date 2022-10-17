@@ -15,7 +15,7 @@ SPDX-License-Identifier: GFDL-1.3-only
                 {% set readableClasses %}{{ rule.selectors | getClassesFromSelectors | join(" or ") }}{% endset %}
                 {% set caption = "Element with class <code>" + readableClasses + "</code>" %}
 
-                <div class="dib white bg-black {{ firstClass }}">
+                <div class="dib ph3 debug-striped ba {{ firstClass }}">
                     {{ caption | safe }}
                 </div>
             {% endcall %}

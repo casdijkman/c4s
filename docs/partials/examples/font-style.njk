@@ -15,11 +15,9 @@ SPDX-License-Identifier: GFDL-1.3-only
                 {% set readableClasses %}{{ rule.selectors | getClassesFromSelectors | join(" or ") }}{% endset %}
                 {% set caption = "Element with class <code>" + readableClasses + "</code>" %}
 
-                 <div class="dib p3 ba">
-                     <div class="{{ firstClass }}">
-                         {{ caption | safe }}
-                     </div>
-                 </div>
+                <div class="f2 {{ firstClass }}">
+                    {{ caption | safe }}
+                </div>
             {% endcall %}
         {% endfor %}
     {% endif %}

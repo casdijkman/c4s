@@ -15,7 +15,7 @@ SPDX-License-Identifier: GFDL-1.3-only
                 {% set readableClasses %}{{ rule.selectors | getClassesFromSelectors | join(" or ") }}{% endset %}
                 {% set caption = "Element with class <code>" + readableClasses + "</code>" %}
 
-                <div class="tc debug-striped w5 p3 mb2">
+                <div class="tc debug-striped w5 p3 mb2 ba">
                     Element with class w5
                 </div>
                 <div class="ba bw5 p2 w5 {{ firstClass }}">
