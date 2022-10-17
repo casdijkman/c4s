@@ -1,0 +1,19 @@
+/*
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
+@use '../functions';
+@use '../variables';
+
+@mixin background-attachment($media: null) {
+  $global-prefix: variables.$global-prefix;
+  $name: variables.$background-attachment-name;
+
+  @each $class-name, $value in variables.$background-attachments {
+    #{functions.construct-class-name($global-prefix, $name, $class-name, $media)} {
+      background-attachment: $value;
+    }
+  }
+}

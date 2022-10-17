@@ -39,7 +39,9 @@ $modules: (
   'hover-color':            false,
   'background-color':       false,
   'hover-background-color': false,
+  'background-attachment':  false,
   'background-clip':        false,
+  'background-position':    false,
   'background-size':        false,
   'background-repeat':      false,
   'object-fit':             false,
@@ -293,6 +295,16 @@ $aspect-ratios: (
 );
 
 /*
+ * Background attachment
+ */
+$background-attachment-name: bg;
+$background-attachments: (
+  'scroll': scroll,
+  'fixed':  fixed,
+  'local':  local
+);
+
+/*
  * Background clip
  */
 $background-clip-name: bg-clip;
@@ -307,6 +319,15 @@ $background-clips: (
  * Background color
  */
 $background-color-name: bg;
+
+/*
+ * Background position
+ */
+$background-position-name: bg;
+$background-positions: (
+  'top':    top,
+  'center': center
+);
 
 /*
  * Background repeat

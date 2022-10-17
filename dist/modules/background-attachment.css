@@ -1,0 +1,14 @@
+/*!
+ * C4S CSS, version 0.4.7 <https://c4s.website>
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+.bg-scroll {
+  background-attachment: scroll;
+}
+.bg-fixed {
+  background-attachment: fixed;
+}
+.bg-local {
+  background-attachment: local;
+}

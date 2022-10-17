@@ -8,8 +8,10 @@
 @use 'variables';
 @use 'mixins';
 @use 'modules/aspect-ratio';
+@use 'modules/background-attachment';
 @use 'modules/background-clip';
 @use 'modules/background-color';
+@use 'modules/background-position';
 @use 'modules/background-repeat';
 @use 'modules/background-size';
 @use 'modules/border-color';
@@ -79,11 +81,17 @@
     @if $module == aspect-ratio {
       @include aspect-ratio.aspect-ratio();
     }
+    @else if $module == background-attachment {
+      @include background-attachment.background-attachment();
+    }
     @else if $module == background-clip {
       @include background-clip.background-clip();
     }
     @else if $module == background-color {
       @include background-color.background-color();
+    }
+    @else if $module == background-position {
+      @include background-position.background-position();
     }
     @else if $module == background-repeat {
       @include background-repeat.background-repeat();
@@ -261,11 +269,17 @@
         @if $module == aspect-ratio and $responsive {
           @include aspect-ratio.aspect-ratio($breakpoint);
         }
+        @else if $module == background-attachment and $responsive {
+          @include background-attachment.background-attachment($breakpoint);
+        }
         @else if $module == background-clip and $responsive {
           @include background-clip.background-clip($breakpoint);
         }
         @else if $module == background-color and $responsive {
           @include background-color.background-color($breakpoint);
+        }
+        @else if $module == background-position and $responsive {
+          @include background-position.background-position($breakpoint);
         }
         @else if $module == background-repeat and $responsive {
           @include background-repeat.background-repeat($breakpoint);
