@@ -22,7 +22,7 @@ SPDX-License-Identifier: GFDL-1.3-only
         <td class="ph2 pv1 nowrap" title="{{ file.size | formatInteger }} bytes">
             {{ file.sizePretty }}
         </td>
-        <td class="ph2 pv1 nowrap" title="{{ file.gzipSize | formatInteger}} bytes">
+        <td class="ph2 pv1 nowrap" title="{{ file.gzipSize | formatInteger }} bytes">
             {{ file.gzipSizePretty }}
         </td>
         <td class="ph2 pv1">
@@ -47,10 +47,14 @@ SPDX-License-Identifier: GFDL-1.3-only
             <div class="row column-gap row-gap">
                 <div class="col-12 col-m col-3-l grow ba br3 b--black-20 p3">
                     <h3 class="mt0 f4">Lightweight</h3>
-                    Only &plusmn;13 kilobytes
+                    {% set minGzSize = files | mySelect("basename", "c4s.min.css") | first | mySelect("gzipSize") %}
+                    Only
+                    <span title="{{ minGzSize | formatInteger }} bytes">&plusmn;{{ minGzSize // 1000 }} kilobytes</span>
                     <a class="link hover-underline black"
                         href="/c4s.min.css.gz"
-                        download>minified and gzipped</a>
+                        download>
+                        minified and gzipped
+                    </a>
                     but fully-equipped ⚒️
                 </div>
                 <div class="col-12 col-m col-3-l grow ba br3 b--black-20 p3">
@@ -160,10 +164,8 @@ SPDX-License-Identifier: GFDL-1.3-only
                     </td>
                 </tr>
 
-                {% for file in files %}
-                    {% if not file.isMinified and not file.isRaw and file.isModule %}
-                        {{ renderFileRow(file) }}
-                    {% endif %}
+                {% for file in files | rejectattr('isMinified') | rejectattr('isRaw') | selectattr('isModule') %}
+                    {{ renderFileRow(file) }}
                 {% endfor %}
             </table>
         </div>

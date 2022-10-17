@@ -9,7 +9,7 @@ const cssLib = require('css');
 const highlight = require('highlight.js');
 const prettyBytes = require('pretty-bytes');
 const loremIpsum = require('lorem-ipsum');
-
+const { getRandomPartition } = require('./partitions-of-12');
 const { VERSION } = require('./constants');
 
 function getNunjucksData() {
@@ -19,8 +19,8 @@ function getNunjucksData() {
     };
 
     for (const file of glob.sync('dist/**/*.css')) {
-        const baseName = path.basename(file);
-        const name = baseName.split('.')[0];
+        const basename = path.basename(file);
+        const name = basename.split('.')[0];
         const fileClean = file.replace(/^dist/, '');
         const css = cssLib.parse(fs.readFileSync(file, 'utf8'));
         const size = fs.statSync(file).size;
@@ -36,7 +36,7 @@ function getNunjucksData() {
 
         data.files.push({
             name,
-            baseName,
+            basename,
             file:           fileClean,
             isMain:         /^\/c4s/.test(fileClean),
             isModule:       /^\/modules\//.test(fileClean),
@@ -67,8 +67,8 @@ function getNunjucksData() {
 
 function getNunjucksEnv(env) {
     const getClassFromSelector = (selector) => {
-        let cssClass = selector.split('+')[0].trim().split(':')[0].trim();
-        cssClass = cssClass.replace('.', '');
+        let cssClass = selector.split('+')[0].trim().split(':')[0].trim().split(' ')[0];
+        cssClass = cssClass.replace(/^\./, '');
         return cssClass;
     };
 
@@ -103,6 +103,26 @@ function getNunjucksEnv(env) {
             units: 'paragraphs'
         });
     });
+
+    env.addFilter('mySelect', (iterable, key, value) => {
+        if (iterable === null || typeof iterable === 'undefined') return;
+
+        if (Array.isArray(iterable)) {
+            if (typeof value === 'undefined') {
+                return iterable.filter((x) => {
+                    return Object.prototype.hasOwnProperty.call(x, key);
+                });
+            } else {
+                return iterable.filter((x) => x[key] === value);
+            }
+        } else if (typeof iterable === 'object') {
+            return iterable[key];
+        } else {
+            throw new Error(`Error: Type of iterable not implemented: ${typeof iterable}`);
+        }
+    });
+
+    env.addFilter('getRandomPartition', getRandomPartition);
 
     return env;
 }
