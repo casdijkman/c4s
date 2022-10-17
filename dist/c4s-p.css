@@ -1,5 +1,5 @@
 /*!
- * C4S CSS, version 0.4.7 <https://c4s.website>
+ * C4S CSS, version 0.4.8 <https://c4s.website>
  * SPDX-FileCopyrightText: 2021 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
@@ -721,9 +721,24 @@ code {
 .bg-animate {
   transition: background-color 0.15s ease-in-out;
 }
+.bg-scroll {
+  background-attachment: scroll;
+}
+.bg-fixed {
+  background-attachment: fixed;
+}
+.bg-local {
+  background-attachment: local;
+}
 .bg-clip-text {
   -webkit-background-clip: text;
   background-clip: text;
+}
+.bg-top {
+  background-position: top;
+}
+.bg-center {
+  background-position: center;
 }
 .bg-cover {
   background-size: cover;
