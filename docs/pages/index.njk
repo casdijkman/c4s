@@ -102,17 +102,19 @@ SPDX-License-Identifier: GFDL-1.3-only
             Downloads
         </h2>
 
-        {% for file in files %}
-            {% if not file.isRaw and file.name == "c4s" %}
-                <a class="dib white link bg-dark-blue br-pill lh-solid ph4 pv3 m2 nowrap" href="{{ file.file }}" download>
-                    Download C4S
+        <div class="row column-gap row-gap">
+            {% for file in files | rejectattr("isRaw") | mySelect("name", "c4s") %}
+                <div class="dib bg-dark-blue br-pill grow">
+                    <a class="dib link ph4 pv3 nowrap white" href="{{ file.file }}" download>
+                        Download C4S
 
-                    {% if file.isMinified %}
-                        minified
-                    {% endif %}
-                </a>
-            {% endif %}
-        {% endfor %}
+                        {% if file.isMinified %}
+                            minified
+                        {% endif %}
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
 
         <h2>
             Files
@@ -135,10 +137,8 @@ SPDX-License-Identifier: GFDL-1.3-only
                     </td>
                 </tr>
 
-                {% for file in files %}
-                    {% if not file.isRaw and not file.isModule and not file.isCustom %}
-                        {{ renderFileRow(file) }}
-                    {% endif %}
+                {% for file in files | rejectattr('isRaw') | rejectattr('isModule') | rejectattr('isCustom') %}
+                    {{ renderFileRow(file) }}
                 {% endfor %}
             </table>
         </div>
