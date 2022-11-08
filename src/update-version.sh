@@ -14,7 +14,7 @@ content=$(cat "$variables_file")
 {
     version=$(jq --raw-output ".version" <../package.json)
     search='C4S CSS, version .*'
-    replace="C4S CSS, version ${version} <https:\/\/c4s.website>"
+    replace="C4S CSS, version ${version} <https:\/\/c4s.cdijkman.nl>"
     # shellcheck disable=SC2001
     sed "s/${search}/${replace}/" <<<"$content"
 

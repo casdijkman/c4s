@@ -5,8 +5,8 @@ SPDX-License-Identifier: GFDL-1.3-only
 -->
 
 <p align="center">
-	<a href="https://c4s.website/">
-		<img src="https://c4s.website/logo.svg" alt="C4S logo" width="200">
+	<a href="https://c4s.cdijkman.nl/">
+		<img src="https://c4s.cdijkman.nl/logo.svg" alt="C4S logo" width="200">
 	</a>
 </p>
 
