@@ -1,5 +1,5 @@
 /*!
- * C4S CSS, version 0.4.9 <https://c4s.cdijkman.nl>
+ * C4S CSS, version 0.4.10 <https://c4s.cdijkman.nl>
  * SPDX-FileCopyrightText: 2021 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
@@ -1078,18 +1078,6 @@ code {
 .c4s-uppercase {
   text-transform: uppercase;
 }
-.c4s-tl {
-  text-align: left;
-}
-.c4s-tr {
-  text-align: right;
-}
-.c4s-tc {
-  text-align: center;
-}
-.c4s-tj {
-  text-align: justify;
-}
 .c4s-word-break-all {
   word-break: break-all;
 }
@@ -1374,6 +1362,18 @@ code {
     transparent 10px,
     transparent 20px
   );
+}
+.c4s-tl {
+  text-align: left;
+}
+.c4s-tr {
+  text-align: right;
+}
+.c4s-tc {
+  text-align: center;
+}
+.c4s-tj {
+  text-align: justify;
 }
 .c4s-p0 {
   padding: 0;
@@ -2574,6 +2574,18 @@ code {
   .c4s-show-breakpoints::before {
     content: "[breakpoint: s] ";
   }
+  .c4s-tl-s {
+    text-align: left;
+  }
+  .c4s-tr-s {
+    text-align: right;
+  }
+  .c4s-tc-s {
+    text-align: center;
+  }
+  .c4s-tj-s {
+    text-align: justify;
+  }
   .c4s-p0-s {
     padding: 0;
   }
@@ -3769,6 +3781,18 @@ code {
   }
   .c4s-show-breakpoints::before {
     content: "[breakpoint: m] ";
+  }
+  .c4s-tl-m {
+    text-align: left;
+  }
+  .c4s-tr-m {
+    text-align: right;
+  }
+  .c4s-tc-m {
+    text-align: center;
+  }
+  .c4s-tj-m {
+    text-align: justify;
   }
   .c4s-p0-m {
     padding: 0;
@@ -4967,6 +4991,18 @@ code {
   .c4s-show-breakpoints::before {
     content: "[breakpoint: l] ";
   }
+  .c4s-tl-l {
+    text-align: left;
+  }
+  .c4s-tr-l {
+    text-align: right;
+  }
+  .c4s-tc-l {
+    text-align: center;
+  }
+  .c4s-tj-l {
+    text-align: justify;
+  }
   .c4s-p0-l {
     padding: 0;
   }
@@ -6164,6 +6200,18 @@ code {
   }
   .c4s-show-breakpoints::before {
     content: "[breakpoint: h] ";
+  }
+  .c4s-tl-h {
+    text-align: left;
+  }
+  .c4s-tr-h {
+    text-align: right;
+  }
+  .c4s-tc-h {
+    text-align: center;
+  }
+  .c4s-tj-h {
+    text-align: justify;
   }
   .c4s-p0-h {
     padding: 0;

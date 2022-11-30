@@ -1,5 +1,5 @@
 /*!
- * C4S CSS, version 0.4.9 <https://c4s.cdijkman.nl>
+ * C4S CSS, version 0.4.10 <https://c4s.cdijkman.nl>
  * SPDX-FileCopyrightText: 2021 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
@@ -1077,18 +1077,6 @@ code {
 .uppercase {
   text-transform: uppercase;
 }
-.tl {
-  text-align: left;
-}
-.tr {
-  text-align: right;
-}
-.tc {
-  text-align: center;
-}
-.tj {
-  text-align: justify;
-}
 .word-break-all {
   word-break: break-all;
 }
@@ -1373,6 +1361,18 @@ code {
     transparent 10px,
     transparent 20px
   );
+}
+.tl {
+  text-align: left;
+}
+.tr {
+  text-align: right;
+}
+.tc {
+  text-align: center;
+}
+.tj {
+  text-align: justify;
 }
 .p0 {
   padding: 0;
@@ -2576,6 +2576,18 @@ code {
   }
   .show-breakpoints::before {
     content: "[breakpoint: s] ";
+  }
+  .tl-s {
+    text-align: left;
+  }
+  .tr-s {
+    text-align: right;
+  }
+  .tc-s {
+    text-align: center;
+  }
+  .tj-s {
+    text-align: justify;
   }
   .p0-s {
     padding: 0;
