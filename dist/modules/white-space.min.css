@@ -1,6 +1,6 @@
 /*!
- * C4S CSS, version 0.4.10 <https://c4s.cdijkman.nl>
+ * C4S CSS, version 0.4.11 <https://c4s.cdijkman.nl>
  * SPDX-FileCopyrightText: 2021 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
-.nowrap{white-space:nowrap}.pre{white-space:pre}
+.nowrap{white-space:nowrap}.pre{white-space:pre}.pre-wrap{white-space:pre-wrap}

@@ -1,5 +1,5 @@
 /*!
- * C4S CSS, version 0.4.10 <https://c4s.cdijkman.nl>
+ * C4S CSS, version 0.4.11 <https://c4s.cdijkman.nl>
  * SPDX-FileCopyrightText: 2021 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
@@ -1043,6 +1043,9 @@ code {
 .c4s-code {
   font-family: consolas, monaco, monospace;
 }
+.c4s-font-inherit {
+  font-family: inherit;
+}
 .c4s-fs-normal {
   font-style: normal;
 }
@@ -2034,6 +2037,12 @@ code {
 .c4s-min-vh-100 {
   min-height: 100vh;
 }
+.c4s-mh-100 {
+  max-height: 100%;
+}
+.c4s-mh-none {
+  max-height: none;
+}
 .c4s-static {
   position: static;
 }
@@ -2532,6 +2541,9 @@ code {
 }
 .c4s-pre {
   white-space: pre;
+}
+.c4s-pre-wrap {
+  white-space: pre-wrap;
 }
 .c4s-v-mid,
 .c4s-v-middle {
@@ -3245,6 +3257,12 @@ code {
   .c4s-min-vh-100-s {
     min-height: 100vh;
   }
+  .c4s-mh-100-s {
+    max-height: 100%;
+  }
+  .c4s-mh-none-s {
+    max-height: none;
+  }
   .c4s-static-s {
     position: static;
   }
@@ -3743,6 +3761,9 @@ code {
   }
   .c4s-pre-s {
     white-space: pre;
+  }
+  .c4s-pre-wrap-s {
+    white-space: pre-wrap;
   }
   .c4s-v-mid-s,
   .c4s-v-middle-s {
@@ -4453,6 +4474,12 @@ code {
   .c4s-min-vh-100-m {
     min-height: 100vh;
   }
+  .c4s-mh-100-m {
+    max-height: 100%;
+  }
+  .c4s-mh-none-m {
+    max-height: none;
+  }
   .c4s-static-m {
     position: static;
   }
@@ -4951,6 +4978,9 @@ code {
   }
   .c4s-pre-m {
     white-space: pre;
+  }
+  .c4s-pre-wrap-m {
+    white-space: pre-wrap;
   }
   .c4s-v-mid-m,
   .c4s-v-middle-m {
@@ -5662,6 +5692,12 @@ code {
   .c4s-min-vh-100-l {
     min-height: 100vh;
   }
+  .c4s-mh-100-l {
+    max-height: 100%;
+  }
+  .c4s-mh-none-l {
+    max-height: none;
+  }
   .c4s-static-l {
     position: static;
   }
@@ -6160,6 +6196,9 @@ code {
   }
   .c4s-pre-l {
     white-space: pre;
+  }
+  .c4s-pre-wrap-l {
+    white-space: pre-wrap;
   }
   .c4s-v-mid-l,
   .c4s-v-middle-l {
@@ -6872,6 +6911,12 @@ code {
   .c4s-min-vh-100-h {
     min-height: 100vh;
   }
+  .c4s-mh-100-h {
+    max-height: 100%;
+  }
+  .c4s-mh-none-h {
+    max-height: none;
+  }
   .c4s-static-h {
     position: static;
   }
@@ -7370,6 +7415,9 @@ code {
   }
   .c4s-pre-h {
     white-space: pre;
+  }
+  .c4s-pre-wrap-h {
+    white-space: pre-wrap;
   }
   .c4s-v-mid-h,
   .c4s-v-middle-h {

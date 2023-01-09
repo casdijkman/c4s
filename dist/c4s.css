@@ -1,5 +1,5 @@
 /*!
- * C4S CSS, version 0.4.10 <https://c4s.cdijkman.nl>
+ * C4S CSS, version 0.4.11 <https://c4s.cdijkman.nl>
  * SPDX-FileCopyrightText: 2021 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
@@ -1042,6 +1042,9 @@ code {
 .code {
   font-family: consolas, monaco, monospace;
 }
+.font-inherit {
+  font-family: inherit;
+}
 .fs-normal {
   font-style: normal;
 }
@@ -2033,6 +2036,12 @@ code {
 .min-vh-100 {
   min-height: 100vh;
 }
+.mh-100 {
+  max-height: 100%;
+}
+.mh-none {
+  max-height: none;
+}
 .static {
   position: static;
 }
@@ -2535,6 +2544,9 @@ code {
 }
 .pre {
   white-space: pre;
+}
+.pre-wrap {
+  white-space: pre-wrap;
 }
 .v-mid,
 .v-middle {
@@ -3248,6 +3260,12 @@ code {
   .min-vh-100-s {
     min-height: 100vh;
   }
+  .mh-100-s {
+    max-height: 100%;
+  }
+  .mh-none-s {
+    max-height: none;
+  }
   .static-s {
     position: static;
   }
@@ -3748,6 +3766,9 @@ code {
   }
   .pre-s {
     white-space: pre;
+  }
+  .pre-wrap-s {
+    white-space: pre-wrap;
   }
   .v-mid-s,
   .v-middle-s {
@@ -4458,6 +4479,12 @@ code {
   .min-vh-100-m {
     min-height: 100vh;
   }
+  .mh-100-m {
+    max-height: 100%;
+  }
+  .mh-none-m {
+    max-height: none;
+  }
   .static-m {
     position: static;
   }
@@ -4958,6 +4985,9 @@ code {
   }
   .pre-m {
     white-space: pre;
+  }
+  .pre-wrap-m {
+    white-space: pre-wrap;
   }
   .v-mid-m,
   .v-middle-m {
@@ -5669,6 +5699,12 @@ code {
   .min-vh-100-l {
     min-height: 100vh;
   }
+  .mh-100-l {
+    max-height: 100%;
+  }
+  .mh-none-l {
+    max-height: none;
+  }
   .static-l {
     position: static;
   }
@@ -6169,6 +6205,9 @@ code {
   }
   .pre-l {
     white-space: pre;
+  }
+  .pre-wrap-l {
+    white-space: pre-wrap;
   }
   .v-mid-l,
   .v-middle-l {
@@ -6881,6 +6920,12 @@ code {
   .min-vh-100-h {
     min-height: 100vh;
   }
+  .mh-100-h {
+    max-height: 100%;
+  }
+  .mh-none-h {
+    max-height: none;
+  }
   .static-h {
     position: static;
   }
@@ -7381,6 +7426,9 @@ code {
   }
   .pre-h {
     white-space: pre;
+  }
+  .pre-wrap-h {
+    white-space: pre-wrap;
   }
   .v-mid-h,
   .v-middle-h {

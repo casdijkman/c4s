@@ -1,6 +1,6 @@
 /*!
- * C4S CSS, version 0.4.10 <https://c4s.cdijkman.nl>
+ * C4S CSS, version 0.4.11 <https://c4s.cdijkman.nl>
  * SPDX-FileCopyrightText: 2021 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
-.sans-serif{font-family:-apple-system,BlinkMacSystemFont,"avenir next",avenir,"helvetica neue",helvetica,ubuntu,roboto,noto,"segoe ui",arial,sans-serif}.serif{font-family:georgia,times,serif}.code{font-family:consolas,monaco,monospace}
+.sans-serif{font-family:-apple-system,BlinkMacSystemFont,"avenir next",avenir,"helvetica neue",helvetica,ubuntu,roboto,noto,"segoe ui",arial,sans-serif}.serif{font-family:georgia,times,serif}.code{font-family:consolas,monaco,monospace}.font-inherit{font-family:inherit}
