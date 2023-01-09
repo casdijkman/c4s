@@ -1,0 +1,20 @@
+/*
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
+@use '../functions';
+@use '../variables';
+@use 'sass:map';
+
+@mixin max-height($media: null) {
+  $global-prefix: variables.$global-prefix;
+  $prefix: variables.$max-height-prefix;
+
+  @each $level, $value in variables.$max-heights {
+    #{functions.construct-class-name($global-prefix, $prefix + $level, $media)} {
+      max-height: $value;
+    }
+  }
+}

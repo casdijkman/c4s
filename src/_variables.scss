@@ -76,6 +76,7 @@ $modules: (
   'width':                  true,
   'max-width':              true,
   'height':                 true,
+  'max-height':             true,
   'position':               true,
   'coordinates':            true,
   'flex':                   true,
@@ -638,9 +639,10 @@ $floats: (
  */
 /* stylelint-disable max-line-length */
 $font-families: (
-  'sans-serif': '-apple-system, BlinkMacSystemFont, "avenir next", avenir, "helvetica neue", helvetica, ubuntu, roboto, noto, "segoe ui", arial, sans-serif',
-  'serif': 'georgia, times, serif',
-  'code': 'consolas, monaco, monospace'
+  'sans-serif':   '-apple-system, BlinkMacSystemFont, "avenir next", avenir, "helvetica neue", helvetica, ubuntu, roboto, noto, "segoe ui", arial, sans-serif',
+  'serif':        'georgia, times, serif',
+  'code':         'consolas, monaco, monospace',
+  'font-inherit': inherit
 );
 /* stylelint-enable max-line-length */
 
@@ -829,7 +831,16 @@ $margins: (
   'nv': (
     'properties': [margin-top margin-bottom],
     'levels': $margin-levels-negative
-  ),
+  )
+);
+
+/*
+ * Max height
+ */
+$max-height-prefix: mh;
+$max-heights: (
+  '-100':  100%,
+  '-none': none
 );
 
 /*
@@ -1073,6 +1084,7 @@ $visibilities: (
 $white-spaces: (
   'nowrap':    nowrap,
   'pre':       pre,
+  'pre-wrap':  pre-wrap,
   // 'ws-normal': normal
 );
 

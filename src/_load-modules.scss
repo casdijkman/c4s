@@ -42,6 +42,7 @@
 @use 'modules/letter-spacing';
 @use 'modules/line-height';
 @use 'modules/margin';
+@use 'modules/max-height';
 @use 'modules/max-width';
 @use 'modules/measure';
 @use 'modules/miscellaneous';
@@ -182,6 +183,9 @@
     }
     @else if $module == margin {
       @include margin.margin();
+    }
+    @else if $module == max-height {
+      @include max-height.max-height();
     }
     @else if $module == max-width {
       @include max-width.max-width();
@@ -370,6 +374,9 @@
         }
         @else if $module == margin and $responsive {
           @include margin.margin($breakpoint);
+        }
+        @else if $module == max-height and $responsive {
+          @include max-height.max-height($breakpoint);
         }
         @else if $module == max-width and $responsive {
           @include max-width.max-width($breakpoint);
