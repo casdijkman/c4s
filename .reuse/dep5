@@ -10,3 +10,7 @@ License: GPL-3.0-only
 Files: docs/assets/500x400.jpg
 Copyright: USFWS
 License: CC0-1.0
+
+Files: .yarn/* .yarnrc.yml
+Copyright: none
+License: CC0-1.0
