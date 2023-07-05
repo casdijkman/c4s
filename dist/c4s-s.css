@@ -1282,7 +1282,7 @@ code {
   transition: color 0.15s ease-in;
 }
 .link:focus {
-  outline: 1px dotted currentColor;
+  outline: 1px dotted currentcolor;
 }
 .hide-child .child {
   opacity: 0;

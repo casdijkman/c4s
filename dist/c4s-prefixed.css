@@ -1283,7 +1283,7 @@ code {
   transition: color 0.15s ease-in;
 }
 .c4s-link:focus {
-  outline: 1px dotted currentColor;
+  outline: 1px dotted currentcolor;
 }
 .c4s-hide-child .c4s-child {
   opacity: 0;
