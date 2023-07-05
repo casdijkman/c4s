@@ -13,4 +13,4 @@
 
 variables.$global-prefix: 'c4s';
 
-@include load-modules.load-modules();
+@include load-modules.load-modules;

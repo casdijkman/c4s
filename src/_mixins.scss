@@ -11,19 +11,19 @@
 @mixin media-breakpoint-up($name) {
   $breakpoint-map: map.get(variables.$breakpoints-all, $name);
 
-  @if $name == '' or $name == null {
+  @if $name == '' or not $name {
     @content;
-  } @else if $breakpoint-map == null {
+  } @else if not $breakpoint-map {
     @error 'Unknown breakpoint: ' + $name;
   } @else {
     $breakpoint: map.get($breakpoint-map, breakpoint);
     $media: map.get($breakpoint-map, media);
 
-    @if $media == null {
+    @if not $media {
       $media: screen;
     }
 
-    @if $breakpoint == null {
+    @if not $breakpoint {
       @media only #{$media} {
         @content;
       }

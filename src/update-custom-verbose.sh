@@ -39,7 +39,7 @@ _generate_custom_file() {
 
     echo "// stylelint-disable max-line-length, declaration-block-semicolon-newline-after"
     echo
-    echo "@include load-modules.load-modules();"
+    echo "@include load-modules.load-modules;"
 }
 
 custom_file_content=$(_generate_custom_file)

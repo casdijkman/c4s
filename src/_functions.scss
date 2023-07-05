@@ -15,9 +15,8 @@
     @for $_ from 1 through $exponent {
       $value: $value * $number;
     }
-  }
-  @else if $exponent < 0 {
-    @for $_ from 1 through -$exponent {
+  } @else if $exponent < 0 {
+    @for $_ from 1 through - $exponent {
       $value: math.div($value, $number);
     }
   }
@@ -30,7 +29,7 @@
 }
 
 @function compatible-hardened($number1, $number2) {
-  @if $number1 == null or $number2 == null {
+  @if not $number1 or not $number2 {
     @return false;
   } @else {
     @return math.compatible($number1, $number2);

@@ -10,13 +10,13 @@
 @use 'sass:string';
 
 @mixin reset($media: null) {
-  @if $media != null {
+  @if $media {
     @error 'Reset module is not compatible with responsiveness';
   }
 
   html {
     line-height: 1.15;
-    -webkit-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%; // stylelint-disable property-no-vendor-prefix
 
     @if variables.$enable-smooth-scroll {
       @if variables.$force-smooth-scroll {
@@ -72,60 +72,60 @@
     margin-top: 2.75rem;
     margin-bottom: 1rem;
 
-    @if map.get(variables.$line-height-levels, 'title') != null {
+    @if map.get(variables.$line-height-levels, 'title') {
       line-height: map.get(variables.$line-height-levels, 'title');
     }
   }
 
-  @if map.get(variables.$font-sizes, 'f1') != null {
+  @if map.get(variables.$font-sizes, 'f1') {
     h1 {
       font-size: map.get(variables.$font-sizes, 'f1');
     }
   }
 
-  @if map.get(variables.$font-sizes, 'f2') != null {
+  @if map.get(variables.$font-sizes, 'f2') {
     h2 {
       font-size: map.get(variables.$font-sizes, 'f2');
     }
   }
 
-  @if map.get(variables.$font-sizes, 'f3') != null {
+  @if map.get(variables.$font-sizes, 'f3') {
     h3 {
       font-size: map.get(variables.$font-sizes, 'f3');
     }
   }
 
-  @if map.get(variables.$font-sizes, 'f4') != null {
+  @if map.get(variables.$font-sizes, 'f4') {
     h4 {
       font-size: map.get(variables.$font-sizes, 'f4');
     }
   }
 
-  @if map.get(variables.$font-sizes, 'f5') != null {
+  @if map.get(variables.$font-sizes, 'f5') {
     h5 {
       font-size: map.get(variables.$font-sizes, 'f5');
     }
   }
 
-  @if map.get(variables.$font-sizes, 'f6') != null {
+  @if map.get(variables.$font-sizes, 'f6') {
     h6 {
       font-size: map.get(variables.$font-sizes, 'f6');
     }
   }
 
-  @if map.get(variables.$font-sizes, 'small') != null {
+  @if map.get(variables.$font-sizes, 'small') {
     small {
       font-size: map.get(variables.$font-sizes, 'small');
     }
   }
 
-  @if map.get(variables.$line-height-levels, 'copy') != null {
+  @if map.get(variables.$line-height-levels, 'copy') {
     p {
       line-height: map.get(variables.$line-height-levels, 'copy');
     }
   }
 
-  @if map.get(variables.$font-families, 'code') != null {
+  @if map.get(variables.$font-families, 'code') {
     code {
       font-family: string.unquote(map.get(variables.$font-families, 'code'));
     }

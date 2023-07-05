@@ -70,199 +70,138 @@
 @use 'modules/z-index';
 
 @mixin load-modules($modules: null, $breakpoints: null) {
-  @if $modules == null {
+  @if not $modules {
     $modules: variables.$modules;
   }
 
-  @if $breakpoints == null {
+  @if not $breakpoints {
     $breakpoints: variables.$breakpoints;
   }
 
   @each $module, $responsive in $modules {
     @if $module == aspect-ratio {
-      @include aspect-ratio.aspect-ratio();
-    }
-    @else if $module == background-attachment {
-      @include background-attachment.background-attachment();
-    }
-    @else if $module == background-clip {
-      @include background-clip.background-clip();
-    }
-    @else if $module == background-color {
-      @include background-color.background-color();
-    }
-    @else if $module == background-position {
-      @include background-position.background-position();
-    }
-    @else if $module == background-repeat {
-      @include background-repeat.background-repeat();
-    }
-    @else if $module == background-size {
-      @include background-size.background-size();
-    }
-    @else if $module == border-color {
-      @include border-color.border-color();
-    }
-    @else if $module == border-radius {
-      @include border-radius.border-radius();
-    }
-    @else if $module == border {
-      @include border.border();
-    }
-    @else if $module == border-style {
-      @include border-style.border-style();
-    }
-    @else if $module == border-width {
-      @include border-width.border-width();
-    }
-    @else if $module == box-shadow {
-      @include box-shadow.box-shadow();
-    }
-    @else if $module == box-sizing {
-      @include box-sizing.box-sizing();
-    }
-    @else if $module == color {
-      @include color.color();
-    }
-    @else if $module == complex {
-      @include complex.complex();
-    }
-    @else if $module == coordinates {
-      @include coordinates.coordinates();
-    }
-    @else if $module == cursor {
-      @include cursor.cursor();
-    }
-    @else if $module == debug {
-      @include debug.debug();
-    }
-    @else if $module == display {
-      @include display.display();
-    }
-    @else if $module == flex-direction {
-      @include flex-direction.flex-direction();
-    }
-    @else if $module == flex {
-      @include flex.flex();
-    }
-    @else if $module == float {
-      @include float.float();
-    }
-    @else if $module == font-family {
-      @include font-family.font-family();
-    }
-    @else if $module == font-size {
-      @include font-size.font-size();
-    }
-    @else if $module == font-style {
-      @include font-style.font-style();
-    }
-    @else if $module == font-weight {
-      @include font-weight.font-weight();
-    }
-    @else if $module == grid {
-      @include grid.grid();
-    }
-    @else if $module == height {
-      @include height.height();
-    }
-    @else if $module == hover-background-color {
-      @include hover-background-color.hover-background-color();
-    }
-    @else if $module == hover-color {
-      @include hover-color.hover-color();
-    }
-    @else if $module == hover {
-      @include hover.hover();
-    }
-    @else if $module == letter-spacing {
-      @include letter-spacing.letter-spacing();
-    }
-    @else if $module == line-height {
-      @include line-height.line-height();
-    }
-    @else if $module == margin {
-      @include margin.margin();
-    }
-    @else if $module == max-height {
-      @include max-height.max-height();
-    }
-    @else if $module == max-width {
-      @include max-width.max-width();
-    }
-    @else if $module == measure {
-      @include measure.measure();
-    }
-    @else if $module == miscellaneous {
-      @include miscellaneous.miscellaneous();
-    }
-    @else if $module == object-fit {
-      @include object-fit.object-fit();
-    }
-    @else if $module == opacity {
-      @include opacity.opacity();
-    }
-    @else if $module == overflow {
-      @include overflow.overflow();
-    }
-    @else if $module == padding {
-      @include padding.padding();
-    }
-    @else if $module == position {
-      @include position.position();
-    }
-    @else if $module == reset {
-      @include reset.reset();
-    }
-    @else if $module == resize {
-      @include resize.resize();
-    }
-    @else if $module == spanning-breakpoints {
-      @include spanning-breakpoints.spanning-breakpoints();
-    }
-    @else if $module == table {
-      @include table.table();
-    }
-    @else if $module == text-align {
-      @include text-align.text-align();
-    }
-    @else if $module == text-decoration {
-      @include text-decoration.text-decoration();
-    }
-    @else if $module == text-shadow {
-      @include text-shadow.text-shadow();
-    }
-    @else if $module == text-transform {
-      @include text-transform.text-transform();
-    }
-    @else if $module == transform {
-      @include transform.transform();
-    }
-    @else if $module == transition {
-      @include transition.transition();
-    }
-    @else if $module == user-select {
-      @include user-select.user-select();
-    }
-    @else if $module == vertical-align {
-      @include vertical-align.vertical-align();
-    }
-    @else if $module == visibility {
-      @include visibility.visibility();
-    }
-    @else if $module == white-space {
-      @include white-space.white-space();
-    }
-    @else if $module == width {
-      @include width.width();
-    }
-    @else if $module == word-break {
-      @include word-break.word-break();
-    }
-    @else if $module == z-index {
-      @include z-index.z-index();
-    }
-    @else {
+      @include aspect-ratio.aspect-ratio;
+    } @else if $module == background-attachment {
+      @include background-attachment.background-attachment;
+    } @else if $module == background-clip {
+      @include background-clip.background-clip;
+    } @else if $module == background-color {
+      @include background-color.background-color;
+    } @else if $module == background-position {
+      @include background-position.background-position;
+    } @else if $module == background-repeat {
+      @include background-repeat.background-repeat;
+    } @else if $module == background-size {
+      @include background-size.background-size;
+    } @else if $module == border-color {
+      @include border-color.border-color;
+    } @else if $module == border-radius {
+      @include border-radius.border-radius;
+    } @else if $module == border {
+      @include border.border;
+    } @else if $module == border-style {
+      @include border-style.border-style;
+    } @else if $module == border-width {
+      @include border-width.border-width;
+    } @else if $module == box-shadow {
+      @include box-shadow.box-shadow;
+    } @else if $module == box-sizing {
+      @include box-sizing.box-sizing;
+    } @else if $module == color {
+      @include color.color;
+    } @else if $module == complex {
+      @include complex.complex;
+    } @else if $module == coordinates {
+      @include coordinates.coordinates;
+    } @else if $module == cursor {
+      @include cursor.cursor;
+    } @else if $module == debug {
+      @include debug.debug;
+    } @else if $module == display {
+      @include display.display;
+    } @else if $module == flex-direction {
+      @include flex-direction.flex-direction;
+    } @else if $module == flex {
+      @include flex.flex;
+    } @else if $module == float {
+      @include float.float;
+    } @else if $module == font-family {
+      @include font-family.font-family;
+    } @else if $module == font-size {
+      @include font-size.font-size;
+    } @else if $module == font-style {
+      @include font-style.font-style;
+    } @else if $module == font-weight {
+      @include font-weight.font-weight;
+    } @else if $module == grid {
+      @include grid.grid;
+    } @else if $module == height {
+      @include height.height;
+    } @else if $module == hover-background-color {
+      @include hover-background-color.hover-background-color;
+    } @else if $module == hover-color {
+      @include hover-color.hover-color;
+    } @else if $module == hover {
+      @include hover.hover;
+    } @else if $module == letter-spacing {
+      @include letter-spacing.letter-spacing;
+    } @else if $module == line-height {
+      @include line-height.line-height;
+    } @else if $module == margin {
+      @include margin.margin;
+    } @else if $module == max-height {
+      @include max-height.max-height;
+    } @else if $module == max-width {
+      @include max-width.max-width;
+    } @else if $module == measure {
+      @include measure.measure;
+    } @else if $module == miscellaneous {
+      @include miscellaneous.miscellaneous;
+    } @else if $module == object-fit {
+      @include object-fit.object-fit;
+    } @else if $module == opacity {
+      @include opacity.opacity;
+    } @else if $module == overflow {
+      @include overflow.overflow;
+    } @else if $module == padding {
+      @include padding.padding;
+    } @else if $module == position {
+      @include position.position;
+    } @else if $module == reset {
+      @include reset.reset;
+    } @else if $module == resize {
+      @include resize.resize;
+    } @else if $module == spanning-breakpoints {
+      @include spanning-breakpoints.spanning-breakpoints;
+    } @else if $module == table {
+      @include table.table;
+    } @else if $module == text-align {
+      @include text-align.text-align;
+    } @else if $module == text-decoration {
+      @include text-decoration.text-decoration;
+    } @else if $module == text-shadow {
+      @include text-shadow.text-shadow;
+    } @else if $module == text-transform {
+      @include text-transform.text-transform;
+    } @else if $module == transform {
+      @include transform.transform;
+    } @else if $module == transition {
+      @include transition.transition;
+    } @else if $module == user-select {
+      @include user-select.user-select;
+    } @else if $module == vertical-align {
+      @include vertical-align.vertical-align;
+    } @else if $module == visibility {
+      @include visibility.visibility;
+    } @else if $module == white-space {
+      @include white-space.white-space;
+    } @else if $module == width {
+      @include width.width;
+    } @else if $module == word-break {
+      @include word-break.word-break;
+    } @else if $module == z-index {
+      @include z-index.z-index;
+    } @else {
       @error 'Module not found:' $module;
     }
   }
@@ -272,185 +211,125 @@
       @each $module, $responsive in $modules {
         @if $module == aspect-ratio and $responsive {
           @include aspect-ratio.aspect-ratio($breakpoint);
-        }
-        @else if $module == background-attachment and $responsive {
+        } @else if $module == background-attachment and $responsive {
           @include background-attachment.background-attachment($breakpoint);
-        }
-        @else if $module == background-clip and $responsive {
+        } @else if $module == background-clip and $responsive {
           @include background-clip.background-clip($breakpoint);
-        }
-        @else if $module == background-color and $responsive {
+        } @else if $module == background-color and $responsive {
           @include background-color.background-color($breakpoint);
-        }
-        @else if $module == background-position and $responsive {
+        } @else if $module == background-position and $responsive {
           @include background-position.background-position($breakpoint);
-        }
-        @else if $module == background-repeat and $responsive {
+        } @else if $module == background-repeat and $responsive {
           @include background-repeat.background-repeat($breakpoint);
-        }
-        @else if $module == background-size and $responsive {
+        } @else if $module == background-size and $responsive {
           @include background-size.background-size($breakpoint);
-        }
-        @else if $module == border-color and $responsive {
+        } @else if $module == border-color and $responsive {
           @include border-color.border-color($breakpoint);
-        }
-        @else if $module == border-radius and $responsive {
+        } @else if $module == border-radius and $responsive {
           @include border-radius.border-radius($breakpoint);
-        }
-        @else if $module == border and $responsive {
+        } @else if $module == border and $responsive {
           @include border.border($breakpoint);
-        }
-        @else if $module == border-style and $responsive {
+        } @else if $module == border-style and $responsive {
           @include border-style.border-style($breakpoint);
-        }
-        @else if $module == border-width and $responsive {
+        } @else if $module == border-width and $responsive {
           @include border-width.border-width($breakpoint);
-        }
-        @else if $module == box-shadow and $responsive {
+        } @else if $module == box-shadow and $responsive {
           @include box-shadow.box-shadow($breakpoint);
-        }
-        @else if $module == box-sizing and $responsive {
+        } @else if $module == box-sizing and $responsive {
           @include box-sizing.box-sizing($breakpoint);
-        }
-        @else if $module == color and $responsive {
+        } @else if $module == color and $responsive {
           @include color.color($breakpoint);
-        }
-        @else if $module == complex and $responsive {
+        } @else if $module == complex and $responsive {
           @include complex.complex($breakpoint);
-        }
-        @else if $module == coordinates and $responsive {
+        } @else if $module == coordinates and $responsive {
           @include coordinates.coordinates($breakpoint);
-        }
-        @else if $module == cursor and $responsive {
+        } @else if $module == cursor and $responsive {
           @include cursor.cursor($breakpoint);
-        }
-        @else if $module == debug and $responsive {
+        } @else if $module == debug and $responsive {
           @include debug.debug($breakpoint);
-        }
-        @else if $module == display and $responsive {
+        } @else if $module == display and $responsive {
           @include display.display($breakpoint);
-        }
-        @else if $module == flex-direction and $responsive {
+        } @else if $module == flex-direction and $responsive {
           @include flex-direction.flex-direction($breakpoint);
-        }
-        @else if $module == flex and $responsive {
+        } @else if $module == flex and $responsive {
           @include flex.flex($breakpoint);
-        }
-        @else if $module == float and $responsive {
+        } @else if $module == float and $responsive {
           @include float.float($breakpoint);
-        }
-        @else if $module == font-family and $responsive {
+        } @else if $module == font-family and $responsive {
           @include font-family.font-family($breakpoint);
-        }
-        @else if $module == font-size and $responsive {
+        } @else if $module == font-size and $responsive {
           @include font-size.font-size($breakpoint);
-        }
-        @else if $module == font-style and $responsive {
+        } @else if $module == font-style and $responsive {
           @include font-style.font-style($breakpoint);
-        }
-        @else if $module == font-weight and $responsive {
+        } @else if $module == font-weight and $responsive {
           @include font-weight.font-weight($breakpoint);
-        }
-        @else if $module == grid and $responsive {
+        } @else if $module == grid and $responsive {
           @include grid.grid($breakpoint);
-        }
-        @else if $module == height and $responsive {
+        } @else if $module == height and $responsive {
           @include height.height($breakpoint);
-        }
-        @else if $module == hover-background-color and $responsive {
+        } @else if $module == hover-background-color and $responsive {
           @include hover-background-color.hover-background-color($breakpoint);
-        }
-        @else if $module == hover-color and $responsive {
+        } @else if $module == hover-color and $responsive {
           @include hover-color.hover-color($breakpoint);
-        }
-        @else if $module == hover and $responsive {
+        } @else if $module == hover and $responsive {
           @include hover.hover($breakpoint);
-        }
-        @else if $module == letter-spacing and $responsive {
+        } @else if $module == letter-spacing and $responsive {
           @include letter-spacing.letter-spacing($breakpoint);
-        }
-        @else if $module == line-height and $responsive {
+        } @else if $module == line-height and $responsive {
           @include line-height.line-height($breakpoint);
-        }
-        @else if $module == margin and $responsive {
+        } @else if $module == margin and $responsive {
           @include margin.margin($breakpoint);
-        }
-        @else if $module == max-height and $responsive {
+        } @else if $module == max-height and $responsive {
           @include max-height.max-height($breakpoint);
-        }
-        @else if $module == max-width and $responsive {
+        } @else if $module == max-width and $responsive {
           @include max-width.max-width($breakpoint);
-        }
-        @else if $module == measure and $responsive {
+        } @else if $module == measure and $responsive {
           @include measure.measure($breakpoint);
-        }
-        @else if $module == miscellaneous and $responsive {
+        } @else if $module == miscellaneous and $responsive {
           @include miscellaneous.miscellaneous($breakpoint);
-        }
-        @else if $module == object-fit and $responsive {
+        } @else if $module == object-fit and $responsive {
           @include object-fit.object-fit($breakpoint);
-        }
-        @else if $module == opacity and $responsive {
+        } @else if $module == opacity and $responsive {
           @include opacity.opacity($breakpoint);
-        }
-        @else if $module == overflow and $responsive {
+        } @else if $module == overflow and $responsive {
           @include overflow.overflow($breakpoint);
-        }
-        @else if $module == padding and $responsive {
+        } @else if $module == padding and $responsive {
           @include padding.padding($breakpoint);
-        }
-        @else if $module == position and $responsive {
+        } @else if $module == position and $responsive {
           @include position.position($breakpoint);
-        }
-        @else if $module == reset and $responsive {
+        } @else if $module == reset and $responsive {
           @include reset.reset($breakpoint);
-        }
-        @else if $module == resize and $responsive {
+        } @else if $module == resize and $responsive {
           @include resize.resize($breakpoint);
-        }
-        @else if $module == spanning-breakpoints and $responsive {
+        } @else if $module == spanning-breakpoints and $responsive {
           @include spanning-breakpoints.spanning-breakpoints($breakpoint);
-        }
-        @else if $module == table and $responsive {
+        } @else if $module == table and $responsive {
           @include table.table($breakpoint);
-        }
-        @else if $module == text-align and $responsive {
+        } @else if $module == text-align and $responsive {
           @include text-align.text-align($breakpoint);
-        }
-        @else if $module == text-decoration and $responsive {
+        } @else if $module == text-decoration and $responsive {
           @include text-decoration.text-decoration($breakpoint);
-        }
-        @else if $module == text-shadow and $responsive {
+        } @else if $module == text-shadow and $responsive {
           @include text-shadow.text-shadow($breakpoint);
-        }
-        @else if $module == text-transform and $responsive {
+        } @else if $module == text-transform and $responsive {
           @include text-transform.text-transform($breakpoint);
-        }
-        @else if $module == transform and $responsive {
+        } @else if $module == transform and $responsive {
           @include transform.transform($breakpoint);
-        }
-        @else if $module == transition and $responsive {
+        } @else if $module == transition and $responsive {
           @include transition.transition($breakpoint);
-        }
-        @else if $module == user-select and $responsive {
+        } @else if $module == user-select and $responsive {
           @include user-select.user-select($breakpoint);
-        }
-        @else if $module == vertical-align and $responsive {
+        } @else if $module == vertical-align and $responsive {
           @include vertical-align.vertical-align($breakpoint);
-        }
-        @else if $module == visibility and $responsive {
+        } @else if $module == visibility and $responsive {
           @include visibility.visibility($breakpoint);
-        }
-        @else if $module == white-space and $responsive {
+        } @else if $module == white-space and $responsive {
           @include white-space.white-space($breakpoint);
-        }
-        @else if $module == width and $responsive {
+        } @else if $module == width and $responsive {
           @include width.width($breakpoint);
-        }
-        @else if $module == word-break and $responsive {
+        } @else if $module == word-break and $responsive {
           @include word-break.word-break($breakpoint);
-        }
-        @else if $module == z-index and $responsive {
+        } @else if $module == z-index and $responsive {
           @include z-index.z-index($breakpoint);
         }
       }

@@ -28,6 +28,6 @@ for file in ./modules/_*.scss; do
 
 @use './${module_name}';
 
-@include ${module_name}.${module_name}();
+@include ${module_name}.${module_name};
 EOF
 done

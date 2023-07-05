@@ -9,10 +9,10 @@
 
 @mixin flex-direction($media: null) {
   $global-prefix: variables.$global-prefix;
-  $moduleName: variables.$flex-direction-name;
+  $module-name: variables.$flex-direction-name;
 
   @each $name, $value in variables.$flex-directions {
-    #{functions.construct-class-name($global-prefix, $moduleName, $name, $media)} {
+    #{functions.construct-class-name($global-prefix, $module-name, $name, $media)} {
       flex-direction: $value;
     }
   }

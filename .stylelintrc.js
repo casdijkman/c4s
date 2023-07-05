@@ -2,25 +2,15 @@
 //
 // SPDX-License-Identifier: GPL-3.0-only
 
-const maxLineLength = 92;
-
 module.exports = {
     plugins: [
         'stylelint-scss'
     ],
-    extends: 'stylelint-config-standard',
+    extends: 'stylelint-config-standard-scss',
     rules: {
-        'string-quotes': 'single',
         'at-rule-no-unknown': null,
         'scss/at-rule-no-unknown': true,
-        'number-leading-zero': 'never',
         'block-opening-brace-space-before': null,
-        'block-closing-brace-empty-line-before': null,
-        'max-line-length': [
-            maxLineLength, {
-                ignore: ['comments']
-            }
-        ],
         'at-rule-empty-line-before': [
             'always' , {
                 except: ['blockless-after-same-name-blockless'],
@@ -34,10 +24,11 @@ module.exports = {
                 ignore: ['first-nested', 'after-comment']
             }
         ],
-        'block-closing-brace-newline-after': [
-            'always',
-            {
-                ignoreAtRules: ['if', 'else']
+        'scss/at-if-closing-brace-newline-after': 'always-last-in-chain',
+        'scss/dollar-variable-empty-line-before': [
+            'always', {
+                except: ['first-nested'],
+                ignore: ['after-dollar-variable', 'after-comment']
             }
         ]
     }

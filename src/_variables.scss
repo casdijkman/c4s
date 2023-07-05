@@ -445,9 +445,9 @@ $border-widths: (
  */
 $box-shadow-name: 'shadow';
 $box-shadows: (
-  'small': 0 .125rem .5rem .125rem rgba(0, 0, 0, .2),
-  '':      0 .5rem 1rem .125rem rgba(0, 0, 0, .2),
-  'big':   0 1rem 2rem .25rem rgba(0, 0, 0, .2)
+  'small': 0 .125rem .5rem .125rem rgba(0 0 0 / 20%),
+  '':      0 .5rem 1rem .125rem rgba(0 0 0 / 20%),
+  'big':   0 1rem 2rem .25rem rgba(0 0 0 / 20%)
 );
 
 /*
@@ -705,8 +705,7 @@ $columns: ('auto': auto);
 @for $i from 1 through $number-of-columns {
   $columns-per-row: math.div($number-of-columns, $i);
   $width: math.div(100%, $number-of-columns) * $i;
-  $width-with-gap:
-    calc($width - var(--column-gap, 0px) + var(--column-gap, 0px) / $columns-per-row);
+  $width-with-gap: calc($width - var(--column-gap, 0px) + var(--column-gap, 0px) / $columns-per-row);
 
   @if $i == $number-of-columns {
     $columns: map.merge($columns, ('#{$i}': 100%));

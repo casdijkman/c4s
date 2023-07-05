@@ -9,14 +9,14 @@
 
 @mixin flex($media: null) {
   $global-prefix: variables.$global-prefix;
-  $wrap-name:     variables.$flex-wrap-name;
-  $items-name:    variables.$flex-align-items-name;
-  $self-name:     variables.$flex-align-self-name;
-  $content-name:  variables.$flex-align-content-name;
-  $justify-name:  variables.$flex-justify-content-name;
-  $grow-name:     variables.$flex-grow-name;
-  $shrink-name:   variables.$flex-shrink-name;
-  $order-name:    variables.$flex-order-name;
+  $wrap-name: variables.$flex-wrap-name;
+  $items-name: variables.$flex-align-items-name;
+  $self-name: variables.$flex-align-self-name;
+  $content-name: variables.$flex-align-content-name;
+  $justify-name: variables.$flex-justify-content-name;
+  $grow-name: variables.$flex-grow-name;
+  $shrink-name: variables.$flex-shrink-name;
+  $order-name: variables.$flex-order-name;
 
   @each $name, $value in variables.$flex-wraps {
     #{functions.construct-class-name($global-prefix, $wrap-name, $name, $media)} {

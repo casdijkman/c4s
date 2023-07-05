@@ -11,4 +11,4 @@
 @use 'variables';
 @use 'load-modules';
 
-@include load-modules.load-modules();
+@include load-modules.load-modules;

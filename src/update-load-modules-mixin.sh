@@ -57,11 +57,11 @@ EOF
 
     echo
     echo "@mixin load-modules(\$modules: null, \$breakpoints: null) {"
-    echo "  @if \$modules == null {"
+    echo "  @if not \$modules {"
     echo "    \$modules: variables.\$modules;"
     echo "  }"
     echo
-    echo "  @if \$breakpoints == null {"
+    echo "  @if not \$breakpoints {"
     echo "    \$breakpoints: variables.\$breakpoints;"
     echo "  }"
     echo
@@ -71,16 +71,16 @@ EOF
     for module in $(_getModules); do
 	if [[ $module == $(_getModules first) ]]; then
     	    echo "    @if \$module == $module {"
-	    echo "      @include $module.$module();"
-	    echo "    }"
+	    echo "      @include $module.${module};"
+	    echo -n "    }"
 	else
-	    echo "    @else if \$module == $module {"
-	    echo "      @include $module.$module();"
-	    echo "    }"
+	    echo " @else if \$module == $module {"
+	    echo "      @include $module.${module};"
+	    echo -n "    }"
 	fi
     done
 
-    echo "    @else {"
+    echo " @else {"
     echo "      @error 'Module not found:' \$module;"
     echo "    }"
     echo "  }"
@@ -94,14 +94,15 @@ EOF
 	if [[ $module == $(_getModules first) ]]; then
 	    echo "        @if \$module == $module and \$responsive {"
 	    echo "          @include $module.$module(\$breakpoint);"
-	    echo "        }"
+	    echo -n "        }"
 	else
-	    echo "        @else if \$module == $module and \$responsive {"
+	    echo " @else if \$module == $module and \$responsive {"
 	    echo "          @include $module.$module(\$breakpoint);"
-	    echo "        }"
+	    echo -n "        }"
 	fi
     done
 
+    echo
     echo "      }"
     echo "    }"
     echo "  }"
