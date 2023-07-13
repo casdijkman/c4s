@@ -21,7 +21,7 @@ const nunjucksRender = require('gulp-nunjucks-render');
 const data = require('gulp-data');
 const htmlmin = require('gulp-htmlmin');
 const beautifier = require('gulp-jsbeautifier');
-const stylelint = require('gulp-stylelint');
+const stylelint = require('@ronilaukkarinen/gulp-stylelint');
 const eslint = require('gulp-eslint');
 const browserSync = require('browser-sync').create();
 
