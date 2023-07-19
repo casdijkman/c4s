@@ -16,7 +16,7 @@ for file in ./modules/_*.scss; do
     basename=$(basename "$file")
     basename_clean="${basename:1}" # Remove first character (being _)
     module_name="${basename_clean/.scss/}"
-    new_basename="${basename_clean/.scss/$module_file_suffix.scss}"
+    new_basename="${basename_clean/.scss/$module_file_suffix}.scss"
     module_file="${file/$basename/$new_basename}"
 
     cat << EOF > "$module_file"

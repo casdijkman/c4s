@@ -13,8 +13,13 @@ const { getRandomPartition } = require('./partitions-of-12');
 const { VERSION } = require('./constants');
 
 function getNunjucksData() {
+    const modulesFilePath = path.join(process.cwd(), 'src/module-list.json');
+    const modulesFile = fs.readFileSync(modulesFilePath, 'utf8');
+    const modules = JSON.parse(modulesFile);
+
     const data = {
         files: [],
+        modules,
         VERSION
     };
 
