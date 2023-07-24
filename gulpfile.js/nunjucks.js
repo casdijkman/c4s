@@ -12,63 +12,62 @@ const loremIpsum = require('lorem-ipsum');
 const { getRandomPartition } = require('./partitions-of-12');
 const { VERSION } = require('./constants');
 
-function getNunjucksData() {
-    const modulesFilePath = path.join(process.cwd(), 'src/module-list.json');
-    const modulesFile = fs.readFileSync(modulesFilePath, 'utf8');
-    const modules = JSON.parse(modulesFile);
+const modulesFilePath = path.join(process.cwd(), 'src/module-list.json');
+const modulesFile = fs.readFileSync(modulesFilePath, 'utf8');
+const modules = JSON.parse(modulesFile);
 
-    const data = {
-        files: [],
-        modules,
-        VERSION
-    };
+const getMainOrder = (name) => {
+    const value = ['', 'base', 's', 'm', 'l', 'h', 'p', 'prefixed']
+          .indexOf(name.replace(/^c4s-?/, ''));
+    if (value === -1) console.warn(`[nunjucks.js] Could not sort main '${name}'`);
+    return value;
+};
 
-    for (const file of glob.sync('dist/**/*.css')) {
-        const basename = path.basename(file);
-        const name = basename.split('.')[0];
-        const fileClean = file.replace(/^dist/, '');
-        const css = cssLib.parse(fs.readFileSync(file, 'utf8'));
-        const size = fs.statSync(file).size;
-        const gzipSize = fs.statSync(`${file}.gz`).size;
+const getModuleOrder = (name) => {
+    const value = modules.indexOf(name);
+    if (value === -1) console.warn(`[nunjucks.js] Could not sort module '${name}'`);
+    return value;
+};
 
-        // Remove comments from rules array
-        css.stylesheet.rules = css.stylesheet.rules.filter((x) => x.type === 'rule');
+const files = glob.sync('dist/**/*.css')
+      .map((file) => {
+          const basename = path.basename(file);
+          const name = basename.split('.')[0];
+          const fileClean = file.replace(/^dist/, '');
+          const css = cssLib.parse(fs.readFileSync(file, 'utf8'));
+          const size = fs.statSync(file).size;
+          const gzipSize = fs.statSync(`${file}.gz`).size;
+          const isMain = /^\/c4s/.test(fileClean);
+          const isModule = /^\/modules\//.test(fileClean);
+          const isCustom = /-custom/.test(fileClean);
 
-        if (css.stylesheet.rules.length === 0) {
-            console.warn('File has no rules:', name);
-            continue;
-        }
+          // Remove comments from rules array
+          css.stylesheet.rules = css.stylesheet.rules.filter((x) => x.type === 'rule');
 
-        data.files.push({
-            name,
-            basename,
-            file:           fileClean,
-            isMain:         /^\/c4s/.test(fileClean),
-            isModule:       /^\/modules\//.test(fileClean),
-            isMinified:     /\.min\.css$/.test(fileClean),
-            isRaw:          /\.raw\.css$/.test(fileClean),
-            isCustom:       /-custom/.test(fileClean),
-            size,
-            sizePretty:     prettyBytes(size),
-            gzipSize,
-            gzipSizePretty: prettyBytes(gzipSize),
-            css
-        });
-    }
+          if (css.stylesheet.rules.length === 0) {
+              console.warn('File has no rules:', name);
+              return;
+          }
 
-    data.files.sort((a, b) => {
-        if (! a.isMain || ! b.isMain || a.isCustom || b.isCustom) return 0;
-        const order = ['', 'base', 's', 'm', 'l', 'h', 'p', 'prefixed'];
-        const getValue = (file) => {
-            const value = order.indexOf(file.name.replace(/^c4s-?/, ''));
-            if (value === -1) console.warn(`[nunjucks.js] Could not sort file '${file.name}'`);
-            return value;
-        };
-        return getValue(a) - getValue(b);
-    });
-
-    return data;
-}
+          return {
+              name,
+              basename,
+              file:           fileClean,
+              isMain,
+              isModule,
+              isMinified:     /\.min\.css$/.test(fileClean),
+              isRaw:          /\.raw\.css$/.test(fileClean),
+              isCustom,
+              size,
+              sizePretty:     prettyBytes(size),
+              gzipSize,
+              gzipSizePretty: prettyBytes(gzipSize),
+              css,
+              ...isMain && !isCustom && { order: getMainOrder(name) },
+              ...isModule && { order: getModuleOrder(name) }
+          };
+      })
+      .sort((a, b) => a.order && b.order ? a.order - b.order : 0);
 
 function getNunjucksEnv(env) {
     const getClassFromSelector = (selector) => {
@@ -133,6 +132,6 @@ function getNunjucksEnv(env) {
 }
 
 module.exports = {
-    getNunjucksData,
+    getNunjucksData: () => ({ files, VERSION }),
     manageEnv: getNunjucksEnv
 };
