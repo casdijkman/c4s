@@ -27,7 +27,7 @@ SPDX-License-Identifier: GFDL-1.3-only
             {{ file.gzipSizePretty }}
         </td>
         {% if file.isModule %}
-            <td class="ph2 pv1">
+            <td class="ph2 pv1 nowrap">
                 <a
                     class="dib link dark-blue hover-underline ml3-between"
                     href="/docs/example.html#{{ file.name }}"
@@ -46,7 +46,7 @@ SPDX-License-Identifier: GFDL-1.3-only
             <a class="db link black tc" href="{{ file.file }}" download>
                 <span class="sr-only">Download</span>
                 <div class="svg-wrapper dib">
-                    {% include "docs/icons/download-outline.njk" %}
+                    {% include "docs/icons/ionicons/download-outline.svg" %}
                 </div>
             </a>
         </td>
@@ -139,7 +139,7 @@ SPDX-License-Identifier: GFDL-1.3-only
         <div class="overflow-x-auto">
             <table class="js-order-table collapse lh-text">
                 <tr class="stripe-light b">
-                    <th class="p2 cursor-pointer user-select-none" data-sort-name="reset"></th>
+                    <th class="p2-m cursor-pointer user-select-none" data-sort-name="reset"></th>
                     <th class="p2 cursor-pointer user-select-none">
                         Name
                     </th>
@@ -167,7 +167,7 @@ SPDX-License-Identifier: GFDL-1.3-only
         <div class="overflow-x-auto">
             <table class="js-order-table collapse lh-text">
                 <tr class="stripe-light b">
-                    <th class="p2 cursor-pointer user-select-none" data-sort-name="reset"></th>
+                    <th class="p2-m cursor-pointer user-select-none" data-sort-name="reset"></th>
                     <th class="p2 cursor-pointer user-select-none">
                         Name
                     </th>
@@ -191,4 +191,32 @@ SPDX-License-Identifier: GFDL-1.3-only
             </table>
         </div>
     </div>
+
+    <style>
+        .js-order-table th[data-sorted-by]::after {
+            display: inline-block;
+            margin: 0 5px;
+            transform: translateY(3px);
+        }
+
+        .js-order-table th[data-sorted-by][data-sorted-order=ascending]:not([data-sort-name=reset])::after {
+            {% set dataUrl = "docs/icons/bootstrap/sort-alpha-up.svg" | imageToDataString('svg+xml') %}
+            content: url("{{ dataUrl }}");
+        }
+
+        .js-order-table th[data-sorted-by][data-sorted-order=descending]:not([data-sort-name=reset])::after {
+            {% set dataUrl = "docs/icons/bootstrap/sort-alpha-down-alt.svg" | imageToDataString('svg+xml') %}
+            content: url("{{ dataUrl }}");
+        }
+
+        .js-order-table th[data-sorted-by][data-sorted-order=ascending][data-sort-name=number]::after {
+            {% set dataUrl = "docs/icons/bootstrap/sort-numeric-up.svg" | imageToDataString('svg+xml') %}
+            content: url("{{ dataUrl }}");
+        }
+
+        .js-order-table th[data-sorted-by][data-sorted-order=descending][data-sort-name=number]::after {
+            {% set dataUrl = "docs/icons/bootstrap/sort-numeric-down-alt.svg" | imageToDataString('svg+xml') %}
+            content: url("{{ dataUrl }}");
+        }
+    </style>
 {% endblock %}

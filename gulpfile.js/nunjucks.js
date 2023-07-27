@@ -128,6 +128,17 @@ function getNunjucksEnv(env) {
 
     env.addFilter('getRandomPartition', getRandomPartition);
 
+    env.addFilter('imageToDataString', (image, imageType = 'png') => {
+        if (!image) return '';
+        const imagePath = path.join(__dirname, '..', image);
+        if (!fs.existsSync(imagePath)) {
+            console.error('Could not find image', imagePath);
+            return;
+        }
+        const base64 = fs.readFileSync(imagePath).toString('base64');
+        return `data:image/${imageType};base64,${base64}`;
+    })
+
     return env;
 }
 
