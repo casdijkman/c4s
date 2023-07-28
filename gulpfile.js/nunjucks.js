@@ -41,6 +41,7 @@ const getCss = (filePath, name) => {
 };
 
 const files = glob.sync('dist/**/*.css')
+      .filter((x) => !path.basename(x).split('.')[0].endsWith('-responsive'))
       .map((filePath) => {
           const basename = path.basename(filePath);
           const name = basename.split('.')[0];

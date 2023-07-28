@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './float';
+@use '../load-modules';
 
-@include float.float;
+@include load-modules.load-modules(
+  ('float': false),
+  null
+);

@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './complex';
+@use '../load-modules';
 
-@include complex.complex;
+@include load-modules.load-modules(
+  ('complex': false),
+  null
+);

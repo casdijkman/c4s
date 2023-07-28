@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './overflow';
+@use '../load-modules';
 
-@include overflow.overflow;
+@include load-modules.load-modules(
+  ('overflow': false),
+  null
+);

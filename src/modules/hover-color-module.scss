@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './hover-color';
+@use '../load-modules';
 
-@include hover-color.hover-color;
+@include load-modules.load-modules(
+  ('hover-color': false),
+  null
+);

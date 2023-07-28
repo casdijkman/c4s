@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './box-sizing';
+@use '../load-modules';
 
-@include box-sizing.box-sizing;
+@include load-modules.load-modules(
+  ('box-sizing': false),
+  null
+);

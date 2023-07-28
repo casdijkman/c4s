@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './aspect-ratio';
+@use '../load-modules';
 
-@include aspect-ratio.aspect-ratio;
+@include load-modules.load-modules(
+  ('aspect-ratio': false),
+  null
+);

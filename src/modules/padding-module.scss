@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './padding';
+@use '../load-modules';
 
-@include padding.padding;
+@include load-modules.load-modules(
+  ('padding': false),
+  null
+);

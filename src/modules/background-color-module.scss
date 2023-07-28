@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './background-color';
+@use '../load-modules';
 
-@include background-color.background-color;
+@include load-modules.load-modules(
+  ('background-color': false),
+  null
+);

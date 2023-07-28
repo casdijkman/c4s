@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './background-repeat';
+@use '../load-modules';
 
-@include background-repeat.background-repeat;
+@include load-modules.load-modules(
+  ('background-repeat': false),
+  null
+);

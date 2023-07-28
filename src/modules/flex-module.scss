@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './flex';
+@use '../load-modules';
 
-@include flex.flex;
+@include load-modules.load-modules(
+  ('flex': false),
+  null
+);

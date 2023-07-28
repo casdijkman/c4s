@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './font-weight';
+@use '../load-modules';
 
-@include font-weight.font-weight;
+@include load-modules.load-modules(
+  ('font-weight': false),
+  null
+);

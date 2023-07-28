@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './margin';
+@use '../load-modules';
 
-@include margin.margin;
+@include load-modules.load-modules(
+  ('margin': false),
+  null
+);

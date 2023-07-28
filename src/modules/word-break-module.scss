@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './word-break';
+@use '../load-modules';
 
-@include word-break.word-break;
+@include load-modules.load-modules(
+  ('word-break': false),
+  null
+);

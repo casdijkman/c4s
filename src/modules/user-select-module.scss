@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './user-select';
+@use '../load-modules';
 
-@include user-select.user-select;
+@include load-modules.load-modules(
+  ('user-select': false),
+  null
+);

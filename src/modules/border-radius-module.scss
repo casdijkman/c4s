@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './border-radius';
+@use '../load-modules';
 
-@include border-radius.border-radius;
+@include load-modules.load-modules(
+  ('border-radius': false),
+  null
+);

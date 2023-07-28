@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './opacity';
+@use '../load-modules';
 
-@include opacity.opacity;
+@include load-modules.load-modules(
+  ('opacity': false),
+  null
+);

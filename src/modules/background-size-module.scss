@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './background-size';
+@use '../load-modules';
 
-@include background-size.background-size;
+@include load-modules.load-modules(
+  ('background-size': false),
+  null
+);

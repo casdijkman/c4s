@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './background-clip';
+@use '../load-modules';
 
-@include background-clip.background-clip;
+@include load-modules.load-modules(
+  ('background-clip': false),
+  null
+);

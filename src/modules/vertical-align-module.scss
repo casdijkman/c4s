@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './vertical-align';
+@use '../load-modules';
 
-@include vertical-align.vertical-align;
+@include load-modules.load-modules(
+  ('vertical-align': false),
+  null
+);

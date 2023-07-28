@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './grid';
+@use '../load-modules';
 
-@include grid.grid;
+@include load-modules.load-modules(
+  ('grid': false),
+  null
+);

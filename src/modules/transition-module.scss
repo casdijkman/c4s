@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './transition';
+@use '../load-modules';
 
-@include transition.transition;
+@include load-modules.load-modules(
+  ('transition': false),
+  null
+);

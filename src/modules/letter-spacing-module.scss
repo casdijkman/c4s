@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './letter-spacing';
+@use '../load-modules';
 
-@include letter-spacing.letter-spacing;
+@include load-modules.load-modules(
+  ('letter-spacing': false),
+  null
+);

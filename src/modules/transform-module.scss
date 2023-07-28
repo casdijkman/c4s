@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './transform';
+@use '../load-modules';
 
-@include transform.transform;
+@include load-modules.load-modules(
+  ('transform': false),
+  null
+);

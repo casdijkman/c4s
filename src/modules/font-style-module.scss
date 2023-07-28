@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './font-style';
+@use '../load-modules';
 
-@include font-style.font-style;
+@include load-modules.load-modules(
+  ('font-style': false),
+  null
+);

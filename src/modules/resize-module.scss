@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './resize';
+@use '../load-modules';
 
-@include resize.resize;
+@include load-modules.load-modules(
+  ('resize': false),
+  null
+);

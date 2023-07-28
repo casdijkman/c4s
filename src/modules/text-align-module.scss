@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './text-align';
+@use '../load-modules';
 
-@include text-align.text-align;
+@include load-modules.load-modules(
+  ('text-align': false),
+  null
+);

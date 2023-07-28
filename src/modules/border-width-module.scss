@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './border-width';
+@use '../load-modules';
 
-@include border-width.border-width;
+@include load-modules.load-modules(
+  ('border-width': false),
+  null
+);

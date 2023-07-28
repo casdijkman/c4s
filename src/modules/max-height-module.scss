@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './max-height';
+@use '../load-modules';
 
-@include max-height.max-height;
+@include load-modules.load-modules(
+  ('max-height': false),
+  null
+);

@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './background-attachment';
+@use '../load-modules';
 
-@include background-attachment.background-attachment;
+@include load-modules.load-modules(
+  ('background-attachment': false),
+  null
+);

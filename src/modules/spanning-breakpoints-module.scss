@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './spanning-breakpoints';
+@use '../load-modules';
 
-@include spanning-breakpoints.spanning-breakpoints;
+@include load-modules.load-modules(
+  ('spanning-breakpoints': false),
+  null
+);

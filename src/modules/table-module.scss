@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './table';
+@use '../load-modules';
 
-@include table.table;
+@include load-modules.load-modules(
+  ('table': false),
+  null
+);

@@ -14,30 +14,39 @@ if (__dirname !== process.cwd()) {
 const glob = require('glob');
 const fs = require('fs');
 const path = require('path');
+const modules = require('./module-list.json');
 
 const moduleFileSuffix = '-module';
+const moduleFile = (name, responsive = false) =>
+      `./modules/${name}${responsive ? '-responsive' : ''}${moduleFileSuffix}.scss`;
 
 glob.sync(`./modules/*${moduleFileSuffix}.scss`).forEach((file) => {
   fs.unlinkSync(file);
 });
 
-const moduleFileContent = (name) => `/*
+const moduleFileContent = (name, responsive = false) => `/*
  * SPDX-FileCopyrightText: 2021 Cas Dijkman
  *
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './${name}';
+@use '../load-modules';
 
-@include ${name}.${name};
+@include load-modules.load-modules(
+  ('${name}': ${responsive}),
+  null
+);
 `;
 
 glob.sync('./modules/_*.scss').forEach((file) => {
     const basename = path.basename(file);
     const basenameClean = basename.replace(/^_/, '');
     const moduleName = basenameClean.replace(/\.scss$/, '');
-    const newBasename = `${moduleName}${moduleFileSuffix}.scss`;
-    const moduleFile = `./modules/${newBasename}`;
 
-    fs.writeFileSync(moduleFile, moduleFileContent(moduleName));
+    fs.writeFileSync(moduleFile(moduleName), moduleFileContent(moduleName));
+
+    const module = modules.find((x) => x.name === moduleName);
+    if (!module || !module.responsiveAble) return;
+
+    fs.writeFileSync(moduleFile(moduleName, true), moduleFileContent(moduleName, true));
 });

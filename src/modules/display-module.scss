@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './display';
+@use '../load-modules';
 
-@include display.display;
+@include load-modules.load-modules(
+  ('display': false),
+  null
+);

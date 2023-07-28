@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './debug';
+@use '../load-modules';
 
-@include debug.debug;
+@include load-modules.load-modules(
+  ('debug': false),
+  null
+);

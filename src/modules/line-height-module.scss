@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './line-height';
+@use '../load-modules';
 
-@include line-height.line-height;
+@include load-modules.load-modules(
+  ('line-height': false),
+  null
+);

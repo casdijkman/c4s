@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './box-shadow';
+@use '../load-modules';
 
-@include box-shadow.box-shadow;
+@include load-modules.load-modules(
+  ('box-shadow': false),
+  null
+);

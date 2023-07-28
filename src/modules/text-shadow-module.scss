@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-@use './text-shadow';
+@use '../load-modules';
 
-@include text-shadow.text-shadow;
+@include load-modules.load-modules(
+  ('text-shadow': false),
+  null
+);
