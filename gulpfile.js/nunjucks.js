@@ -24,7 +24,7 @@ const getOrder = (file) => {
         if (file.isMinified) value += 0.5; // eslint-disable-line no-magic-numbers
         return value;
     } else if (file.isModule) {
-        const value = modules.indexOf(file.name);
+        const value = modules.map((x) => x.name).indexOf(file.name);
         if (value === -1) console.warn(`[nunjucks.js] Could not sort '${file.name}'`);
         return value;
     } else {
@@ -59,6 +59,14 @@ const files = glob.sync('dist/**/*.css')
               isCustom:       /-custom/.test(file)
           };
           object.order = getOrder(object);
+
+          if (object.isModule) {
+              const module = modules.find((x) => x.name === name);
+              object.isResponsive = module.isResponsive;
+              object.responsiveAble = module.responsiveAble;
+              object.isEnabled = module.isEnabled;
+          }
+
           return object;
       })
       .sort((a, b) => a.order - b.order);

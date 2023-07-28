@@ -13,7 +13,7 @@ const separator = '|';
 
 const filterModules = (filterArray) => {
     return filterArray.filter((module) => {
-        if (!modules.includes(module)) {
+        if (!modules.map((x) => x.name).includes(module)) {
             console.error('Could not find module', module);
             return false;
         }

@@ -1,1 +1,368 @@
-["complex", "reset", "miscellaneous", "color", "hover-color", "background-color", "hover-background-color", "background-attachment", "background-clip", "background-position", "background-size", "background-repeat", "object-fit", "user-select", "aspect-ratio", "border", "border-width", "border-color", "border-style", "font-family", "font-style", "resize", "text-decoration", "text-shadow", "text-transform", "word-break", "opacity", "transform", "transition", "visibility", "box-shadow", "box-sizing", "cursor", "z-index", "hover", "table", "spanning-breakpoints", "debug", "text-align", "padding", "margin", "width", "max-width", "height", "max-height", "position", "coordinates", "flex", "flex-direction", "grid", "display", "overflow", "float", "border-radius", "font-size", "line-height", "font-weight", "white-space", "vertical-align", "letter-spacing", "measure"]
+[
+  {
+    "name": "complex",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "reset",
+    "isResponsive": false,
+    "responsiveAble": false,
+    "isEnabled": true
+  },
+  {
+    "name": "miscellaneous",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "color",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "hover-color",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "background-color",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "hover-background-color",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "background-attachment",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "background-clip",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "background-position",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "background-size",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "background-repeat",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "object-fit",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "user-select",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "aspect-ratio",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "border",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "border-width",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "border-color",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "border-style",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "font-family",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "font-style",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "resize",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "text-decoration",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "text-shadow",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "text-transform",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "word-break",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "opacity",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "transform",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "transition",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "visibility",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "box-shadow",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "box-sizing",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "cursor",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "z-index",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "hover",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "table",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "spanning-breakpoints",
+    "isResponsive": false,
+    "responsiveAble": false,
+    "isEnabled": true
+  },
+  {
+    "name": "debug",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "text-align",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "padding",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "margin",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "width",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "max-width",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "height",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "max-height",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "position",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "coordinates",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "flex",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "flex-direction",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "grid",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "display",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "overflow",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "float",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "border-radius",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "font-size",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "line-height",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "font-weight",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "white-space",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "vertical-align",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "letter-spacing",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
+    "name": "measure",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  }
+]

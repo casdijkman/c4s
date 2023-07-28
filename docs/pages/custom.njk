@@ -27,9 +27,18 @@
                     <li class="flex items-center ph3 pv1 mt1-between ba br2"
                         draggable="true">
                         <label class="flex-grow-1 mr3">
-                            <input type="checkbox" name="{{ file.name }}" checked>
+                            <input type="checkbox" name="{{ file.name }}"
+                                {{ "checked" if file.isEnabled }}>
                             {{ file.name }}
                         </label>
+
+                        {% if file.responsiveAble %}
+                            <label class="mr3">
+                                <input type="checkbox" name="{{ file.name }}"
+                                    {{ "checked" if file.isResponsive }}>
+                                Responsive
+                            </label>
+                        {% endif %}
 
                         <div class="svg-wrapper">
                             {% include "docs/icons/bootstrap/grip-horizontal.svg" %}
