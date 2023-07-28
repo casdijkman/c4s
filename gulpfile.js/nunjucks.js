@@ -60,8 +60,8 @@ const files = glob.sync('dist/**/*.css')
           };
           object.order = getOrder(object);
 
-          if (object.isModule) {
-              const module = modules.find((x) => x.name === name);
+          const module = object.isModule && modules.find((x) => x.name === name);
+          if (object.isModule && module) {
               object.isResponsive = module.isResponsive;
               object.responsiveAble = module.responsiveAble;
               object.isEnabled = module.isEnabled;
