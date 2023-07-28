@@ -7,6 +7,8 @@
 import './header';
 import './scroll-top-button';
 import './order-table';
+import './reorder-list';
+import './custom-modules';
 import { setStickyHeight } from './sticky';
 import { breakpoints, matchMediaUp } from './helpers/breakpoints';
 import throttle from './helpers/throttle';

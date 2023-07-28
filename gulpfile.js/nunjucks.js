@@ -16,58 +16,52 @@ const modulesFilePath = path.join(process.cwd(), 'src/module-list.json');
 const modulesFile = fs.readFileSync(modulesFilePath, 'utf8');
 const modules = JSON.parse(modulesFile);
 
-const getMainOrder = (name) => {
-    const value = ['', 'base', 's', 'm', 'l', 'h', 'p', 'prefixed']
-          .indexOf(name.replace(/^c4s-?/, ''));
-    if (value === -1) console.warn(`[nunjucks.js] Could not sort main '${name}'`);
-    return value;
+const getOrder = (file) => {
+    if (file.isMain && !file.isCustom) {
+        let value = ['', 'base', 's', 'm', 'l', 'h', 'p', 'prefixed']
+              .indexOf(file.name.replace(/^c4s-?/, ''));
+        if (value === -1) console.warn(`[nunjucks.js] Could not sort '${file.name}'`);
+        if (file.isMinified) value += 0.5; // eslint-disable-line no-magic-numbers
+        return value;
+    } else if (file.isModule) {
+        const value = modules.indexOf(file.name);
+        if (value === -1) console.warn(`[nunjucks.js] Could not sort '${file.name}'`);
+        return value;
+    } else {
+        return Number.POSITIVE_INFINITY;
+    }
 };
 
-const getModuleOrder = (name) => {
-    const value = modules.indexOf(name);
-    if (value === -1) console.warn(`[nunjucks.js] Could not sort module '${name}'`);
-    return value;
+const getCss = (filePath, name) => {
+    const css = cssLib.parse(fs.readFileSync(filePath, 'utf8'));
+    // Remove comments from rules array
+    css.stylesheet.rules = css.stylesheet.rules.filter((x) => x.type === 'rule');
+    if (css.stylesheet.rules.length === 0) console.warn('File has no rules:', name);
+    return css;
 };
 
 const files = glob.sync('dist/**/*.css')
-      .map((file) => {
-          const basename = path.basename(file);
+      .map((filePath) => {
+          const basename = path.basename(filePath);
           const name = basename.split('.')[0];
-          const fileClean = file.replace(/^dist/, '');
-          const css = cssLib.parse(fs.readFileSync(file, 'utf8'));
-          const size = fs.statSync(file).size;
-          const gzipSize = fs.statSync(`${file}.gz`).size;
-          const isMain = /^\/c4s/.test(fileClean);
-          const isModule = /^\/modules\//.test(fileClean);
-          const isCustom = /-custom/.test(fileClean);
-
-          // Remove comments from rules array
-          css.stylesheet.rules = css.stylesheet.rules.filter((x) => x.type === 'rule');
-
-          if (css.stylesheet.rules.length === 0) {
-              console.warn('File has no rules:', name);
-              return;
-          }
-
-          return {
-              name,
-              basename,
-              file:           fileClean,
-              isMain,
-              isModule,
-              isMinified:     /\.min\.css$/.test(fileClean),
-              isRaw:          /\.raw\.css$/.test(fileClean),
-              isCustom,
-              size,
+          const file = filePath.replace(/^dist/, '');
+          const size = fs.statSync(filePath).size;
+          const gzipSize = fs.statSync(`${filePath}.gz`).size;
+          const object = {
+              basename, name, file, size, gzipSize,
+              css:            getCss(filePath, name),
               sizePretty:     prettyBytes(size),
-              gzipSize,
               gzipSizePretty: prettyBytes(gzipSize),
-              css,
-              ...isMain && !isCustom && { order: getMainOrder(name) },
-              ...isModule && { order: getModuleOrder(name) }
+              isMain:         /^\/c4s/.test(file),
+              isModule:       /^\/modules\//.test(file),
+              isMinified:     /\.min\.css$/.test(file),
+              isRaw:          /\.raw\.css$/.test(file),
+              isCustom:       /-custom/.test(file)
           };
+          object.order = getOrder(object);
+          return object;
       })
-      .sort((a, b) => a.order && b.order ? a.order - b.order : 0);
+      .sort((a, b) => a.order - b.order);
 
 function getNunjucksEnv(env) {
     const getClassFromSelector = (selector) => {
@@ -137,7 +131,7 @@ function getNunjucksEnv(env) {
         }
         const base64 = fs.readFileSync(imagePath).toString('base64');
         return `data:image/${imageType};base64,${base64}`;
-    })
+    });
 
     return env;
 }

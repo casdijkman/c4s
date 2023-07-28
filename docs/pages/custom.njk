@@ -1,0 +1,74 @@
+{#
+    SPDX-FileCopyrightText: 2021 Cas Dijkman
+
+    SPDX-License-Identifier: GFDL-1.3-only
+    #}
+
+{% extends "docs/layouts/default.njk" %}
+
+{% set description = "Create your own C4S" %}
+
+{% block content %}
+    <div class="container ph3 mv3">
+        <form class="js-custom-modules-form measure" style="display: none;">
+            <h2>Custom C4S stylesheet</h2>
+
+            <p>Select which modules you want and in what order</p>
+            <ul>
+                <li>Order modules by dragging them</li>
+                <li>Disable modules by unchecking that modules checkbox</li>
+                <li>When finished, click the button at the bottom of the page</li>
+            </ul>
+
+            <h3>Modules</h3>
+
+            <ul class="js-reorder-list list-reset mv3">
+                {% for file in files | rejectattr('isMinified') | rejectattr('isRaw') | selectattr('isModule') %}
+                    <li class="flex items-center ph3 pv1 mt1-between ba br2"
+                        draggable="true">
+                        <label class="flex-grow-1 mr3">
+                            <input type="checkbox" name="{{ file.name }}" checked>
+                            {{ file.name }}
+                        </label>
+
+                        <div class="svg-wrapper">
+                            {% include "docs/icons/bootstrap/grip-horizontal.svg" %}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <input
+                class="button-reset dib bg-dark-blue br-pill grow ph4 pv3 white cursor-pointer"
+                type="submit"
+                value="Generate custom C4S stylesheet">
+        </form>
+
+        <div class="js-custom-modules-output" style="display: none;">
+            Generating custom modules
+        </div>
+    </div>
+
+    <style>
+        .js-reorder-list [data-cursor] {
+            position: relative;
+        }
+
+        .js-reorder-list [data-cursor]::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: .25rem;
+            background-color: black;
+        }
+
+        .js-reorder-list [data-cursor=before]::after {
+            bottom: calc(100% + 1px);
+        }
+
+        .js-reorder-list [data-cursor=after]::after {
+            top: calc(100% + 1px);
+        }
+    </style>
+{% endblock %}

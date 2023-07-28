@@ -18,6 +18,7 @@ bootstrap_icons=(
     sort-alpha-up
     sort-numeric-down-alt
     sort-numeric-up
+    grip-horizontal
 )
 
 # https://ionic.io/ionicons
