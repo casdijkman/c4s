@@ -8,10 +8,13 @@ import { header, preventOpenHeader } from './header';
 import { setStickyHeight } from './sticky';
 import { debug, debugLog } from './helpers/constants';
 
+const closeExamples = document.querySelector('.js-close-examples');
+
 function openExample(data) {
     const { target, details } = data;
     if (details) details.open = true;
     if (target) target.scrollIntoView();
+    if (closeExamples) closeExamples.style.display = 'block';
 }
 
 function updateLinks(data, setActive = true) {
@@ -93,6 +96,11 @@ function initialize() {
         updateLinks(data);
         openExample(data);
     }
+
+    closeExamples && closeExamples.addEventListener('click', () => {
+        document.querySelectorAll('details').forEach((x) => { x.open = false; });
+        if (closeExamples) closeExamples.style.display = 'none';
+    });
 
     if (debug) debugExamples();
 }

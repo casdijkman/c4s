@@ -10,7 +10,7 @@ SPDX-License-Identifier: GFDL-1.3-only
 
 {% macro renderFileRow(file, index) %}
     <tr class="stripe-light" data-original-order="{{ index }}">
-        <th></th>
+        <td></td>
         <td class="ph2 pv1">
             <a class="link dark-blue hover-underline" href="{{ file.file }}">
                 {{ file.name }}
@@ -30,13 +30,13 @@ SPDX-License-Identifier: GFDL-1.3-only
             <td class="ph2 pv1 nowrap">
                 <a
                     class="dib link dark-blue hover-underline ml3-between"
-                    href="/docs/example.html#{{ file.name }}"
+                    href="/example.html#{{ file.name }}"
                     title="See examples for {{ file.name }}">
                     Examples
                 </a>
                 <a
                     class="dib link dark-blue hover-underline ml3-between"
-                    href="/docs/list.html#{{ file.name }}"
+                    href="/list.html#{{ file.name }}"
                     title="See list of CSS rules">
                     Rules
                 </a>
@@ -106,11 +106,11 @@ SPDX-License-Identifier: GFDL-1.3-only
             Documentation
         </h2>
 
-        <a href="/docs/example.html" class="db link dark-blue hover-underline ph3 pv2">
+        <a href="/example.html" class="db link dark-blue hover-underline ph3 pv2">
             Examples
         </a>
 
-        <a href="/docs/list.html" class="db dark-blue link hover-underline ph3 pv2">
+        <a href="/list.html" class="db dark-blue link hover-underline ph3 pv2">
             List of rules
         </a>
 
@@ -139,17 +139,17 @@ SPDX-License-Identifier: GFDL-1.3-only
         <div class="overflow-x-auto">
             <table class="js-order-table collapse lh-text">
                 <tr class="stripe-light b">
-                    <th class="p2-m cursor-pointer user-select-none" data-sort-name="reset"></th>
-                    <th class="p2 cursor-pointer user-select-none">
+                    <th class="p2-m cursor-pointer user-select-none tl" data-sort-name="reset"></th>
+                    <th class="p2 cursor-pointer user-select-none tl">
                         Name
                     </th>
-                    <th class="p2 cursor-pointer user-select-none" data-sort-name="number">
+                    <th class="p2 cursor-pointer user-select-none tl" data-sort-name="number">
                         Size
                     </th>
-                    <th class="p2 cursor-pointer user-select-none" data-sort-name="number">
+                    <th class="p2 cursor-pointer user-select-none tl" data-sort-name="number">
                         Size gzip
                     </th>
-                    <th class="p2 user-select-none" data-sort-name="none">
+                    <th class="p2 user-select-none tl" data-sort-name="none">
                         Download
                     </th>
                 </tr>
@@ -167,20 +167,20 @@ SPDX-License-Identifier: GFDL-1.3-only
         <div class="overflow-x-auto">
             <table class="js-order-table collapse lh-text">
                 <tr class="stripe-light b">
-                    <th class="p2-m cursor-pointer user-select-none" data-sort-name="reset"></th>
-                    <th class="p2 cursor-pointer user-select-none">
+                    <th class="p2-m cursor-pointer user-select-none tl" data-sort-name="reset"></th>
+                    <th class="p2 cursor-pointer user-select-none tl">
                         Name
                     </th>
-                    <th class="p2 cursor-pointer user-select-none" data-sort-name="number">
+                    <th class="p2 cursor-pointer user-select-none tl" data-sort-name="number">
                         Size
                     </th>
-                    <th class="p2 cursor-pointer user-select-none" data-sort-name="number">
+                    <th class="p2 cursor-pointer user-select-none tl" data-sort-name="number">
                         Size gzip
                     </th>
-                    <th class="p2 user-select-none" data-sort-name="none">
+                    <th class="p2 user-select-none tl" data-sort-name="none">
                         Documentation
                     </th>
-                    <th class="p2 user-select-none" data-sort-name="none">
+                    <th class="p2 user-select-none tl" data-sort-name="none">
                         Download
                     </th>
                 </tr>
@@ -193,18 +193,26 @@ SPDX-License-Identifier: GFDL-1.3-only
     </div>
 
     <style>
-        .js-order-table th[data-sorted-by]::after {
+        .js-order-table th::after {
+            {% set dataUrl = "docs/icons/bootstrap/sort-alpha-up.svg" | imageToDataString('svg+xml') %}
+            content: url("{{ dataUrl }}");
             display: inline-block;
+            width: 1rem;
             margin: 0 5px;
             transform: translateY(3px);
+            visibility: hidden;
         }
 
-        .js-order-table th[data-sorted-by][data-sorted-order=ascending]:not([data-sort-name=reset])::after {
+        .js-order-table th[data-sorted-by][data-sorted-order]::after {
+            visibility: visible;
+        }
+
+        .js-order-table th[data-sorted-by][data-sorted-order=ascending]::after {
             {% set dataUrl = "docs/icons/bootstrap/sort-alpha-up.svg" | imageToDataString('svg+xml') %}
             content: url("{{ dataUrl }}");
         }
 
-        .js-order-table th[data-sorted-by][data-sorted-order=descending]:not([data-sort-name=reset])::after {
+        .js-order-table th[data-sorted-by][data-sorted-order=descending]::after {
             {% set dataUrl = "docs/icons/bootstrap/sort-alpha-down-alt.svg" | imageToDataString('svg+xml') %}
             content: url("{{ dataUrl }}");
         }
@@ -217,6 +225,17 @@ SPDX-License-Identifier: GFDL-1.3-only
         .js-order-table th[data-sorted-by][data-sorted-order=descending][data-sort-name=number]::after {
             {% set dataUrl = "docs/icons/bootstrap/sort-numeric-down-alt.svg" | imageToDataString('svg+xml') %}
             content: url("{{ dataUrl }}");
+        }
+
+        .js-order-table th[data-sort-name=reset]::after,
+        .js-order-table th[data-sort-name=none]::after {
+            content: unset;
+        }
+
+        .js-order-table[data-sorted] th[data-sort-name=reset]::after {
+            {% set dataUrl = "docs/icons/ionicons/refresh-outline.svg" | imageToDataString('svg+xml') %}
+            content: url("{{ dataUrl }}");
+            visibility: visible;
         }
     </style>
 {% endblock %}

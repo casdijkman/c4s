@@ -29,7 +29,7 @@ const sortRows = (rows, name, order, columnNumber) => {
             return element.dataset.value || element.innerText;
         }
     }));
-    if (order === sortOrders[1]) sortedRows.reverse();
+    if (name !== 'reset' && order === sortOrders[1]) sortedRows.reverse();
     return sortedRows;
 };
 
@@ -45,13 +45,14 @@ function handleSortTableHead() {
     const columnNumber = Array.from(this.parentElement.children).indexOf(this) + 1;
 
     sortRows(rows, name, order, columnNumber).forEach((row) => table.appendChild(row));
-
     tableHeadsFromElement(table).forEach((th) => {
         delete th.dataset.sortedBy;
         delete th.dataset.sortedOrder;
     });
+    if (name === 'reset') return delete table.dataset.sorted;
     this.dataset.sortedBy = true;
     this.dataset.sortedOrder = order;
+    table.dataset.sorted = true;
 }
 
 tableHeadsFromElement(document).forEach(
