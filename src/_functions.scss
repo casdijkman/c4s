@@ -79,13 +79,15 @@
   $list: remove-values-from-list($list, null);
   $dash-separated-string: '';
 
-  @each $item in $list {
+  @for $i from 1 through list.length($list) {
+    $item: list.nth($list, $i);
+
     @if meta.type-of($item) != string {
       @error 'Unexpected value, not a string ' + $item;
-    } @else if list.index($list, $item) == list.length($list) {
-      $dash-separated-string: $dash-separated-string + $item;
-    } @else {
+    } @else if $i != list.length($list) {
       $dash-separated-string: $dash-separated-string + $item + '-';
+    } @else {
+      $dash-separated-string: $dash-separated-string + $item;
     }
   }
 

@@ -5,7 +5,7 @@
 'use strict';
 
 const { src, dest, watch, series, parallel } = require('gulp');
-const { getNunjucksData, manageEnv } = require('./nunjucks');
+const { getNunjucksData, getNunjucksEnv } = require('./nunjucks');
 const sass = require('gulp-sass')(require('sass'));
 sass.compiler = require('sass');
 const postcss = require('gulp-postcss');
@@ -83,7 +83,7 @@ function compileSass() {
 function compileNunjucks() {
     return src(globs.src.nunjucks)
         .pipe(data(getNunjucksData()))
-        .pipe(nunjucksRender({ manageEnv }))
+        .pipe(nunjucksRender({ manageEnv: getNunjucksEnv }))
         .pipe(htmlmin({
             removeComments: true,
             collapseWhitespace: true
@@ -141,7 +141,7 @@ function serve() {
 }
 
 const build = series(
-    clean, runUpdateScripts, series(copyStaticFiles, compileSass, compileJavascript),
+    clean, runUpdateScripts, parallel(copyStaticFiles, compileSass, compileJavascript),
     gzipDist, compileNunjucks
 );
 

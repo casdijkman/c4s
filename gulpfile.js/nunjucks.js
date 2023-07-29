@@ -147,5 +147,5 @@ function getNunjucksEnv(env) {
 
 module.exports = {
     getNunjucksData: () => ({ files, VERSION }),
-    manageEnv: getNunjucksEnv
+    getNunjucksEnv
 };
