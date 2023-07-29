@@ -16,6 +16,12 @@ function get_ionicons_url() {
     echo "https://unpkg.com/ionicons@latest/dist/svg/${1}.svg"
 }
 
+force=false
+case $1 in
+    -f|-force) force=true;;
+esac
+shift
+
 # https://icons.getbootstrap.com/
 bootstrap_icons=(
     sort-alpha-down-alt
@@ -30,6 +36,7 @@ ionicons_icons=(
     arrow-up-outline
     download-outline
     logo-github
+    refresh-outline
 )
 
 for icon in "${bootstrap_icons[@]}"; do
@@ -37,6 +44,8 @@ for icon in "${bootstrap_icons[@]}"; do
     directory=bootstrap
     mkdir -p "$directory"
     out_file="${directory}/${icon}.svg"
+
+    [[ -f "$out_file" ]] && ! $force && continue
     echo "Getting $out_file"
     curl -L "$url" >"$out_file"
 done
@@ -46,6 +55,8 @@ for icon in "${ionicons_icons[@]}"; do
     directory=ionicons
     mkdir -p "$directory"
     out_file="${directory}/${icon}.svg"
+
+    [[ -f "$out_file" ]] && ! $force && continue
     echo "Getting $out_file"
     curl -L "$url" >"$out_file"
 done
