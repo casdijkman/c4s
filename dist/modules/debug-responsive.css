@@ -1,0 +1,253 @@
+/*!
+ * C4S CSS, version 0.4.12 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+.debug-grid {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFElEQVR4AWPAC97/9x0eCsAEPgwAVLshdpENIxcAAAAASUVORK5CYII=)
+    top left;
+}
+.debug-grid-16 {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMklEQVR4AWOgCLz/b0epAa6UGuBOqQHOQHLUgFEDnAbcBZ4UGwDOkiCnkIhdgNgNxAYAiYlD+8sEuo8AAAAASUVORK5CYII=)
+    top left;
+}
+.debug-grid-solid-8 {
+  background: #fff
+    url(data:image/gif;base64,R0lGODdhCAAIAPEAAADw/wDx/////wAAACwAAAAACAAIAAACDZQvgaeb/lxbAIKA8y0AOw==)
+    top left;
+}
+.debug-grid-solid-16 {
+  background: #fff
+    url(data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/xXy/////ywAAAAAEAAQAAACIZyPKckYDQFsb6ZqD85jZ2+BkwiRFKehhqQCQgDHcgwEBQA7)
+    top left;
+}
+.debug-outlines * {
+  outline: 1px solid gold;
+}
+.debug-striped {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(0, 0, 0, 0.025),
+    rgba(0, 0, 0, 0.025) 10px,
+    rgba(0, 0, 0, 0.05) 10px,
+    rgba(0, 0, 0, 0.05) 20px
+  );
+}
+.debug-striped-light {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(0, 0, 0, 0.025),
+    rgba(0, 0, 0, 0.025) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+.debug-striped-black {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #000,
+    #000 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+@media only screen and (min-width: 30em) {
+  .debug-grid-s {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFElEQVR4AWPAC97/9x0eCsAEPgwAVLshdpENIxcAAAAASUVORK5CYII=)
+      top left;
+  }
+  .debug-grid-16-s {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMklEQVR4AWOgCLz/b0epAa6UGuBOqQHOQHLUgFEDnAbcBZ4UGwDOkiCnkIhdgNgNxAYAiYlD+8sEuo8AAAAASUVORK5CYII=)
+      top left;
+  }
+  .debug-grid-solid-8-s {
+    background: #fff
+      url(data:image/gif;base64,R0lGODdhCAAIAPEAAADw/wDx/////wAAACwAAAAACAAIAAACDZQvgaeb/lxbAIKA8y0AOw==)
+      top left;
+  }
+  .debug-grid-solid-16-s {
+    background: #fff
+      url(data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/xXy/////ywAAAAAEAAQAAACIZyPKckYDQFsb6ZqD85jZ2+BkwiRFKehhqQCQgDHcgwEBQA7)
+      top left;
+  }
+  .debug-outlines * {
+    outline: 1px solid gold;
+  }
+  .debug-striped-s {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(0, 0, 0, 0.025),
+      rgba(0, 0, 0, 0.025) 10px,
+      rgba(0, 0, 0, 0.05) 10px,
+      rgba(0, 0, 0, 0.05) 20px
+    );
+  }
+  .debug-striped-light-s {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(0, 0, 0, 0.025),
+      rgba(0, 0, 0, 0.025) 10px,
+      transparent 10px,
+      transparent 20px
+    );
+  }
+  .debug-striped-black-s {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      #000,
+      #000 10px,
+      transparent 10px,
+      transparent 20px
+    );
+  }
+}
+@media only screen and (min-width: 40em) {
+  .debug-grid-m {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFElEQVR4AWPAC97/9x0eCsAEPgwAVLshdpENIxcAAAAASUVORK5CYII=)
+      top left;
+  }
+  .debug-grid-16-m {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMklEQVR4AWOgCLz/b0epAa6UGuBOqQHOQHLUgFEDnAbcBZ4UGwDOkiCnkIhdgNgNxAYAiYlD+8sEuo8AAAAASUVORK5CYII=)
+      top left;
+  }
+  .debug-grid-solid-8-m {
+    background: #fff
+      url(data:image/gif;base64,R0lGODdhCAAIAPEAAADw/wDx/////wAAACwAAAAACAAIAAACDZQvgaeb/lxbAIKA8y0AOw==)
+      top left;
+  }
+  .debug-grid-solid-16-m {
+    background: #fff
+      url(data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/xXy/////ywAAAAAEAAQAAACIZyPKckYDQFsb6ZqD85jZ2+BkwiRFKehhqQCQgDHcgwEBQA7)
+      top left;
+  }
+  .debug-outlines * {
+    outline: 1px solid gold;
+  }
+  .debug-striped-m {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(0, 0, 0, 0.025),
+      rgba(0, 0, 0, 0.025) 10px,
+      rgba(0, 0, 0, 0.05) 10px,
+      rgba(0, 0, 0, 0.05) 20px
+    );
+  }
+  .debug-striped-light-m {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(0, 0, 0, 0.025),
+      rgba(0, 0, 0, 0.025) 10px,
+      transparent 10px,
+      transparent 20px
+    );
+  }
+  .debug-striped-black-m {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      #000,
+      #000 10px,
+      transparent 10px,
+      transparent 20px
+    );
+  }
+}
+@media only screen and (min-width: 60em) {
+  .debug-grid-l {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFElEQVR4AWPAC97/9x0eCsAEPgwAVLshdpENIxcAAAAASUVORK5CYII=)
+      top left;
+  }
+  .debug-grid-16-l {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMklEQVR4AWOgCLz/b0epAa6UGuBOqQHOQHLUgFEDnAbcBZ4UGwDOkiCnkIhdgNgNxAYAiYlD+8sEuo8AAAAASUVORK5CYII=)
+      top left;
+  }
+  .debug-grid-solid-8-l {
+    background: #fff
+      url(data:image/gif;base64,R0lGODdhCAAIAPEAAADw/wDx/////wAAACwAAAAACAAIAAACDZQvgaeb/lxbAIKA8y0AOw==)
+      top left;
+  }
+  .debug-grid-solid-16-l {
+    background: #fff
+      url(data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/xXy/////ywAAAAAEAAQAAACIZyPKckYDQFsb6ZqD85jZ2+BkwiRFKehhqQCQgDHcgwEBQA7)
+      top left;
+  }
+  .debug-outlines * {
+    outline: 1px solid gold;
+  }
+  .debug-striped-l {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(0, 0, 0, 0.025),
+      rgba(0, 0, 0, 0.025) 10px,
+      rgba(0, 0, 0, 0.05) 10px,
+      rgba(0, 0, 0, 0.05) 20px
+    );
+  }
+  .debug-striped-light-l {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(0, 0, 0, 0.025),
+      rgba(0, 0, 0, 0.025) 10px,
+      transparent 10px,
+      transparent 20px
+    );
+  }
+  .debug-striped-black-l {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      #000,
+      #000 10px,
+      transparent 10px,
+      transparent 20px
+    );
+  }
+}
+@media only screen and (min-width: 90em) {
+  .debug-grid-h {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFElEQVR4AWPAC97/9x0eCsAEPgwAVLshdpENIxcAAAAASUVORK5CYII=)
+      top left;
+  }
+  .debug-grid-16-h {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMklEQVR4AWOgCLz/b0epAa6UGuBOqQHOQHLUgFEDnAbcBZ4UGwDOkiCnkIhdgNgNxAYAiYlD+8sEuo8AAAAASUVORK5CYII=)
+      top left;
+  }
+  .debug-grid-solid-8-h {
+    background: #fff
+      url(data:image/gif;base64,R0lGODdhCAAIAPEAAADw/wDx/////wAAACwAAAAACAAIAAACDZQvgaeb/lxbAIKA8y0AOw==)
+      top left;
+  }
+  .debug-grid-solid-16-h {
+    background: #fff
+      url(data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/xXy/////ywAAAAAEAAQAAACIZyPKckYDQFsb6ZqD85jZ2+BkwiRFKehhqQCQgDHcgwEBQA7)
+      top left;
+  }
+  .debug-outlines * {
+    outline: 1px solid gold;
+  }
+  .debug-striped-h {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(0, 0, 0, 0.025),
+      rgba(0, 0, 0, 0.025) 10px,
+      rgba(0, 0, 0, 0.05) 10px,
+      rgba(0, 0, 0, 0.05) 20px
+    );
+  }
+  .debug-striped-light-h {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(0, 0, 0, 0.025),
+      rgba(0, 0, 0, 0.025) 10px,
+      transparent 10px,
+      transparent 20px
+    );
+  }
+  .debug-striped-black-h {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      #000,
+      #000 10px,
+      transparent 10px,
+      transparent 20px
+    );
+  }
+}

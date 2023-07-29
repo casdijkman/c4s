@@ -1,0 +1,43 @@
+/*!
+ * C4S CSS, version 0.4.12 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+.border-box {
+  box-sizing: border-box;
+}
+.content-box {
+  box-sizing: content-box;
+}
+@media only screen and (min-width: 30em) {
+  .border-box-s {
+    box-sizing: border-box;
+  }
+  .content-box-s {
+    box-sizing: content-box;
+  }
+}
+@media only screen and (min-width: 40em) {
+  .border-box-m {
+    box-sizing: border-box;
+  }
+  .content-box-m {
+    box-sizing: content-box;
+  }
+}
+@media only screen and (min-width: 60em) {
+  .border-box-l {
+    box-sizing: border-box;
+  }
+  .content-box-l {
+    box-sizing: content-box;
+  }
+}
+@media only screen and (min-width: 90em) {
+  .border-box-h {
+    box-sizing: border-box;
+  }
+  .content-box-h {
+    box-sizing: content-box;
+  }
+}

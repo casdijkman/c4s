@@ -1,0 +1,58 @@
+/*!
+ * C4S CSS, version 0.4.12 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+.measure-narrow {
+  max-width: 20em;
+}
+.measure {
+  max-width: 30em;
+}
+.measure-wide {
+  max-width: 34em;
+}
+@media only screen and (min-width: 30em) {
+  .measure-narrow-s {
+    max-width: 20em;
+  }
+  .measure-s {
+    max-width: 30em;
+  }
+  .measure-wide-s {
+    max-width: 34em;
+  }
+}
+@media only screen and (min-width: 40em) {
+  .measure-narrow-m {
+    max-width: 20em;
+  }
+  .measure-m {
+    max-width: 30em;
+  }
+  .measure-wide-m {
+    max-width: 34em;
+  }
+}
+@media only screen and (min-width: 60em) {
+  .measure-narrow-l {
+    max-width: 20em;
+  }
+  .measure-l {
+    max-width: 30em;
+  }
+  .measure-wide-l {
+    max-width: 34em;
+  }
+}
+@media only screen and (min-width: 90em) {
+  .measure-narrow-h {
+    max-width: 20em;
+  }
+  .measure-h {
+    max-width: 30em;
+  }
+  .measure-wide-h {
+    max-width: 34em;
+  }
+}

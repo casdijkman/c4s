@@ -1,0 +1,6 @@
+/*!
+ * C4S CSS, version 0.4.12 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+.underline{text-decoration:underline}.line-through,.strike{text-decoration:line-through}.no-underline{text-decoration:none}@media only screen and (min-width:30em){.underline-s{text-decoration:underline}.line-through-s,.strike-s{text-decoration:line-through}.no-underline-s{text-decoration:none}}@media only screen and (min-width:40em){.underline-m{text-decoration:underline}.line-through-m,.strike-m{text-decoration:line-through}.no-underline-m{text-decoration:none}}@media only screen and (min-width:60em){.underline-l{text-decoration:underline}.line-through-l,.strike-l{text-decoration:line-through}.no-underline-l{text-decoration:none}}@media only screen and (min-width:90em){.underline-h{text-decoration:underline}.line-through-h,.strike-h{text-decoration:line-through}.no-underline-h{text-decoration:none}}

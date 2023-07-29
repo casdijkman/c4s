@@ -1,0 +1,58 @@
+/*!
+ * C4S CSS, version 0.4.12 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+.resize {
+  resize: both;
+}
+.resize-h {
+  resize: horizontal;
+}
+.resize-v {
+  resize: vertical;
+}
+@media only screen and (min-width: 30em) {
+  .resize-s {
+    resize: both;
+  }
+  .resize-h-s {
+    resize: horizontal;
+  }
+  .resize-v-s {
+    resize: vertical;
+  }
+}
+@media only screen and (min-width: 40em) {
+  .resize-m {
+    resize: both;
+  }
+  .resize-h-m {
+    resize: horizontal;
+  }
+  .resize-v-m {
+    resize: vertical;
+  }
+}
+@media only screen and (min-width: 60em) {
+  .resize-l {
+    resize: both;
+  }
+  .resize-h-l {
+    resize: horizontal;
+  }
+  .resize-v-l {
+    resize: vertical;
+  }
+}
+@media only screen and (min-width: 90em) {
+  .resize-h {
+    resize: both;
+  }
+  .resize-h-h {
+    resize: horizontal;
+  }
+  .resize-v-h {
+    resize: vertical;
+  }
+}

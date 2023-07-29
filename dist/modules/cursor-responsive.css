@@ -1,0 +1,103 @@
+/*!
+ * C4S CSS, version 0.4.12 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+.cursor-pointer {
+  cursor: pointer;
+}
+.cursor-text {
+  cursor: text;
+}
+.cursor-none {
+  cursor: none;
+}
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+.cursor-progress {
+  cursor: progress;
+}
+.cursor-wait {
+  cursor: wait;
+}
+@media only screen and (min-width: 30em) {
+  .cursor-pointer-s {
+    cursor: pointer;
+  }
+  .cursor-text-s {
+    cursor: text;
+  }
+  .cursor-none-s {
+    cursor: none;
+  }
+  .cursor-not-allowed-s {
+    cursor: not-allowed;
+  }
+  .cursor-progress-s {
+    cursor: progress;
+  }
+  .cursor-wait-s {
+    cursor: wait;
+  }
+}
+@media only screen and (min-width: 40em) {
+  .cursor-pointer-m {
+    cursor: pointer;
+  }
+  .cursor-text-m {
+    cursor: text;
+  }
+  .cursor-none-m {
+    cursor: none;
+  }
+  .cursor-not-allowed-m {
+    cursor: not-allowed;
+  }
+  .cursor-progress-m {
+    cursor: progress;
+  }
+  .cursor-wait-m {
+    cursor: wait;
+  }
+}
+@media only screen and (min-width: 60em) {
+  .cursor-pointer-l {
+    cursor: pointer;
+  }
+  .cursor-text-l {
+    cursor: text;
+  }
+  .cursor-none-l {
+    cursor: none;
+  }
+  .cursor-not-allowed-l {
+    cursor: not-allowed;
+  }
+  .cursor-progress-l {
+    cursor: progress;
+  }
+  .cursor-wait-l {
+    cursor: wait;
+  }
+}
+@media only screen and (min-width: 90em) {
+  .cursor-pointer-h {
+    cursor: pointer;
+  }
+  .cursor-text-h {
+    cursor: text;
+  }
+  .cursor-none-h {
+    cursor: none;
+  }
+  .cursor-not-allowed-h {
+    cursor: not-allowed;
+  }
+  .cursor-progress-h {
+    cursor: progress;
+  }
+  .cursor-wait-h {
+    cursor: wait;
+  }
+}

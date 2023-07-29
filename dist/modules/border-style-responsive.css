@@ -1,0 +1,133 @@
+/*!
+ * C4S CSS, version 0.4.12 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+.b--solid {
+  border-style: solid;
+}
+.b--dotted {
+  border-style: dotted;
+}
+.b--dashed {
+  border-style: dashed;
+}
+.b--double {
+  border-style: double;
+}
+.b--groove {
+  border-style: groove;
+}
+.b--ridge {
+  border-style: ridge;
+}
+.b--inset {
+  border-style: inset;
+}
+.b--outset {
+  border-style: outset;
+}
+@media only screen and (min-width: 30em) {
+  .b--solid-s {
+    border-style: solid;
+  }
+  .b--dotted-s {
+    border-style: dotted;
+  }
+  .b--dashed-s {
+    border-style: dashed;
+  }
+  .b--double-s {
+    border-style: double;
+  }
+  .b--groove-s {
+    border-style: groove;
+  }
+  .b--ridge-s {
+    border-style: ridge;
+  }
+  .b--inset-s {
+    border-style: inset;
+  }
+  .b--outset-s {
+    border-style: outset;
+  }
+}
+@media only screen and (min-width: 40em) {
+  .b--solid-m {
+    border-style: solid;
+  }
+  .b--dotted-m {
+    border-style: dotted;
+  }
+  .b--dashed-m {
+    border-style: dashed;
+  }
+  .b--double-m {
+    border-style: double;
+  }
+  .b--groove-m {
+    border-style: groove;
+  }
+  .b--ridge-m {
+    border-style: ridge;
+  }
+  .b--inset-m {
+    border-style: inset;
+  }
+  .b--outset-m {
+    border-style: outset;
+  }
+}
+@media only screen and (min-width: 60em) {
+  .b--solid-l {
+    border-style: solid;
+  }
+  .b--dotted-l {
+    border-style: dotted;
+  }
+  .b--dashed-l {
+    border-style: dashed;
+  }
+  .b--double-l {
+    border-style: double;
+  }
+  .b--groove-l {
+    border-style: groove;
+  }
+  .b--ridge-l {
+    border-style: ridge;
+  }
+  .b--inset-l {
+    border-style: inset;
+  }
+  .b--outset-l {
+    border-style: outset;
+  }
+}
+@media only screen and (min-width: 90em) {
+  .b--solid-h {
+    border-style: solid;
+  }
+  .b--dotted-h {
+    border-style: dotted;
+  }
+  .b--dashed-h {
+    border-style: dashed;
+  }
+  .b--double-h {
+    border-style: double;
+  }
+  .b--groove-h {
+    border-style: groove;
+  }
+  .b--ridge-h {
+    border-style: ridge;
+  }
+  .b--inset-h {
+    border-style: inset;
+  }
+  .b--outset-h {
+    border-style: outset;
+  }
+}

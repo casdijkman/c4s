@@ -1,0 +1,58 @@
+/*!
+ * C4S CSS, version 0.4.12 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+.nowrap {
+  white-space: nowrap;
+}
+.pre {
+  white-space: pre;
+}
+.pre-wrap {
+  white-space: pre-wrap;
+}
+@media only screen and (min-width: 30em) {
+  .nowrap-s {
+    white-space: nowrap;
+  }
+  .pre-s {
+    white-space: pre;
+  }
+  .pre-wrap-s {
+    white-space: pre-wrap;
+  }
+}
+@media only screen and (min-width: 40em) {
+  .nowrap-m {
+    white-space: nowrap;
+  }
+  .pre-m {
+    white-space: pre;
+  }
+  .pre-wrap-m {
+    white-space: pre-wrap;
+  }
+}
+@media only screen and (min-width: 60em) {
+  .nowrap-l {
+    white-space: nowrap;
+  }
+  .pre-l {
+    white-space: pre;
+  }
+  .pre-wrap-l {
+    white-space: pre-wrap;
+  }
+}
+@media only screen and (min-width: 90em) {
+  .nowrap-h {
+    white-space: nowrap;
+  }
+  .pre-h {
+    white-space: pre;
+  }
+  .pre-wrap-h {
+    white-space: pre-wrap;
+  }
+}

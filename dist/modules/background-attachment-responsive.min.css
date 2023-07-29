@@ -1,0 +1,6 @@
+/*!
+ * C4S CSS, version 0.4.12 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+.bg-scroll{background-attachment:scroll}.bg-fixed{background-attachment:fixed}.bg-local{background-attachment:local}@media only screen and (min-width:30em){.bg-scroll-s{background-attachment:scroll}.bg-fixed-s{background-attachment:fixed}.bg-local-s{background-attachment:local}}@media only screen and (min-width:40em){.bg-scroll-m{background-attachment:scroll}.bg-fixed-m{background-attachment:fixed}.bg-local-m{background-attachment:local}}@media only screen and (min-width:60em){.bg-scroll-l{background-attachment:scroll}.bg-fixed-l{background-attachment:fixed}.bg-local-l{background-attachment:local}}@media only screen and (min-width:90em){.bg-scroll-h{background-attachment:scroll}.bg-fixed-h{background-attachment:fixed}.bg-local-h{background-attachment:local}}

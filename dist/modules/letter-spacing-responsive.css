@@ -1,0 +1,58 @@
+/*!
+ * C4S CSS, version 0.4.12 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+.tracked {
+  letter-spacing: 0.1em;
+}
+.tracked-tight {
+  letter-spacing: -0.05em;
+}
+.tracked-mega {
+  letter-spacing: 0.25em;
+}
+@media only screen and (min-width: 30em) {
+  .tracked-s {
+    letter-spacing: 0.1em;
+  }
+  .tracked-tight-s {
+    letter-spacing: -0.05em;
+  }
+  .tracked-mega-s {
+    letter-spacing: 0.25em;
+  }
+}
+@media only screen and (min-width: 40em) {
+  .tracked-m {
+    letter-spacing: 0.1em;
+  }
+  .tracked-tight-m {
+    letter-spacing: -0.05em;
+  }
+  .tracked-mega-m {
+    letter-spacing: 0.25em;
+  }
+}
+@media only screen and (min-width: 60em) {
+  .tracked-l {
+    letter-spacing: 0.1em;
+  }
+  .tracked-tight-l {
+    letter-spacing: -0.05em;
+  }
+  .tracked-mega-l {
+    letter-spacing: 0.25em;
+  }
+}
+@media only screen and (min-width: 90em) {
+  .tracked-h {
+    letter-spacing: 0.1em;
+  }
+  .tracked-tight-h {
+    letter-spacing: -0.05em;
+  }
+  .tracked-mega-h {
+    letter-spacing: 0.25em;
+  }
+}

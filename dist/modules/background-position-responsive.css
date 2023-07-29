@@ -1,0 +1,43 @@
+/*!
+ * C4S CSS, version 0.4.12 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+.bg-top {
+  background-position: top;
+}
+.bg-center {
+  background-position: center;
+}
+@media only screen and (min-width: 30em) {
+  .bg-top-s {
+    background-position: top;
+  }
+  .bg-center-s {
+    background-position: center;
+  }
+}
+@media only screen and (min-width: 40em) {
+  .bg-top-m {
+    background-position: top;
+  }
+  .bg-center-m {
+    background-position: center;
+  }
+}
+@media only screen and (min-width: 60em) {
+  .bg-top-l {
+    background-position: top;
+  }
+  .bg-center-l {
+    background-position: center;
+  }
+}
+@media only screen and (min-width: 90em) {
+  .bg-top-h {
+    background-position: top;
+  }
+  .bg-center-h {
+    background-position: center;
+  }
+}

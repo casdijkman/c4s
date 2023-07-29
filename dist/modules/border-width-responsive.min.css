@@ -1,0 +1,6 @@
+/*!
+ * C4S CSS, version 0.4.12 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+.bw1{border-width:.125rem}.bw2{border-width:.25rem}.bw3{border-width:.5rem}.bw4{border-width:1rem}.bw5{border-width:2rem}@media only screen and (min-width:30em){.bw1-s{border-width:.125rem}.bw2-s{border-width:.25rem}.bw3-s{border-width:.5rem}.bw4-s{border-width:1rem}.bw5-s{border-width:2rem}}@media only screen and (min-width:40em){.bw1-m{border-width:.125rem}.bw2-m{border-width:.25rem}.bw3-m{border-width:.5rem}.bw4-m{border-width:1rem}.bw5-m{border-width:2rem}}@media only screen and (min-width:60em){.bw1-l{border-width:.125rem}.bw2-l{border-width:.25rem}.bw3-l{border-width:.5rem}.bw4-l{border-width:1rem}.bw5-l{border-width:2rem}}@media only screen and (min-width:90em){.bw1-h{border-width:.125rem}.bw2-h{border-width:.25rem}.bw3-h{border-width:.5rem}.bw4-h{border-width:1rem}.bw5-h{border-width:2rem}}

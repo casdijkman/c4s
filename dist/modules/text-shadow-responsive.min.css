@@ -1,0 +1,6 @@
+/*!
+ * C4S CSS, version 0.4.12 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+.text-shadow{text-shadow:.1em .1em .1em rgba(0,0,0,.6)}@media only screen and (min-width:30em){.text-shadow-s{text-shadow:.1em .1em .1em rgba(0,0,0,.6)}}@media only screen and (min-width:40em){.text-shadow-m{text-shadow:.1em .1em .1em rgba(0,0,0,.6)}}@media only screen and (min-width:60em){.text-shadow-l{text-shadow:.1em .1em .1em rgba(0,0,0,.6)}}@media only screen and (min-width:90em){.text-shadow-h{text-shadow:.1em .1em .1em rgba(0,0,0,.6)}}

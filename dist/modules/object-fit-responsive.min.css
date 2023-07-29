@@ -1,0 +1,6 @@
+/*!
+ * C4S CSS, version 0.4.12 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+.contain{-o-object-fit:contain;object-fit:contain}.cover{-o-object-fit:cover;object-fit:cover}.fill{-o-object-fit:fill;object-fit:fill}@media only screen and (min-width:30em){.contain-s{-o-object-fit:contain;object-fit:contain}.cover-s{-o-object-fit:cover;object-fit:cover}.fill-s{-o-object-fit:fill;object-fit:fill}}@media only screen and (min-width:40em){.contain-m{-o-object-fit:contain;object-fit:contain}.cover-m{-o-object-fit:cover;object-fit:cover}.fill-m{-o-object-fit:fill;object-fit:fill}}@media only screen and (min-width:60em){.contain-l{-o-object-fit:contain;object-fit:contain}.cover-l{-o-object-fit:cover;object-fit:cover}.fill-l{-o-object-fit:fill;object-fit:fill}}@media only screen and (min-width:90em){.contain-h{-o-object-fit:contain;object-fit:contain}.cover-h{-o-object-fit:cover;object-fit:cover}.fill-h{-o-object-fit:fill;object-fit:fill}}

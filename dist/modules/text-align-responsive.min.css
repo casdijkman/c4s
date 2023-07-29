@@ -1,0 +1,6 @@
+/*!
+ * C4S CSS, version 0.4.12 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+.tl{text-align:left}.tr{text-align:right}.tc{text-align:center}.tj{text-align:justify}@media only screen and (min-width:30em){.tl-s{text-align:left}.tr-s{text-align:right}.tc-s{text-align:center}.tj-s{text-align:justify}}@media only screen and (min-width:40em){.tl-m{text-align:left}.tr-m{text-align:right}.tc-m{text-align:center}.tj-m{text-align:justify}}@media only screen and (min-width:60em){.tl-l{text-align:left}.tr-l{text-align:right}.tc-l{text-align:center}.tj-l{text-align:justify}}@media only screen and (min-width:90em){.tl-h{text-align:left}.tr-h{text-align:right}.tc-h{text-align:center}.tj-h{text-align:justify}}

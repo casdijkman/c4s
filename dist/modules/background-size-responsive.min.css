@@ -1,0 +1,6 @@
+/*!
+ * C4S CSS, version 0.4.12 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+.bg-cover{background-size:cover}.bg-contain{background-size:contain}@media only screen and (min-width:30em){.bg-cover-s{background-size:cover}.bg-contain-s{background-size:contain}}@media only screen and (min-width:40em){.bg-cover-m{background-size:cover}.bg-contain-m{background-size:contain}}@media only screen and (min-width:60em){.bg-cover-l{background-size:cover}.bg-contain-l{background-size:contain}}@media only screen and (min-width:90em){.bg-cover-h{background-size:cover}.bg-contain-h{background-size:contain}}

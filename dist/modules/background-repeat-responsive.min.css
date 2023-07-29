@@ -1,0 +1,6 @@
+/*!
+ * C4S CSS, version 0.4.12 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+.bg-no-repeat{background-repeat:no-repeat}@media only screen and (min-width:30em){.bg-no-repeat-s{background-repeat:no-repeat}}@media only screen and (min-width:40em){.bg-no-repeat-m{background-repeat:no-repeat}}@media only screen and (min-width:60em){.bg-no-repeat-l{background-repeat:no-repeat}}@media only screen and (min-width:90em){.bg-no-repeat-h{background-repeat:no-repeat}}
