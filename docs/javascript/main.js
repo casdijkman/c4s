@@ -19,11 +19,11 @@ for (const breakpoint in breakpoints) {
 }
 
 if (/\/example.html$/.test(window.location.pathname)) {
-    import('./example-page').then();
+    import(/* webpackChunkName: "example-page" */ './example-page').then();
 }
 
 if (/.*test.html$/.test(window.location.pathname)) {
-    import('./test-page').then();
+    import(/* webpackChunkName: "test-page" */ './test-page').then();
 }
 
 const throttleMs = 300;

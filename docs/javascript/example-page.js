@@ -8,16 +8,16 @@ import { header, preventOpenHeader } from './header';
 import { setStickyHeight } from './sticky';
 import { debug, debugLog } from './helpers/constants';
 
-const closeExamples = document.querySelector('.js-close-examples');
+const closeExamplesButton = document.querySelector('.js-close-examples');
+console.assert(closeExamplesButton, 'Could not find close examples button');
 
 function openExample(data) {
-    const { target, details } = data;
-    if (details) details.open = true;
-    if (target) target.scrollIntoView();
-    if (closeExamples) closeExamples.style.display = null;
+    if (data.details) data.details.open = true;
+    if (data.target) data.target.scrollIntoView();
+    updateCloseExamplesButton();
 }
 
-function updateLinks(data, setActive = true) {
+function updateLinks(data = {}, setActive = true) {
     const { link } = data;
     const links = document.querySelector('.js-example-links');
     const cssClass = 'debug-striped';
@@ -50,13 +50,17 @@ function getDataFromHash(hash) {
 }
 
 function debugExamples() {
+    const excludedModules = ['reset'];
     const examplesNotFound = document.querySelectorAll('[data-example-not-found]');
     if (examplesNotFound) {
         debugLog(examplesNotFound.length, 'examples not found');
-        examplesNotFound.forEach((example) => debugLog(example));
+        examplesNotFound.forEach((example) => {
+            const moduleName = example.dataset.exampleNotFound;
+            if (excludedModules.includes(moduleName)) return;
+            debugLog('Not found:', moduleName);
+        });
     }
 
-    const excludedModules = ['reset'];
     const examplesEmpty = document.querySelectorAll('.js-example:empty');
     examplesEmpty?.forEach((example) => {
         const isExcluded = excludedModules.some(
@@ -65,6 +69,13 @@ function debugExamples() {
         );
         if (! isExcluded) debugLog(example);
     });
+}
+
+function updateCloseExamplesButton() {
+    setTimeout(() => {
+        const anyOpenDetails = document.querySelectorAll('details[open]').length > 0;
+        closeExamplesButton.style.visibility = anyOpenDetails ? 'visible' : 'hidden';
+    }, 0);
 }
 
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
@@ -87,7 +98,14 @@ document.querySelectorAll('summary').forEach((summary) => {
         const opening = !data.details.open;
         updateLinks(data, opening);
         if (opening) updateHash(data.hash);
+        updateCloseExamplesButton();
     });
+});
+
+closeExamplesButton.addEventListener('click', () => {
+    document.querySelectorAll('details').forEach((x) => { x.open = false; });
+    updateCloseExamplesButton();
+    updateLinks();
 });
 
 function initialize() {
@@ -96,11 +114,6 @@ function initialize() {
         updateLinks(data);
         openExample(data);
     }
-
-    closeExamples && closeExamples.addEventListener('click', () => {
-        document.querySelectorAll('details').forEach((x) => { x.open = false; });
-        if (closeExamples) closeExamples.style.display = 'none';
-    });
 
     if (debug) debugExamples();
 }

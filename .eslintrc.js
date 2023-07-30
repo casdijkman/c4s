@@ -137,7 +137,8 @@ module.exports = {
             {
                 allow: [
                     'warn',
-                    'error'
+                    'error',
+                    'assert'
                 ]
             }
         ],

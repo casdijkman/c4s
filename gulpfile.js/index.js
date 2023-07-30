@@ -96,7 +96,9 @@ function compileNunjucks() {
 }
 
 function compileJavascript(cb) {
-    childProcess.execSync('yarn run webpack --mode production');
+    const production = true;
+    const mode = production ? 'production' : 'development';
+    childProcess.execSync(`yarn run webpack --mode ${mode}`);
     cb();
 }
 

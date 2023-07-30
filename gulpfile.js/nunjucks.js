@@ -85,10 +85,9 @@ function getNunjucksEnv(env) {
         return selectors.map((selector) => getClassFromSelector(selector));
     });
 
-    env.addFilter('highlight', (textInput, languageInput) => {
-        const text = textInput.replace(/&quot;/g, '"');
-        const language = languageInput || 'css';
-        return highlight.highlight(text, { language }).value;
+    env.addFilter('highlight', (text, language = 'css') => {
+        const textClean = text.replace(/&quot;/g, '"');
+        return highlight.highlight(textClean, { language }).value;
     });
 
     env.addFilter('formatInteger', (integer) => {
