@@ -14,7 +14,7 @@ function openExample(data) {
     const { target, details } = data;
     if (details) details.open = true;
     if (target) target.scrollIntoView();
-    if (closeExamples) closeExamples.style.display = 'block';
+    if (closeExamples) closeExamples.style.display = null;
 }
 
 function updateLinks(data, setActive = true) {

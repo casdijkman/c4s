@@ -9,7 +9,7 @@
 {% set description = "Create your own C4S" %}
 
 {% block content %}
-    <div class="container ph3 mv3">
+    <div class="container center ph3 mv3">
         <form class="js-custom-modules-form measure" style="display: none;">
             <h2>Custom C4S stylesheet</h2>
 
@@ -27,14 +27,14 @@
                     <li class="flex items-center ph3 pv1 mt1-between ba br2"
                         draggable="true">
                         <label class="flex-grow-1 mr3">
-                            <input type="checkbox" name="{{ file.name }}"
+                            <input type="checkbox" name="module-{{ file.name }}"
                                 {{ "checked" if file.isEnabled }}>
                             {{ file.name }}
                         </label>
 
                         {% if file.responsiveAble %}
                             <label class="mr3">
-                                <input type="checkbox" name="{{ file.name }}"
+                                <input type="checkbox" name="module-{{ file.name }}-responsive"
                                     {{ "checked" if file.isResponsive }}>
                                 Responsive
                             </label>
@@ -47,14 +47,25 @@
                 {% endfor %}
             </ul>
 
+            <label class="db mv3">
+                <input type="checkbox" name="minify" checked>
+                Minify output
+            </label>
+
             <input
                 class="button-reset dib bg-dark-blue br-pill grow ph4 pv3 white cursor-pointer"
                 type="submit"
                 value="Generate custom C4S stylesheet">
         </form>
 
-        <div class="js-custom-modules-output" style="display: none;">
-            Generating custom modules
+        <div class="tc">
+            <div
+                class="js-custom-modules-output dib ph3 pv2 ba br2"
+                style="display: none;">
+                Generating custom modules
+
+                <div class="spinner ml3"><span class="sr-only">Loading...</span></div>
+            </div>
         </div>
     </div>
 
@@ -79,5 +90,27 @@
         .js-reorder-list [data-cursor=after]::after {
             top: calc(100% + 1px);
         }
+
+        .spinner {
+            --spinner-size: 1.5rem;
+            display: inline-block;
+            width: var(--spinner-size);
+            height: var(--spinner-size);
+            vertical-align: text-bottom;
+            border: 3px solid currentColor;
+            border-right-color: currentcolor;
+            border-right-color: transparent;
+            border-radius: 50%;
+            -webkit-animation: spinner 1s linear infinite;
+            animation: spinner 1s linear infinite;
+        }
+
+        @keyframes spinner {
+            to {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
     </style>
 {% endblock %}
