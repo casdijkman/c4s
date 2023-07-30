@@ -145,17 +145,17 @@
         <div class="overflow-x-auto">
             <table class="js-order-table collapse lh-text">
                 <tr class="stripe-light b">
-                    <th class="p2-m cursor-pointer user-select-none tl" data-sort-name="reset"></th>
-                    <th class="p2 cursor-pointer user-select-none tl">
+                    <th class="p2-m cursor-pointer user-select-none tl nowrap" data-sort-name="reset"></th>
+                    <th class="p2 cursor-pointer user-select-none tl nowrap">
                         Name
                     </th>
-                    <th class="p2 cursor-pointer user-select-none tl" data-sort-name="number">
+                    <th class="p2 cursor-pointer user-select-none tl nowrap" data-sort-name="number">
                         Size
                     </th>
-                    <th class="p2 cursor-pointer user-select-none tl" data-sort-name="number">
+                    <th class="p2 cursor-pointer user-select-none tl nowrap" data-sort-name="number">
                         Size gzip
                     </th>
-                    <th class="p2 user-select-none tl" data-sort-name="none">
+                    <th class="p2 user-select-none tl nowrap" data-sort-name="none">
                         Download
                     </th>
                 </tr>
@@ -173,20 +173,20 @@
         <div class="overflow-x-auto">
             <table class="js-order-table collapse lh-text">
                 <tr class="stripe-light b">
-                    <th class="p2-m cursor-pointer user-select-none tl" data-sort-name="reset"></th>
-                    <th class="p2 cursor-pointer user-select-none tl">
+                    <th class="p2-m cursor-pointer user-select-none tl nowrap" data-sort-name="reset"></th>
+                    <th class="p2 cursor-pointer user-select-none tl nowrap">
                         Name
                     </th>
-                    <th class="p2 cursor-pointer user-select-none tl" data-sort-name="number">
+                    <th class="p2 cursor-pointer user-select-none tl nowrap" data-sort-name="number">
                         Size
                     </th>
-                    <th class="p2 cursor-pointer user-select-none tl" data-sort-name="number">
+                    <th class="p2 cursor-pointer user-select-none tl nowrap" data-sort-name="number">
                         Size gzip
                     </th>
-                    <th class="p2 user-select-none tl" data-sort-name="none">
+                    <th class="p2 user-select-none tl nowrap" data-sort-name="none">
                         Documentation
                     </th>
-                    <th class="p2 user-select-none tl" data-sort-name="none">
+                    <th class="p2 user-select-none tl nowrap" data-sort-name="none">
                         Download
                     </th>
                 </tr>
@@ -200,8 +200,7 @@
 
     <style>
         .js-order-table th::after {
-            {% set dataUrl = "docs/icons/bootstrap/sort-alpha-up.svg" | imageToDataString('svg+xml') %}
-            content: url("{{ dataUrl }}");
+            content: url("{{ "docs/icons/bootstrap/sort-alpha-up.svg" | imageToDataString('svg+xml') }}");
             display: inline-block;
             width: 1rem;
             margin: 0 5px;
@@ -214,23 +213,19 @@
         }
 
         .js-order-table th[data-sorted-by][data-sorted-order=ascending]::after {
-            {% set dataUrl = "docs/icons/bootstrap/sort-alpha-up.svg" | imageToDataString('svg+xml') %}
-            content: url("{{ dataUrl }}");
+            content: url("{{ "docs/icons/bootstrap/sort-alpha-up.svg" | imageToDataString('svg+xml') }}");
         }
 
         .js-order-table th[data-sorted-by][data-sorted-order=descending]::after {
-            {% set dataUrl = "docs/icons/bootstrap/sort-alpha-down-alt.svg" | imageToDataString('svg+xml') %}
-            content: url("{{ dataUrl }}");
+            content: url("{{ "docs/icons/bootstrap/sort-alpha-down-alt.svg" | imageToDataString('svg+xml') }}");
         }
 
         .js-order-table th[data-sorted-by][data-sorted-order=ascending][data-sort-name=number]::after {
-            {% set dataUrl = "docs/icons/bootstrap/sort-numeric-up.svg" | imageToDataString('svg+xml') %}
-            content: url("{{ dataUrl }}");
+            content: url("{{ "docs/icons/bootstrap/sort-numeric-up.svg" | imageToDataString('svg+xml') }}");
         }
 
         .js-order-table th[data-sorted-by][data-sorted-order=descending][data-sort-name=number]::after {
-            {% set dataUrl = "docs/icons/bootstrap/sort-numeric-down-alt.svg" | imageToDataString('svg+xml') %}
-            content: url("{{ dataUrl }}");
+            content: url("{{ "docs/icons/bootstrap/sort-numeric-down-alt.svg" | imageToDataString('svg+xml') }}");
         }
 
         .js-order-table th[data-sort-name=reset]::after,

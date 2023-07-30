@@ -13,41 +13,69 @@
         <form class="js-custom-modules-form measure" style="display: none;">
             <h2>Custom C4S stylesheet</h2>
 
-            <p>Select which modules you want and in what order</p>
-            <ul>
-                <li>Order modules by dragging them</li>
-                <li>Disable modules by unchecking that modules checkbox</li>
-                <li>When finished, click the button at the bottom of the page</li>
+            <b>Select&hellip;</b>
+            <ul class="list-reset pl4 mv3">
+                <li class="flex">
+                    <span class="mr2">›</span>
+                    What modules you want
+                </li>
+                <li class="flex">
+                    <span class="mr2">›</span>
+                    If modules should be responsive
+                </li>
+                <li class="flex">
+                    <span class="mr2">›</span>
+                    <div>
+                        What order modules should be loaded.
+                        <div class="di dn-l">This feature is only available on desktop</div>
+                        <div class="dn di-l">
+                            Order modules by dragging them with
+                            <div class="svg-wrapper dib v-mid ml2">
+                                {% include "docs/icons/bootstrap/grip-horizontal.svg" %}
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="flex">
+                    <span class="mr2">›</span>
+                    If you want to minify the CSS output or not
+                </li>
             </ul>
+
+            <p>
+                To generate, click the button at the bottom of the page.
+                <br>
+                Generating custom stylesheets may take a while.
+            </p>
 
             <h3>Modules</h3>
 
             <ul class="js-reorder-list list-reset mv3">
                 {% for file in files | rejectattr('isMinified') | rejectattr('isRaw') | selectattr('isModule') %}
-                    <li class="flex items-center ph3 pv1 mt1-between ba br2"
+                    <li class="flex flex-wrap items-center ph2 ph3-m pv1 mt1-between ba br2 column-gap row-gap"
                         draggable="true">
-                        <label class="flex-grow-1 mr3">
+                        <label class="flex-grow-1">
                             <input type="checkbox" name="module-{{ file.name }}"
                                 {{ "checked" if file.isEnabled }}>
                             {{ file.name }}
                         </label>
 
                         {% if file.responsiveAble %}
-                            <label class="mr3">
+                            <label>
                                 <input type="checkbox" name="module-{{ file.name }}-responsive"
                                     {{ "checked" if file.isResponsive }}>
                                 Responsive
                             </label>
                         {% endif %}
 
-                        <div class="svg-wrapper">
+                        <div class="svg-wrapper dn db-l">
                             {% include "docs/icons/bootstrap/grip-horizontal.svg" %}
                         </div>
                     </li>
                 {% endfor %}
             </ul>
 
-            <label class="db mv3">
+            <label class="db mv3 p2">
                 <input type="checkbox" name="minify" checked>
                 Minify output
             </label>
