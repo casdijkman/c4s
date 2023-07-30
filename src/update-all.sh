@@ -9,11 +9,11 @@
 [[ $(dirname "$(realpath "$0")") != $(pwd) ]] && echo "Run script from it's own directory" && exit 1
 
 scripts=(
+    update-version.sh
     update-custom-verbose.sh
-    update-load-modules-mixin.sh
     update-module-files.js
     update-module-list.sh
-    update-version.sh
+    update-load-modules-mixin.sh
 )
 
 for script in "${scripts[@]}"; do
