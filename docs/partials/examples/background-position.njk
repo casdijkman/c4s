@@ -7,7 +7,7 @@
 {% import "docs/macros/example.njk" as example %}
 
 {% for file in files | selectattr("isModule") | selectattr("isRaw") %}
-    {% if file.name === "" %}
+    {% if file.name === "background-position" %}
         {% for rule in file.css.stylesheet.rules %}
             {% call example.generic(file, rule) %}
                 {% set firstSelector %}{{ rule.selectors | first }}{% endset %}
