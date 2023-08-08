@@ -18,7 +18,7 @@ scripts=(
 
 for script in "${scripts[@]}"; do
     if [[ ! -x $script ]]; then
-	echo "Could not find script: $script"
+        echo "Could not find script: $script"
         continue
     fi
 

@@ -16,8 +16,8 @@ custom_file=./c4s-custom-verbose.scss
 
 _get_variables() {
     while read -r variable_line; do
-	variable="${variable_line//:*/}"
-	[[ $variable != \$-* ]] && echo "$variable"
+        variable="${variable_line//:*/}"
+        [[ $variable != \$-* ]] && echo "$variable"
     done < <(grep '^$.*:' $variables_file)
 }
 

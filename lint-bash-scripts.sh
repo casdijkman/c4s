@@ -13,6 +13,6 @@ grep -rl '^#!/usr/bin/env bash' | while IFS= read -r file; do
     basename=$(basename "$path")
 
     if [[ ! $file =~ .*node_modules.* ]] && [[ ! $basename == \#* ]] && [[ ! $basename == *~ ]]; then
-	shellcheck "$path" && printf "PASSED\t\t%s\n" "$file"
+        shellcheck "$path" && printf "PASSED\t\t%s\n" "$file"
     fi
 done

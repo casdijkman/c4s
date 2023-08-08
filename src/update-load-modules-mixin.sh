@@ -11,30 +11,30 @@
 _GENERATE=0
 
 while ((${#})); do
-  __arg="${1:-}"
+    __arg="${1:-}"
 
-  case "${__arg}" in
-      --generate)
-	  _GENERATE=1
-	  ;;
-      -*)
-	  printf "Unexpected option: %s\\n" "${__arg}"
-	  exit 1
-	  ;;
-  esac
+    case "${__arg}" in
+        --generate)
+            _GENERATE=1
+            ;;
+        -*)
+            printf "Unexpected option: %s\\n" "${__arg}"
+            exit 1
+            ;;
+    esac
 
-  shift
+    shift
 done
 
 _getModules() {
     for file in modules/_*.scss; do
-	basename=$(basename "$file")
-	new_file="${basename:1}" # Remove first character (being _)
-	module_name="${new_file/.scss/}"
+        basename=$(basename "$file")
+        new_file="${basename:1}" # Remove first character (being _)
+        module_name="${new_file/.scss/}"
 
-	echo "$module_name"
+        echo "$module_name"
 
-	[[ $1 == "first" ]] && return
+        [[ $1 == "first" ]] && return
     done
 }
 
@@ -52,7 +52,7 @@ EOF
     echo "@use 'mixins';"
 
     for module in $(_getModules); do
-	echo "@use 'modules/$module';"
+        echo "@use 'modules/$module';"
     done
 
     echo
@@ -69,15 +69,15 @@ EOF
     echo "  @each \$module, \$responsive in \$modules {"
 
     for module in $(_getModules); do
-	if [[ $module == $(_getModules first) ]]; then
-    	    echo "    @if \$module == $module {"
-	    echo "      @include $module.${module};"
-	    echo -n "    }"
-	else
-	    echo " @else if \$module == $module {"
-	    echo "      @include $module.${module};"
-	    echo -n "    }"
-	fi
+        if [[ $module == $(_getModules first) ]]; then
+            echo "    @if \$module == $module {"
+            echo "      @include $module.${module};"
+            echo -n "    }"
+        else
+            echo " @else if \$module == $module {"
+            echo "      @include $module.${module};"
+            echo -n "    }"
+        fi
     done
 
     echo " @else {"
@@ -91,15 +91,15 @@ EOF
     echo "      @each \$module, \$responsive in \$modules {"
 
     for module in $(_getModules); do
-	if [[ $module == $(_getModules first) ]]; then
-	    echo "        @if \$module == $module and \$responsive {"
-	    echo "          @include $module.$module(\$breakpoint);"
-	    echo -n "        }"
-	else
-	    echo " @else if \$module == $module and \$responsive {"
-	    echo "          @include $module.$module(\$breakpoint);"
-	    echo -n "        }"
-	fi
+        if [[ $module == $(_getModules first) ]]; then
+            echo "        @if \$module == $module and \$responsive {"
+            echo "          @include $module.$module(\$breakpoint);"
+            echo -n "        }"
+        else
+            echo " @else if \$module == $module and \$responsive {"
+            echo "          @include $module.$module(\$breakpoint);"
+            echo -n "        }"
+        fi
     done
 
     echo
@@ -115,8 +115,8 @@ _update() {
     if [[ -f $load_modules_file ]]; then
         _generate >$load_modules_file
     else
-	echo "Load modules file not found, exiting"
-	exit 1
+        echo "Load modules file not found, exiting"
+        exit 1
     fi
 }
 
