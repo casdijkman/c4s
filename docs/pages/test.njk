@@ -1,0 +1,405 @@
+{#
+    SPDX-FileCopyrightText: 2021 Cas Dijkman
+
+    SPDX-License-Identifier: GFDL-1.3-only
+#}
+
+{% extends "docs/layouts/default.njk" %}
+
+{% set description = "test" %}
+
+{% block content %}
+    <div class="container center p3">
+        <h2 class="mt0">Grid (rows and columns)</h2>
+
+        <div class="mv4 debug-outlines">
+            <div class="row">
+                {% for i in "" | getRandomPartition %}
+                    <div class="col-{{ i }}">col-{{ i }}</div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                {% for i in "" | getRandomPartition %}
+                    <div class="col-{{ i }}">col-{{ i }}</div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                {% for i in "" | getRandomPartition %}
+                    <div class="col-{{ i }}">col-{{ i }}</div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                {% for i in "" | getRandomPartition %}
+                    <div class="col-{{ i }}">col-{{ i }}</div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="mv4 debug-outlines">
+            <div class="row column-gap">
+                <div class="col-12">col-12</div>
+            </div>
+            <div class="row column-gap">
+                <div class="col">col</div>
+            </div>
+            <div class="row column-gap">
+                <div class="col-6">col-6</div>
+                <div class="col-6">col-6</div>
+            </div>
+            <div class="row column-gap">
+                <div class="col">col</div>
+                <div class="col">col</div>
+            </div>
+            <div class="row column-gap">
+                <div class="col-4">col-4</div>
+                <div class="col-4">col-4</div>
+                <div class="col-4">col-4</div>
+            </div>
+            <div class="row column-gap">
+                <div class="col">col</div>
+                <div class="col">col</div>
+                <div class="col">col</div>
+            </div>
+            <div class="row column-gap">
+                <div class="col-3">col-3</div>
+                <div class="col-3">col-3</div>
+                <div class="col-3">col-3</div>
+                <div class="col-3">col-3</div>
+            </div>
+            <div class="row column-gap">
+                <div class="col">col</div>
+                <div class="col">col</div>
+                <div class="col">col</div>
+                <div class="col">col</div>
+            </div>
+            <div class="row column-gap">
+                <div class="col-2">col-2</div>
+                <div class="col-2">col-2</div>
+                <div class="col-2">col-2</div>
+                <div class="col-2">col-2</div>
+                <div class="col-2">col-2</div>
+                <div class="col-2">col-2</div>
+            </div>
+            <div class="row column-gap">
+                <div class="col">col</div>
+                <div class="col">col</div>
+                <div class="col">col</div>
+                <div class="col">col</div>
+                <div class="col">col</div>
+                <div class="col">col</div>
+            </div>
+            <div class="row column-gap">
+                <div class="col-1">col-1</div>
+                <div class="col-1">col-1</div>
+                <div class="col-1">col-1</div>
+                <div class="col-1">col-1</div>
+                <div class="col-1">col-1</div>
+                <div class="col-1">col-1</div>
+                <div class="col-1">col-1</div>
+                <div class="col-1">col-1</div>
+                <div class="col-1">col-1</div>
+                <div class="col-1">col-1</div>
+                <div class="col-1">col-1</div>
+                <div class="col-1">col-1</div>
+            </div>
+            <div class="row column-gap">
+                <div class="col">col</div>
+                <div class="col">col</div>
+                <div class="col">col</div>
+                <div class="col">col</div>
+                <div class="col">col</div>
+                <div class="col">col</div>
+                <div class="col">col</div>
+                <div class="col">col</div>
+                <div class="col">col</div>
+                <div class="col">col</div>
+                <div class="col">col</div>
+                <div class="col">col</div>
+            </div>
+        </div>
+
+        <div class="debug-outlines">
+            <div class="row">
+                <div class="col">col</div>
+                <div class="col">col</div>
+                <div class="col">col</div>
+            </div>
+            <div class="row">
+                <div class="col-auto">col-auto</div>
+                <div class="col-auto">col-auto</div>
+                <div class="col-auto">col-auto</div>
+            </div>
+            <div class="row">
+                <div class="col">col</div>
+                <div class="col">col</div>
+                <div class="col">col</div>
+            </div>
+            <div class="row">
+                <div class="col-6">col-6</div>
+                <div class="col-6">col-6</div>
+            </div>
+            <div class="row">
+                <div class="col-3">col-3</div>
+                <div class="col-3">col-3</div>
+                <div class="col-3">col-3</div>
+                <div class="col-3">col-3</div>
+                <div class="col-3">col-3</div>
+                <div class="col-3">col-3</div>
+                <div class="col-3">col-3</div>
+                <div class="col-3">col-3</div>
+            </div>
+            <div class="row">
+                <div class="col-2">col-2</div>
+                <div class="col-2">col-2</div>
+                <div class="col-2">col-2</div>
+                <div class="col-2">col-2</div>
+                <div class="col-2">col-2</div>
+                <div class="col-2">col-2</div>
+                <div class="col-12">col-12</div>
+            </div>
+        </div>
+
+        <h2>Tables</h2>
+        <h3>Table stripe light</h3>
+
+        <table class="collapse mt4-between">
+        <tr class="stripe-light">
+            <td class="p2">Header 1</td>
+            <td class="p2">Header 2</td>
+        </tr>
+        <tr class="stripe-light">
+            <td class="p2">Data row 1</td>
+            <td class="p2">Data row 1</td>
+        </tr>
+        <tr class="stripe-light">
+            <td class="p2">Data row 2</td>
+            <td class="p2">Data row 2</td>
+        </tr>
+        <tr class="stripe-light">
+            <td class="p2">Data row 3</td>
+            <td class="p2">Data row 3</td>
+        </tr>
+        <tr class="stripe-light">
+            <td class="p2">Data row 4</td>
+            <td class="p2">Data row 4</td>
+        </tr>
+        </table>
+
+        <h3>Table stripe dark</h3>
+
+        <table class="collapse mt4-between">
+        <tr class="stripe-dark">
+            <td class="p2">Header 1</td>
+            <td class="p2">Header 2</td>
+        </tr>
+        <tr class="stripe-dark">
+            <td class="p2">Data row 1</td>
+            <td class="p2">Data row 1</td>
+        </tr>
+        <tr class="stripe-dark">
+            <td class="p2">Data row 2</td>
+            <td class="p2">Data row 2</td>
+        </tr>
+        <tr class="stripe-dark">
+            <td class="p2">Data row 3</td>
+            <td class="p2">Data row 3</td>
+        </tr>
+        <tr class="stripe-dark">
+            <td class="p2">Data row 4</td>
+            <td class="p2">Data row 4</td>
+        </tr>
+        </table>
+
+        <h2>Lists</h2>
+        <h3>Ordered list</h3>
+
+        <ol>
+            <li>List item</li>
+            <li>List item</li>
+            <li>List item</li>
+            <li>List item</li>
+        </ol>
+
+        <h3>Ordered list reset</h3>
+
+        <ol class="list-reset">
+            <li>List item</li>
+            <li>List item</li>
+            <li>List item</li>
+            <li>List item</li>
+        </ol>
+
+        <h3>Unordered list</h3>
+
+        <ul>
+            <li>List item</li>
+            <li>List item</li>
+            <li>List item</li>
+            <li>List item</li>
+        </ul>
+
+        <h3>Unordered list reset</h3>
+
+        <ul class="list-reset">
+            <li>List item</li>
+            <li>List item</li>
+            <li>List item</li>
+            <li>List item</li>
+        </ul>
+
+        <h2>Headers</h2>
+
+        <h3>Header font size</h3>
+
+        <p>
+            Header font size depends on the browser settings, use the slider below to emulate different base font sizes.
+        </p>
+        <p>
+            Notice how Headline and Subheadline don't change, since they are <kbd>rem</kbd> based, not <kbd>em</kbd> based.
+        </p>
+
+        <form id="font-size-form" class="mb3">
+            Current value: <span class="js-value"></span>
+            <div class="flex items-center">
+                <input class="js-input" type="range" min="1" max="30">
+                <button class="button-reset ba b--black p2 br3 ml3 cursor-pointer" type="reset">
+                    Reset
+                </button>
+            </div>
+        </form>
+
+        <div class="show-font-sizes ba p3">
+            <h1 class="mv0 f-headline" data-text="Headline">
+                Headline
+            </h1>
+            <h1 class="mv0 f-subheadline" data-text="Sub headline">
+                Sub headline
+            </h1>
+            <h1 class="mv0" data-text="Header H1">
+                Header H1
+            </h1>
+            <h2 class="mv0" data-text="Header H2">
+                Header H2
+            </h2>
+            <h3 class="mv0" data-text="Header H3">
+                Header H3
+            </h3>
+            <h4 class="mv0" data-text="Header H4">
+                Header H4
+            </h4>
+            <h5 class="mv0" data-text="Header H5">
+                Header H5
+            </h5>
+            <h6 class="mv0" data-text="Header H6">
+                Header H6
+            </h6>
+            <div data-text="Regular text">
+                Regular text
+            </div>
+            <small class="db" data-text="Small text">
+                Small text
+            </small>
+        </div>
+
+        <h3>Header margins with a paragraph</h3>
+
+        <div class="ba ph3">
+            <h1>Header H1</h1>
+            {{ "" | loremIpsum(1) | safe }}
+            <h2>Header H2</h2>
+            {{ "" | loremIpsum(1) | safe }}
+            <h3>Header H3</h3>
+            {{ "" | loremIpsum(1) | safe }}
+            <h4>Header H4</h4>
+            {{ "" | loremIpsum(1) | safe }}
+            <h5>Header H5</h5>
+            {{ "" | loremIpsum(1) | safe }}
+            <h6>Header H6</h6>
+            {{ "" | loremIpsum(1) | safe }}
+        </div>
+
+        <h3>Header margins with margin collapse</h3>
+
+        <div class="ba ph3">
+            <h1>Header H1</h1>
+            <h2>Header H2</h2>
+            <h3>Header H3</h3>
+            <h4>Header H4</h4>
+            <h5>Header H5</h5>
+            <h6>Header H6</h6>
+        </div>
+
+        <h3>Header margins without margin collapse</h3>
+
+        <div class="flex flex-column ba ph3">
+            <h1>Header H1</h1>
+            <h2>Header H2</h2>
+            <h3>Header H3</h3>
+            <h4>Header H4</h4>
+            <h5>Header H5</h5>
+            <h6>Header H6</h6>
+        </div>
+
+        <h2>Images</h2>
+
+        <h3>Fixed dimensions on image</h3>
+
+        <div class="flex flex-wrap debug-outlines">
+            <div>
+                With reset
+                <img src="https://placebear.com/g/300/200" class="w4 h4">
+            </div>
+            <div>
+                Without reset
+                <img src="https://placebear.com/g/300/200" class="w4 h4 no-reset">
+            </div>
+        </div>
+
+        <h3>Fixed dimensions on image with object-fit contain</h3>
+
+        <div class="flex flex-wrap debug-outlines">
+            <div>
+                With reset
+                <img src="https://placebear.com/g/300/200" class="w4 h4 contain">
+            </div>
+            <div>
+                Without reset
+                <img src="https://placebear.com/g/300/200" class="w4 h4 contain no-reset">
+            </div>
+        </div>
+
+        <h3>Fixed dimensions on image with object-fit cover</h3>
+
+        <div class="flex flex-wrap debug-outlines">
+            <div>
+                With reset
+                <img src="https://placebear.com/g/300/200" class="w4 h4 cover">
+            </div>
+            <div>
+                Without reset
+                <img src="https://placebear.com/g/300/200" class="w4 h4 cover no-reset">
+            </div>
+        </div>
+
+        <h3>Fixed dimensions on image parent</h3>
+
+        <div class="flex flex-wrap debug-outlines">
+            <div class="w4 h4">
+                With reset
+                <img src="https://placebear.com/g/300/200">
+            </div>
+
+            <div class="w4 h4">
+                Without reset
+                <img src="https://placebear.com/g/300/200" class="no-reset">
+            </div>
+        </div>
+
+        {#
+        <div class="mv6">
+            <pre>{{ files | dump(2) }}</pre>
+        </div>
+        #}
+    </div>
+
+{% endblock %}

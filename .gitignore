@@ -22,5 +22,3 @@ dist/**/*
 !dist/modules/
 !dist/**/*.css
 dist/**/*.raw.css
-NOTES.md
-**/scratch-*
