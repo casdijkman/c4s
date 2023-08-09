@@ -8,16 +8,18 @@
 
 {% set description = "C4S CSS documentation index page" %}
 
-{% macro renderFileRow(file, index) %}
+{% macro renderFileRow(file, index, bold = false) %}
     <tr class="stripe-light" data-original-order="{{ index }}">
         <td></td>
         <td class="ph2 pv1">
-            <a class="link dark-blue hover-underline" href="{{ file.file }}">
+            <a
+                class="link dark-blue hover-underline {{ "b" if bold }}"
+                href="{{ file.file }}">
                 {{ file.name }}
             </a>
 
             {% if file.isMinified %}
-                (minified)
+                <small class="ml1 ba br-pill ph1 pt1">minified</small>
             {% endif %}
         </td>
         <td class="ph2 pv1 nowrap" title="{{ file.size | formatInteger }} bytes" data-value="{{ file.size }}">
@@ -27,7 +29,7 @@
             {{ file.gzipSizePretty }}
         </td>
         {% if file.isModule %}
-            <td class="ph2 pv1 nowrap">
+            <td class="ph2 pv1 nowrap small">
                 <a
                     class="dib link dark-blue hover-underline ml3-between"
                     href="/example.html#{{ file.name }}"
@@ -161,7 +163,13 @@
                 </tr>
 
                 {% for file in files | rejectattr('isRaw') | rejectattr('isModule') | rejectattr('isCustom') %}
-                    {{ renderFileRow(file, loop.index0) }}
+                    {{
+                        renderFileRow(
+                            file = file,
+                            index = loop.index0,
+                            bold = file.name === 'c4s'
+                        )
+                    }}
                 {% endfor %}
             </table>
         </div>
