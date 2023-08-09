@@ -2439,7 +2439,7 @@ code {
   border-radius: 100%;
 }
 .br-pill {
-  border-radius: 9999px;
+  border-radius: 99999px;
 }
 .br--right,
 .br--top {
@@ -3663,7 +3663,7 @@ code {
     border-radius: 100%;
   }
   .br-pill-s {
-    border-radius: 9999px;
+    border-radius: 99999px;
   }
   .br--right-s,
   .br--top-s {

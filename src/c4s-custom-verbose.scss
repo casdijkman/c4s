@@ -370,7 +370,7 @@ $border-radius-levels: (
   '3':        $border-radius-base * functions.nth-power-of-two(-1),
   '4':        $border-radius-base,
   '-100':     100%,
-  '-pill':    9999px,
+  '-pill':    99999px,
   '--top':    (bottom-right: 0, bottom-left: 0),
   '--right':  (top-left: 0, bottom-left: 0),
   '--bottom': (top-right: 0, top-left: 0),

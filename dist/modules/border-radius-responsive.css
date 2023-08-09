@@ -22,7 +22,7 @@
   border-radius: 100%;
 }
 .br-pill {
-  border-radius: 9999px;
+  border-radius: 99999px;
 }
 .br--right,
 .br--top {
@@ -64,7 +64,7 @@
     border-radius: 100%;
   }
   .br-pill-s {
-    border-radius: 9999px;
+    border-radius: 99999px;
   }
   .br--right-s,
   .br--top-s {
@@ -105,7 +105,7 @@
     border-radius: 100%;
   }
   .br-pill-m {
-    border-radius: 9999px;
+    border-radius: 99999px;
   }
   .br--right-m,
   .br--top-m {
@@ -146,7 +146,7 @@
     border-radius: 100%;
   }
   .br-pill-l {
-    border-radius: 9999px;
+    border-radius: 99999px;
   }
   .br--right-l,
   .br--top-l {
@@ -187,7 +187,7 @@
     border-radius: 100%;
   }
   .br-pill-h {
-    border-radius: 9999px;
+    border-radius: 99999px;
   }
   .br--right-h,
   .br--top-h {

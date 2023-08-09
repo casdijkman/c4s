@@ -2440,7 +2440,7 @@ code {
   border-radius: 100%;
 }
 .c4s-br-pill {
-  border-radius: 9999px;
+  border-radius: 99999px;
 }
 .c4s-br--top {
   border-bottom-right-radius: 0;
@@ -3660,7 +3660,7 @@ code {
     border-radius: 100%;
   }
   .c4s-br-pill-s {
-    border-radius: 9999px;
+    border-radius: 99999px;
   }
   .c4s-br--top-s {
     border-bottom-right-radius: 0;
@@ -4877,7 +4877,7 @@ code {
     border-radius: 100%;
   }
   .c4s-br-pill-m {
-    border-radius: 9999px;
+    border-radius: 99999px;
   }
   .c4s-br--top-m {
     border-bottom-right-radius: 0;
@@ -6095,7 +6095,7 @@ code {
     border-radius: 100%;
   }
   .c4s-br-pill-l {
-    border-radius: 9999px;
+    border-radius: 99999px;
   }
   .c4s-br--top-l {
     border-bottom-right-radius: 0;
@@ -7314,7 +7314,7 @@ code {
     border-radius: 100%;
   }
   .c4s-br-pill-h {
-    border-radius: 9999px;
+    border-radius: 99999px;
   }
   .c4s-br--top-h {
     border-bottom-right-radius: 0;
