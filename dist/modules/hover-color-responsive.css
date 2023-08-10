@@ -186,7 +186,7 @@
 .hover-transparent:hover {
   color: transparent;
 }
-.hover-inherit:hover {
+.hover-color-inherit:hover {
   color: inherit;
 }
 @media only screen and (min-width: 30em) {
@@ -373,7 +373,7 @@
   .hover-transparent-s:hover {
     color: transparent;
   }
-  .hover-inherit-s:hover {
+  .hover-color-inherit-s:hover {
     color: inherit;
   }
 }
@@ -561,7 +561,7 @@
   .hover-transparent-m:hover {
     color: transparent;
   }
-  .hover-inherit-m:hover {
+  .hover-color-inherit-m:hover {
     color: inherit;
   }
 }
@@ -749,7 +749,7 @@
   .hover-transparent-l:hover {
     color: transparent;
   }
-  .hover-inherit-l:hover {
+  .hover-color-inherit-l:hover {
     color: inherit;
   }
 }
@@ -937,7 +937,7 @@
   .hover-transparent-h:hover {
     color: transparent;
   }
-  .hover-inherit-h:hover {
+  .hover-color-inherit-h:hover {
     color: inherit;
   }
 }

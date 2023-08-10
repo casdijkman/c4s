@@ -186,6 +186,6 @@
 .b--transparent {
   border-color: transparent;
 }
-.b--inherit {
+.b--color-inherit {
   border-color: inherit;
 }

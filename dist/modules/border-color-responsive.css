@@ -186,7 +186,7 @@
 .b--transparent {
   border-color: transparent;
 }
-.b--inherit {
+.b--color-inherit {
   border-color: inherit;
 }
 @media only screen and (min-width: 30em) {
@@ -373,7 +373,7 @@
   .b--transparent-s {
     border-color: transparent;
   }
-  .b--inherit-s {
+  .b--color-inherit-s {
     border-color: inherit;
   }
 }
@@ -561,7 +561,7 @@
   .b--transparent-m {
     border-color: transparent;
   }
-  .b--inherit-m {
+  .b--color-inherit-m {
     border-color: inherit;
   }
 }
@@ -749,7 +749,7 @@
   .b--transparent-l {
     border-color: transparent;
   }
-  .b--inherit-l {
+  .b--color-inherit-l {
     border-color: inherit;
   }
 }
@@ -937,7 +937,7 @@
   .b--transparent-h {
     border-color: transparent;
   }
-  .b--inherit-h {
+  .b--color-inherit-h {
     border-color: inherit;
   }
 }

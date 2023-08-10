@@ -186,7 +186,7 @@
 .transparent {
   color: transparent;
 }
-.inherit {
+.color-inherit {
   color: inherit;
 }
 @media only screen and (min-width: 30em) {
@@ -373,7 +373,7 @@
   .transparent-s {
     color: transparent;
   }
-  .inherit-s {
+  .color-inherit-s {
     color: inherit;
   }
 }
@@ -561,7 +561,7 @@
   .transparent-m {
     color: transparent;
   }
-  .inherit-m {
+  .color-inherit-m {
     color: inherit;
   }
 }
@@ -749,7 +749,7 @@
   .transparent-l {
     color: transparent;
   }
-  .inherit-l {
+  .color-inherit-l {
     color: inherit;
   }
 }
@@ -937,7 +937,7 @@
   .transparent-h {
     color: transparent;
   }
-  .inherit-h {
+  .color-inherit-h {
     color: inherit;
   }
 }

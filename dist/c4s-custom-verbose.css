@@ -466,8 +466,8 @@ code {
 .transparent {
   color: transparent;
 }
-.hover-inherit:hover,
-.inherit {
+.color-inherit,
+.hover-color-inherit:hover {
   color: inherit;
 }
 .bg-black,
@@ -714,8 +714,8 @@ code {
 .hover-bg-transparent:hover {
   background-color: transparent;
 }
-.bg-inherit,
-.hover-bg-inherit:hover {
+.bg-color-inherit,
+.hover-bg-color-inherit:hover {
   background-color: inherit;
 }
 .bg-animate {
@@ -1004,7 +1004,7 @@ code {
 .b--transparent {
   border-color: transparent;
 }
-.b--inherit {
+.b--color-inherit {
   border-color: inherit;
 }
 .b--solid {

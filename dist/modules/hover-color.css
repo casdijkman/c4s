@@ -186,6 +186,6 @@
 .hover-transparent:hover {
   color: transparent;
 }
-.hover-inherit:hover {
+.hover-color-inherit:hover {
   color: inherit;
 }

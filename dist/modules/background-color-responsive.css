@@ -186,7 +186,7 @@
 .bg-transparent {
   background-color: transparent;
 }
-.bg-inherit {
+.bg-color-inherit {
   background-color: inherit;
 }
 @media only screen and (min-width: 30em) {
@@ -373,7 +373,7 @@
   .bg-transparent-s {
     background-color: transparent;
   }
-  .bg-inherit-s {
+  .bg-color-inherit-s {
     background-color: inherit;
   }
 }
@@ -561,7 +561,7 @@
   .bg-transparent-m {
     background-color: transparent;
   }
-  .bg-inherit-m {
+  .bg-color-inherit-m {
     background-color: inherit;
   }
 }
@@ -749,7 +749,7 @@
   .bg-transparent-l {
     background-color: transparent;
   }
-  .bg-inherit-l {
+  .bg-color-inherit-l {
     background-color: inherit;
   }
 }
@@ -937,7 +937,7 @@
   .bg-transparent-h {
     background-color: transparent;
   }
-  .bg-inherit-h {
+  .bg-color-inherit-h {
     background-color: inherit;
   }
 }

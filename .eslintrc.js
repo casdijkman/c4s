@@ -189,6 +189,14 @@ module.exports = {
     'array-bracket-spacing': [
       'error',
       'never'
+    ],
+    'padded-blocks': [
+      'error',
+      'never'
+    ],
+    'block-spacing': [
+      'error',
+      'always'
     ]
   }
 };

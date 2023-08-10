@@ -186,7 +186,7 @@
 .hover-bg-transparent:hover {
   background-color: transparent;
 }
-.hover-bg-inherit:hover {
+.hover-bg-color-inherit:hover {
   background-color: inherit;
 }
 .bg-animate {

@@ -467,8 +467,8 @@ code {
 .c4s-transparent {
   color: transparent;
 }
-.c4s-hover-inherit:hover,
-.c4s-inherit {
+.c4s-color-inherit,
+.c4s-hover-color-inherit:hover {
   color: inherit;
 }
 .c4s-bg-black,
@@ -715,8 +715,8 @@ code {
 .c4s-hover-bg-transparent:hover {
   background-color: transparent;
 }
-.c4s-bg-inherit,
-.c4s-hover-bg-inherit:hover {
+.c4s-bg-color-inherit,
+.c4s-hover-bg-color-inherit:hover {
   background-color: inherit;
 }
 .c4s-bg-animate {
@@ -1005,7 +1005,7 @@ code {
 .c4s-b--transparent {
   border-color: transparent;
 }
-.c4s-b--inherit {
+.c4s-b--color-inherit {
   border-color: inherit;
 }
 .c4s-b--solid {
