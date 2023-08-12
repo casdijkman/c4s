@@ -92,7 +92,11 @@
                 style="display: none;">
                 Generating custom modules
 
-                <div class="spinner ml3"><span class="sr-only">Loading...</span></div>
+                <div class="spinner dib ml3 br-100 ba bw1 v-mid w1 h1">
+                    <span class="sr-only">
+                        Loading...
+                    </span>
+                </div>
             </div>
         </div>
     </div>
@@ -120,23 +124,16 @@
         }
 
         .spinner {
-            --spinner-size: 1.5rem;
-            display: inline-block;
-            width: var(--spinner-size);
-            height: var(--spinner-size);
-            vertical-align: text-bottom;
-            border: 3px solid currentColor;
-            border-right-color: currentcolor;
             border-right-color: transparent;
-            border-radius: 50%;
             -webkit-animation: spinner 1s linear infinite;
-            animation: spinner 1s linear infinite;
+                    animation: spinner 1s linear infinite;
         }
 
         @keyframes spinner {
             to {
                 -webkit-transform: rotate(360deg);
-                transform: rotate(360deg);
+                    -ms-transform: rotate(360deg);
+                        transform: rotate(360deg);
             }
         }
 
