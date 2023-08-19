@@ -11,7 +11,7 @@
 {% macro renderFileRow(file, index, bold = false) %}
     <tr class="stripe-light" data-original-order="{{ index }}">
         <td></td>
-        <td class="ph2 pv1">
+        <td class="ph2 pv1 nowrap">
             <a
                 class="link dark-blue hover-underline {{ "b" if bold }}"
                 href="{{ file.file }}">
@@ -19,7 +19,14 @@
             </a>
 
             {% if file.isMinified %}
-                <small class="ml1 ba br-pill ph1 pt1">minified</small>
+                <small class="ml1 ba br-pill ph1 v-mid">
+                    <span class="di dn-m">
+                        min
+                    </span>
+                    <span class="dn di-m">
+                        minified
+                    </span>
+                </small>
             {% endif %}
         </td>
         <td class="ph2 pv1 nowrap" title="{{ file.size | formatInteger }} bytes" data-value="{{ file.size }}">
