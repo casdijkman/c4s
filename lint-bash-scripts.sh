@@ -8,7 +8,13 @@
 
 [[ $(dirname "$(realpath "$0")") != $(pwd) ]] && echo "Run script from it's own directory" && exit 1
 
-grep -rl '^#!/usr/bin/env bash' | while IFS= read -r file; do
+shebang="#!/usr/bin/env bash"
+grep -rl "^${shebang}" | while IFS= read -r file; do
+    if [[ "$(head -n1 "$file")" != "$shebang" ]]; then
+        # echo "Skipping '$file'"
+        continue
+    fi
+
     path=$(realpath "$file")
     basename=$(basename "$path")
 
