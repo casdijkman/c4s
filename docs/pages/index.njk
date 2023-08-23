@@ -4,16 +4,19 @@
     SPDX-License-Identifier: GFDL-1.3-only
 #}
 
-{% extends "docs/layouts/default.njk" %}
+{% extends 'docs/layouts/default.njk' %}
 
-{% set description = "C4S CSS documentation index page" %}
+{% set description = 'C4S CSS documentation index page' %}
+{% set minGzSize = files | mySelect('basename', 'c4s.min.css') | first | mySelect('gzipSize') %}
+{% set listFiles = files | rejectattr('isRaw') | rejectattr('isModule') | rejectattr('isCustom') %}
+{% set modules = files | rejectattr('isMinified') | rejectattr('isRaw') | selectattr('isModule') %}
 
 {% macro renderFileRow(file, index, bold = false) %}
     <tr class="stripe-light" data-original-order="{{ index }}">
         <td></td>
+
         <td class="ph2 pv1 nowrap">
-            <a
-                class="link dark-blue hover-underline {{ "b" if bold }}"
+            <a class="link dark-blue hover-underline {{ 'b' if bold }}"
                 href="{{ file.file }}">
                 {{ file.name }}
             </a>
@@ -29,12 +32,19 @@
                 </small>
             {% endif %}
         </td>
-        <td class="ph2 pv1 nowrap" title="{{ file.size | formatInteger }} bytes" data-value="{{ file.size }}">
+
+        <td class="ph2 pv1 nowrap"
+            title="{{ file.size | formatInteger }} bytes"
+            data-value="{{ file.size }}">
             {{ file.sizePretty }}
         </td>
-        <td class="ph2 pv1 nowrap" title="{{ file.gzipSize | formatInteger }} bytes" data-value="{{ file.size }}">
+
+        <td class="ph2 pv1 nowrap"
+            title="{{ file.gzipSize | formatInteger }} bytes"
+            data-value="{{ file.size }}">
             {{ file.gzipSizePretty }}
         </td>
+
         {% if file.isModule %}
             <td class="ph2 pv1 nowrap small">
                 <a
@@ -51,6 +61,7 @@
                 </a>
             </td>
         {% endif %}
+
          <td class="ph2 pv1">
             <a class="db link black tc" href="{{ file.file }}" download>
                 <span class="sr-only">Download</span>
@@ -72,9 +83,10 @@
             <div class="row column-gap row-gap">
                 <div class="col-12 col-m col-3-l grow ba br3 b--black-20 p3">
                     <h3 class="mt0 f4">Lightweight</h3>
-                    {% set minGzSize = files | mySelect("basename", "c4s.min.css") | first | mySelect("gzipSize") %}
                     Only
-                    <span title="{{ minGzSize | formatInteger }} bytes">&plusmn;{{ minGzSize // 1000 }} kilobytes</span>
+                    <span title="{{ minGzSize | formatInteger }} bytes">
+                        &plusmn;{{ minGzSize // 1000 }} kilobytes
+                    </span>
                     <a class="link hover-underline black"
                         href="/c4s.min.css.gz"
                         download>
@@ -118,7 +130,6 @@
         <a href="/example.html" class="db link dark-blue hover-underline ph3 pv2">
             Examples
         </a>
-
         <a href="/list.html" class="db dark-blue link hover-underline ph3 pv2">
             List of rules
         </a>
@@ -128,9 +139,11 @@
         </h2>
 
         <div class="row column-gap row-gap">
-            {% for file in files | rejectattr("isRaw") | mySelect("name", "c4s") %}
+            {% for file in files | rejectattr('isRaw') | mySelect('name', 'c4s') %}
                 <div class="dib bg-dark-blue br-pill grow">
-                    <a class="dib link ph4 pv3 nowrap white" href="{{ file.file }}" download>
+                    <a class="dib link ph4 pv3 nowrap white"
+                        href="{{ file.file }}"
+                        download>
                         Download C4S
 
                         {% if file.isMinified %}
@@ -141,7 +154,9 @@
             {% endfor %}
 
             <div class="dib bg-dark-blue br-pill grow">
-                <a class="dib link ph4 pv3 nowrap white" href="/custom.html" title="Select your own modules">
+                <a class="dib link ph4 pv3 nowrap white"
+                    href="/custom.html"
+                    title="Select your own modules">
                     Customize C4S
                 </a>
             </div>
@@ -154,14 +169,18 @@
         <div class="overflow-x-auto">
             <table class="js-order-table collapse lh-text">
                 <tr class="stripe-light b">
-                    <th class="p2-m cursor-pointer user-select-none tl nowrap" data-sort-name="reset"></th>
+                    <th class="p2-m cursor-pointer user-select-none tl nowrap"
+                        data-sort-name="reset">
+                    </th>
                     <th class="p2 cursor-pointer user-select-none tl nowrap">
                         Name
                     </th>
-                    <th class="p2 cursor-pointer user-select-none tl nowrap" data-sort-name="number">
+                    <th class="p2 cursor-pointer user-select-none tl nowrap"
+                        data-sort-name="number">
                         Size
                     </th>
-                    <th class="p2 cursor-pointer user-select-none tl nowrap" data-sort-name="number">
+                    <th class="p2 cursor-pointer user-select-none tl nowrap"
+                        data-sort-name="number">
                         Size gzip
                     </th>
                     <th class="p2 user-select-none tl nowrap" data-sort-name="none">
@@ -169,7 +188,7 @@
                     </th>
                 </tr>
 
-                {% for file in files | rejectattr('isRaw') | rejectattr('isModule') | rejectattr('isCustom') %}
+                {% for file in listFiles %}
                     {{
                         renderFileRow(
                             file = file,
@@ -182,76 +201,46 @@
         </div>
 
         <h2 id="modules">
-            Modules ({{ files | rejectattr('isMinified') | rejectattr('isRaw') | selectattr('isModule') | length }})
+            Modules ({{ modules | length }})
         </h2>
 
         <div class="overflow-x-auto">
             <table class="js-order-table collapse lh-text">
                 <tr class="stripe-light b">
-                    <th class="p2-m cursor-pointer user-select-none tl nowrap" data-sort-name="reset"></th>
+                    <th class="p2-m cursor-pointer user-select-none tl nowrap"
+                        data-sort-name="reset"></th>
                     <th class="p2 cursor-pointer user-select-none tl nowrap">
                         Name
                     </th>
-                    <th class="p2 cursor-pointer user-select-none tl nowrap" data-sort-name="number">
+                    <th class="p2 cursor-pointer user-select-none tl nowrap"
+                        data-sort-name="number">
                         Size
                     </th>
-                    <th class="p2 cursor-pointer user-select-none tl nowrap" data-sort-name="number">
+                    <th class="p2 cursor-pointer user-select-none tl nowrap"
+                        data-sort-name="number">
                         Size gzip
                     </th>
-                    <th class="p2 user-select-none tl nowrap" data-sort-name="none">
+                    <th class="p2 user-select-none tl nowrap"
+                        data-sort-name="none">
                         Documentation
                     </th>
-                    <th class="p2 user-select-none tl nowrap" data-sort-name="none">
+                    <th class="p2 user-select-none tl nowrap"
+                        data-sort-name="none">
                         Download
                     </th>
                 </tr>
 
-                {% for file in files | rejectattr('isMinified') | rejectattr('isRaw') | selectattr('isModule') %}
-                    {{ renderFileRow(file, loop.index0) }}
+                {% for module in modules %}
+                    {{
+                        renderFileRow(
+                            file = module,
+                            index = loop.index0
+                        )
+                    }}
                 {% endfor %}
             </table>
         </div>
     </div>
 
-    <style>
-        .js-order-table th::after {
-            content: url("{{ "docs/icons/bootstrap/sort-alpha-up.svg" | imageToDataString('svg+xml') }}");
-            display: inline-block;
-            width: 1rem;
-            margin: 0 5px;
-            transform: translateY(3px);
-            visibility: hidden;
-        }
-
-        .js-order-table th[data-sorted-by][data-sorted-order]::after {
-            visibility: visible;
-        }
-
-        .js-order-table th[data-sorted-by][data-sorted-order=ascending]::after {
-            content: url("{{ "docs/icons/bootstrap/sort-alpha-up.svg" | imageToDataString('svg+xml') }}");
-        }
-
-        .js-order-table th[data-sorted-by][data-sorted-order=descending]::after {
-            content: url("{{ "docs/icons/bootstrap/sort-alpha-down-alt.svg" | imageToDataString('svg+xml') }}");
-        }
-
-        .js-order-table th[data-sorted-by][data-sorted-order=ascending][data-sort-name=number]::after {
-            content: url("{{ "docs/icons/bootstrap/sort-numeric-up.svg" | imageToDataString('svg+xml') }}");
-        }
-
-        .js-order-table th[data-sorted-by][data-sorted-order=descending][data-sort-name=number]::after {
-            content: url("{{ "docs/icons/bootstrap/sort-numeric-down-alt.svg" | imageToDataString('svg+xml') }}");
-        }
-
-        .js-order-table th[data-sort-name=reset]::after,
-        .js-order-table th[data-sort-name=none]::after {
-            content: unset;
-        }
-
-        .js-order-table[data-sorted] th[data-sort-name=reset]::after {
-            {% set dataUrl = "docs/icons/ionicons/refresh-outline.svg" | imageToDataString('svg+xml') %}
-            content: url("{{ dataUrl }}");
-            visibility: visible;
-        }
-    </style>
+    {% include 'docs/partials/order-table-styling.njk' %}
 {% endblock %}

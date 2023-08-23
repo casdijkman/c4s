@@ -1,0 +1,41 @@
+<style>
+    .js-order-table th::after {
+        content: url("{{ "docs/icons/bootstrap/sort-alpha-up.svg" | imageToDataString('svg+xml') }}");
+        display: inline-block;
+        width: 1rem;
+        margin: 0 5px;
+        transform: translateY(3px);
+        visibility: hidden;
+    }
+
+    .js-order-table th[data-sorted-by][data-sorted-order]::after {
+        visibility: visible;
+    }
+
+    .js-order-table th[data-sorted-by][data-sorted-order=ascending]::after {
+        content: url("{{ "docs/icons/bootstrap/sort-alpha-up.svg" | imageToDataString('svg+xml') }}");
+    }
+
+    .js-order-table th[data-sorted-by][data-sorted-order=descending]::after {
+        content: url("{{ "docs/icons/bootstrap/sort-alpha-down-alt.svg" | imageToDataString('svg+xml') }}");
+    }
+
+    .js-order-table th[data-sorted-by][data-sorted-order=ascending][data-sort-name=number]::after {
+        content: url("{{ "docs/icons/bootstrap/sort-numeric-up.svg" | imageToDataString('svg+xml') }}");
+    }
+
+    .js-order-table th[data-sorted-by][data-sorted-order=descending][data-sort-name=number]::after {
+        content: url("{{ "docs/icons/bootstrap/sort-numeric-down-alt.svg" | imageToDataString('svg+xml') }}");
+    }
+
+    .js-order-table th[data-sort-name=reset]::after,
+    .js-order-table th[data-sort-name=none]::after {
+        content: unset;
+    }
+
+    .js-order-table[data-sorted] th[data-sort-name=reset]::after {
+        {% set dataUrl = "docs/icons/ionicons/refresh-outline.svg" | imageToDataString('svg+xml') %}
+        content: url("{{ dataUrl }}");
+        visibility: visible;
+    }
+</style>
