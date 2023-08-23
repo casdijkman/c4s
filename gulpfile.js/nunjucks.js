@@ -9,7 +9,7 @@ const cssLib = require('css');
 const highlight = require('highlight.js');
 const prettyBytes = require('pretty-bytes');
 const loremIpsum = require('lorem-ipsum');
-const { getRandomPartition } = require('./partitions-of-12');
+const { getRandom12Partition, isCssProperty } = require('./helpers/functions');
 const { VERSION } = require('./constants');
 
 const modulesFilePath = path.join(process.cwd(), 'src/module-list.json');
@@ -125,7 +125,8 @@ function getNunjucksEnv(env) {
         throw new Error(`Error: Type of iterable not implemented: ${typeof iterable}`);
       }
     })
-    .addFilter('getRandomPartition', getRandomPartition)
+    .addFilter('getRandom12Partition', getRandom12Partition)
+    .addFilter('isCssProperty', isCssProperty)
     .addFilter('imageToDataString', (image, imageType = 'png') => {
       if (!image) return '';
       const imagePath = path.join(__dirname, '..', image);
