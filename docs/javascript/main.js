@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
+import $ from './helpers/dom-surfer';
 import './header';
 import './scroll-top-button';
 import './order-table';
@@ -12,6 +13,8 @@ import './custom-modules';
 import { setStickyHeight } from './sticky';
 import { breakpoints, matchMediaUp } from './helpers/breakpoints';
 import throttle from './helpers/throttle';
+
+window.$ = $;
 
 setStickyHeight();
 for (const breakpoint in breakpoints) {
