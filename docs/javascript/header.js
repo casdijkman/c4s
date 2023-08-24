@@ -13,10 +13,9 @@ import { setStickyHeight } from './sticky';
 export const header = document.querySelector('.js-header');
 const headerHideClass = 'translateY-n100';
 
-function setHeaderHeight() {
-  const height = isHeaderHidden() ? '0px' : `${header.clientHeight}px`;
-  document.documentElement.style.setProperty('--header-height', height);
-}
+export const getHeaderHeight = () => isHeaderHidden() ? 0 : header.clientHeight;
+const setHeaderHeight = () =>
+  document.documentElement.style.setProperty('--header-height', `${getHeaderHeight()}px`);
 
 let previousScrollY = window.scrollY;
 let directionalScrollMemo = previousScrollY;

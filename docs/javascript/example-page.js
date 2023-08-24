@@ -4,7 +4,8 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-import { header, preventOpenHeader } from './header';
+import $ from './helpers/dom-surfer';
+import { getHeaderHeight, header, preventOpenHeader } from './header';
 import { setStickyHeight } from './sticky';
 import { debug, debugLog } from './helpers/constants';
 
@@ -17,25 +18,41 @@ function openExample(data) {
   updateCloseExamplesButton();
 }
 
-function updateLinks(data = {}, setActive = true) {
-  const { link } = data;
-  const links = document.querySelector('.js-example-links');
-  const cssClass = 'debug-striped';
-  links.childNodes.forEach((element) => {
-    element.classList.remove(cssClass);
-  });
-  if (!link || !setActive) return;
-  link.classList.add(cssClass);
-
-  // Scroll link into view
+function showLinkInList(link, list) {
   const bcr = link.getBoundingClientRect();
-  if (bcr.left < 0) {
-    const scrollToX = links.scrollLeft + bcr.left;
-    links.scrollTo(scrollToX, null);
-  } else if (bcr.right > links.clientWidth) {
-    const scrollToX = links.scrollLeft + bcr.right - links.clientWidth;
-    links.scrollTo(scrollToX, null);
+  if (list.scrollWidth > list.clientWidth) {
+    if (bcr.left < 0) {
+      const scrollToX = list.scrollLeft + bcr.left;
+      list.scrollTo(scrollToX, null);
+    } else if (bcr.right > list.clientWidth) {
+      const scrollToX = list.scrollLeft + bcr.right - list.clientWidth;
+      list.scrollTo(scrollToX, null);
+    }
+  } else if (list.scrollHeight > list.clientHeight) {
+    if (bcr.top < getHeaderHeight()) {
+      const scrollToY = list.scrollTop + bcr.top - getHeaderHeight();
+      list.scrollTo(null, scrollToY);
+    } else if (bcr.bottom > list.clientHeight) {
+      const scrollToY = list.scrollTop + bcr.bottom - list.clientHeight;
+      list.scrollTo(null, scrollToY);
+    }
   }
+}
+
+function updateLinkLists(data = {}, setActive = true) {
+  const { linksTo } = data;
+  const $linksTo = $(linksTo);
+  const cssClass = 'debug-striped';
+  const $linkLists = $('.js-example-links');
+
+  $linkLists.$each(($linkList) => $linkList.$children().removeClass(cssClass));
+  if ($linksTo.none() || !setActive) return;
+
+  $linksTo.addClass(cssClass);
+  $linkLists.each((linkList) => {
+    const link = $linksTo.elements.find((element) => linkList.contains(element));
+    if (link) showLinkInList(link, linkList);
+  });
 }
 
 function updateHash(hash) {
@@ -45,8 +62,8 @@ function updateHash(hash) {
 function getDataFromHash(hash) {
   const target = document.querySelector(hash);
   const details = target ? target.parentElement.querySelector('details') : null;
-  const link = document.querySelector(`[href="${hash}"]`);
-  return { hash, target, details, link };
+  const linksTo = document.querySelectorAll(`[href="${hash}"]`);
+  return { hash, target, details, linksTo };
 }
 
 function debugExamples() {
@@ -73,20 +90,20 @@ function debugExamples() {
 
 function updateCloseExamplesButton() {
   setTimeout(() => {
-    const anyOpenDetails = document.querySelectorAll('details[open]').length > 0;
-    closeExamplesButton.style.visibility = anyOpenDetails ? 'visible' : 'hidden';
+    const visibility = $('details[open]').any() ? 'visible' : 'hidden';
+    closeExamplesButton.style.visibility = visibility;
   }, 0);
 }
 
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
-  link.addEventListener('click', (event) => {
-    const hash = event.target.attributes.href.value;
+  link.addEventListener('click', function (event) {
+    const hash = $(this).attr('href');
     const data = getDataFromHash(hash);
     event.preventDefault();
 
     if (header) preventOpenHeader();
     setStickyHeight();
-    updateLinks(data);
+    updateLinkLists(data);
     openExample(data);
     updateHash(data.hash);
   });
@@ -96,7 +113,7 @@ document.querySelectorAll('summary').forEach((summary) => {
   summary.addEventListener('click', (e) => {
     const data = getDataFromHash(`#${e.currentTarget.dataset.module}`);
     const opening = !data.details.open;
-    updateLinks(data, opening);
+    updateLinkLists(data, opening);
     if (opening) updateHash(data.hash);
     updateCloseExamplesButton();
   });
@@ -105,13 +122,13 @@ document.querySelectorAll('summary').forEach((summary) => {
 closeExamplesButton.addEventListener('click', () => {
   document.querySelectorAll('details').forEach((x) => { x.open = false; });
   updateCloseExamplesButton();
-  updateLinks();
+  updateLinkLists();
 });
 
 function initialize() {
   if (window.location.hash) {
     const data = getDataFromHash(window.location.hash);
-    updateLinks(data);
+    updateLinkLists(data);
     openExample(data);
   }
 
