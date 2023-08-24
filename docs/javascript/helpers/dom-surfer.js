@@ -5,7 +5,7 @@
  */
 
 export class DomSurfer {
-   constructor(value) {
+  constructor(value) {
     this.value = value;
     try {
       this.add(value);
