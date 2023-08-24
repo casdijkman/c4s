@@ -1,5 +1,11 @@
+/*
+ * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
 export class DomSurfer {
-  constructor(value) {
+   constructor(value) {
     this.value = value;
     try {
       this.add(value);
