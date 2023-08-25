@@ -48,5 +48,6 @@
     "serve": "gulp serve",
     "lint": "gulp lint",
     "lint-rc": "npx eslint .*.js --ignore-pattern '!.*'"
-  }
+  },
+  "packageManager": "yarn@3.6.3"
 }
