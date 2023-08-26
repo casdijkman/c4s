@@ -1,5 +1,5 @@
 /*!
- * C4S CSS, version 0.5.2 <https://c4s.cdijkman.nl>
+ * C4S CSS, version 0.5.3 <https://c4s.cdijkman.nl>
  * SPDX-FileCopyrightText: 2021 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
@@ -1944,6 +1944,21 @@ code {
 .c4s-w-auto {
   width: auto;
 }
+.c4s-vw-25 {
+  width: 25vw;
+}
+.c4s-vw-50 {
+  width: 50vw;
+}
+.c4s-vw-75 {
+  width: 75vw;
+}
+.c4s-vw-100 {
+  width: 100vw;
+}
+.c4s-min-vw-100 {
+  min-width: 100vw;
+}
 .c4s-mw0 {
   max-width: 0;
 }
@@ -3164,6 +3179,21 @@ code {
   .c4s-w-auto-s {
     width: auto;
   }
+  .c4s-vw-25-s {
+    width: 25vw;
+  }
+  .c4s-vw-50-s {
+    width: 50vw;
+  }
+  .c4s-vw-75-s {
+    width: 75vw;
+  }
+  .c4s-vw-100-s {
+    width: 100vw;
+  }
+  .c4s-min-vw-100-s {
+    min-width: 100vw;
+  }
   .c4s-mw0-s {
     max-width: 0;
   }
@@ -4380,6 +4410,21 @@ code {
   }
   .c4s-w-auto-m {
     width: auto;
+  }
+  .c4s-vw-25-m {
+    width: 25vw;
+  }
+  .c4s-vw-50-m {
+    width: 50vw;
+  }
+  .c4s-vw-75-m {
+    width: 75vw;
+  }
+  .c4s-vw-100-m {
+    width: 100vw;
+  }
+  .c4s-min-vw-100-m {
+    min-width: 100vw;
   }
   .c4s-mw0-m {
     max-width: 0;
@@ -5599,6 +5644,21 @@ code {
   .c4s-w-auto-l {
     width: auto;
   }
+  .c4s-vw-25-l {
+    width: 25vw;
+  }
+  .c4s-vw-50-l {
+    width: 50vw;
+  }
+  .c4s-vw-75-l {
+    width: 75vw;
+  }
+  .c4s-vw-100-l {
+    width: 100vw;
+  }
+  .c4s-min-vw-100-l {
+    min-width: 100vw;
+  }
   .c4s-mw0-l {
     max-width: 0;
   }
@@ -6817,6 +6877,21 @@ code {
   }
   .c4s-w-auto-h {
     width: auto;
+  }
+  .c4s-vw-25-h {
+    width: 25vw;
+  }
+  .c4s-vw-50-h {
+    width: 50vw;
+  }
+  .c4s-vw-75-h {
+    width: 75vw;
+  }
+  .c4s-vw-100-h {
+    width: 100vw;
+  }
+  .c4s-min-vw-100-h {
+    min-width: 100vw;
   }
   .c4s-mw0-h {
     max-width: 0;

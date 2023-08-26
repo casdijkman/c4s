@@ -16,4 +16,16 @@
       width: $value;
     }
   }
+
+  $vw-prefix: variables.$view-width-prefix;
+
+  @each $level, $value in variables.$view-widths {
+    #{functions.construct-class-name($global-prefix, $vw-prefix + $level, $media)} {
+      width: $value;
+    }
+  }
+
+  #{functions.construct-class-name($global-prefix, min-vw-100, $media)} {
+    min-width: 100vw;
+  }
 }

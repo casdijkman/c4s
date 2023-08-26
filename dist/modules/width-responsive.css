@@ -1,5 +1,5 @@
 /*!
- * C4S CSS, version 0.5.2 <https://c4s.cdijkman.nl>
+ * C4S CSS, version 0.5.3 <https://c4s.cdijkman.nl>
  * SPDX-FileCopyrightText: 2021 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
@@ -69,6 +69,21 @@
 .w-auto {
   width: auto;
 }
+.vw-25 {
+  width: 25vw;
+}
+.vw-50 {
+  width: 50vw;
+}
+.vw-75 {
+  width: 75vw;
+}
+.vw-100 {
+  width: 100vw;
+}
+.min-vw-100 {
+  min-width: 100vw;
+}
 @media only screen and (min-width: 30em) {
   .w0-s {
     width: 0;
@@ -135,6 +150,21 @@
   }
   .w-auto-s {
     width: auto;
+  }
+  .vw-25-s {
+    width: 25vw;
+  }
+  .vw-50-s {
+    width: 50vw;
+  }
+  .vw-75-s {
+    width: 75vw;
+  }
+  .vw-100-s {
+    width: 100vw;
+  }
+  .min-vw-100-s {
+    min-width: 100vw;
   }
 }
 @media only screen and (min-width: 40em) {
@@ -204,6 +234,21 @@
   .w-auto-m {
     width: auto;
   }
+  .vw-25-m {
+    width: 25vw;
+  }
+  .vw-50-m {
+    width: 50vw;
+  }
+  .vw-75-m {
+    width: 75vw;
+  }
+  .vw-100-m {
+    width: 100vw;
+  }
+  .min-vw-100-m {
+    min-width: 100vw;
+  }
 }
 @media only screen and (min-width: 60em) {
   .w0-l {
@@ -272,6 +317,21 @@
   .w-auto-l {
     width: auto;
   }
+  .vw-25-l {
+    width: 25vw;
+  }
+  .vw-50-l {
+    width: 50vw;
+  }
+  .vw-75-l {
+    width: 75vw;
+  }
+  .vw-100-l {
+    width: 100vw;
+  }
+  .min-vw-100-l {
+    min-width: 100vw;
+  }
 }
 @media only screen and (min-width: 90em) {
   .w0-h {
@@ -339,5 +399,20 @@
   }
   .w-auto-h {
     width: auto;
+  }
+  .vw-25-h {
+    width: 25vw;
+  }
+  .vw-50-h {
+    width: 50vw;
+  }
+  .vw-75-h {
+    width: 75vw;
+  }
+  .vw-100-h {
+    width: 100vw;
+  }
+  .min-vw-100-h {
+    min-width: 100vw;
   }
 }

@@ -1,5 +1,5 @@
 /*!
- * C4S CSS, version 0.5.2 <https://c4s.cdijkman.nl>
+ * C4S CSS, version 0.5.3 <https://c4s.cdijkman.nl>
  * SPDX-FileCopyrightText: 2021 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
@@ -1091,6 +1091,13 @@ $white-spaces: (
  * Width
  */
 $width-prefix: w;
+$view-width-prefix: vw;
+$view-widths: (
+  '-25':  25vw,
+  '-50':  50vw,
+  '-75':  75vw,
+  '-100': 100vw
+);
 
 /*
  * Word break

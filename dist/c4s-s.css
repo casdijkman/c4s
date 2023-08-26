@@ -1,5 +1,5 @@
 /*!
- * C4S CSS, version 0.5.2 <https://c4s.cdijkman.nl>
+ * C4S CSS, version 0.5.3 <https://c4s.cdijkman.nl>
  * SPDX-FileCopyrightText: 2021 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
@@ -1943,6 +1943,21 @@ code {
 .w-auto {
   width: auto;
 }
+.vw-25 {
+  width: 25vw;
+}
+.vw-50 {
+  width: 50vw;
+}
+.vw-75 {
+  width: 75vw;
+}
+.vw-100 {
+  width: 100vw;
+}
+.min-vw-100 {
+  min-width: 100vw;
+}
 .mw0 {
   max-width: 0;
 }
@@ -3166,6 +3181,21 @@ code {
   }
   .w-auto-s {
     width: auto;
+  }
+  .vw-25-s {
+    width: 25vw;
+  }
+  .vw-50-s {
+    width: 50vw;
+  }
+  .vw-75-s {
+    width: 75vw;
+  }
+  .vw-100-s {
+    width: 100vw;
+  }
+  .min-vw-100-s {
+    min-width: 100vw;
   }
   .mw0-s {
     max-width: 0;
