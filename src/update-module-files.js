@@ -7,8 +7,8 @@
  */
 
 if (__dirname !== process.cwd()) {
-  console.error("Run script from it's own directory");
-  process.exit(1);
+    console.error("Run script from it's own directory");
+    process.exit(1);
 }
 
 const glob = require('glob');
@@ -18,10 +18,10 @@ const modules = require('./module-list.json');
 
 const moduleFileSuffix = '-module';
 const moduleFile = (name, responsive = false) =>
-  `./modules/${name}${responsive ? '-responsive' : ''}${moduleFileSuffix}.scss`;
+    `./modules/${name}${responsive ? '-responsive' : ''}${moduleFileSuffix}.scss`;
 
 glob.sync(`./modules/*${moduleFileSuffix}.scss`).forEach((file) => {
-  fs.unlinkSync(file);
+    fs.unlinkSync(file);
 });
 
 const moduleFileContent = (name, responsive = false) => `/*
@@ -39,14 +39,14 @@ const moduleFileContent = (name, responsive = false) => `/*
 `;
 
 glob.sync('./modules/_*.scss').forEach((file) => {
-  const basename = path.basename(file);
-  const basenameClean = basename.replace(/^_/, '');
-  const moduleName = basenameClean.replace(/\.scss$/, '');
+    const basename = path.basename(file);
+    const basenameClean = basename.replace(/^_/, '');
+    const moduleName = basenameClean.replace(/\.scss$/, '');
 
-  fs.writeFileSync(moduleFile(moduleName), moduleFileContent(moduleName));
+    fs.writeFileSync(moduleFile(moduleName), moduleFileContent(moduleName));
 
-  const module = modules.find((x) => x.name === moduleName);
-  if (!module || !module.responsiveAble) return;
+    const module = modules.find((x) => x.name === moduleName);
+    if (!module || !module.responsiveAble) return;
 
-  fs.writeFileSync(moduleFile(moduleName, true), moduleFileContent(moduleName, true));
+    fs.writeFileSync(moduleFile(moduleName, true), moduleFileContent(moduleName, true));
 });

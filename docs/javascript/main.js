@@ -18,18 +18,18 @@ window.$ = $;
 
 setStickyHeight();
 for (const breakpoint in breakpoints) {
-  matchMediaUp(breakpoint).addListener(setStickyHeight);
+    matchMediaUp(breakpoint).addListener(setStickyHeight);
 }
 
 if (/\/example.html$/.test(window.location.pathname)) {
-  import(/* webpackChunkName: "example-page" */ './example-page').then();
+    import(/* webpackChunkName: "example-page" */ './example-page').then();
 }
 
 if (/.*test.html$/.test(window.location.pathname)) {
-  import(/* webpackChunkName: "test-page" */ './test-page').then();
+    import(/* webpackChunkName: "test-page" */ './test-page').then();
 }
 
 const throttleMs = 300;
 document.addEventListener('scroll', () => {
-  throttle(() => document.dispatchEvent(new Event('throttled-scroll')), throttleMs);
+    throttle(() => document.dispatchEvent(new Event('throttled-scroll')), throttleMs);
 });
