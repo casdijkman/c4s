@@ -524,19 +524,23 @@ $debug-striped-items: (
  * Display
  */
 $displays: (
-  'db':   block,
-  'di':   inline,
-  'dib':  inline-block,
-  'dn':   none,
-  'dt':   table,
-  'dtc':  table-cell,
-  'df':   flex,
-  'flex': flex,
-  'dif':  inline-flex,
-  'dg':   grid,
-  'grid': grid,
-  'dc':   contents,
-  'dfr':  flow-root
+  'db':           block,
+  'block':        block,
+  'di':           inline,
+  'inline':       inline,
+  'dib':          inline-block,
+  'inline-block': inline-block,
+  'dn':           none,
+  'dt':           table,
+  'dtc':          table-cell,
+  'df':           flex,
+  'flex':         flex,
+  'dif':          inline-flex,
+  'inline-flex':  inline-flex,
+  'dg':           grid,
+  'grid':         grid,
+  'dc':           contents,
+  'dfr':          flow-root
 );
 
 /*
