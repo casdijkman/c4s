@@ -38,6 +38,7 @@ $modules: (
   'complex':                false,
   'reset':                  false,
   'miscellaneous':          false,
+  'hover':                  false,
   'color':                  false,
   'hover-color':            false,
   'background-color':       false,
@@ -69,7 +70,6 @@ $modules: (
   'box-sizing':             false,
   'cursor':                 false,
   'z-index':                false,
-  'hover':                  false,
   'table':                  false,
   'spanning-breakpoints':   false,
   'debug':                  false,
@@ -82,9 +82,9 @@ $modules: (
   'max-height':             true,
   'position':               true,
   'coordinates':            true,
+  'grid':                   true,
   'flex':                   true,
   'flex-direction':         true,
-  'grid':                   true,
   'display':                true,
   'overflow':               true,
   'float':                  true,
@@ -527,19 +527,23 @@ $debug-striped-items: (
  * Display
  */
 $displays: (
-  'db':   block,
-  'di':   inline,
-  'dib':  inline-block,
-  'dn':   none,
-  'dt':   table,
-  'dtc':  table-cell,
-  'df':   flex,
-  'flex': flex,
-  'dif':  inline-flex,
-  'dg':   grid,
-  'grid': grid,
-  'dc':   contents,
-  'dfr':  flow-root
+  'db':           block,
+  'block':        block,
+  'di':           inline,
+  'inline':       inline,
+  'dib':          inline-block,
+  'inline-block': inline-block,
+  'dn':           none,
+  'dt':           table,
+  'dtc':          table-cell,
+  'df':           flex,
+  'flex':         flex,
+  'dif':          inline-flex,
+  'inline-flex':  inline-flex,
+  'dg':           grid,
+  'grid':         grid,
+  'dc':           contents,
+  'dfr':          flow-root
 );
 
 /*

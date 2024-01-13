@@ -18,6 +18,12 @@
     "isEnabled": true
   },
   {
+    "name": "hover",
+    "isResponsive": false,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
     "name": "color",
     "isResponsive": false,
     "responsiveAble": true,
@@ -204,12 +210,6 @@
     "isEnabled": true
   },
   {
-    "name": "hover",
-    "isResponsive": false,
-    "responsiveAble": true,
-    "isEnabled": true
-  },
-  {
     "name": "table",
     "isResponsive": false,
     "responsiveAble": true,
@@ -282,6 +282,12 @@
     "isEnabled": true
   },
   {
+    "name": "grid",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
     "name": "flex",
     "isResponsive": true,
     "responsiveAble": true,
@@ -289,12 +295,6 @@
   },
   {
     "name": "flex-direction",
-    "isResponsive": true,
-    "responsiveAble": true,
-    "isEnabled": true
-  },
-  {
-    "name": "grid",
     "isResponsive": true,
     "responsiveAble": true,
     "isEnabled": true
