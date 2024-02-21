@@ -17,7 +17,7 @@ C4S stands for Concise Configurable Composable Classes Stylesheets.
 
 ## Get started
 
-- Go to the [C4S website](https://c4s.website) for an overview of the available
+- Go to the [C4S website](https://c4s.cdijkman.nl) for an overview of the available
   stylesheets and the project's documentation.
 - Include a C4S stylesheet in your HTML and you're good to go!
 
