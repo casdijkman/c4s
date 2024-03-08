@@ -179,6 +179,16 @@ export class DomSurfer {
         return this.each((element) => element.classList.toggle(cssClass));
     }
 
+    setClass(cssClass, boolean) {
+        return this.each((element) => {
+            if (boolean) {
+                element.classList.add(cssClass);
+            } else {
+                element.classList.remove(cssClass);
+            }
+        });
+    }
+
     on(eventName, callback) {
         return this.each((element) => element.addEventListener(eventName, callback));
     }
