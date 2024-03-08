@@ -4,7 +4,7 @@ Upstream-Contact: Cas Dijkman <cas@cdijkman.nl>
 Source:
 
 Files: package.json yarn.lock favicon.ico logo.svg src/module-list.json
-Copyright: 2021 Cas Dijkman <cas@cdijkman.nl>
+Copyright: 2024 Cas Dijkman <cas@cdijkman.nl>
 License: GPL-3.0-only
 
 Files: docs/assets/500x400.jpg
