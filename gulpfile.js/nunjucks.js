@@ -10,6 +10,7 @@ const highlight = require('highlight.js');
 const prettyBytes = require('pretty-bytes');
 const loremIpsum = require('lorem-ipsum');
 const { getRandom12Partition, isCssProperty } = require('./helpers/functions');
+const { checkComplexSelectors } = require('./helpers/checkComplexSelectors');
 const { VERSION } = require('./constants');
 
 const modulesFilePath = path.join(process.cwd(), 'src/module-list.json');
@@ -46,11 +47,12 @@ const getDataFromPath = (filePath) => {
     if (name.endsWith('-responsive')) return;
 
     const file = filePath.replace(/^dist/, '');
+    const css = getCss(filePath, name);
     const size = fs.statSync(filePath).size;
     const gzipSize = fs.statSync(`${filePath}.gz`).size;
+
     const data = {
-        basename, name, file, size, gzipSize,
-        css:            getCss(filePath, name),
+        basename, name, file, css, size, gzipSize,
         sizePretty:     prettyBytes(size),
         gzipSizePretty: prettyBytes(gzipSize),
         isMain:         /^\/c4s/.test(file),
@@ -62,6 +64,7 @@ const getDataFromPath = (filePath) => {
     data.order = getOrder(data);
     if (!data.isModule) return data;
 
+    checkComplexSelectors({ name, css });
     const module = modules.find((x) => x.name === name);
     if (!module) console.error('[nunjucks.js] could not find module', name);
     data.isResponsive = module.isResponsive;
