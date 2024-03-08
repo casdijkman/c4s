@@ -1,6 +1,6 @@
 /*!
  * C4S CSS, version 0.5.3 <https://c4s.cdijkman.nl>
- * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-FileCopyrightText: 2024 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
 .bg-clip-text{-webkit-background-clip:text;background-clip:text}@media only screen and (min-width:30em){.bg-clip-text-s{-webkit-background-clip:text;background-clip:text}}@media only screen and (min-width:40em){.bg-clip-text-m{-webkit-background-clip:text;background-clip:text}}@media only screen and (min-width:60em){.bg-clip-text-l{-webkit-background-clip:text;background-clip:text}}@media only screen and (min-width:90em){.bg-clip-text-h{-webkit-background-clip:text;background-clip:text}}

@@ -1,6 +1,6 @@
 /*!
  * C4S CSS, version 0.5.3 <https://c4s.cdijkman.nl>
- * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-FileCopyrightText: 2024 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
 .capitalize{text-transform:capitalize}.uppercase{text-transform:uppercase}@media only screen and (min-width:30em){.capitalize-s{text-transform:capitalize}.uppercase-s{text-transform:uppercase}}@media only screen and (min-width:40em){.capitalize-m{text-transform:capitalize}.uppercase-m{text-transform:uppercase}}@media only screen and (min-width:60em){.capitalize-l{text-transform:capitalize}.uppercase-l{text-transform:uppercase}}@media only screen and (min-width:90em){.capitalize-h{text-transform:capitalize}.uppercase-h{text-transform:uppercase}}

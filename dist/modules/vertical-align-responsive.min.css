@@ -1,6 +1,6 @@
 /*!
  * C4S CSS, version 0.5.3 <https://c4s.cdijkman.nl>
- * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-FileCopyrightText: 2024 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
 .v-mid,.v-middle{vertical-align:middle}.v-top{vertical-align:top}.v-bottom{vertical-align:bottom}@media only screen and (min-width:30em){.v-mid-s,.v-middle-s{vertical-align:middle}.v-top-s{vertical-align:top}.v-bottom-s{vertical-align:bottom}}@media only screen and (min-width:40em){.v-mid-m,.v-middle-m{vertical-align:middle}.v-top-m{vertical-align:top}.v-bottom-m{vertical-align:bottom}}@media only screen and (min-width:60em){.v-mid-l,.v-middle-l{vertical-align:middle}.v-top-l{vertical-align:top}.v-bottom-l{vertical-align:bottom}}@media only screen and (min-width:90em){.v-mid-h,.v-middle-h{vertical-align:middle}.v-top-h{vertical-align:top}.v-bottom-h{vertical-align:bottom}}

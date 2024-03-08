@@ -1,6 +1,6 @@
 /*!
  * C4S CSS, version 0.5.3 <https://c4s.cdijkman.nl>
- * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-FileCopyrightText: 2024 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
 .word-break-all{word-break:break-all}.word-break-word{word-break:break-word}.word-break-normal{word-break:normal}@media only screen and (min-width:30em){.word-break-all-s{word-break:break-all}.word-break-word-s{word-break:break-word}.word-break-normal-s{word-break:normal}}@media only screen and (min-width:40em){.word-break-all-m{word-break:break-all}.word-break-word-m{word-break:break-word}.word-break-normal-m{word-break:normal}}@media only screen and (min-width:60em){.word-break-all-l{word-break:break-all}.word-break-word-l{word-break:break-word}.word-break-normal-l{word-break:normal}}@media only screen and (min-width:90em){.word-break-all-h{word-break:break-all}.word-break-word-h{word-break:break-word}.word-break-normal-h{word-break:normal}}

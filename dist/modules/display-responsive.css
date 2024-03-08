@@ -1,15 +1,18 @@
 /*!
  * C4S CSS, version 0.5.3 <https://c4s.cdijkman.nl>
- * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-FileCopyrightText: 2024 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
+.block,
 .db {
   display: block;
 }
-.di {
+.di,
+.inline {
   display: inline;
 }
-.dib {
+.dib,
+.inline-block {
   display: inline-block;
 }
 .dn {
@@ -25,7 +28,8 @@
 .flex {
   display: flex;
 }
-.dif {
+.dif,
+.inline-flex {
   display: inline-flex;
 }
 .dg,
@@ -39,13 +43,16 @@
   display: flow-root;
 }
 @media only screen and (min-width: 30em) {
+  .block-s,
   .db-s {
     display: block;
   }
-  .di-s {
+  .di-s,
+  .inline-s {
     display: inline;
   }
-  .dib-s {
+  .dib-s,
+  .inline-block-s {
     display: inline-block;
   }
   .dn-s {
@@ -61,7 +68,8 @@
   .flex-s {
     display: flex;
   }
-  .dif-s {
+  .dif-s,
+  .inline-flex-s {
     display: inline-flex;
   }
   .dg-s,
@@ -76,13 +84,16 @@
   }
 }
 @media only screen and (min-width: 40em) {
+  .block-m,
   .db-m {
     display: block;
   }
-  .di-m {
+  .di-m,
+  .inline-m {
     display: inline;
   }
-  .dib-m {
+  .dib-m,
+  .inline-block-m {
     display: inline-block;
   }
   .dn-m {
@@ -98,7 +109,8 @@
   .flex-m {
     display: flex;
   }
-  .dif-m {
+  .dif-m,
+  .inline-flex-m {
     display: inline-flex;
   }
   .dg-m,
@@ -113,13 +125,16 @@
   }
 }
 @media only screen and (min-width: 60em) {
+  .block-l,
   .db-l {
     display: block;
   }
-  .di-l {
+  .di-l,
+  .inline-l {
     display: inline;
   }
-  .dib-l {
+  .dib-l,
+  .inline-block-l {
     display: inline-block;
   }
   .dn-l {
@@ -135,7 +150,8 @@
   .flex-l {
     display: flex;
   }
-  .dif-l {
+  .dif-l,
+  .inline-flex-l {
     display: inline-flex;
   }
   .dg-l,
@@ -150,13 +166,16 @@
   }
 }
 @media only screen and (min-width: 90em) {
+  .block-h,
   .db-h {
     display: block;
   }
-  .di-h {
+  .di-h,
+  .inline-h {
     display: inline;
   }
-  .dib-h {
+  .dib-h,
+  .inline-block-h {
     display: inline-block;
   }
   .dn-h {
@@ -172,7 +191,8 @@
   .flex-h {
     display: flex;
   }
-  .dif-h {
+  .dif-h,
+  .inline-flex-h {
     display: inline-flex;
   }
   .dg-h,

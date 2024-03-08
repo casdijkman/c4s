@@ -1,6 +1,6 @@
 /*!
  * C4S CSS, version 0.5.3 <https://c4s.cdijkman.nl>
- * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-FileCopyrightText: 2024 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
 .ratio-1x1{aspect-ratio:1}.ratio-16x9{aspect-ratio:16/9}@media only screen and (min-width:30em){.ratio-1x1-s{aspect-ratio:1}.ratio-16x9-s{aspect-ratio:16/9}}@media only screen and (min-width:40em){.ratio-1x1-m{aspect-ratio:1}.ratio-16x9-m{aspect-ratio:16/9}}@media only screen and (min-width:60em){.ratio-1x1-l{aspect-ratio:1}.ratio-16x9-l{aspect-ratio:16/9}}@media only screen and (min-width:90em){.ratio-1x1-h{aspect-ratio:1}.ratio-16x9-h{aspect-ratio:16/9}}

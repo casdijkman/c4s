@@ -1,6 +1,6 @@
 /*!
  * C4S CSS, version 0.5.3 <https://c4s.cdijkman.nl>
- * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-FileCopyrightText: 2024 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
 .collapse{border-collapse:collapse;border-spacing:0}.stripe-light:nth-child(odd){background-color:rgba(0,0,0,.05)}.stripe-dark:nth-child(odd){background-color:rgba(0,0,0,.1)}@media only screen and (min-width:30em){.collapse-s{border-collapse:collapse;border-spacing:0}.stripe-light-s:nth-child(odd){background-color:rgba(0,0,0,.05)}.stripe-dark-s:nth-child(odd){background-color:rgba(0,0,0,.1)}}@media only screen and (min-width:40em){.collapse-m{border-collapse:collapse;border-spacing:0}.stripe-light-m:nth-child(odd){background-color:rgba(0,0,0,.05)}.stripe-dark-m:nth-child(odd){background-color:rgba(0,0,0,.1)}}@media only screen and (min-width:60em){.collapse-l{border-collapse:collapse;border-spacing:0}.stripe-light-l:nth-child(odd){background-color:rgba(0,0,0,.05)}.stripe-dark-l:nth-child(odd){background-color:rgba(0,0,0,.1)}}@media only screen and (min-width:90em){.collapse-h{border-collapse:collapse;border-spacing:0}.stripe-light-h:nth-child(odd){background-color:rgba(0,0,0,.05)}.stripe-dark-h:nth-child(odd){background-color:rgba(0,0,0,.1)}}

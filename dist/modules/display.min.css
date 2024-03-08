@@ -1,6 +1,6 @@
 /*!
  * C4S CSS, version 0.5.3 <https://c4s.cdijkman.nl>
- * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-FileCopyrightText: 2024 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
-.db{display:block}.di{display:inline}.dib{display:inline-block}.dn{display:none}.dt{display:table}.dtc{display:table-cell}.df,.flex{display:flex}.dif{display:inline-flex}.dg,.grid{display:grid}.dc{display:contents}.dfr{display:flow-root}
+.block,.db{display:block}.di,.inline{display:inline}.dib,.inline-block{display:inline-block}.dn{display:none}.dt{display:table}.dtc{display:table-cell}.df,.flex{display:flex}.dif,.inline-flex{display:inline-flex}.dg,.grid{display:grid}.dc{display:contents}.dfr{display:flow-root}

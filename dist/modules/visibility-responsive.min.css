@@ -1,6 +1,6 @@
 /*!
  * C4S CSS, version 0.5.3 <https://c4s.cdijkman.nl>
- * SPDX-FileCopyrightText: 2021 Cas Dijkman
+ * SPDX-FileCopyrightText: 2024 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
 .visible{visibility:visible}.hidden,.invisible{visibility:hidden}@media only screen and (min-width:30em){.visible-s{visibility:visible}.hidden-s,.invisible-s{visibility:hidden}}@media only screen and (min-width:40em){.visible-m{visibility:visible}.hidden-m,.invisible-m{visibility:hidden}}@media only screen and (min-width:60em){.visible-l{visibility:visible}.hidden-l,.invisible-l{visibility:hidden}}@media only screen and (min-width:90em){.visible-h{visibility:visible}.hidden-h,.invisible-h{visibility:hidden}}
