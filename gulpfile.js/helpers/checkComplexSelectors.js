@@ -3,8 +3,8 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 const checkComplex = ({ property, name, rule }) => {
-const propertyClean = property
-    .replace(/^-(webkit|moz|o)-/, '')
+    const propertyClean = property
+        .replace(/^-(webkit|moz|o)-/, '')
         .replace(/^min-/, '')
         .replace(/-(width|style)$/, '')
         .replace(/-(top|right|bottom|left|x|y|shrink|grow)$/, '')

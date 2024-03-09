@@ -7,7 +7,7 @@
 /* eslint-disable no-console */
 
 import { breakpoints, matchMediaUp } from './helpers/breakpoints';
-import { debug } from './helpers/constants';
+import { isDebug, debugLog } from './helpers/constants';
 import { setStickyHeight } from './sticky';
 
 export const header = document.querySelector('.js-header');
@@ -31,15 +31,15 @@ function handleScroll(dummy = false) {
     const forceShow = newScrollY < header.clientHeight;
 
     if (scrollingUp !== newScrollingUp || dummy) {
-        if (debug) console.log('old directionalScrollMemo', directionalScrollMemo);
+        if (isDebug) console.log('old directionalScrollMemo', directionalScrollMemo);
         directionalScrollMemo = newScrollY;
-        if (debug) console.log('new directionalScrollMemo', directionalScrollMemo);
+        if (isDebug) console.log('new directionalScrollMemo', directionalScrollMemo);
     }
 
     const difference = Math.abs(directionalScrollMemo - newScrollY);
     const shouldShow = difference > threshold && newScrollingUp;
 
-    if (debug) {
+    if (isDebug) {
         // eslint-disable-next-line max-len
         console.log({ previousScrollY, directionalScrollMemo, newScrollY, difference, threshold, shouldShow });
         console.log({ scrollingUp, newScrollingUp, dummy });
@@ -53,7 +53,7 @@ function handleScroll(dummy = false) {
 
     previousScrollY = newScrollY;
     scrollingUp = newScrollingUp;
-    if (debug) console.log();
+    debugLog();
 }
 
 export function preventOpenHeader() {

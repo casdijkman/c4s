@@ -7,7 +7,7 @@
 import $ from './helpers/dom-surfer';
 import { getHeaderHeight, header, preventOpenHeader } from './header';
 import { setStickyHeight } from './sticky';
-import { debug, debugLog } from './helpers/constants';
+import { isDebug, debugLog } from './helpers/constants';
 
 const closeExamplesButton = document.querySelector('.js-close-examples');
 console.assert(closeExamplesButton, 'Could not find close examples button');
@@ -133,7 +133,7 @@ function initialize() {
         openExample(data);
     }
 
-    if (debug) debugExamples();
+    if (isDebug) debugExamples();
 }
 
 initialize();
