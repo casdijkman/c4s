@@ -1,5 +1,5 @@
 <!--
-SPDX-FileCopyrightText: 2021 Cas Dijkman
+SPDX-FileCopyrightText: 2024 Cas Dijkman
 
 SPDX-License-Identifier: GPL-3.0-only
 -->
@@ -8,9 +8,12 @@ SPDX-License-Identifier: GPL-3.0-only
 
 ## To do
 
+- Complete css class examples documentation
+- Publish as NPM module. Do minor version release (0.6.0)
 - Enable and publish source maps
   See: https://stackoverflow.com/a/38442789
 - Rewrite shell scripts to be node scripts (low priority)
+- Add "What is C4S" text to index.njk page
 
 ### Modules to add
 
