@@ -41,7 +41,13 @@ const getCss = (filePath, name) => {
     return css;
 };
 
-const getDataFromPath = (filePath) => {
+const getDataForPath = (filePath) => {
+    const fileGzPath = `${filePath}.gz`;
+    if (!fs.existsSync(filePath) || !fs.existsSync(fileGzPath)) {
+        console.error('File does not exist:', filePath);
+        return;
+    }
+
     const basename = path.basename(filePath);
     const name = basename.split('.')[0];
     if (name.endsWith('-responsive')) return;
@@ -49,7 +55,7 @@ const getDataFromPath = (filePath) => {
     const file = filePath.replace(/^dist/, '');
     const css = getCss(filePath, name);
     const size = fs.statSync(filePath).size;
-    const gzipSize = fs.statSync(`${filePath}.gz`).size;
+    const gzipSize = fs.statSync(fileGzPath).size;
 
     const data = {
         basename, name, file, css, size, gzipSize,
@@ -72,12 +78,6 @@ const getDataFromPath = (filePath) => {
     data.isEnabled = module.isEnabled;
     return data;
 };
-
-const files = glob
-    .sync('dist/**/*.css')
-    .map((filePath) => getDataFromPath(filePath))
-    .filter((x) => typeof x !== 'undefined')
-    .sort((a, b) => a.order - b.order);
 
 function getNunjucksEnv(env) {
     const getClassFromSelector = (selector) => {
@@ -143,7 +143,16 @@ function getNunjucksEnv(env) {
         });
 }
 
+function getNunjucksData() {
+    const filesData = glob
+        .sync('dist/**/*.css')
+        .map((filePath) => getDataForPath(filePath))
+        .filter((x) => typeof x !== 'undefined')
+        .sort((a, b) => a.order - b.order);
+    return { files: filesData, VERSION };
+}
+
 module.exports = {
-    getNunjucksData: () => ({ files, VERSION }),
+    getNunjucksData,
     getNunjucksEnv
 };
