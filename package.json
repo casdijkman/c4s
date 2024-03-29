@@ -46,8 +46,10 @@
     "build": "gulp build",
     "build-watch": "gulp buildWatch",
     "serve": "gulp serve",
-    "lint": "gulp lint",
-    "lint-rc": "npx eslint .*.js --ignore-pattern '!.*'"
+    "lint": "gulp lint"
   },
-  "packageManager": "yarn@3.6.3"
+  "engines": {
+    "node": "^20.9.0",
+    "yarn": "^3.6.3"
+  }
 }
