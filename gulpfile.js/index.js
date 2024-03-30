@@ -163,6 +163,7 @@ module.exports = {
     serve,
     build,
     buildWatch: series(build, watchFiles),
+    buildServe: series(build, serve),
     buildWatchServe,
     default: buildWatchServe,
     lint: parallel(lintSass, lintCss, lintJs),
