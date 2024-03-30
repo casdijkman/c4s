@@ -9,6 +9,11 @@ import { getHeaderHeight, header, preventOpenHeader } from './header';
 import { setStickyHeight } from './sticky';
 import { isDebug, debugLog } from './helpers/constants';
 
+const exampleExcludedModules = [
+    'reset',
+    'spanning-breakpoints'
+];
+
 const closeExamplesButton = document.querySelector('.js-close-examples');
 console.assert(closeExamplesButton, 'Could not find close examples button');
 
@@ -67,20 +72,19 @@ function getDataFromHash(hash) {
 }
 
 function debugExamples() {
-    const excludedModules = ['reset'];
     const examplesNotFound = document.querySelectorAll('[data-example-not-found]');
     if (examplesNotFound) {
         debugLog(examplesNotFound.length, 'examples not found');
         examplesNotFound.forEach((example) => {
             const moduleName = example.dataset.exampleNotFound;
-            if (excludedModules.includes(moduleName)) return;
-            debugLog('Not found:', moduleName);
+            if (exampleExcludedModules.includes(moduleName)) return;
+            debugLog('Not found:', moduleName, { example });
         });
     }
 
     const examplesEmpty = document.querySelectorAll('.js-example:empty');
     examplesEmpty?.forEach((example) => {
-        const isExcluded = excludedModules.some((module) =>
+        const isExcluded = exampleExcludedModules.some((module) =>
             document
                 .querySelector(`#${module}`)
                 .parentNode.querySelector('details')?.contains(example)
