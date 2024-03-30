@@ -1,10 +1,29 @@
 {#
-SPDX-FileCopyrightText: 2024 Cas Dijkman
+    SPDX-FileCopyrightText: 2024 Cas Dijkman
 
-SPDX-License-Identifier: GFDL-1.3-only
+    SPDX-License-Identifier: GFDL-1.3-only
 #}
 
 {% import "docs/macros/example.njk" as example %}
+
+<p class="mv5">
+    <span class="mr1 f5">
+        ⚠️
+    </span>
+    Also
+    <a
+        class="link dark-blue pr2"
+        href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model"
+        target="_blank"
+        rel="noreferrer nofollow"
+    >
+        see
+        {% include "docs/partials/mdn-icon.njk" %}
+        documentation
+        {% include "docs/partials/external-link-icon.njk" %}
+    </a>
+    for more information on how the CSS box model works.
+</p>
 
 {% for file in files | selectattr("isModule") | selectattr("isRaw") %}
     {% if file.name === "display" %}
