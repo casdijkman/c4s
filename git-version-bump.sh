@@ -41,7 +41,7 @@ function build() {
 }
 
 function git_commit() {
-    git add dist/ src/_variables.scss src/c4s-custom-verbose.scss
+    git add dist/ src/_variables.scss src/c4s-custom-verbose.scss package.json
     version_string="v$(jq -r '.version' <package.json)"
     git commit -m "$version_string"
     git tag "$version_string"
