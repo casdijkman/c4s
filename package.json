@@ -69,9 +69,5 @@
     "build-serve": "gulp buildServe",
     "serve": "gulp serve",
     "lint": "gulp lint"
-  },
-  "engines": {
-    "node": "^20.9.0",
-    "yarn": "^3.6.3"
   }
 }
