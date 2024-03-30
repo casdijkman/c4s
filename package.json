@@ -1,9 +1,30 @@
 {
-  "name": "c4s-css",
+  "name": "@casd/c4s",
   "version": "0.6.0",
   "description": "Concise Configurable Composable Classes Stylesheets",
-  "author": "Cas Dijkman",
+  "author": "Cas Dijkman <info@cdijkman.nl> (https://cdijkman.nl)",
+  "keywords": [
+    "css",
+    "oocss",
+    "functional css",
+    "postcss",
+    "sass",
+    "mobile-first",
+    "responsive",
+    "front-end",
+    "library",
+    "web",
+    "design"
+  ],
+  "homepage": "https://c4s.cdijkman.nl/",
   "license": "GPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/casdijkman/c4s.git"
+  },
+  "main": "index.js",
+  "sass": "src/c4s.scss",
+  "style": "dist/c4s.css",
   "devDependencies": {
     "@babel/core": "^7.21.8",
     "@babel/preset-env": "^7.16.4",
