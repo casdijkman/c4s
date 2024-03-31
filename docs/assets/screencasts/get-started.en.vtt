@@ -1,0 +1,31 @@
+WEBVTT
+
+0
+00:00:00.000 --> 00:00:03.000
+Create a package.json file
+
+1
+00:00:03.000 --> 00:00:08.000
+Add C4S and SASS as dependencies
+
+2
+00:00:15.000 --> 00:00:34.000
+Let's add a build script to package.json
+
+3
+00:00:35.000 --> 00:00:40.000
+Now we can create our main SASS file
+
+4
+00:00:40.000 --> 00:00:50.000
+For this example, we include
+the main C4S stylesheet
+
+5
+00:00:51.000 --> 00:00:55.000
+Now we can build with our build script...
+
+6
+00:00:55.000 --> 00:01:00.000
+...and inspect the CSS output
+ready to be used in your HTML
