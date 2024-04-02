@@ -17,7 +17,10 @@
         <div class="df flex-column min-vh-100">
 
             <!-- Header -->
-            <div class="js-header js-sticky sticky w-100 top-0 bg-white bb b--moon-gray transition-transform-medium z-2">
+            <div
+                class="js-header js-sticky sticky w-100 top-0 relative
+                bg-white bb b--moon-gray transition-transform-medium z-2"
+            >
                 <div class="container-m center ph3 pv2">
                     <div class="df items-center justify-between">
                         <a href="/" class="df link color-inherit pr3 pt1">
@@ -29,15 +32,36 @@
 
                             <span class="dn di-l p3">Version {{ VERSION }}</span>
                         </a>
-
-                        <a href="https://github.com/casdijkman/c4s" class="df items-center link black p3" target="_blank" rel="noreferrer">
-                            <span class="dn-s sr-only">Github</span>
-                            <span class="dn di-s pr2">Github</span>
-                            <div class="dib svg-wrapper mb1">
-                               {% include "docs/icons/ionicons/logo-github.svg" %}
-                            </div>
-                        </a>
                     </div>
+                </div>
+
+
+                {% set links = [
+                    {
+                        url: 'https://www.npmjs.com/package/@casd/c4s',
+                        text: 'NPM',
+                        iconPath: 'docs/icons/ionicons/logo-npm.svg'
+                    },
+                    {
+                        url: 'https://github.com/casdijkman/c4s',
+                        text: 'Github',
+                        iconPath: 'docs/icons/ionicons/logo-github.svg'
+                    }] %}
+
+
+                <div class="absolute right-0 top-0 bottom-0 flex items-center pr2 pr3-m">
+                    {% for link in links %}
+                        <a
+                            class="flex flex-column items-center link black p2 ml3-between"
+                            href="{{ link.url }}"
+                        >
+                            <span class="svg-wrapper mb1">
+                                {% include link.iconPath %}
+                            </span>
+
+                            {{ link.text }}
+                        </a>
+                    {% endfor %}
                 </div>
             </div>
 
