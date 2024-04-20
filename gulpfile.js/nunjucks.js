@@ -14,6 +14,7 @@ const { checkComplexSelectors } = require('./helpers/checkComplexSelectors');
 const { VERSION } = require('./constants');
 
 const modulesFilePath = path.join(process.cwd(), 'src/module-list.json');
+const modulesFileBase = path.basename(modulesFilePath);
 const modulesFile = fs.readFileSync(modulesFilePath, 'utf8');
 const modules = JSON.parse(modulesFile);
 
@@ -72,7 +73,10 @@ const getDataForPath = (filePath) => {
 
     checkComplexSelectors({ name, css });
     const module = modules.find((x) => x.name === name);
-    if (!module) console.error('[nunjucks.js] could not find module', name);
+    if (!module) {
+        console.error(`[nunjucks.js] could not find module ${name} in ${modulesFileBase}`);
+        return;
+    }
     data.isResponsive = module.isResponsive;
     data.responsiveAble = module.responsiveAble;
     data.isEnabled = module.isEnabled;
