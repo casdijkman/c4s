@@ -1,0 +1,17 @@
+/*
+ * C4S CSS, version 0.6.1 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2024 Cas Dijkman
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
+@use './variables';
+@use './load-modules';
+@use 'sass:map';
+
+variables.$modules: map.merge(
+  variables.$modules, (
+    'forms': false
+  )
+);
+
+@include load-modules.load-modules;

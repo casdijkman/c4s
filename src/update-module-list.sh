@@ -19,7 +19,7 @@ module_lines_end="$(echo "$module_lines" | grep -n ")" | head -n1 | cut -d: -f 1
 module_lines="$(echo "$module_lines" | head -n"$module_lines_end")"
 last_line="$(echo "$module_lines" | tail -n1)"
 last_line="$(printf '%s\n' "${last_line##+([[:space:]])}")"
-not_responsive_modules=(reset spanning-breakpoints)
+modules_not_responsive=(reset spanning-breakpoints forms)
 
 {
     echo "["
@@ -36,7 +36,7 @@ not_responsive_modules=(reset spanning-breakpoints)
         is_responsive="$(echo "$line_clean" | cut -d: -f 2)"
         responsive_able=true
 
-        for item in "${not_responsive_modules[@]}"; do
+        for item in "${modules_not_responsive[@]}"; do
             [[ $module == "$item" ]] && responsive_able=false
         done
 

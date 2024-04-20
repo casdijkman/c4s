@@ -12,6 +12,12 @@
     "isEnabled": true
   },
   {
+    "name": "forms",
+    "isResponsive": false,
+    "responsiveAble": false,
+    "isEnabled": false
+  },
+  {
     "name": "miscellaneous",
     "isResponsive": false,
     "responsiveAble": true,

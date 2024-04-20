@@ -11,9 +11,11 @@
 files=(
     ./_variables.scss
     ./c4s-custom.scss
+    ./c4s-forms.scss
 )
 
 for file in "${files[@]}"; do
+    [[ ! -f "$file" ]] && continue
     content=$(cat "$file")
 
     {

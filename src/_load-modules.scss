@@ -34,6 +34,7 @@
 @use 'modules/font-size';
 @use 'modules/font-style';
 @use 'modules/font-weight';
+@use 'modules/forms';
 @use 'modules/grid';
 @use 'modules/height';
 @use 'modules/hover-background-color';
@@ -133,6 +134,8 @@
       @include font-style.font-style;
     } @else if $module == font-weight {
       @include font-weight.font-weight;
+    } @else if $module == forms {
+      @include forms.forms;
     } @else if $module == grid {
       @include grid.grid;
     } @else if $module == height {
@@ -263,6 +266,8 @@
           @include font-style.font-style($breakpoint);
         } @else if $module == font-weight and $responsive {
           @include font-weight.font-weight($breakpoint);
+        } @else if $module == forms and $responsive {
+          @include forms.forms($breakpoint);
         } @else if $module == grid and $responsive {
           @include grid.grid($breakpoint);
         } @else if $module == height and $responsive {

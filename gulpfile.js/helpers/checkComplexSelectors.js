@@ -12,7 +12,7 @@ const checkComplex = ({ property, name, rule }) => {
 
     const nameClean = name.replace(/^hover-/, '').replace(/-(width|style)$/, '');
     const complexModules = [
-        'complex', 'reset', 'miscellaneous', 'spanning-breakpoints', 'debug',
+        'complex', 'reset', 'forms', 'miscellaneous', 'spanning-breakpoints', 'debug',
         'hover', 'coordinates', 'flex', 'grid',
         'table', 'border', 'measure',
     ];
