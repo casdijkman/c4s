@@ -10,6 +10,61 @@
 
 {% block content %}
     <div class="container center p3">
+        <h2 id="forms">Forms</h2>
+        <form>
+            {% for index in [1, 2, 3] %}
+                {% set name = "default input with label sibling" + index %}
+
+                <div class="mt3-between">
+                    <input
+                        type="checkbox"
+                        id="{{ name }}"
+                        name="{{ name }}"
+                        value="{{ name }}"
+                        {% if loop.index0 == 0 %}checked{% endif %}
+                    >
+                    <label for="{{ name }}">{{ name }}</label>
+                </div>
+            {% endfor %}
+
+            {% for index in [1, 2, 3] %}
+                {% set name = "input with label sibling" + index %}
+
+                <div class="mt3-between">
+                    <input
+                        type="checkbox"
+                        id="{{ name }}"
+                        name="{{ name }}"
+                        value="{{ name }}"
+                        class="checkbox"
+                        {% if loop.index0 == 0 %}checked{% endif %}
+                    >
+                    <label for="{{ name }}">{{ name }}</label>
+                </div>
+            {% endfor %}
+
+            {% for index in [1, 2, 3] %}
+                {% set name = "input with label parent" + index %}
+
+                <label class="db mt3-between">
+                    <input
+                        type="checkbox"
+                        name="{{ name }}"
+                        value="{{ name }}"
+                        class="checkbox"
+                        {% if loop.index0 == 0 %}checked{% endif %}
+                    >
+                    {{ name }}
+                </label>
+            {% endfor %}
+
+            <div class="mt3-between">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+
+        <div class="mb5"></div>
+
         <h2 class="mt0">Grid (rows and columns)</h2>
 
         <div class="mv4 debug-outlines">
