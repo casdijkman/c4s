@@ -12,7 +12,7 @@ function lintBashScripts() {
         return
     fi
 
-    echo "Linting bash scrips with shellcheck..."
+    echo "Linting bash scripts with shellcheck..."
 
     shebang="#!/usr/bin/env bash"
     grep -rl "^${shebang}" | while IFS= read -r file; do
