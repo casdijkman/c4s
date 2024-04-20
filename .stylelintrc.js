@@ -12,7 +12,8 @@ module.exports = {
         'scss/at-rule-no-unknown': true,
         'block-opening-brace-space-before': null,
         'at-rule-empty-line-before': [
-            'always' , {
+            'always' ,
+            {
                 except: ['blockless-after-same-name-blockless'],
                 ignore: ['first-nested', 'after-comment'],
                 ignoreAtRules: ['else']
@@ -26,7 +27,8 @@ module.exports = {
         ],
         'scss/at-if-closing-brace-newline-after': 'always-last-in-chain',
         'scss/dollar-variable-empty-line-before': [
-            'always', {
+            'always',
+            {
                 except: ['first-nested'],
                 ignore: ['after-dollar-variable', 'after-comment']
             }

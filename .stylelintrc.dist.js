@@ -14,7 +14,7 @@ module.exports = {
         'comment-empty-line-before': null,
         'declaration-colon-newline-after': null,
         'declaration-empty-line-before': null,
-        'function-url-quotes': 'never',
+        'function-url-quotes': null,
         'indentation': null,
         'max-line-length': null,
         'media-feature-range-notation': 'prefix',
