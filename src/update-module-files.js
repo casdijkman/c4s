@@ -17,14 +17,26 @@ const path = require('path');
 const modules = require('./module-list.json');
 
 const moduleFileSuffix = '-module';
-const moduleFile = (name, responsive = false) =>
-    `./modules/${name}${responsive ? '-responsive' : ''}${moduleFileSuffix}.scss`;
 
 glob.sync(`./modules/*${moduleFileSuffix}.scss`).forEach((file) => {
     fs.unlinkSync(file);
 });
 
-const moduleFileContent = (name, responsive = false) => `/*
+glob.sync('./modules/_*.scss').forEach((file) => {
+    const basename = path.basename(file);
+    const basenameClean = basename.replace(/^_/, '');
+    const moduleName = basenameClean.replace(/\.scss$/, '');
+
+    writeModuleFile({ moduleName });
+
+    const module = modules.find((x) => x.name === moduleName);
+    if (!module || !module.responsiveAble) return;
+
+    writeModuleFile({ moduleName, responsive: true });
+});
+
+function moduleFileContent({ moduleName, responsive = false }) {
+    return `/*
  * SPDX-FileCopyrightText: 2024 Cas Dijkman
  *
  * SPDX-License-Identifier: GPL-3.0-only
@@ -33,20 +45,14 @@ const moduleFileContent = (name, responsive = false) => `/*
 @use '../load-modules';
 
 @include load-modules.load-modules(
-  ('${name}': ${responsive}),
+  ('${moduleName}': ${responsive.toString()}),
   null
 );
 `;
+}
 
-glob.sync('./modules/_*.scss').forEach((file) => {
-    const basename = path.basename(file);
-    const basenameClean = basename.replace(/^_/, '');
-    const moduleName = basenameClean.replace(/\.scss$/, '');
-
-    fs.writeFileSync(moduleFile(moduleName), moduleFileContent(moduleName));
-
-    const module = modules.find((x) => x.name === moduleName);
-    if (!module || !module.responsiveAble) return;
-
-    fs.writeFileSync(moduleFile(moduleName, true), moduleFileContent(moduleName, true));
-});
+function writeModuleFile({ moduleName, responsive = false }) {
+    const name = `${moduleName}${responsive ? '-responsive' : ''}`;
+    const filePath = `./modules/${name}${moduleFileSuffix}.scss`;
+    fs.writeFileSync(filePath, moduleFileContent({ moduleName, responsive }));
+}
