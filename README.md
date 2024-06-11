@@ -34,6 +34,12 @@ C4S stands for Concise Configurable Composable Classes Stylesheets.
   - running `yarn build`, **or**
   - running `yarn start` to also watch changes and serve the documentation locally
 
+## Philosophy and inspiration
+
+- [Functional CSS](https://mrmrs.cc/writing/scalable-css/),
+  also known als [atomic CSS](https://css-tricks.com/lets-define-exactly-atomic-css/)
+- [Tachyons](https://tachyons.io/)
+
 ## Copyright and license
 
 Code and documentation copyright © 2024 [Cas Dijkman](https://cdijkman.nl).
