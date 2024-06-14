@@ -9,3 +9,4 @@ export const debugLog = (...args) => {
     // eslint-disable-next-line no-console
     if (isDebug) console.log(...args);
 };
+export const httpSuccessStatus = 200;
