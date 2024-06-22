@@ -11,6 +11,7 @@ const prettyBytes = require('pretty-bytes');
 const loremIpsum = require('lorem-ipsum');
 const { getRandom12Partition, isCssProperty } = require('./helpers/functions');
 const { checkComplexSelectors } = require('./helpers/checkComplexSelectors');
+const { constructQuestionsFile } = require('./helpers/constructQuestionsFile');
 const { VERSION } = require('./constants');
 
 const modulesFilePath = path.join(process.cwd(), 'src/module-list.json');
@@ -153,6 +154,7 @@ function getNunjucksData() {
         .map((filePath) => getDataForPath(filePath))
         .filter((x) => typeof x !== 'undefined')
         .sort((a, b) => a.order - b.order);
+    constructQuestionsFile(filesData);
     return { files: filesData, VERSION };
 }
 

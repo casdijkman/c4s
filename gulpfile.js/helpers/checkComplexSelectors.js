@@ -2,6 +2,8 @@
 //
 // SPDX-License-Identifier: GPL-3.0-only
 
+const { complexModules } = require('../constants');
+
 const checkComplex = ({ property, name, rule }) => {
     const propertyClean = property
         .replace(/^-(webkit|moz|o)-/, '')
@@ -11,17 +13,16 @@ const checkComplex = ({ property, name, rule }) => {
         .replace(/-(top|bottom)-(left|right)-/, '-');
 
     const nameClean = name.replace(/^hover-/, '').replace(/-(width|style)$/, '');
-    const complexModules = [
-        'complex', 'reset', 'forms', 'miscellaneous', 'spanning-breakpoints', 'debug',
-        'hover', 'coordinates', 'flex', 'grid',
-        'table', 'border', 'measure',
+    const ignoreModules = [
+        ...complexModules, 'table', 'border', 'measure',
     ];
     const complexSelectors = [/^\.clearfix/, /\.bg-animate/];
 
-    const accept = complexModules.includes(name) ||
+    const accept = ignoreModules.includes(name) ||
                    propertyClean === nameClean ||
                    complexSelectors.some((x) => x.test(rule.selectors[0]));
-    if (!accept) console.warn(
+    if (accept) return;
+    console.warn(
         'Unexpected complex selector', { name, nameClean, property, propertyClean }
     );
 };
