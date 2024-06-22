@@ -2051,11 +2051,14 @@ code {
 .min-vh-100 {
   min-height: 100vh;
 }
-.mh-100 {
+.max-h-100 {
   max-height: 100%;
 }
-.mh-none {
+.max-h-none {
   max-height: none;
+}
+.max-vh-100 {
+  max-height: 100vh;
 }
 .static {
   position: static;

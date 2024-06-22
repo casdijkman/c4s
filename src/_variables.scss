@@ -839,12 +839,14 @@ $margins: (
 );
 
 /*
- * Max height
+ * Min height/Max height
  */
-$max-height-prefix: mh;
-$max-heights: (
-  '-100':  100%,
-  '-none': none
+$min-height-prefix: min;
+$max-height-prefix: max;
+$min-max-heights: (
+  'h-100':  100%,
+  'h-none': none,
+  'vh-100': 100vh
 );
 
 /*

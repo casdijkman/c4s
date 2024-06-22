@@ -46,6 +46,7 @@
 @use 'modules/max-height';
 @use 'modules/max-width';
 @use 'modules/measure';
+@use 'modules/min-height';
 @use 'modules/miscellaneous';
 @use 'modules/object-fit';
 @use 'modules/opacity';
@@ -158,6 +159,8 @@
       @include max-width.max-width;
     } @else if $module == measure {
       @include measure.measure;
+    } @else if $module == min-height {
+      @include min-height.min-height;
     } @else if $module == miscellaneous {
       @include miscellaneous.miscellaneous;
     } @else if $module == object-fit {
@@ -290,6 +293,8 @@
           @include max-width.max-width($breakpoint);
         } @else if $module == measure and $responsive {
           @include measure.measure($breakpoint);
+        } @else if $module == min-height and $responsive {
+          @include min-height.min-height($breakpoint);
         } @else if $module == miscellaneous and $responsive {
           @include miscellaneous.miscellaneous($breakpoint);
         } @else if $module == object-fit and $responsive {

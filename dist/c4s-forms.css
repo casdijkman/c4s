@@ -2051,11 +2051,14 @@ code {
 .min-vh-100 {
   min-height: 100vh;
 }
-.mh-100 {
+.max-h-100 {
   max-height: 100%;
 }
-.mh-none {
+.max-h-none {
   max-height: none;
+}
+.max-vh-100 {
+  max-height: 100vh;
 }
 .static {
   position: static;
@@ -3314,11 +3317,14 @@ code {
   .min-vh-100-s {
     min-height: 100vh;
   }
-  .mh-100-s {
+  .max-h-100-s {
     max-height: 100%;
   }
-  .mh-none-s {
+  .max-h-none-s {
     max-height: none;
+  }
+  .max-vh-100-s {
+    max-height: 100vh;
   }
   .static-s {
     position: static;
@@ -4552,11 +4558,14 @@ code {
   .min-vh-100-m {
     min-height: 100vh;
   }
-  .mh-100-m {
+  .max-h-100-m {
     max-height: 100%;
   }
-  .mh-none-m {
+  .max-h-none-m {
     max-height: none;
+  }
+  .max-vh-100-m {
+    max-height: 100vh;
   }
   .static-m {
     position: static;
@@ -5791,11 +5800,14 @@ code {
   .min-vh-100-l {
     min-height: 100vh;
   }
-  .mh-100-l {
+  .max-h-100-l {
     max-height: 100%;
   }
-  .mh-none-l {
+  .max-h-none-l {
     max-height: none;
+  }
+  .max-vh-100-l {
+    max-height: 100vh;
   }
   .static-l {
     position: static;
@@ -7031,11 +7043,14 @@ code {
   .min-vh-100-h {
     min-height: 100vh;
   }
-  .mh-100-h {
+  .max-h-100-h {
     max-height: 100%;
   }
-  .mh-none-h {
+  .max-h-none-h {
     max-height: none;
+  }
+  .max-vh-100-h {
+    max-height: 100vh;
   }
   .static-h {
     position: static;

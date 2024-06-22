@@ -8,13 +8,13 @@
 @use '../variables';
 @use 'sass:map';
 
-@mixin max-height($media: null) {
+@mixin min-height($media: null) {
   $global-prefix: variables.$global-prefix;
-  $prefix: variables.$max-height-prefix;
+  $prefix: variables.$min-height-prefix;
 
   @each $level, $value in variables.$min-max-heights {
     #{functions.construct-class-name($global-prefix, $prefix, $level, $media)} {
-      max-height: $value;
+      min-height: $value;
     }
   }
 }

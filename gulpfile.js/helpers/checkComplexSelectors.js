@@ -7,7 +7,6 @@ const { complexModules } = require('../constants');
 const checkComplex = ({ property, name, rule }) => {
     const propertyClean = property
         .replace(/^-(webkit|moz|o)-/, '')
-        .replace(/^min-/, '')
         .replace(/-(width|style)$/, '')
         .replace(/-(top|right|bottom|left|x|y|shrink|grow)$/, '')
         .replace(/-(top|bottom)-(left|right)-/, '-');
