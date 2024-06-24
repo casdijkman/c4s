@@ -11,10 +11,25 @@ function constructQuestion({ rule, module }) {
         'Rule selectors.length is not 1'
     );
     const selectorClean = rule.selectors[0].replace(/^\./, '');
-    const question = rule
-        .declarations
+    let question = rule
+        .declarations.filter((x) => !x.property.startsWith('-')) // filter browser prefixes
         .map((declaration) => `${declaration.property}: ${declaration.value};`)
         .join(' ');
+
+    if (
+        /(padding|margin|height|width)/.test(module.name) &&
+        /[a-z]\d+$/.test(selectorClean)
+    ) {
+        const step = Number(selectorClean.match(/\d+$/)[0]);
+        let stepOrdinal;
+        /* eslint-disable no-magic-numbers */
+        if (step === 1) stepOrdinal = '1st';
+        else if (step === 2) stepOrdinal = '2nd';
+        else if (step === 3) stepOrdinal = '3rd';
+        else stepOrdinal = `${step}th`;
+        /* eslint-enable no-magic-numbers */
+        if (step && step !== 0) question += ` /* ${stepOrdinal} step in size scale */`;
+    }
 
     return {
         id: currentId++,
