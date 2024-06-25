@@ -1346,6 +1346,7 @@ __metadata:
     gulp-sass: ^5.1.0
     highlight.js: ^11.8.0
     lorem-ipsum: ^2.0.8
+    ordinal-numbers: ^1.0.3
     postcss: ^8.4.24
     prettier: ^3.0.0
     pretty-bytes: ^5.6.0
@@ -6970,6 +6971,15 @@ __metadata:
   dependencies:
     readable-stream: ^2.0.1
   checksum: 7558ac1acd649164524be715d25e38a1aba0f34df9dfb8ce281f9d14589ac3506bfe66e6609fa8c9cf0d7835e11da33f3f5445336cf3eb783f81da09a1bc5fe8
+  languageName: node
+  linkType: hard
+
+"ordinal-numbers@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "ordinal-numbers@npm:1.0.3"
+  bin:
+    ordinal: ./cli.js
+  checksum: e221036ac49382e72032cc6f13c7f27372cf68cf63a7a3f541b2397808b206928683ff894620b753e96e6852aceff1f0a4ce34b02537de8cab8b7882f5f5d139
   languageName: node
   linkType: hard
 

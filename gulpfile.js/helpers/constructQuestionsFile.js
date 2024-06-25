@@ -1,4 +1,5 @@
 const fs = require('fs');
+const ordinal = require('ordinal-numbers');
 const { VERSION, complexModules } = require('../constants');
 let currentId = 1;
 const capitalizeWords = (sentence) => sentence.split(' ').map(
@@ -15,20 +16,20 @@ function constructQuestion({ rule, module }) {
         .declarations.filter((x) => !x.property.startsWith('-')) // filter browser prefixes
         .map((declaration) => `${declaration.property}: ${declaration.value};`)
         .join(' ');
+    const addStringToQuestion = (string) => { question += ` /* ${string} */`; };
 
     if (
         /(padding|margin|height|width)/.test(module.name) &&
         /[a-z]\d+$/.test(selectorClean)
     ) {
         const step = Number(selectorClean.match(/\d+$/)[0]);
-        let stepOrdinal;
-        /* eslint-disable no-magic-numbers */
-        if (step === 1) stepOrdinal = '1st';
-        else if (step === 2) stepOrdinal = '2nd';
-        else if (step === 3) stepOrdinal = '3rd';
-        else stepOrdinal = `${step}th`;
-        /* eslint-enable no-magic-numbers */
-        if (step && step !== 0) question += ` /* ${stepOrdinal} step in size scale */`;
+        if (step && step !== 0) addStringToQuestion(`${ordinal(step)} step in size scale`);
+    } else if (module.name === 'transition') {
+        const speed = selectorClean.replace(/^transition-(transform-)?/, '');
+        addStringToQuestion(`Speed: ${speed}`);
+    } else if (module.name === 'box-shadow') {
+        const size = selectorClean.replace(/^shadow-?/, '');
+        Boolean(size) && addStringToQuestion(`Shadow size: ${size}`);
     }
 
     return {
