@@ -15,8 +15,8 @@ function constructQuestion({ rule, module }) {
     let question = rule
         .declarations.filter((x) => !x.property.startsWith('-')) // filter browser prefixes
         .map((declaration) => `${declaration.property}: ${declaration.value};`)
-        .join(' ');
-    const addStringToQuestion = (string) => { question += ` /* ${string} */`; };
+        .join('\n');
+    const addStringToQuestion = (string) => { question = `/* ${string} */\n${question}`; };
 
     if (
         /(padding|margin|height|width)/.test(module.name) &&
