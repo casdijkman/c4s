@@ -276,6 +276,12 @@
     "isEnabled": true
   },
   {
+    "name": "min-height",
+    "isResponsive": true,
+    "responsiveAble": true,
+    "isEnabled": true
+  },
+  {
     "name": "position",
     "isResponsive": true,
     "responsiveAble": true,

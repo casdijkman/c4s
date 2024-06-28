@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Cas Dijkman
+//
+// SPDX-License-Identifier: GPL-3.0-only
+
 const fs = require('fs');
 const ordinal = require('ordinal-numbers');
 const { VERSION, complexModules } = require('../constants');
