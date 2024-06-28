@@ -1,5 +1,5 @@
 /*!
- * C4S CSS, version 0.6.1 <https://c4s.cdijkman.nl>
+ * C4S CSS, version 0.6.2 <https://c4s.cdijkman.nl>
  * SPDX-FileCopyrightText: 2024 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
@@ -2049,9 +2049,6 @@ code {
 .c4s-vh-100 {
   height: 100vh;
 }
-.c4s-min-vh-100 {
-  min-height: 100vh;
-}
 .c4s-max-h-100 {
   max-height: 100%;
 }
@@ -2060,6 +2057,15 @@ code {
 }
 .c4s-max-vh-100 {
   max-height: 100vh;
+}
+.c4s-min-h-100 {
+  min-height: 100%;
+}
+.c4s-min-h-none {
+  min-height: none;
+}
+.c4s-min-vh-100 {
+  min-height: 100vh;
 }
 .c4s-static {
   position: static;
@@ -3291,9 +3297,6 @@ code {
   .c4s-vh-100-s {
     height: 100vh;
   }
-  .c4s-min-vh-100-s {
-    min-height: 100vh;
-  }
   .c4s-max-h-100-s {
     max-height: 100%;
   }
@@ -3302,6 +3305,15 @@ code {
   }
   .c4s-max-vh-100-s {
     max-height: 100vh;
+  }
+  .c4s-min-h-100-s {
+    min-height: 100%;
+  }
+  .c4s-min-h-none-s {
+    min-height: none;
+  }
+  .c4s-min-vh-100-s {
+    min-height: 100vh;
   }
   .c4s-static-s {
     position: static;
@@ -4530,9 +4542,6 @@ code {
   .c4s-vh-100-m {
     height: 100vh;
   }
-  .c4s-min-vh-100-m {
-    min-height: 100vh;
-  }
   .c4s-max-h-100-m {
     max-height: 100%;
   }
@@ -4541,6 +4550,15 @@ code {
   }
   .c4s-max-vh-100-m {
     max-height: 100vh;
+  }
+  .c4s-min-h-100-m {
+    min-height: 100%;
+  }
+  .c4s-min-h-none-m {
+    min-height: none;
+  }
+  .c4s-min-vh-100-m {
+    min-height: 100vh;
   }
   .c4s-static-m {
     position: static;
@@ -5770,9 +5788,6 @@ code {
   .c4s-vh-100-l {
     height: 100vh;
   }
-  .c4s-min-vh-100-l {
-    min-height: 100vh;
-  }
   .c4s-max-h-100-l {
     max-height: 100%;
   }
@@ -5781,6 +5796,15 @@ code {
   }
   .c4s-max-vh-100-l {
     max-height: 100vh;
+  }
+  .c4s-min-h-100-l {
+    min-height: 100%;
+  }
+  .c4s-min-h-none-l {
+    min-height: none;
+  }
+  .c4s-min-vh-100-l {
+    min-height: 100vh;
   }
   .c4s-static-l {
     position: static;
@@ -7011,9 +7035,6 @@ code {
   .c4s-vh-100-h {
     height: 100vh;
   }
-  .c4s-min-vh-100-h {
-    min-height: 100vh;
-  }
   .c4s-max-h-100-h {
     max-height: 100%;
   }
@@ -7022,6 +7043,15 @@ code {
   }
   .c4s-max-vh-100-h {
     max-height: 100vh;
+  }
+  .c4s-min-h-100-h {
+    min-height: 100%;
+  }
+  .c4s-min-h-none-h {
+    min-height: none;
+  }
+  .c4s-min-vh-100-h {
+    min-height: 100vh;
   }
   .c4s-static-h {
     position: static;
