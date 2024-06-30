@@ -9,10 +9,8 @@ SPDX-License-Identifier: GPL-3.0-only
 ## To do
 
 - Complete css class examples documentation
-- Publish as NPM module
 - Enable and publish source maps
   See: https://stackoverflow.com/a/38442789
-- Add "What is C4S" text to index.njk page
 - Rewrite shell scripts to be node scripts (low priority)
 
 ### Modules to add
