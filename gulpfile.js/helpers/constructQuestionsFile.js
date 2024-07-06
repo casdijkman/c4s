@@ -23,11 +23,14 @@ function constructQuestion({ rule, module }) {
     const addStringToQuestion = (string) => { question = `/* ${string} */\n${question}`; };
 
     if (
-        /(padding|margin|height|width)/.test(module.name) &&
-        /[a-z]\d+$/.test(selectorClean)
+        /[a-z]\d+$/.test(selectorClean) &&
+        !/-([0-9]+x[0-9]+|n[0-9]+)$/.test(selectorClean)
     ) {
         const step = Number(selectorClean.match(/\d+$/)[0]);
-        if (step && step !== 0) addStringToQuestion(`${ordinal(step)} step in size scale`);
+        const negative = rule.declarations[0].value.startsWith('-');
+        if (step && step !== 0) addStringToQuestion(
+            `${ordinal(step)} step in size scale${negative ? ' (negative)' : ''}`
+        );
     } else if (module.name === 'transition') {
         const speed = selectorClean.replace(/^transition-(transform-)?/, '');
         addStringToQuestion(`Speed: ${speed}`);
@@ -57,12 +60,12 @@ function constructQuestionsFile(filesData) {
         rules.forEach((rule) => questions.push(constructQuestion({ rule, module })));
     });
 
-    writeQuestionsFile({ questions });
+    writeQuestionsFile({ questions, version: VERSION });
 }
 
-function writeQuestionsFile({ questions }) {
+function writeQuestionsFile(data) {
     // eslint-disable-next-line no-magic-numbers
-    const exportString = JSON.stringify({ questions }, null, 2);
+    const exportString = JSON.stringify(data, null, 2);
     const questionsFileContent = `/* eslint-disable */
 
 // Questions for C4S pro quiz/game
@@ -70,7 +73,7 @@ function writeQuestionsFile({ questions }) {
 
 module.exports = ${exportString};
 `;
-    fs.writeFileSync('c4s-pro-questions.js', questionsFileContent);
+    fs.writeFileSync('c4s-pro-data.js', questionsFileContent);
 }
 
 module.exports = {

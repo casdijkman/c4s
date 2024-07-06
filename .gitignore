@@ -18,7 +18,7 @@ yarn-error.log*
 .\#*
 
 ### Project specific ###
-c4s-pro-questions.js
+c4s-pro-data.js
 dist/**/*
 !dist/modules/
 !dist/**/*.css
