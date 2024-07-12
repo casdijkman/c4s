@@ -11,6 +11,7 @@
 
 $color: map.get(variables.$colors, 'blue');
 $check-data-url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='64' d='M416 128L192 384l-96-96'/%3E%3C/svg%3E";
+$button-group-border-radius: .5rem;
 
 @if not $color {
   $color: '#357edd';
@@ -37,5 +38,31 @@ $check-data-url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' v
     &:focus::before {
       outline: .125rem solid color.scale($color, $lightness: 50%);
     }
+  }
+
+  .button-group {
+    & > * {
+      border-radius: 0;
+    }
+
+    & > :not(:last-child) {
+      border-right: 0;
+    }
+
+    & > :first-child {
+      border-top-left-radius: $button-group-border-radius;
+      border-bottom-left-radius: $button-group-border-radius;
+    }
+
+    & > :last-child {
+      border-top-right-radius: $button-group-border-radius;
+      border-bottom-right-radius: $button-group-border-radius;
+    }
+  }
+
+  .button-lh-fix {
+    // transform: translateY(.06em);
+    // padding-top: .14em;
+    padding-top: max(.14em, calc(.4em - 4px));
   }
 }

@@ -64,6 +64,10 @@ export class DomSurfer {
         return Array.from(element.classList).filter((x) => regex.test(x));
     }
 
+    static isBoolean(value) {
+        return value === true || value === false;
+    }
+
     hasOneElement() {
         return this.elements.length === 1 && DomSurfer.isElement(this.first());
     }
@@ -147,6 +151,10 @@ export class DomSurfer {
         }
     }
 
+    $closest(selector) {
+        return new DomSurfer(this.closest(selector));
+    }
+
     each(callback) {
         for (let index = 0; index < this.elements.length; index++) {
             const element = this.elements[index];
@@ -179,9 +187,17 @@ export class DomSurfer {
         return this.each((element) => element.classList.toggle(cssClass));
     }
 
-    setClass(cssClass, boolean) {
+    setClass(cssClass, booleanOrPredicate) {
+        let predicate = booleanOrPredicate;
+        if (DomSurfer.isBoolean(booleanOrPredicate)) {
+            predicate = () => booleanOrPredicate;
+        } else if (typeof booleanOrPredicate !== 'function') {
+            console.warn('[setClass] Invalid booleanOrPredicate');
+            return;
+        }
+
         return this.each((element) => {
-            if (boolean) {
+            if (predicate({ element })) {
                 element.classList.add(cssClass);
             } else {
                 element.classList.remove(cssClass);

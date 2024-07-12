@@ -28,6 +28,7 @@ const checkComplex = ({ property, name, rule }) => {
     ) {
         return;
     }
+
     console.assert(
         propertyClean === nameClean || propertyClean.replace(/-width/, '') === nameClean,
         'Unexpected complex selector', { name, nameClean, property, propertyClean }
@@ -37,7 +38,8 @@ const checkComplex = ({ property, name, rule }) => {
 function checkComplexSelectors({ name, css }) {
     css.stylesheet.rules.forEach((rule) => {
         rule.declarations?.forEach((declaration) => {
-            checkComplex({ property: declaration.property, name, rule });
+            const { property } = declaration;
+            if (property) checkComplex({ property, name, rule });
         });
     });
 }

@@ -12,8 +12,143 @@
     <div class="container center p3">
         <h2 id="forms">Forms</h2>
         <form>
-            {% for index in [1, 2, 3] %}
-                {% set name = "default input with label sibling" + index %}
+            <h3>Button group</h3>
+
+            <div class="measure-wide center mt5-between">
+                <div class="flex button-group">
+                    {% for position in ["Left", "Center", "Right"] %}
+                        <button
+                            type="button"
+                            class="p3 bw1 b--black ba bw2 b--dotted cursor-pointer flex-grow-1"
+                        >
+                            {{ position }}
+                        </button>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="flex button-group mt5-between">
+                {% for i in [1, 2, 3, 4] %}
+                    <a
+                        class="link black ba ph3 pv2 nowrap hover-bg-black-05"
+                        href="javascript:;"
+                    >
+                        <div class="button-lh-fix">
+                            <code class="bg-black-10 pv1 ph2 br-pill">&lt;a&gt;</code>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+
+            <div class="mt5-between">
+                <p>
+                    With state indication
+                    <span
+                        class="hover-underline"
+                        title="Inspect page source to view custom styling"
+                    >
+                        (requires some custom CSS)
+                    </span>
+                </p>
+                <style>
+                    #button-group-radio-bg input[type="radio"]:checked ~ div {
+                        background-color: rgba(0, 0, 0, 0.1);
+                    }
+                </style>
+                <div class="flex button-group" id="button-group-radio-bg">
+                    {% for value in ["🍎 Apple", "🍊 Orange", "🍌 Banana", "🍐 Pear"] %}
+                        <label class="ba overflow-hidden cursor-pointer">
+                            <input
+                                type="radio"
+                                name="button-group-radio-1"
+                                class="sr-only"
+                                value="{{ value }}"
+                                {{ "checked" if loop.index0 === 0 }}
+                            >
+                            <div class="ph3 pv2 nowrap hover-bg-black-05">
+                                <div class="button-lh-fix">
+                                    {{ value }}
+                                </div>
+                            </div>
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="mt5-between">
+                <p>
+                    With state indication
+                    <span
+                        class="hover-underline"
+                        title="Inspect page source to view custom code"
+                    >
+                        (requires some custom CSS and JS)
+                    </span>
+                </p>
+                <script>
+                    window.addEventListener('DOMContentLoaded', () => {
+                        $('#button-group-radio-outline label input').on('change', function() {
+                            $('#button-group-radio-outline label').setClass('active', ({ element }) => element.contains(this));
+                        });
+                    });
+                </script>
+                <style>
+                    #button-group-radio-outline label.active {
+                        outline: 3px solid black;
+                        outline-offset: -3px;
+                    }
+                    #button-group-radio-outline label.active + label {
+                        border-left-color: transparent;
+                    }
+                </style>
+                <div class="flex button-group f2" id="button-group-radio-outline">
+                    {% for value in ["😠", "☹️", "😐", "🙂", "😁"] %}
+                        <label class="ba overflow-hidden cursor-pointer
+                            {{ "active" if loop.last }}">
+                            <input
+                                type="radio"
+                                name="button-group-radio-2"
+                                class="sr-only"
+                                value="{{ value }}"
+                                {{ "checked" if loop.last }}
+                            >
+                            <div class="ph3 pv2 nowrap hover-bg-black-05">
+                                <div class="button-lh-fix">
+                                    {{ value }}
+                                </div>
+                            </div>
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="mt5-between">
+                <p>
+                    This example excludes the borders from the buttons.
+                </p>
+                <p>
+                    Hover button or border to see when the button can be clicked (or not).
+                </p>
+                <div class="flex button-group">
+                    {% for position in ["Left", "Center", "Right"] %}
+                        <div class="ba b--black-60 bw4">
+                            <button
+                                class="
+                                       button-reset hover-bg-blue
+                                       p3 cursor-pointer
+                                "
+                                type="button"
+                            >
+                                <code class="bg-light-gray pv1 ph2 br-pill">&lt;button&gt;</code>
+                            </button>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <h3>Checkboxes</h3>
+            {% for index in [1, 2] %}
+                {% set name = "Default input with label sibling " + index %}
 
                 <div class="mt3-between">
                     <input
@@ -21,14 +156,14 @@
                         id="{{ name }}"
                         name="{{ name }}"
                         value="{{ name }}"
-                        {% if loop.index0 == 0 %}checked{% endif %}
+                        {% if loop.index0 === 0 %}checked{% endif %}
                     >
                     <label for="{{ name }}">{{ name }}</label>
                 </div>
             {% endfor %}
 
-            {% for index in [1, 2, 3] %}
-                {% set name = "input with label sibling" + index %}
+            {% for index in [1, 2] %}
+                {% set name = "Input with label sibling " + index %}
 
                 <div class="mt3-between">
                     <input
@@ -37,14 +172,14 @@
                         name="{{ name }}"
                         value="{{ name }}"
                         class="checkbox"
-                        {% if loop.index0 == 0 %}checked{% endif %}
+                        {% if loop.index0 === 0 %}checked{% endif %}
                     >
                     <label for="{{ name }}">{{ name }}</label>
                 </div>
             {% endfor %}
 
-            {% for index in [1, 2, 3] %}
-                {% set name = "input with label parent" + index %}
+            {% for index in [1, 2] %}
+                {% set name = "input with label parent " + index %}
 
                 <label class="db mt3-between">
                     <input
@@ -52,14 +187,18 @@
                         name="{{ name }}"
                         value="{{ name }}"
                         class="checkbox"
-                        {% if loop.index0 == 0 %}checked{% endif %}
+                        {% if loop.index0 === 0 %}checked{% endif %}
                     >
                     {{ name }}
                 </label>
             {% endfor %}
 
             <div class="mt3-between">
-                <input type="submit" value="Submit">
+                <input
+                    type="submit"
+                    value="Submit form"
+                    class="button-reset ph3 pv2 br3 ba b--black cursor-pointer"
+                >
             </div>
         </form>
 

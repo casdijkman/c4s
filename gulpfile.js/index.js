@@ -76,8 +76,7 @@ function compileSass() {
         .pipe(prettier())
         .pipe(rename({ extname: '' }))     // Remove .css extension (from .min.css)
         .pipe(rename({ extname: '.css' })) // Replace .min extension with .css
-        .pipe(dest(destination))           // Output pretty-printed optimized files as .css
-        .pipe(browserSync.reload({ stream: true }));
+        .pipe(dest(destination));          // Output pretty-printed optimized files as .css
 }
 
 function compileNunjucks() {
@@ -140,6 +139,7 @@ function runUpdateScripts(cb) {
 function serve() {
     browserSync.init({ server: destination, notify: false });
     watch(globs.dist.html).on('change', () => { browserSync.reload(); });
+    watch(globs.dist.css).on('change', () => { browserSync.reload(); });
 }
 
 const build = series(
