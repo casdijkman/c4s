@@ -23,6 +23,8 @@ SPDX-License-Identifier: GPL-3.0-only
 - transform: rotate
 - writing-mode https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode
 - text-orientation https://developer.mozilla.org/en-US/docs/Web/CSS/text-orientation
+- text-decoration-style (part of text-decoration module)
+  https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration-style
 - mask (mask-image, mask-size, mask-repeat, mask-mode)
 - background-clip https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip
 
