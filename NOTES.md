@@ -16,9 +16,6 @@ SPDX-License-Identifier: GPL-3.0-only
 ### Modules to add
 
 - pointer-events
-- forms
-  Create easy-to-use default styling for form inputs (text, textarea, checkbox, radio box, button).
-  Exclude from default build, create extra build that includes forms
 - nested styles (in complex module?)
 - transform: rotate
 - writing-mode https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode
@@ -27,6 +24,17 @@ SPDX-License-Identifier: GPL-3.0-only
   https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration-style
 - mask (mask-image, mask-size, mask-repeat, mask-mode)
 - background-clip https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip
+
+#### Forms
+
+Create easy-to-use default styling for form inputs.
+
+- [x] Checkbox
+- [x] Button group
+- [ ] Radio button
+- [ ] Button
+- [ ] Text input with floating label (input type text/password/email & textarea)
+- [x] Create extra build that includes forms
 
 ## [Reuse](https://reuse.software/)
 
