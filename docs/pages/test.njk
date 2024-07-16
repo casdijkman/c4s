@@ -42,7 +42,7 @@
 
             <div class="mt5-between">
                 <p>
-                    With state indication
+                    State indication with <code class="bg-light-gray ph1">background-color</code>
                     <span
                         class="hover-underline"
                         title="Inspect page source to view custom styling"
@@ -77,7 +77,7 @@
 
             <div class="mt5-between">
                 <p>
-                    With state indication
+                    State indication with <code class="bg-light-gray ph1">outline</code>
                     <span
                         class="hover-underline"
                         title="Inspect page source to view custom code"
@@ -101,9 +101,59 @@
                         border-left-color: transparent;
                     }
                 </style>
-                <div class="flex button-group f2" id="button-group-radio-outline">
+                <div class="flex button-group" id="button-group-radio-outline">
+                    {% for value in ["Blue", "Red", "Green", "Orange"] %}
+                        <label class="ba b--black overflow-hidden cursor-pointer b
+                            {{ value | lower }} {{ "active" if loop.first }}">
+                            <input
+                                type="radio"
+                                name="button-group-radio-2"
+                                class="sr-only"
+                                value="{{ value }}"
+                                {{ "checked" if loop.first }}
+                            >
+                            <div class="ph3 pv2 nowrap hover-bg-black-05">
+                                <div class="button-lh-fix">
+                                    {{ value }}
+                                </div>
+                            </div>
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="mt5-between">
+                <p>
+                    State indication with <code class="bg-light-gray ph1">border-color</code>
+                    <span
+                        class="hover-underline"
+                        title="Inspect page source to view custom code"
+                    >
+                        (requires some custom CSS and JS)
+                    </span>
+                </p>
+                <script>
+                    window.addEventListener('DOMContentLoaded', () => {
+                        $('#button-group-border-color label input').on('change', function() {
+                            $('#button-group-border-color label').setClass('active', ({ element }) => element.contains(this));
+                        });
+                    });
+                </script>
+                <style>
+                    #button-group-border-color label.active {
+                        border: 0.125rem solid black;
+                    }
+                    #button-group-border-color label.active + label {
+                        border-left-width: 0;
+                    }
+                </style>
+                <div
+                    class="flex button-group f2"
+                    id="button-group-border-color"
+                    style="--button-group-radius: 1rem;"
+                >
                     {% for value in ["😠", "☹️", "😐", "🙂", "😁"] %}
-                        <label class="ba overflow-hidden cursor-pointer
+                        <label class="ba bw1 b--light-gray overflow-hidden cursor-pointer
                             {{ "active" if loop.last }}">
                             <input
                                 type="radio"
@@ -156,7 +206,7 @@
                         id="{{ name }}"
                         name="{{ name }}"
                         value="{{ name }}"
-                        {% if loop.index0 === 0 %}checked{% endif %}
+                        {{ "checked" if loop.index0 === 0 }}
                     >
                     <label for="{{ name }}">{{ name }}</label>
                 </div>
@@ -172,7 +222,7 @@
                         name="{{ name }}"
                         value="{{ name }}"
                         class="checkbox"
-                        {% if loop.index0 === 0 %}checked{% endif %}
+                        {{ "checked" if loop.index0 === 0 }}
                     >
                     <label for="{{ name }}">{{ name }}</label>
                 </div>
@@ -187,7 +237,7 @@
                         name="{{ name }}"
                         value="{{ name }}"
                         class="checkbox"
-                        {% if loop.index0 === 0 %}checked{% endif %}
+                        {{ "checked" if loop.index0 === 0 }}
                     >
                     {{ name }}
                 </label>

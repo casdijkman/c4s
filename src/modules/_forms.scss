@@ -50,13 +50,13 @@ $button-group-border-radius: .5rem;
     }
 
     & > :first-child {
-      border-top-left-radius: $button-group-border-radius;
-      border-bottom-left-radius: $button-group-border-radius;
+      border-top-left-radius: var(--button-group-radius, $button-group-border-radius);
+      border-bottom-left-radius: var(--button-group-radius, $button-group-border-radius);
     }
 
     & > :last-child {
-      border-top-right-radius: $button-group-border-radius;
-      border-bottom-right-radius: $button-group-border-radius;
+      border-top-right-radius: var(--button-group-radius, $button-group-border-radius);
+      border-bottom-right-radius: var(--button-group-radius, $button-group-border-radius);
     }
   }
 
