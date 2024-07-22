@@ -36,6 +36,7 @@ const globs = {
             './docs/assets/**'
         ],
         sass:        './src/**/*.scss',
+        sassDocs:    './docs/stylesheets/**/*.scss',
         nunjucks:    './docs/pages/**/*.njk',
         nunjucksAll: './docs/**/*.njk',
         javascript:  './docs/javascript/**/*.js'
@@ -77,6 +78,12 @@ function compileSass() {
         .pipe(rename({ extname: '' }))     // Remove .css extension (from .min.css)
         .pipe(rename({ extname: '.css' })) // Replace .min extension with .css
         .pipe(dest(destination));          // Output pretty-printed optimized files as .css
+}
+
+function compileSassDocs() {
+    return src(globs.src.sassDocs, { base: '.' })
+        .pipe(sass.sync().on('error', sass.logError))
+        .pipe(dest(destination));
 }
 
 function compileNunjucks() {
@@ -143,7 +150,8 @@ function serve() {
 }
 
 const build = series(
-    clean, runUpdateScripts, parallel(copyStaticFiles, compileSass, compileJavascript),
+    clean, runUpdateScripts,
+    parallel(copyStaticFiles, compileSass, compileSassDocs, compileJavascript),
     gzipDist, compileNunjucks
 );
 
@@ -152,12 +160,13 @@ const buildWatchServe = series(build, parallel(watchFiles, serve));
 function watchFiles() {
     watch(globs.src.staticFiles, copyStaticFiles);
     watch(globs.src.sass, build);
+    watch(globs.src.sassDocs, compileSassDocs);
     watch(globs.src.nunjucksAll, compileNunjucks);
     watch(globs.src.javascript, compileJavascript);
 }
 
 module.exports = {
-    nunjucks: compileNunjucks,
+    nunjucks: parallel(compileNunjucks, compileSassDocs),
     sass: compileSass,
     clean,
     serve,
