@@ -31,7 +31,7 @@ Create easy-to-use default styling for form inputs.
 
 - [x] Checkbox
 - [x] Button group
-- [ ] Radio button
+- [x] Radio button
 - [ ] Button
 - [ ] Text input with floating label (input type text/password/email & textarea)
 - [x] Create extra build that includes forms

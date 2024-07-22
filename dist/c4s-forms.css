@@ -2624,6 +2624,24 @@ code {
 .checkbox:focus::before {
   outline: 0.125rem solid #9abfee;
 }
+.radio-button {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 1px solid var(--radio-button-color, #357edd);
+  outline: 0;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+  box-shadow: inset 0 0 0 4px var(--radio-button-background-color, white);
+  background-color: var(--radio-button-background-color, white);
+}
+.radio-button:checked {
+  background-color: var(--radio-button-color, #357edd);
+}
 .button-group > * {
   border-radius: 0;
 }
