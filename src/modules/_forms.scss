@@ -14,7 +14,7 @@ $check-data-url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' v
 $button-group-border-radius: .5rem;
 
 @if not $color {
-  $color: '#357edd';
+  $color: #357edd;
 }
 
 @mixin forms($media: null) {
@@ -26,7 +26,7 @@ $button-group-border-radius: .5rem;
       display: inline-block;
       height: 1rem;
       width: 1rem;
-      border: .125rem solid $color;
+      border: .125rem solid var(--checkbox-color, $color);
       border-radius: .25rem;
     }
 
