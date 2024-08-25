@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
+import $ from './helpers/dom-surfer';
 import modules from '../../src/module-list.json';
 import {
     debugLog,
@@ -18,6 +19,7 @@ const filterModules = (filterArray) => {
     const responsiveSuffix = '-responsive';
 
     return filterArray
+        .filter((moduleName) => moduleName !== '')
         .filter((moduleName) => {
             const moduleNameIsResponsive = moduleName.endsWith(responsiveSuffix);
             const moduleNameClean = moduleName.replace(new RegExp(`${responsiveSuffix}$`), '');
@@ -57,6 +59,12 @@ function handleFormSubmit(event) {
 
 async function createCssFromModules({ modulesString, isMinified }) {
     const selectedModules = filterModules(modulesString.split(separator));
+
+    if (selectedModules.length === 0) {
+        alert('No modules selected');
+        location.href = location.pathname;
+        return;
+    }
     debugLog('Selected modules', selectedModules);
     if (output) output.style.display = null;
 
@@ -106,16 +114,42 @@ this download link</a> with your friends 👐
 </a>`;
 }
 
+function initializeForm() {
+    const $form = $(form);
+    $form.show();
+    $form.onSubmit(handleFormSubmit);
+    $('[data-action="disable-modules"]').onClick(() => {
+        $form.find('[data-checkbox-module]').each((element) => {
+            element.checked = false;
+        });
+    });
+    $('[data-action="disable-responsive"]').onClick(() => {
+        $form.find('[data-checkbox-responsive]').each((element) => {
+            element.checked = false;
+        });
+    });
+    $('[data-action="enable-modules"]').onClick(() => {
+        $form.find('[data-checkbox-module]').each((element) => {
+            element.checked = true;
+        });
+    });
+    $('[data-action="enable-responsive"]').onClick(() => {
+        $form.find('[data-checkbox-responsive]').each((element) => {
+            element.checked = true;
+        });
+    });
+}
+
 (() => {
     if (!form) return;
     const url = new URL(window.location.href);
+
     if (url.searchParams.has('modules')) {
         createCssFromModules({
             modulesString: url.searchParams.get('modules'),
             isMinified: url.searchParams.get('isMinified') === 'true'
         });
     } else {
-        form.style.display = null;
-        form.addEventListener('submit', handleFormSubmit);
+        initializeForm();
     }
 })();

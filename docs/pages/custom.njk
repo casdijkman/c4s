@@ -10,60 +10,87 @@
 
 {% block content %}
     <div class="container center ph3 mv3">
-        <form class="js-custom-modules-form measure" style="display: none;">
-            <h2>Custom C4S stylesheet</h2>
+        <form class="js-custom-modules-form" style="display: none;">
+            <div class="measure">
+                <h2>Custom C4S stylesheet</h2>
 
-            <b>Select&hellip;</b>
-            <ul class="list-reset pl4 mv3">
-                <li class="flex">
-                    <span class="mr2">›</span>
-                    What modules you want
-                </li>
-                <li class="flex">
-                    <span class="mr2">›</span>
-                    If modules should be responsive
-                </li>
-                <li class="flex">
-                    <span class="mr2">›</span>
-                    <div>
-                        What order modules should be loaded.
-                        <div class="di dn-l">This feature is only available on desktop</div>
-                        <div class="dn di-l">
-                            Order modules by dragging them with
-                            <div class="svg-wrapper dib v-mid ml2">
-                                {% include "docs/icons/bootstrap/grip-horizontal.svg" %}
+                <b>Select&hellip;</b>
+                <ul class="list-reset pl4 mv3">
+                    <li class="flex">
+                        <span class="mr2">›</span>
+                        What modules you want
+                    </li>
+                    <li class="flex">
+                        <span class="mr2">›</span>
+                        If modules should be responsive
+                    </li>
+                    <li class="flex">
+                        <span class="mr2">›</span>
+                        <div>
+                            What order modules should be loaded.
+                            <div class="di dn-l">This feature is only available on desktop</div>
+                            <div class="dn di-l">
+                                Order modules by dragging them with
+                                <div class="svg-wrapper dib v-mid ml2">
+                                    {% include "docs/icons/bootstrap/grip-horizontal.svg" %}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </li>
-                <li class="flex">
-                    <span class="mr2">›</span>
-                    If you want to minify the CSS output or not
-                </li>
-            </ul>
+                    </li>
+                    <li class="flex">
+                        <span class="mr2">›</span>
+                        If you want to minify the CSS output or not
+                    </li>
+                </ul>
 
-            <p>
-                To generate, click the button at the bottom of the page.
-                <br>
-                Generating custom stylesheets may take a while.
-            </p>
+                <p>
+                    To generate, click the button at the bottom of the page.
+                    <br>
+                    Generating custom stylesheets may take a while.
+                </p>
+            </div>
 
             <h3>Modules</h3>
 
-            <ul class="js-reorder-list list-reset mv3">
+            <p class="flex column-gap gap flex-wrap mv4" style="--gap: .5rem;">
+                <button type="button" data-action="enable-modules">
+                    ✅ <span class="sr-only">Enable</span> all modules
+                </button>
+                <button type="button" data-action="enable-responsive">
+                    ✅ <span class="sr-only">Enable</span> all responsive
+                </button>
+                <button type="button" data-action="disable-modules">
+                    ❌ <span class="sr-only">Disable</span> all modules
+                </button>
+                <button type="button" data-action="disable-responsive">
+                    ❌ <span class="sr-only">Disable</span> all responsive
+                </button>
+            </p>
+
+            <ul class="js-reorder-list list-reset mv3 measure">
                 {% for file in files | rejectattr('isMinified') | rejectattr('isRaw') | selectattr('isModule') %}
                     <li class="flex flex-wrap items-center ph2 ph3-m pv1 mt1-between ba br2 column-gap row-gap"
                         draggable="true">
-                        <label class="flex-grow-1">
-                            <input type="checkbox" name="module-{{ file.name }}"
-                                {{ "checked" if file.isEnabled }}>
+                        <label class="flex-grow-1 code">
+                            <input
+                                type="checkbox"
+                                class="checkbox button-lh-fix"
+                                data-checkbox-module
+                                name="module-{{ file.name }}"
+                                {{ "checked" if file.isEnabled }}
+                            >
                             {{ file.name }}
                         </label>
 
                         {% if file.responsiveAble %}
                             <label>
-                                <input type="checkbox" name="module-{{ file.name }}-responsive"
-                                    {{ "checked" if file.isResponsive }}>
+                                <input
+                                    type="checkbox"
+                                    class="checkbox button-lh-fix"
+                                    data-checkbox-responsive
+                                    name="module-{{ file.name }}-responsive"
+                                    {{ "checked" if file.isResponsive }}
+                                >
                                 Responsive
                             </label>
                         {% endif %}
@@ -76,7 +103,7 @@
             </ul>
 
             <label class="db mv3 p2">
-                <input type="checkbox" name="minify" checked>
+                <input type="checkbox" name="minify" class="checkbox button-lh-fix" checked>
                 Minify output
             </label>
 
