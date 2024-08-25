@@ -3,4 +3,4 @@
  * SPDX-FileCopyrightText: 2024 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
-.br0{border-radius:0}.br1{border-radius:.125rem}.br2{border-radius:.25rem}.br3{border-radius:.5rem}.br4{border-radius:1rem}.br-100{border-radius:100%}.br-pill{border-radius:99999px}.br--right,.br--top{border-bottom-left-radius:0}.br--top{border-bottom-right-radius:0}.br--right{border-top-left-radius:0}.br--bottom,.br--left{border-top-right-radius:0}.br--bottom{border-top-left-radius:0}.br--left{border-bottom-right-radius:0}
+.br0{border-radius:0}.br1{border-radius:.125rem}.br2{border-radius:.25rem}.br3{border-radius:.5rem}.br4{border-radius:1rem}.br5{border-radius:2rem}.br6{border-radius:4rem}.br-100{border-radius:100%}.br-pill{border-radius:9999999px}.br--right,.br--top{border-bottom-left-radius:0}.br--top{border-bottom-right-radius:0}.br--right{border-top-left-radius:0}.br--bottom,.br--left{border-top-right-radius:0}.br--bottom{border-top-left-radius:0}.br--left{border-bottom-right-radius:0}

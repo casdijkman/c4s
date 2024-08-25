@@ -2463,11 +2463,17 @@ code {
 .br4 {
   border-radius: 1rem;
 }
+.br5 {
+  border-radius: 2rem;
+}
+.br6 {
+  border-radius: 4rem;
+}
 .br-100 {
   border-radius: 100%;
 }
 .br-pill {
-  border-radius: 99999px;
+  border-radius: 9999999px;
 }
 .br--right,
 .br--top {
@@ -3748,11 +3754,17 @@ code {
   .br4-h {
     border-radius: 1rem;
   }
+  .br5-h {
+    border-radius: 2rem;
+  }
+  .br6-h {
+    border-radius: 4rem;
+  }
   .br-100-h {
     border-radius: 100%;
   }
   .br-pill-h {
-    border-radius: 99999px;
+    border-radius: 9999999px;
   }
   .br--right-h,
   .br--top-h {
