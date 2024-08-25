@@ -2228,7 +2228,12 @@ code {
   column-gap: var(--column-gap);
 }
 .row-gap {
-  row-gap: 1rem;
+  --row-gap: 1rem;
+  row-gap: var(--row-gap);
+}
+.gap {
+  --gap: 1rem;
+  gap: var(--gap);
 }
 .flex-wrap {
   flex-wrap: wrap;
@@ -3486,7 +3491,12 @@ code {
     column-gap: var(--column-gap);
   }
   .row-gap-s {
-    row-gap: 1rem;
+    --row-gap: 1rem;
+    row-gap: var(--row-gap);
+  }
+  .gap-s {
+    --gap: 1rem;
+    gap: var(--gap);
   }
   .flex-wrap-s {
     flex-wrap: wrap;
@@ -4739,7 +4749,12 @@ code {
     column-gap: var(--column-gap);
   }
   .row-gap-m {
-    row-gap: 1rem;
+    --row-gap: 1rem;
+    row-gap: var(--row-gap);
+  }
+  .gap-m {
+    --gap: 1rem;
+    gap: var(--gap);
   }
   .flex-wrap-m {
     flex-wrap: wrap;
@@ -5993,7 +6008,12 @@ code {
     column-gap: var(--column-gap);
   }
   .row-gap-l {
-    row-gap: 1rem;
+    --row-gap: 1rem;
+    row-gap: var(--row-gap);
+  }
+  .gap-l {
+    --gap: 1rem;
+    gap: var(--gap);
   }
   .flex-wrap-l {
     flex-wrap: wrap;
@@ -7248,7 +7268,12 @@ code {
     column-gap: var(--column-gap);
   }
   .row-gap-h {
-    row-gap: 1rem;
+    --row-gap: 1rem;
+    row-gap: var(--row-gap);
+  }
+  .gap-h {
+    --gap: 1rem;
+    gap: var(--gap);
   }
   .flex-wrap-h {
     flex-wrap: wrap;

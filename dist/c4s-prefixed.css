@@ -2229,7 +2229,12 @@ code {
   column-gap: var(--column-gap);
 }
 .c4s-row-gap {
-  row-gap: 1rem;
+  --row-gap: 1rem;
+  row-gap: var(--row-gap);
+}
+.c4s-gap {
+  --gap: 1rem;
+  gap: var(--gap);
 }
 .c4s-flex-wrap {
   flex-wrap: wrap;
@@ -3483,7 +3488,12 @@ code {
     column-gap: var(--column-gap);
   }
   .c4s-row-gap-s {
-    row-gap: 1rem;
+    --row-gap: 1rem;
+    row-gap: var(--row-gap);
+  }
+  .c4s-gap-s {
+    --gap: 1rem;
+    gap: var(--gap);
   }
   .c4s-flex-wrap-s {
     flex-wrap: wrap;
@@ -4734,7 +4744,12 @@ code {
     column-gap: var(--column-gap);
   }
   .c4s-row-gap-m {
-    row-gap: 1rem;
+    --row-gap: 1rem;
+    row-gap: var(--row-gap);
+  }
+  .c4s-gap-m {
+    --gap: 1rem;
+    gap: var(--gap);
   }
   .c4s-flex-wrap-m {
     flex-wrap: wrap;
@@ -5986,7 +6001,12 @@ code {
     column-gap: var(--column-gap);
   }
   .c4s-row-gap-l {
-    row-gap: 1rem;
+    --row-gap: 1rem;
+    row-gap: var(--row-gap);
+  }
+  .c4s-gap-l {
+    --gap: 1rem;
+    gap: var(--gap);
   }
   .c4s-flex-wrap-l {
     flex-wrap: wrap;
@@ -7239,7 +7259,12 @@ code {
     column-gap: var(--column-gap);
   }
   .c4s-row-gap-h {
-    row-gap: 1rem;
+    --row-gap: 1rem;
+    row-gap: var(--row-gap);
+  }
+  .c4s-gap-h {
+    --gap: 1rem;
+    gap: var(--gap);
   }
   .c4s-flex-wrap-h {
     flex-wrap: wrap;

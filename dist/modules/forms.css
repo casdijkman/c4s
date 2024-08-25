@@ -56,5 +56,5 @@
   border-bottom-right-radius: var(--button-group-radius, 0.5rem);
 }
 .button-lh-fix {
-  padding-top: max(0.14em, 0.4em - 4px);
+  transform: translateY(max(0.14em, 0.4em - 4px));
 }

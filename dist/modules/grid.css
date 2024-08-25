@@ -90,5 +90,10 @@
   column-gap: var(--column-gap);
 }
 .row-gap {
-  row-gap: 1rem;
+  --row-gap: 1rem;
+  row-gap: var(--row-gap);
+}
+.gap {
+  --gap: 1rem;
+  gap: var(--gap);
 }

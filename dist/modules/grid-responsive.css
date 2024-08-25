@@ -90,7 +90,12 @@
   column-gap: var(--column-gap);
 }
 .row-gap {
-  row-gap: 1rem;
+  --row-gap: 1rem;
+  row-gap: var(--row-gap);
+}
+.gap {
+  --gap: 1rem;
+  gap: var(--gap);
 }
 @media only screen and (min-width: 30em) {
   .row-s {
@@ -180,7 +185,12 @@
     column-gap: var(--column-gap);
   }
   .row-gap-s {
-    row-gap: 1rem;
+    --row-gap: 1rem;
+    row-gap: var(--row-gap);
+  }
+  .gap-s {
+    --gap: 1rem;
+    gap: var(--gap);
   }
 }
 @media only screen and (min-width: 40em) {
@@ -271,7 +281,12 @@
     column-gap: var(--column-gap);
   }
   .row-gap-m {
-    row-gap: 1rem;
+    --row-gap: 1rem;
+    row-gap: var(--row-gap);
+  }
+  .gap-m {
+    --gap: 1rem;
+    gap: var(--gap);
   }
 }
 @media only screen and (min-width: 60em) {
@@ -362,7 +377,12 @@
     column-gap: var(--column-gap);
   }
   .row-gap-l {
-    row-gap: 1rem;
+    --row-gap: 1rem;
+    row-gap: var(--row-gap);
+  }
+  .gap-l {
+    --gap: 1rem;
+    gap: var(--gap);
   }
 }
 @media only screen and (min-width: 90em) {
@@ -453,6 +473,11 @@
     column-gap: var(--column-gap);
   }
   .row-gap-h {
-    row-gap: 1rem;
+    --row-gap: 1rem;
+    row-gap: var(--row-gap);
+  }
+  .gap-h {
+    --gap: 1rem;
+    gap: var(--gap);
   }
 }

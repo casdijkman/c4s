@@ -2228,7 +2228,12 @@ code {
   column-gap: var(--column-gap);
 }
 .row-gap {
-  row-gap: 1rem;
+  --row-gap: 1rem;
+  row-gap: var(--row-gap);
+}
+.gap {
+  --gap: 1rem;
+  gap: var(--gap);
 }
 .flex-wrap {
   flex-wrap: wrap;
@@ -3521,7 +3526,12 @@ code {
     column-gap: var(--column-gap);
   }
   .row-gap-p {
-    row-gap: 1rem;
+    --row-gap: 1rem;
+    row-gap: var(--row-gap);
+  }
+  .gap-p {
+    --gap: 1rem;
+    gap: var(--gap);
   }
   .flex-wrap-p {
     flex-wrap: wrap;
