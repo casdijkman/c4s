@@ -84,8 +84,10 @@ $radio-button-size: 20px;
   }
 
   .button-lh-fix {
-    // transform: translateY(.06em);
-    // padding-top: .14em;
-    padding-top: max(.14em, calc(.4em - 4px));
+    /*
+       `translateY` prevents shifting other elements since `height` stays the same,
+       unlike with `padding`, for example.
+    */
+    transform: translateY(max(.14em, calc(.4em - 4px)));
   }
 }

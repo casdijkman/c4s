@@ -12,6 +12,54 @@
     <div class="container center p3">
         <h2 id="forms">Forms</h2>
         <form>
+            <h3>Checkboxes</h3>
+
+            {% for index in [1, 2] %}
+                {% set name = "Default input with label sibling " + index %}
+
+                <div class="mt3-between">
+                    <input
+                        type="checkbox"
+                        id="{{ name }}"
+                        name="{{ name }}"
+                        value="{{ "diwls" + index }}"
+                        {{ "checked" if loop.index0 === 0 }}
+                    >
+                    <label for="{{ name }}">{{ name }}</label>
+                </div>
+            {% endfor %}
+
+            {% for index in [1, 2] %}
+                {% set name = "Input with label sibling " + index %}
+
+                <div class="mt3-between">
+                    <input
+                        type="checkbox"
+                        id="{{ name }}"
+                        name="{{ name }}"
+                        value="{{ "iwls" + index }}"
+                        class="checkbox"
+                        {{ "checked" if loop.index0 === 0 }}
+                    >
+                    <label for="{{ name }}">{{ name }}</label>
+                </div>
+            {% endfor %}
+
+            {% for index in [1, 2] %}
+                {% set name = "input with label parent " + index %}
+
+                <label class="db mt3-between">
+                    <input
+                        type="checkbox"
+                        name="{{ name }}"
+                        value="{{ "inwlp" + index }}"
+                        class="checkbox"
+                        {{ "checked" if loop.index0 === 0 }}
+                    >
+                    {{ name }}
+                </label>
+            {% endfor %}
+
             <h3>Radio buttons</h3>
 
             <div class="mt5-between">
@@ -234,54 +282,7 @@
                 </div>
             </div>
 
-            <h3>Checkboxes</h3>
-            {% for index in [1, 2] %}
-                {% set name = "Default input with label sibling " + index %}
-
-                <div class="mt3-between">
-                    <input
-                        type="checkbox"
-                        id="{{ name }}"
-                        name="{{ name }}"
-                        value="{{ name }}"
-                        {{ "checked" if loop.index0 === 0 }}
-                    >
-                    <label for="{{ name }}">{{ name }}</label>
-                </div>
-            {% endfor %}
-
-            {% for index in [1, 2] %}
-                {% set name = "Input with label sibling " + index %}
-
-                <div class="mt3-between">
-                    <input
-                        type="checkbox"
-                        id="{{ name }}"
-                        name="{{ name }}"
-                        value="{{ name }}"
-                        class="checkbox"
-                        {{ "checked" if loop.index0 === 0 }}
-                    >
-                    <label for="{{ name }}">{{ name }}</label>
-                </div>
-            {% endfor %}
-
-            {% for index in [1, 2] %}
-                {% set name = "input with label parent " + index %}
-
-                <label class="db mt3-between">
-                    <input
-                        type="checkbox"
-                        name="{{ name }}"
-                        value="{{ name }}"
-                        class="checkbox"
-                        {{ "checked" if loop.index0 === 0 }}
-                    >
-                    {{ name }}
-                </label>
-            {% endfor %}
-
-            <div class="mt3-between">
+            <div class="mv5">
                 <input
                     type="submit"
                     value="Submit form"
