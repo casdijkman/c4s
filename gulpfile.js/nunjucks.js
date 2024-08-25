@@ -151,6 +151,7 @@ function getNunjucksEnv(env) {
 function getNunjucksData() {
     const filesData = glob
         .sync('dist/**/*.css')
+        .filter((path) => !path.startsWith('dist/docs/'))
         .map((filePath) => getDataForPath(filePath))
         .filter((x) => typeof x !== 'undefined')
         .sort((a, b) => a.order - b.order);
