@@ -10,7 +10,10 @@
 
 {% block content %}
     <div class="container center ph3 mv3">
-        <form class="js-custom-modules-form" style="display: none;">
+        <form
+            data-custom-modules-form
+            style="display: none;"
+        >
             <div class="measure">
                 <h2>Custom C4S stylesheet</h2>
 
@@ -115,8 +118,9 @@
 
         <div class="tc">
             <div
-                class="js-custom-modules-output dib ph3 pv2 ba br2 f4 lh-extra"
+                class="dib ph3 pv2 ba br2 f4 lh-extra"
                 style="display: none;"
+                data-custom-modules-output
             >
                 Generating custom modules...
 
@@ -127,6 +131,12 @@
                 </div>
             </div>
         </div>
+
+        <pre
+            class="code ba br2 p3"
+            style="display: none;"
+            data-custom-modules-output-css
+        ></pre>
     </div>
 
     <style>
@@ -164,6 +174,5 @@
                         transform: rotate(360deg);
             }
         }
-
     </style>
 {% endblock %}

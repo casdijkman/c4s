@@ -228,6 +228,11 @@ export class DomSurfer {
     hide() {
         return this.each((element) => { element.style.display = 'none'; });
     }
+
+    innerHtml(html) {
+
+        return this.each((element) => { element.innerHTML = html; });
+    }
 }
 
 function $(value) {

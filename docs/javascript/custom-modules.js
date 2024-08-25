@@ -11,8 +11,9 @@ import {
     httpSuccessStatus
 } from './helpers/constants';
 
-const form = document.querySelector('.js-custom-modules-form');
-const output = document.querySelector('.js-custom-modules-output');
+const $form = $('[data-custom-modules-form]');
+const output = document.querySelector('[data-custom-modules-output]');
+const $outputCss = $('[data-custom-modules-output-css]')
 const separator = '|';
 
 const filterModules = (filterArray) => {
@@ -66,7 +67,6 @@ async function createCssFromModules({ modulesString, isMinified }) {
         return;
     }
     debugLog('Selected modules', selectedModules);
-    if (output) output.style.display = null;
 
     const promises = selectedModules.map((module) => fetch(`/modules/${module}.css`)
         .then((response) => {
@@ -99,23 +99,29 @@ async function processCss({ css, isMinified }) {
 
 function download({ css, isMinified = false }) {
     const link = document.createElement('a');
-    link.setAttribute(
-        'download',
-        `c4s-custom-modules${isMinified ? '.min' : ''}.css`
-    );
+    const fileName = `c4s-custom-modules${isMinified ? '.min' : ''}.css`
+    link.setAttribute('download', fileName);
     link.href = `data:text/css,${encodeURIComponent(css)}`;
     link.click();
-    if (output) output.innerHTML = `
+
+    if (output) {
+        output.style.display = null;
+        output.innerHTML = `
 🥳 Finished generating, your download has started<br>
 <a href=${location.pathname} class="link dark-blue hover-underline">
 <div class="dib">👉&nbsp;</div>Create another custom stylesheet</a><br>
 Or share <a href="${location}" class="link dark-blue hover-underline">
 this download link</a> with your friends 👐
 </a>`;
+    }
+
+    if ($outputCss.any()) {
+        $outputCss.show();
+        $outputCss.innerHtml(css);
+    }
 }
 
 function initializeForm() {
-    const $form = $(form);
     $form.show();
     $form.onSubmit(handleFormSubmit);
     $('[data-action="disable-modules"]').onClick(() => {
@@ -141,7 +147,7 @@ function initializeForm() {
 }
 
 (() => {
-    if (!form) return;
+    if ($form.none()) return;
     const url = new URL(window.location.href);
 
     if (url.searchParams.has('modules')) {
