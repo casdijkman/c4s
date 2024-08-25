@@ -13,8 +13,14 @@ SPDX-License-Identifier: GPL-3.0-only
   See: https://stackoverflow.com/a/38442789
 - Rewrite shell scripts to be node scripts (low priority)
 
+- automatic column division with `.col-fr` (?)
+  Elements with number of children being a factor of 12 (1, 2, 3, 4, 6, 12)
+  could have an automatic distribution of same-size space based on
+  [this technique](https://stackoverflow.com/a/12198561).
+
 ### Modules to add
 
+- outline (similar to border (color, width, style (solid, dashed, dotted etc.)))
 - pointer-events
 - nested styles (in complex module?)
 - transform: rotate
@@ -34,7 +40,9 @@ Create easy-to-use default styling for form inputs.
 - [x] Radio button
 - [ ] Button
 - [ ] Text input with floating label (input type text/password/email & textarea)
+      https://getbootstrap.com/docs/5.0/forms/floating-labels/
 - [x] Create extra build that includes forms
+- [ ] Add styling for `disabled` checkbox and radio buttons
 
 ## [Reuse](https://reuse.software/)
 
