@@ -8,7 +8,8 @@ SPDX-License-Identifier: GPL-3.0-only
 
 ## To do
 
-- Complete css class examples documentation
+- Complete css class examples documentation    
+  `(cd docs/partials/examples/ && grep -Fre exampleNotFound --exclude _generic.njk)`
 - Enable and publish source maps
   See: https://stackoverflow.com/a/38442789
 - Rewrite shell scripts to be node scripts (low priority)
