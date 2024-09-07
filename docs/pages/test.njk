@@ -21,8 +21,7 @@
                     <input
                         type="checkbox"
                         id="{{ name }}"
-                        name="{{ name }}"
-                        value="{{ "diwls" + index }}"
+                        name="{{ "diwls" + index }}"
                         {{ "checked" if loop.index0 === 0 }}
                     >
                     <label for="{{ name }}">{{ name }}</label>
@@ -36,8 +35,7 @@
                     <input
                         type="checkbox"
                         id="{{ name }}"
-                        name="{{ name }}"
-                        value="{{ "iwls" + index }}"
+                        name="{{ "iwls" + index }}"
                         class="checkbox"
                         {{ "checked" if loop.index0 === 0 }}
                     >
@@ -51,8 +49,7 @@
                 <label class="db mt3-between">
                     <input
                         type="checkbox"
-                        name="{{ name }}"
-                        value="{{ "inwlp" + index }}"
+                        name="{{ "inwlp" + index }}"
                         class="checkbox"
                         {{ "checked" if loop.index0 === 0 }}
                     >
@@ -193,7 +190,7 @@
                             {{ value | lower }} {{ "active" if loop.first }}">
                             <input
                                 type="radio"
-                                name="button-group-radio-2"
+                                name="brg2"
                                 class="sr-only"
                                 value="{{ value }}"
                                 {{ "checked" if loop.first }}
@@ -243,7 +240,7 @@
                             {{ "active" if loop.last }}">
                             <input
                                 type="radio"
-                                name="button-group-radio-2"
+                                name="brg3"
                                 class="sr-only"
                                 value="{{ value }}"
                                 {{ "checked" if loop.last }}
