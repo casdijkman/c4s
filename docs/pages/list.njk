@@ -42,6 +42,27 @@
             </div>
 
             {% for rule in module.css.stylesheet.rules %}
+                {% set specificity %}{{ rule.selectors[0] | cssDeclarationToSpecificity }}{% endset %}
+                {% if module.name !== 'hover' and module.name !== 'reset' %}
+                    {% if rule.selectors.length !== 1 %}
+                        <span class="sr-only" data-debug-log="innerText">
+                            Rule with more than one selector, module: {{ module.name }}
+                        </span>
+                    {% endif %}
+
+                    {% if
+                        specificity !== '0,1,0' and
+                        module.name !== 'complex' and module.name !== 'forms' and
+                        module.name !== 'hover-color' and module.name !== 'hover-background-color'
+                    %}
+                        <span class="sr-only" data-debug-log="innerText">
+                            Rule violates specificity: {{ specificity }},
+                            rule: {{ rule.selectors[0] }},
+                            module: {{ module.name }}
+                        </span>
+                    {% endif %}
+                {% endif %}
+
                 <div class="row bt b--black-20">
                     <div class="col-12 col-3-m col-2-l p2">
                         {% for selector in rule.selectors %}
@@ -64,8 +85,8 @@
                         {% endif %}
                     </div>
                 </div>
-            {% endfor %}
+            {% endfor %}{# end loop over module rules #}
 
-        {% endfor %}
+        {% endfor %}{# end loop over modules #}
     </div>
 {% endblock %}

@@ -9,6 +9,7 @@ const cssLib = require('css');
 const highlight = require('highlight.js');
 const prettyBytes = require('pretty-bytes');
 const loremIpsum = require('lorem-ipsum');
+const { calculate: calculateSpecificity } = require('specificity');
 const { getRandom12Partition, isCssProperty } = require('./helpers/functions');
 const { checkComplexSelectors } = require('./helpers/checkComplexSelectors');
 const { constructQuestionsFile } = require('./helpers/constructQuestionsFile');
@@ -145,13 +146,17 @@ function getNunjucksEnv(env) {
             }
             const base64 = fs.readFileSync(imagePath).toString('base64');
             return `data:image/${imageType};base64,${base64}`;
+        })
+        .addFilter('cssDeclarationToSpecificity', (declaration) => {
+            const { A, B, C } = calculateSpecificity(declaration);
+            return `${A},${B},${C}`;
         });
 }
 
 function getNunjucksData() {
     const filesData = glob
         .sync('dist/**/*.css')
-        .filter((path) => !path.startsWith('dist/docs/'))
+        .filter((p) => !p.startsWith('dist/docs/'))
         .map((filePath) => getDataForPath(filePath))
         .filter((x) => typeof x !== 'undefined')
         .sort((a, b) => a.order - b.order);

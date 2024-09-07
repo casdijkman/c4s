@@ -46,12 +46,10 @@ export class DomSurfer {
 
     static isElement(value) {
         // https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType#node_type_constants
-        const elementNode = 1;
-        const documentNode = 9;
         return value !== null &&
                typeof value === 'object' &&
                'nodeType' in value &&
-               [elementNode, documentNode].includes(value.nodeType);
+               [Element.ELEMENT_NODE, Element.DOCUMENT_NODE].includes(value.nodeType);
     }
 
     static assertIsElement(value) {
@@ -82,6 +80,10 @@ export class DomSurfer {
         return this.elements[0];
     }
 
+    $first() {
+        return new DomSurfer(this.elements[0]);
+    }
+
     any() {
         return this.elements.length > 0;
     }
@@ -92,7 +94,7 @@ export class DomSurfer {
 
     find(selector) {
         this.assertHasOneElement();
-        return $(this.first().querySelectorAll(selector));
+        return new DomSurfer(this.first().querySelectorAll(selector));
     }
 
     hasClass(cssClass) {
@@ -164,7 +166,9 @@ export class DomSurfer {
     }
 
     $each(callback) {
-        return this.each((element, index) => callback($(element), index));
+        return this.each((element, index) =>
+            callback(new DomSurfer(element), index)
+        );
     }
 
     addClass(cssClass) {
@@ -229,9 +233,14 @@ export class DomSurfer {
         return this.each((element) => { element.style.display = 'none'; });
     }
 
-    innerHtml(html) {
-
+    innerHtml(html = null) {
+        if (html === null) return this.first().innerHtml;
         return this.each((element) => { element.innerHTML = html; });
+    }
+
+    innerText(text = null) {
+        if (text === null) return this.first().innerText;
+        return this.each((element) => { element.innerText = text; });
     }
 }
 
