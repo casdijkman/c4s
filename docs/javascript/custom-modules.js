@@ -13,7 +13,7 @@ import {
 
 const $form = $('[data-custom-modules-form]');
 const output = document.querySelector('[data-custom-modules-output]');
-const $outputCss = $('[data-custom-modules-output-css]')
+const $outputCss = $('[data-custom-modules-output-css]');
 const separator = '|';
 
 const filterModules = (filterArray) => {
@@ -62,7 +62,7 @@ async function createCssFromModules({ modulesString, isMinified }) {
     const selectedModules = filterModules(modulesString.split(separator));
 
     if (selectedModules.length === 0) {
-        alert('No modules selected');
+        alert('No modules selected'); // eslint-disable-line no-alert
         location.href = location.pathname;
         return;
     }
@@ -99,7 +99,7 @@ async function processCss({ css, isMinified }) {
 
 function download({ css, isMinified = false }) {
     const link = document.createElement('a');
-    const fileName = `c4s-custom-modules${isMinified ? '.min' : ''}.css`
+    const fileName = `c4s-custom-modules${isMinified ? '.min' : ''}.css`;
     link.setAttribute('download', fileName);
     link.href = `data:text/css,${encodeURIComponent(css)}`;
     link.click();
