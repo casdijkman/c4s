@@ -1351,6 +1351,7 @@ __metadata:
     prettier: ^3.0.0
     pretty-bytes: ^5.6.0
     sass: ^1.72.0
+    specificity: ^1.0.0
     stylelint: ^15.10.1
     stylelint-config-standard: ^34.0.0
     stylelint-config-standard-scss: ^10.0.0
@@ -8548,6 +8549,15 @@ __metadata:
   version: 3.0.13
   resolution: "spdx-license-ids@npm:3.0.13"
   checksum: 3469d85c65f3245a279fa11afc250c3dca96e9e847f2f79d57f466940c5bb8495da08a542646086d499b7f24a74b8d0b42f3fc0f95d50ff99af1f599f6360ad7
+  languageName: node
+  linkType: hard
+
+"specificity@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "specificity@npm:1.0.0"
+  dependencies:
+    css-tree: ^2.3.1
+  checksum: f9cf449e3eb3431c2aa8130bfa8870000c2299136a642202fc81658904100fe8a30fb26547aba5c3077017d7c693ac8f9ff45b1091e9a642b276d15d0af807e4
   languageName: node
   linkType: hard
 
