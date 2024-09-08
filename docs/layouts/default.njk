@@ -77,9 +77,22 @@
                 </a>
             </aside>
 
-            {# <footer>
-            footer
-            </footer> #}
+            {% if not hideFooter %}
+                <footer>
+                    <div class="tc p3 bg-black white">
+                        Free Palestine ✌️
+                        <span class="sr-only">
+                            From the river to the sea
+                        </span>
+                    </div>
+                    <div
+                        class="pb1"
+                        style="background-image: linear-gradient(to right, #EE2A35 0%, #EE2A35 25%, black 25%, black 50%, white 50%, white 75%, #009736 75%, #009736 100%);"
+                    >
+                        <!--! Thanks to sass-lang.com for the Palestinian colors CSS snippet -->
+                    </div>
+                </footer>
+            {% endif %}
         </div>
     </body>
 </html>

@@ -9,6 +9,7 @@
 {% import 'docs/macros/example.njk' as example %}
 
 {% set description = 'C4S CSS documentation examples page' %}
+{% set hideFooter = true %}
 {% set modules = files | sort(false, false, 'name') | selectattr('isModule') | selectattr('isRaw') %}
 
 {% block content %}

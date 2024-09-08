@@ -92,7 +92,8 @@ function compileNunjucks() {
         .pipe(nunjucksRender({ manageEnv: getNunjucksEnv }))
         .pipe(htmlmin({
             removeComments: true,
-            collapseWhitespace: true
+            collapseWhitespace: true,
+            ignoreCustomComments: [/^!/]
         }))
         .pipe(beautifier({
             indent_size: 2,        // eslint-disable-line camelcase
