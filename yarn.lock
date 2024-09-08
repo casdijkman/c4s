@@ -1324,6 +1324,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.21.8
     "@babel/preset-env": ^7.16.4
+    "@casd/dom-surfer": ^0.0.1
     "@ronilaukkarinen/gulp-stylelint": ^14.1.1
     autoprefixer: ^10.4.14
     babel-loader: ^9.1.2
@@ -1361,6 +1362,13 @@ __metadata:
     webpack-cli: ^5.1.4
   languageName: unknown
   linkType: soft
+
+"@casd/dom-surfer@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "@casd/dom-surfer@npm:0.0.1"
+  checksum: 4edcdff53075e1b5124fa09152af201d6e5d71300bd5baa6afb699076a2782d0ee0f4728137e7b3a2f5d031f6f7e371f23682b640f232fceeed3dae0c84ea2fa
+  languageName: node
+  linkType: hard
 
 "@csstools/css-parser-algorithms@npm:^2.3.0":
   version: 2.3.1

@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-import $ from './helpers/dom-surfer';
+import $ from '@casd/dom-surfer';
 import './header';
 import './scroll-top-button';
 import './order-table';
