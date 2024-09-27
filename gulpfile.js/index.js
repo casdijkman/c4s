@@ -65,7 +65,13 @@ function compileSass() {
         .pipe(rename((filePath) => {
             filePath.basename = filePath.basename.replace(/-module$/, '');
         }))
-        .pipe(sass.sync().on('error', sass.logError))
+        .pipe(
+            sass
+                .sync({
+                    silenceDeprecations: ['legacy-js-api'],
+                })
+                .on('error', sass.logError)
+        )
         .pipe(postcss([autoprefixer]))
         .pipe(rename({ extname: '.raw.css' }))
         .pipe(dest(destination))
