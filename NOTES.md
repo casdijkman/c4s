@@ -59,8 +59,8 @@ reuse addheader --copyright="Cas Dijkman" --license="GPL-3.0-only" --style="c" "
 
 ### Styles
 
-| Language    | Comment | `--style` argument |
-|-------------|---------|--------------------|
-| C, JS, SASS | `//`    | `c`                |
-| HTML        | `<!--`  | `html`             |
-| Python      | `#`     | `python`           |
+| Language      | Comment | `--style` argument |
+|---------------|---------|--------------------|
+| C, JS, Sass   | `//`    | `c`                |
+| HTML          | `<!--`  | `html`             |
+| Python, Shell | `#`     | `python`           |
