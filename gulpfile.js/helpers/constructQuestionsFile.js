@@ -40,7 +40,6 @@ function constructQuestion({ rule, module }) {
     }
 
     return {
-        id: currentId++,
         question,
         answer: selectorClean,
         categories: [module.name].map((x) => capitalizeWords(x)),
@@ -60,7 +59,27 @@ function constructQuestionsFile(filesData) {
         rules.forEach((rule) => questions.push(constructQuestion({ rule, module })));
     });
 
-    writeQuestionsFile({ questions, version: VERSION });
+    const deduplicatedQuestions = questions
+        .map((question, index) => {
+            const sameQuestionPredicate = (q) => q.question === question.question;
+            const duplicates = questions.filter(sameQuestionPredicate);
+            if (duplicates.length === 1) {
+                // return; //delet this
+                return question;
+            }
+            if (questions.findIndex(sameQuestionPredicate) === index) {
+                // question is the first of duplicates, merge answers
+                // console.log('first duplicate', {question, answer: duplicates.map((x) => x.answer), newQuestion: {...question, answer: duplicates.map((x) => x.answer) } });
+                return {
+                    ...question,
+                    answer: duplicates.map((x) => x.answer)
+                };
+            }
+        })
+        .filter((x) => typeof x !== 'undefined')
+        .map((x) => Object.assign(x, { id: currentId++ }));
+
+    writeQuestionsFile({ questions: deduplicatedQuestions, version: VERSION });
 }
 
 function writeQuestionsFile(data) {
