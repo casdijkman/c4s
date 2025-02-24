@@ -37,7 +37,7 @@
 }
 
 @function strip-unit($number) {
-  @if type-of($number) == 'number' {
+  @if meta.type-of($number) == 'number' {
     @return math.div($number, ($number * 0 + 1));
   } @else {
     @error 'Wrong parameter, not a number ' + $number;
