@@ -11,6 +11,7 @@ module.exports = {
         'at-rule-no-unknown': null,
         'scss/at-rule-no-unknown': true,
         'block-opening-brace-space-before': null,
+        'scss/at-import-no-partial-leading-underscore': null,
         'at-rule-empty-line-before': [
             'always' ,
             {
