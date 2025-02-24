@@ -50,8 +50,10 @@ function constructQuestion({ rule, module }) {
 function constructQuestionsFile(filesData) {
     const questions = [];
     const modules = filesData.filter((file) =>
-        file.isModule && file.isRaw &&
-        !complexModules.includes(file.name) && !/(color|hover)/.test(file.name)
+        file.isModule 
+        && file.isRaw 
+        && !complexModules.includes(file.name)
+        && !/(color|hover)/.test(file.name)
     );
 
     modules.forEach((module) => {
@@ -64,12 +66,10 @@ function constructQuestionsFile(filesData) {
             const sameQuestionPredicate = (q) => q.question === question.question;
             const duplicates = questions.filter(sameQuestionPredicate);
             if (duplicates.length === 1) {
-                // return; //delet this
                 return question;
             }
             if (questions.findIndex(sameQuestionPredicate) === index) {
                 // question is the first of duplicates, merge answers
-                // console.log('first duplicate', {question, answer: duplicates.map((x) => x.answer), newQuestion: {...question, answer: duplicates.map((x) => x.answer) } });
                 return {
                     ...question,
                     answer: duplicates.map((x) => x.answer)
