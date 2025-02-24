@@ -33,7 +33,8 @@ The pre-built .css files can be found in the [`dist`](./dist) directory.
 You can use C4S with SCSS, just [import](https://sass-lang.com/documentation/at-rules/use/)
 the main file with `@use 'node_modules/@casd/c4s/src/c4s';`
 
-For customizing, you can start by copying [c4s-custom.scss](./src/c4s-custom.scss) into your project and customize all you like 😄
+For customizing, you can start by copying [c4s-custom.scss](./src/c4s-custom.scss) into
+your project and customize all you like 😄
 
 ## Install project on your device
 
@@ -53,7 +54,8 @@ For customizing, you can start by copying [c4s-custom.scss](./src/c4s-custom.scs
 - [Functional CSS](https://mrmrs.cc/writing/scalable-css/),
   also known als [atomic CSS](https://css-tricks.com/lets-define-exactly-atomic-css/)
 - [Tachyons](https://tachyons.io/)
-  (by [John Otander](https://www.johno.com/), [Adam Morse](https://mrmrs.io/) and [others](https://github.com/tachyons-css/tachyons/graphs/contributors))
+  (by [John Otander](https://www.johno.com/), [Adam Morse](https://mrmrs.io/) and
+  [others](https://github.com/tachyons-css/tachyons/graphs/contributors))
 
 ## Copyright and license
 
