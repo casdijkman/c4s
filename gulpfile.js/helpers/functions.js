@@ -19,7 +19,18 @@ const getRandom12Partition = () => {
 
 const isCssProperty = (name) => cssProperties.includes(name);
 
+const capitalizeWords = (sentence) => sentence.split(' ').map(
+    (word) => word[0].toUpperCase() + word.substring(1)
+).join(' ');
+
+function arrayHasDuplicates(array) {
+    console.assert(Array.isArray(array), 'Value is not an array', array);
+    return new Set(array).size !== array.length;
+}
+
 module.exports = {
     getRandom12Partition,
-    isCssProperty
+    isCssProperty,
+    capitalizeWords,
+    arrayHasDuplicates
 };

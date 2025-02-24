@@ -5,10 +5,8 @@
 const fs = require('fs');
 const ordinal = require('ordinal-numbers');
 const { VERSION, complexModules } = require('../constants');
+const { capitalizeWords, arrayHasDuplicates } = require('./functions');
 let currentId = 1;
-const capitalizeWords = (sentence) => sentence.split(' ').map(
-    (word) => word[0].toUpperCase() + word.substring(1)
-).join(' ');
 
 function constructQuestion({ rule, module }) {
     console.assert(
@@ -47,6 +45,18 @@ function constructQuestion({ rule, module }) {
     };
 }
 
+function checkDuplicateAnswers(questions) {
+    questions.forEach((question) => {
+        if (Array.isArray(question.answer)) {
+            // eslint-disable-next-line no-console
+            console.assert(
+                !arrayHasDuplicates(question.answer),
+                'question should not have duplicate anwers', questions
+            );
+        }
+    });
+}
+
 function constructQuestionsFile(filesData) {
     const questions = [];
     const modules = filesData.filter((file) =>
@@ -79,6 +89,7 @@ function constructQuestionsFile(filesData) {
         .filter((x) => typeof x !== 'undefined')
         .map((x) => Object.assign(x, { id: currentId++ }));
 
+    checkDuplicateAnswers(deduplicatedQuestions);
     writeQuestionsFile({ questions: deduplicatedQuestions, version: VERSION });
 }
 
