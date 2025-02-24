@@ -23,8 +23,8 @@ const checkComplex = ({ property, name, rule }) => {
 
 
     if (
-        ignoreModules.includes(name) ||
-        complexSelectors.some((x) => x.test(rule.selectors[0]))
+        ignoreModules.includes(name)
+        || complexSelectors.some((x) => x.test(rule.selectors[0]))
     ) {
         return;
     }

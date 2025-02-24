@@ -161,12 +161,7 @@ module.exports = {
         'keyword-spacing': 'error',
         'operator-linebreak': [
             'error',
-            'after', {
-                overrides: {
-                    '?': 'before',
-                    ':': 'before'
-                }
-            }
+            'before',
         ],
         'quote-props': [
             'error',

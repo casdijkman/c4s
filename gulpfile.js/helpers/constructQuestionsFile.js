@@ -23,8 +23,8 @@ function constructQuestion({ rule, module }) {
     const addStringToQuestion = (string) => { question = `/* ${string} */\n${question}`; };
 
     if (
-        /[a-z]\d+$/.test(selectorClean) &&
-        !/-([0-9]+x[0-9]+|n[0-9]+)$/.test(selectorClean)
+        /[a-z]\d+$/.test(selectorClean)
+        && !/-([0-9]+x[0-9]+|n[0-9]+)$/.test(selectorClean)
     ) {
         const step = Number(selectorClean.match(/\d+$/)[0]);
         const negative = rule.declarations[0].value.startsWith('-');
@@ -50,8 +50,8 @@ function constructQuestion({ rule, module }) {
 function constructQuestionsFile(filesData) {
     const questions = [];
     const modules = filesData.filter((file) =>
-        file.isModule 
-        && file.isRaw 
+        file.isModule
+        && file.isRaw
         && !complexModules.includes(file.name)
         && !/(color|hover)/.test(file.name)
     );

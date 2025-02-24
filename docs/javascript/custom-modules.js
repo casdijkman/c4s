@@ -88,8 +88,9 @@ async function processCss({ css, isMinified }) {
     let processedCss = minify(css, cssoOptions).css;
 
     if (!isMinified) {
-        const { default: { format: prettierFormat } } =
-            await import(/* webpackChunkName: "prettier" */ 'prettier/standalone');
+        const {
+            default: { format: prettierFormat }
+        } = await import(/* webpackChunkName: "prettier" */ 'prettier/standalone');
         const { default: prettierPluginCss } = await import('prettier/plugins/postcss');
         const prettierOptions = { parser: 'css', plugins: [prettierPluginCss] };
         processedCss = await prettierFormat(processedCss, prettierOptions);
