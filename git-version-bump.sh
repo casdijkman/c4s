@@ -24,7 +24,7 @@ function update_version() {
     fi
 
     version_minor="$(echo "$version" | rev | cut -d'.' -f1 | rev)"
-    new_version="$(echo "$version" | cut -d'.' -f-2).$((( version_minor + 1 )))"
+    new_version="$(echo "$version" | cut -d'.' -f-2).$(( version_minor + 1 ))"
     echo "Updating version: ${version} => ${new_version}"
     version="$new_version"
     new_package="$(jq --arg version "$version" '.version = $version' package.json)"
