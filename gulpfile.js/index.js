@@ -88,7 +88,13 @@ function compileSass() {
 
 function compileSassDocs() {
     return src(globs.src.sassDocs, { base: '.' })
-        .pipe(sass.sync().on('error', sass.logError))
+        .pipe(
+            sass
+                .sync({
+                    silenceDeprecations: ['legacy-js-api'],
+                })
+                .on('error', sass.logError)
+        )
         .pipe(dest(destination));
 }
 
