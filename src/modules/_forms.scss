@@ -7,6 +7,7 @@
 @use '../functions';
 @use '../variables';
 @use 'sass:map';
+@use 'sass:list';
 @use 'sass:color';
 @use 'sass:math';
 
@@ -19,6 +20,34 @@ $radio-button-size: 20px;
 
 @if not $color {
   $color: #357edd;
+}
+
+$buttons: (
+  '': null,
+  'primary': $color,
+  'success': map.get(variables.$colors, 'green'),
+  'danger': map.get(variables.$colors, 'red'),
+  'warning': map.get(variables.$colors, 'yellow'),
+  'info': map.get(variables.$colors, 'light-blue')
+);
+
+@mixin button($color: null) {
+  @if not $color {
+    $color: #6c757d;
+  }
+
+  display: inline-block;
+  background-color: $color;
+  border: 1px solid $color;
+  border-radius: 0.5rem;
+  padding: .5rem 1rem;
+  cursor: pointer;
+
+  @if color.channel($color, "lightness", hsl) > 40 {
+    color: white;
+  } @else {
+    color: black;
+  }
 }
 
 @mixin forms($media: null) {
@@ -88,5 +117,19 @@ $radio-button-size: 20px;
        unlike with `padding`, for example.
     */
     transform: translateY(max(.14em, calc(.4em - 4px)));
+  }
+
+  @each $name, $button-color in $buttons {
+    $class-name: functions.construct-class-name(btn, $name);
+    #{$class-name} {
+      @include button($button-color);
+
+      &:where(button) {
+        font-size: inherit;
+        font-family: inherit;
+        line-height: inherit;
+        text-align: inherit;
+      }
+    }
   }
 }
