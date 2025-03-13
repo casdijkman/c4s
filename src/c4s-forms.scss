@@ -8,10 +8,12 @@
 @use './load-modules';
 @use 'sass:map';
 
+// Find a way to reinsert forms module at the correct position, not first or last
 variables.$modules: map.merge(
-  variables.$modules, (
+  (
     'forms': false
-  )
+  ),
+  variables.$modules
 );
 
 @include load-modules.load-modules;

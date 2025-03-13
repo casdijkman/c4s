@@ -3,6 +3,205 @@
  * SPDX-FileCopyrightText: 2024 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
+.checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.checkbox::before {
+  content: "";
+  display: inline-block;
+  height: 1rem;
+  width: 1rem;
+  border: 0.125rem solid var(--checkbox-color, #357edd);
+  border-radius: 0.25rem;
+}
+.checkbox:checked::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='64' d='M416 128L192 384l-96-96'/%3E%3C/svg%3E");
+  background-color: #357edd;
+}
+.checkbox:focus::before {
+  outline: 0.125rem solid #9abfee;
+}
+.radio-button {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 1px solid var(--radio-button-color, #357edd);
+  outline: 0;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+  box-shadow: inset 0 0 0 4px var(--radio-button-background-color, white);
+  background-color: var(--radio-button-background-color, white);
+}
+.radio-button:checked {
+  background-color: var(--radio-button-color, #357edd);
+}
+.button-group > * {
+  border-radius: 0;
+}
+.button-group > :not(:last-child) {
+  border-right: 0;
+}
+.button-group > :first-child {
+  border-top-left-radius: var(--button-group-radius, 0.5rem);
+  border-bottom-left-radius: var(--button-group-radius, 0.5rem);
+}
+.button-group > :last-child {
+  border-top-right-radius: var(--button-group-radius, 0.5rem);
+  border-bottom-right-radius: var(--button-group-radius, 0.5rem);
+}
+.button-lh-fix {
+  transform: translateY(max(0.14em, 0.4em - 4px));
+}
+.btn {
+  display: inline-block;
+  background-color: #6c757d;
+  border-width: 0.25rem;
+  border-style: solid;
+  border-color: #6c757d;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: #fff;
+}
+.btn:where(button) {
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  text-align: inherit;
+}
+.btn:where(:disabled) {
+  background-color: #6c757d;
+  cursor: auto;
+}
+.btn:focus {
+  outline: 0.125rem solid #b5babf;
+}
+.btn-primary {
+  display: inline-block;
+  background-color: #357edd;
+  border-width: 0.25rem;
+  border-style: solid;
+  border-color: #357edd;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: #fff;
+}
+.btn-primary:where(button) {
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  text-align: inherit;
+}
+.btn-primary:where(:disabled) {
+  background-color: #6c757d;
+  cursor: auto;
+}
+.btn-primary:focus {
+  outline: 0.125rem solid #9abfee;
+}
+.btn-success {
+  display: inline-block;
+  background-color: #19a974;
+  border-width: 0.25rem;
+  border-style: solid;
+  border-color: #19a974;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: #fff;
+}
+.btn-success:where(button) {
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  text-align: inherit;
+}
+.btn-success:where(:disabled) {
+  background-color: #6c757d;
+  cursor: auto;
+}
+.btn-success:focus {
+  outline: 0.125rem solid #75ebbf;
+}
+.btn-danger {
+  display: inline-block;
+  background-color: #e7040f;
+  border-width: 0.25rem;
+  border-style: solid;
+  border-color: #e7040f;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: #fff;
+}
+.btn-danger:where(button) {
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  text-align: inherit;
+}
+.btn-danger:where(:disabled) {
+  background-color: #6c757d;
+  cursor: auto;
+}
+.btn-danger:focus {
+  outline: 0.125rem solid #fd787e;
+}
+.btn-warning {
+  display: inline-block;
+  background-color: gold;
+  border-width: 0.25rem;
+  border-style: solid;
+  border-color: gold;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: #000;
+}
+.btn-warning:where(button) {
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  text-align: inherit;
+}
+.btn-warning:where(:disabled) {
+  background-color: #6c757d;
+  cursor: auto;
+}
+.btn-warning:focus {
+  outline: 0.125rem solid #ffeb80;
+}
+.btn-info {
+  display: inline-block;
+  background-color: #96ccff;
+  border-width: 0.25rem;
+  border-style: solid;
+  border-color: #96ccff;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: #000;
+}
+.btn-info:where(button) {
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  text-align: inherit;
+}
+.btn-info:where(:disabled) {
+  background-color: #6c757d;
+  cursor: auto;
+}
+.btn-info:focus {
+  outline: 0.125rem solid #cbe6ff;
+}
 .bt-between + .bt-between {
   border-top-style: solid;
   border-top-width: 1px;
@@ -2459,8 +2658,7 @@ code {
 .br1 {
   border-radius: 0.125rem;
 }
-.br2,
-.checkbox::before {
+.br2 {
   border-radius: 0.25rem;
 }
 .br3 {
@@ -2615,60 +2813,6 @@ code {
 }
 .measure-wide {
   max-width: 34em;
-}
-.checkbox {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-.checkbox::before {
-  content: "";
-  display: inline-block;
-  height: 1rem;
-  width: 1rem;
-  border: 0.125rem solid var(--checkbox-color, #357edd);
-}
-.checkbox:checked::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='64' d='M416 128L192 384l-96-96'/%3E%3C/svg%3E");
-  background-color: #357edd;
-}
-.checkbox:focus::before {
-  outline: 0.125rem solid #9abfee;
-}
-.radio-button {
-  width: 20px;
-  height: 20px;
-  padding: 0;
-  border: 1px solid var(--radio-button-color, #357edd);
-  outline: 0;
-  vertical-align: middle;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border-radius: 50%;
-  transition: all 0.3s ease-in-out;
-  box-shadow: inset 0 0 0 4px var(--radio-button-background-color, white);
-  background-color: var(--radio-button-background-color, white);
-}
-.radio-button:checked {
-  background-color: var(--radio-button-color, #357edd);
-}
-.button-group > * {
-  border-radius: 0;
-}
-.button-group > :not(:last-child) {
-  border-right: 0;
-}
-.button-group > :first-child {
-  border-top-left-radius: var(--button-group-radius, 0.5rem);
-  border-bottom-left-radius: var(--button-group-radius, 0.5rem);
-}
-.button-group > :last-child {
-  border-top-right-radius: var(--button-group-radius, 0.5rem);
-  border-bottom-right-radius: var(--button-group-radius, 0.5rem);
-}
-.button-lh-fix {
-  transform: translateY(max(0.14em, 0.4em - 4px));
 }
 @media (prefers-reduced-motion: no-preference) {
   html {

@@ -58,3 +58,147 @@
 .button-lh-fix {
   transform: translateY(max(0.14em, 0.4em - 4px));
 }
+.btn {
+  display: inline-block;
+  background-color: #6c757d;
+  border-width: 0.25rem;
+  border-style: solid;
+  border-color: #6c757d;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: #fff;
+}
+.btn:where(button) {
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  text-align: inherit;
+}
+.btn:where(:disabled) {
+  background-color: #6c757d;
+  cursor: auto;
+}
+.btn:focus {
+  outline: 0.125rem solid #b5babf;
+}
+.btn-primary {
+  display: inline-block;
+  background-color: #357edd;
+  border-width: 0.25rem;
+  border-style: solid;
+  border-color: #357edd;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: #fff;
+}
+.btn-primary:where(button) {
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  text-align: inherit;
+}
+.btn-primary:where(:disabled) {
+  background-color: #6c757d;
+  cursor: auto;
+}
+.btn-primary:focus {
+  outline: 0.125rem solid #9abfee;
+}
+.btn-success {
+  display: inline-block;
+  background-color: #19a974;
+  border-width: 0.25rem;
+  border-style: solid;
+  border-color: #19a974;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: #fff;
+}
+.btn-success:where(button) {
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  text-align: inherit;
+}
+.btn-success:where(:disabled) {
+  background-color: #6c757d;
+  cursor: auto;
+}
+.btn-success:focus {
+  outline: 0.125rem solid #75ebbf;
+}
+.btn-danger {
+  display: inline-block;
+  background-color: #e7040f;
+  border-width: 0.25rem;
+  border-style: solid;
+  border-color: #e7040f;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: #fff;
+}
+.btn-danger:where(button) {
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  text-align: inherit;
+}
+.btn-danger:where(:disabled) {
+  background-color: #6c757d;
+  cursor: auto;
+}
+.btn-danger:focus {
+  outline: 0.125rem solid #fd787e;
+}
+.btn-warning {
+  display: inline-block;
+  background-color: gold;
+  border-width: 0.25rem;
+  border-style: solid;
+  border-color: gold;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: #000;
+}
+.btn-warning:where(button) {
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  text-align: inherit;
+}
+.btn-warning:where(:disabled) {
+  background-color: #6c757d;
+  cursor: auto;
+}
+.btn-warning:focus {
+  outline: 0.125rem solid #ffeb80;
+}
+.btn-info {
+  display: inline-block;
+  background-color: #96ccff;
+  border-width: 0.25rem;
+  border-style: solid;
+  border-color: #96ccff;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: #000;
+}
+.btn-info:where(button) {
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  text-align: inherit;
+}
+.btn-info:where(:disabled) {
+  background-color: #6c757d;
+  cursor: auto;
+}
+.btn-info:focus {
+  outline: 0.125rem solid #cbe6ff;
+}
