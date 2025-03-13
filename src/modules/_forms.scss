@@ -26,29 +26,10 @@ $buttons: (
   '': null,
   'primary': $color,
   'success': map.get(variables.$colors, 'green'),
-  'danger': map.get(variables.$colors, 'red'),
+  'danger': map.get(variables.$colors, 'dark-red'),
   'warning': map.get(variables.$colors, 'yellow'),
   'info': map.get(variables.$colors, 'light-blue')
 );
-
-@mixin button($color: null) {
-  @if not $color {
-    $color: #6c757d;
-  }
-
-  display: inline-block;
-  background-color: $color;
-  border: 1px solid $color;
-  border-radius: 0.5rem;
-  padding: .5rem 1rem;
-  cursor: pointer;
-
-  @if color.channel($color, "lightness", hsl) > 40 {
-    color: white;
-  } @else {
-    color: black;
-  }
-}
 
 @mixin forms($media: null) {
   .checkbox {
@@ -120,15 +101,42 @@ $buttons: (
   }
 
   @each $name, $button-color in $buttons {
-    $class-name: functions.construct-class-name(btn, $name);
-    #{$class-name} {
-      @include button($button-color);
+    #{functions.construct-class-name(btn, $name)} {
+      $neutral-color: #6c757d;
+
+      @if not $button-color {
+        $button-color: $neutral-color;
+      }
+
+      display: inline-block;
+      background-color: $button-color;
+      border-width: .25rem;
+      border-style: solid;
+      border-color: $button-color;
+      border-radius: .5rem;
+      padding: .5rem 1rem;
+      cursor: pointer;
+
+      @if functions.relative-luminance($button-color) > .5 {
+        color: black;
+      } @else {
+        color: white;
+      }
 
       &:where(button) {
         font-size: inherit;
         font-family: inherit;
         line-height: inherit;
         text-align: inherit;
+      }
+
+      &:where(:disabled) {
+        background-color: $neutral-color;
+        cursor: auto;
+      }
+
+      &:focus {
+        outline: .125rem solid color.scale($button-color, $lightness: 50%);
       }
     }
   }
