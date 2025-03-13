@@ -95,6 +95,47 @@
                 </label>
             </div>
 
+            <h3>Buttons</h3>
+
+            {%
+                for buttonClass in [
+                    "btn", "btn-primary", "btn-success", "btn-danger", "btn-warning", "btn-info"
+                ]
+            %}
+                <div class="mt3-between">
+                    <button type="button" class="{{ buttonClass }}">
+                        <code>{{ buttonClass }}</code> button
+                    </button>
+                </div>
+
+                <div class="mt3-between">
+                    <button
+                        type="button"
+                        class="{{ buttonClass }}"
+                        disabled
+                        aria-disabled="true"
+                    >
+                        <code>{{ buttonClass }}</code> button disabled
+                    </button>
+                </div>
+
+                <div class="mt3-between">
+                    <div
+                        class="{{ buttonClass }}"
+                        tabindex="0"
+                        title="Needs tabindex='0' for focus"
+                    >
+                        <code>{{ buttonClass }}</code> div
+                    </div>
+                </div>
+
+                <div class="mt3-between">
+                    <a class="{{ buttonClass }} link" href="javascript:;">
+                        <code>{{ buttonClass }}</code> anchor
+                    </a>
+                </div>
+            {% endfor %}
+
             <h3>Button group</h3>
 
             <div class="measure-wide center mt5-between">
