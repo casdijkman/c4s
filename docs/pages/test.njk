@@ -111,7 +111,7 @@
                 <div class="mt3-between">
                     <button
                         type="button"
-                        class="{{ buttonClass }}"
+                        class="{{ buttonClass }} cursor-not-allowed"
                         disabled
                         aria-disabled="true"
                     >
@@ -120,19 +120,37 @@
                 </div>
 
                 <div class="mt3-between">
+                    <a class="{{ buttonClass }} no-underline" href="javascript:;">
+                        <code>{{ buttonClass }}</code> anchor
+                    </a>
+                </div>
+
+                <div class="mt3-between">
+                    <!--!
+                         NB: Using a `div` element as a button is not recommended because
+                         it is not semantically correct, us `a` or `button` instead.
+                    -->
                     <div
                         class="{{ buttonClass }}"
                         tabindex="0"
-                        title="Needs tabindex='0' for focus"
+                        title="Needs tabindex='0' for focus styling"
                     >
                         <code>{{ buttonClass }}</code> div
                     </div>
                 </div>
 
                 <div class="mt3-between">
-                    <a class="{{ buttonClass }} link" href="javascript:;">
-                        <code>{{ buttonClass }}</code> anchor
-                    </a>
+                    <!--!
+                         NB: Using a `span` element as a button is not recommended because
+                         it is not semantically correct, us `a` or `button` instead.
+                    -->
+                    <span
+                        class="{{ buttonClass }}"
+                        tabindex="0"
+                        title="Needs tabindex='0' for focus styling"
+                    >
+                        <code>{{ buttonClass }}</code> span
+                    </span>
                 </div>
             {% endfor %}
 
