@@ -23,7 +23,7 @@ $radio-button-size: 20px;
 }
 
 $buttons: (
-  '': null,
+  '': #6c757d,
   'primary': $color,
   'success': map.get(variables.$colors, 'green'),
   'danger': map.get(variables.$colors, 'dark-red'),
@@ -102,42 +102,53 @@ $buttons: (
 
   @each $name, $button-color in $buttons {
     #{functions.construct-class-name(btn, $name)} {
-      $neutral-color: #6c757d;
+      $button-disabled-color: color.scale($button-color, $lightness: 40%);
+      $button-outline-color: color.scale($button-color, $lightness: 50%);
 
-      @if not $button-color {
-        $button-color: $neutral-color;
-      }
-
-      display: inline-block;
-      background-color: $button-color;
-      border-width: .25rem;
-      border-style: solid;
-      border-color: $button-color;
-      border-radius: .5rem;
-      padding: .5rem 1rem;
-      cursor: pointer;
+      --button-color: #{$button-color};
+      --button-disabled-color: #{$button-disabled-color};
+      --button-outline-color: #{$button-outline-color};
 
       @if functions.relative-luminance($button-color) > .5 {
-        color: black;
+        --button-text-color: black;
       } @else {
-        color: white;
+        --button-text-color: white;
       }
 
-      &:where(button) {
-        font-size: inherit;
-        font-family: inherit;
-        line-height: inherit;
-        text-align: inherit;
+      @if functions.relative-luminance($button-disabled-color) > .5 {
+        --button-disabled-text-color: black;
+      } @else {
+        --button-disabled-text-color: white;
       }
+    }
+  }
 
-      &:where(:disabled) {
-        background-color: $neutral-color;
-        cursor: auto;
-      }
+  .btn, .btn-primary, .btn-success, .btn-danger, .btn-warning, .btn-info {
+    display: inline-block;
+    color: var(--button-text-color);
+    background-color: var(--button-color);
+    border-width: .25rem;
+    border-style: solid;
+    border-color: var(--button-color);
+    border-radius: .5rem;
+    padding: .5rem 1rem;
+    cursor: pointer;
 
-      &:focus {
-        outline: .125rem solid color.scale($button-color, $lightness: 50%);
-      }
+    &:where(button) {
+      font-size: inherit;
+      font-family: inherit;
+      line-height: inherit;
+      text-align: inherit;
+    }
+
+    &:where(:disabled) {
+      --button-color: var(--button-disabled-color);
+      color: var(--button-disabled-text-color);
+      cursor: auto;
+    }
+
+    &:focus {
+      outline: .125rem solid var(--button-outline-color);
     }
   }
 }
