@@ -103,11 +103,11 @@ $buttons: (
   @each $name, $button-color in $buttons {
     #{functions.construct-class-name(btn, $name)} {
       $button-disabled-color: color.scale($button-color, $lightness: 40%);
-      $button-outline-color: color.scale($button-color, $lightness: 50%);
 
       --button-color: #{$button-color};
       --button-disabled-color: #{$button-disabled-color};
-      --button-outline-color: #{$button-outline-color};
+      --button-outline-color: #{color.scale($button-color, $lightness: 50%)};
+      --button-outline-size: .125rem;
 
       @if functions.relative-luminance($button-color) > .5 {
         --button-text-color: black;
@@ -115,7 +115,7 @@ $buttons: (
         --button-text-color: white;
       }
 
-      @if functions.relative-luminance($button-disabled-color) > .5 {
+      @if functions.relative-luminance($button-disabled-color) > .64 {
         --button-disabled-text-color: black;
       } @else {
         --button-disabled-text-color: white;
@@ -133,6 +133,7 @@ $buttons: (
     border-radius: .5rem;
     padding: .5rem 1rem;
     cursor: pointer;
+    white-space: nowrap;
 
     &:where(button) {
       font-size: inherit;
@@ -148,7 +149,27 @@ $buttons: (
     }
 
     &:focus {
-      outline: .125rem solid var(--button-outline-color);
+      outline: var(--button-outline-size) solid var(--button-outline-color);
     }
+  }
+
+  .btn--outline {
+    background-color: transparent;
+    color: var(--button-color);
+
+    &:where(:disabled) {
+      color: var(--button-disabled-color);
+    }
+  }
+
+  .btn--small {
+    padding: .25rem .5rem;
+    font-size: 0.8em;
+  }
+
+  .btn--large {
+    --button-outline-size: .25rem;
+    padding: .75rem 1.5rem;
+    font-size: 1.5em;
   }
 }

@@ -102,55 +102,47 @@
                     "btn", "btn-primary", "btn-success", "btn-danger", "btn-warning", "btn-info"
                 ]
             %}
-                <div class="mt3-between">
+                <div class="flex flex-wrap items-start gap pt3-between">
                     <button type="button" class="{{ buttonClass }}">
-                        <code>{{ buttonClass }}</code> button
+                        {{ buttonClass }} button
                     </button>
-                </div>
 
-                <div class="mt3-between">
+                    <button type="button" class="{{ buttonClass }} btn--small">
+                        {{ buttonClass }} small
+                    </button>
+
+                     <button type="button" class="{{ buttonClass }} btn--large">
+                         {{ buttonClass }} large
+                     </button>
+
                     <button
                         type="button"
                         class="{{ buttonClass }} cursor-not-allowed"
                         disabled
                         aria-disabled="true"
                     >
-                        <code>{{ buttonClass }}</code> button disabled
+                        {{ buttonClass }} disabled
                     </button>
-                </div>
 
-                <div class="mt3-between">
+                    <button
+                        type="button"
+                        class="{{ buttonClass }} btn--outline"
+                    >
+                        {{ buttonClass }} outline
+                    </button>
+
+                    <button
+                        type="button"
+                        class="{{ buttonClass }} btn--outline cursor-not-allowed"
+                        disabled
+                        aria-disabled="true"
+                    >
+                        {{ buttonClass }} outline disabled
+                    </button>
+
                     <a class="{{ buttonClass }} no-underline" href="javascript:;">
-                        <code>{{ buttonClass }}</code> anchor
+                        {{ buttonClass }} anchor
                     </a>
-                </div>
-
-                <div class="mt3-between">
-                    <!--!
-                         NB: Using a `div` element as a button is not recommended because
-                         it is not semantically correct, us `a` or `button` instead.
-                    -->
-                    <div
-                        class="{{ buttonClass }}"
-                        tabindex="0"
-                        title="Needs tabindex='0' for focus styling"
-                    >
-                        <code>{{ buttonClass }}</code> div
-                    </div>
-                </div>
-
-                <div class="mt3-between">
-                    <!--!
-                         NB: Using a `span` element as a button is not recommended because
-                         it is not semantically correct, us `a` or `button` instead.
-                    -->
-                    <span
-                        class="{{ buttonClass }}"
-                        tabindex="0"
-                        title="Needs tabindex='0' for focus styling"
-                    >
-                        <code>{{ buttonClass }}</code> span
-                    </span>
                 </div>
             {% endfor %}
 

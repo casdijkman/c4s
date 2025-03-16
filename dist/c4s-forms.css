@@ -58,37 +58,39 @@
 .button-lh-fix {
   transform: translateY(max(0.14em, 0.4em - 4px));
 }
-.btn,
-.btn-primary {
-  --button-text-color: white;
-  --button-disabled-text-color: white;
-}
 .btn {
   --button-color: #6c757d;
   --button-disabled-color: rgb(165.8369098712, 172.2566523605, 177.9630901288);
   --button-outline-color: rgb(180.6974248927, 186.0472103004, 190.8025751073);
+  --button-outline-size: 0.125rem;
+  --button-text-color: white;
+  --button-disabled-text-color: white;
 }
 .btn-primary {
   --button-color: #357edd;
   --button-disabled-color: rgb(133.8, 177.6, 234.6);
   --button-outline-color: rgb(154, 190.5, 238);
 }
+.btn-danger,
+.btn-primary,
+.btn-success {
+  --button-outline-size: 0.125rem;
+  --button-text-color: white;
+  --button-disabled-text-color: white;
+}
 .btn-success {
   --button-color: #19a974;
   --button-disabled-color: rgb(89.8329896907, 230.5670103093, 178.7690721649);
   --button-outline-color: rgb(117.3608247423, 234.6391752577, 191.4742268041);
-  --button-text-color: white;
-  --button-disabled-text-color: black;
 }
 .btn-danger {
   --button-color: #e7040f;
   --button-disabled-color: rgb(252.1914893617, 92.8085106383, 100.5319148936);
   --button-outline-color: rgb(252.6595744681, 119.8404255319, 126.2765957447);
-  --button-text-color: white;
-  --button-disabled-text-color: white;
 }
 .btn-info,
 .btn-warning {
+  --button-outline-size: 0.125rem;
   --button-text-color: black;
   --button-disabled-text-color: black;
 }
@@ -117,6 +119,7 @@
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  white-space: nowrap;
 }
 .btn-danger:where(button),
 .btn-info:where(button),
@@ -145,7 +148,23 @@
 .btn-success:focus,
 .btn-warning:focus,
 .btn:focus {
-  outline: 0.125rem solid var(--button-outline-color);
+  outline: var(--button-outline-size) solid var(--button-outline-color);
+}
+.btn--outline {
+  background-color: transparent;
+  color: var(--button-color);
+}
+.btn--outline:where(:disabled) {
+  color: var(--button-disabled-color);
+}
+.btn--small {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8em;
+}
+.btn--large {
+  --button-outline-size: 0.25rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.5em;
 }
 .bt-between + .bt-between {
   border-top-style: solid;
