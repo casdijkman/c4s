@@ -18,6 +18,6 @@
   }
 
   #{functions.construct-class-name($global-prefix, bg-animate, $media)} {
-    transition: background-color .15s ease-in-out;
+    transition: background-color 0.15s ease-in-out;
   }
 }

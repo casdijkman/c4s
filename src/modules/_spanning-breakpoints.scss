@@ -31,16 +31,24 @@
   @each $breakpoint, $map in variables.$breakpoints {
     $breakpoint-value: map.get($map, 'breakpoint');
     $container-offset: 2em;
-    $compatible: functions.compatible-hardened($breakpoint-value, $container-offset);
+    $compatible: functions.compatible-hardened(
+      $breakpoint-value,
+      $container-offset
+    );
 
     @if $compatible {
       $index: list.index(map.keys(variables.$breakpoints), $breakpoint);
-      $max-width-value: functions.em-to-rem($breakpoint-value - $container-offset);
+      $max-width-value: functions.em-to-rem(
+        $breakpoint-value - $container-offset
+      );
 
       @each $breakpoint2, $map2 in variables.$breakpoints {
         $index2: list.index(map.keys(variables.$breakpoints), $breakpoint2);
         $breakpoint-value2: map.get($map2, 'breakpoint');
-        $compatible: functions.compatible-hardened($breakpoint-value, $breakpoint-value2);
+        $compatible: functions.compatible-hardened(
+          $breakpoint-value,
+          $breakpoint-value2
+        );
 
         @if $index2 <= $index and $compatible {
           @include mixins.media-breakpoint-up($breakpoint) {

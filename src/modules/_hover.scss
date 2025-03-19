@@ -11,18 +11,18 @@
   $global-prefix: variables.$global-prefix;
 
   #{functions.construct-class-name($global-prefix, dim, $media)} {
-    transition: opacity .15s ease-in;
+    transition: opacity 0.15s ease-in;
 
     &:hover,
     &:focus {
-      opacity: .5;
+      opacity: 0.5;
     }
   }
 
   #{functions.construct-class-name($global-prefix, grow, $media)} {
     &,
     &-large {
-      transition: transform .25s ease-out;
+      transition: transform 0.25s ease-out;
     }
 
     &:hover,
@@ -31,7 +31,7 @@
     }
 
     &:active {
-      transform: scale(.9);
+      transform: scale(0.9);
     }
 
     &-large {
@@ -41,14 +41,14 @@
       }
 
       &:active {
-        transform: scale(.95);
+        transform: scale(0.95);
       }
     }
   }
 
   #{functions.construct-class-name($global-prefix, link, $media)} {
     text-decoration: none;
-    transition: color .15s ease-in;
+    transition: color 0.15s ease-in;
 
     &:focus {
       outline: 1px dotted currentcolor;
@@ -60,7 +60,7 @@
 
     #{$child} {
       opacity: 0;
-      transition: opacity .15s ease-in;
+      transition: opacity 0.15s ease-in;
     }
 
     &:hover #{$child},

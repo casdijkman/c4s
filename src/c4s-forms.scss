@@ -11,7 +11,7 @@
 // Find a way to reinsert forms module at the correct position, not first or last
 variables.$modules: map.merge(
   (
-    'forms': false
+    'forms': false,
   ),
   variables.$modules
 );

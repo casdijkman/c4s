@@ -16,47 +16,47 @@
   $global-prefix: variables.$global-prefix;
 
   // Border top between
-  #{functions.construct-class-name($global-prefix, bt-between, $media)} +
-  #{functions.construct-class-name($global-prefix, bt-between, $media)} {
+  #{functions.construct-class-name($global-prefix, bt-between, $media)}
+    + #{functions.construct-class-name($global-prefix, bt-between, $media)} {
     border-top-style: solid;
     border-top-width: 1px;
   }
 
   // Border left between
-  #{functions.construct-class-name($global-prefix, bl-between, $media)} +
-  #{functions.construct-class-name($global-prefix, bl-between, $media)} {
+  #{functions.construct-class-name($global-prefix, bl-between, $media)}
+    + #{functions.construct-class-name($global-prefix, bl-between, $media)} {
     border-left-style: solid;
     border-left-width: 1px;
   }
 
   // Padding top between
   @each $level, $value in variables.$spacer-levels {
-    #{functions.construct-class-name($global-prefix, pt + $level, between, $media)} +
-    #{functions.construct-class-name($global-prefix, pt + $level, between, $media)} {
+    #{functions.construct-class-name($global-prefix, pt + $level, between, $media)}
+      + #{functions.construct-class-name($global-prefix, pt + $level, between, $media)} {
       padding-top: $value;
     }
   }
 
   // Padding left between
   @each $level, $value in variables.$spacer-levels {
-    #{functions.construct-class-name($global-prefix, pl + $level, between, $media)} +
-    #{functions.construct-class-name($global-prefix, pl + $level, between, $media)} {
+    #{functions.construct-class-name($global-prefix, pl + $level, between, $media)}
+      + #{functions.construct-class-name($global-prefix, pl + $level, between, $media)} {
       padding-left: $value;
     }
   }
 
   // Margin top between
   @each $level, $value in variables.$spacer-levels {
-    #{functions.construct-class-name($global-prefix, mt + $level, between, $media)} +
-    #{functions.construct-class-name($global-prefix, mt + $level, between, $media)} {
+    #{functions.construct-class-name($global-prefix, mt + $level, between, $media)}
+      + #{functions.construct-class-name($global-prefix, mt + $level, between, $media)} {
       margin-top: $value;
     }
   }
 
   // Margin left between
   @each $level, $value in variables.$spacer-levels {
-    #{functions.construct-class-name($global-prefix, ml + $level, between, $media)} +
-    #{functions.construct-class-name($global-prefix, ml + $level, between, $media)} {
+    #{functions.construct-class-name($global-prefix, ml + $level, between, $media)}
+      + #{functions.construct-class-name($global-prefix, ml + $level, between, $media)} {
       margin-left: $value;
     }
   }

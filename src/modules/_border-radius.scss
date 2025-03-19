@@ -17,7 +17,9 @@
     #{functions.construct-class-name($global-prefix, $prefix + $name, $media)} {
       @if meta.type-of($value) == map {
         @each $direction, $radius-value in $value {
-          $property: functions.list-to-dash-separated-string((border, $direction, radius));
+          $property: functions.list-to-dash-separated-string(
+            (border, $direction, radius)
+          );
 
           #{$property}: $radius-value;
         }

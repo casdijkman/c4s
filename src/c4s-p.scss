@@ -17,6 +17,6 @@ $breakpoint: p;
 @include load-modules.load-modules(
   null,
   (
-    $breakpoint: map.get(variables.$breakpoints-all, $breakpoint)
+    $breakpoint: map.get(variables.$breakpoints-all, $breakpoint),
   )
 );

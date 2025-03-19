@@ -13,8 +13,12 @@
 
   @each $name, $map in variables.$borders {
     $direction: map.get($map, 'border-direction');
-    $property-style: functions.list-to-dash-separated-string((border, $direction, style));
-    $property-width: functions.list-to-dash-separated-string((border, $direction, width));
+    $property-style: functions.list-to-dash-separated-string(
+      (border, $direction, style)
+    );
+    $property-width: functions.list-to-dash-separated-string(
+      (border, $direction, width)
+    );
 
     #{functions.construct-class-name($global-prefix, $name, $media)} {
       #{$property-style}: map.get($map, 'border-style');

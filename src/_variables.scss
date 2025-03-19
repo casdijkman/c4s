@@ -17,11 +17,21 @@
 $global-prefix: '';
 
 $breakpoints-all: (
-  's': ( 'breakpoint': 30em ),
-  'm': ( 'breakpoint': 40em ),
-  'l': ( 'breakpoint': 60em ),
-  'h': ( 'breakpoint': 90em ),
-  'p': ( 'media': print )
+  's': (
+    'breakpoint': 30em,
+  ),
+  'm': (
+    'breakpoint': 40em,
+  ),
+  'l': (
+    'breakpoint': 60em,
+  ),
+  'h': (
+    'breakpoint': 90em,
+  ),
+  'p': (
+    'media': print,
+  ),
 );
 
 // Select breakpoints to use for responsive modules
@@ -32,69 +42,69 @@ $breakpoints: map.remove($breakpoints-all, 'p');
  * Value `false' means non-responsive, `true' means responsive.
  */
 $modules: (
-  'complex':                false,
-  'reset':                  false,
+  'complex': false,
+  'reset': false,
   // 'forms':               false,
-  'miscellaneous':          false,
-  'hover':                  false,
-  'color':                  false,
-  'hover-color':            false,
-  'background-color':       false,
+  'miscellaneous': false,
+  'hover': false,
+  'color': false,
+  'hover-color': false,
+  'background-color': false,
   'hover-background-color': false,
-  'background-attachment':  false,
-  'background-clip':        false,
-  'background-position':    false,
-  'background-size':        false,
-  'background-repeat':      false,
-  'object-fit':             false,
-  'user-select':            false,
-  'aspect-ratio':           false,
-  'border':                 false,
-  'border-width':           false,
-  'border-color':           false,
-  'border-style':           false,
-  'font-family':            false,
-  'font-style':             false,
-  'resize':                 false,
-  'text-decoration':        false,
-  'text-shadow':            false,
-  'text-transform':         false,
-  'word-break':             false,
-  'opacity':                false,
-  'transform':              false,
-  'transition':             false,
-  'visibility':             false,
-  'box-shadow':             false,
-  'box-sizing':             false,
-  'cursor':                 false,
-  'z-index':                false,
-  'table':                  false,
-  'spanning-breakpoints':   false,
-  'debug':                  false,
-  'text-align':             true,
-  'padding':                true,
-  'margin':                 true,
-  'width':                  true,
-  'max-width':              true,
-  'height':                 true,
-  'max-height':             true,
-  'min-height':             true,
-  'position':               true,
-  'coordinates':            true,
-  'grid':                   true,
-  'flex':                   true,
-  'flex-direction':         true,
-  'display':                true,
-  'overflow':               true,
-  'float':                  true,
-  'border-radius':          true,
-  'font-size':              true,
-  'line-height':            true,
-  'font-weight':            true,
-  'white-space':            true,
-  'vertical-align':         true,
-  'letter-spacing':         true,
-  'measure':                true
+  'background-attachment': false,
+  'background-clip': false,
+  'background-position': false,
+  'background-size': false,
+  'background-repeat': false,
+  'object-fit': false,
+  'user-select': false,
+  'aspect-ratio': false,
+  'border': false,
+  'border-width': false,
+  'border-color': false,
+  'border-style': false,
+  'font-family': false,
+  'font-style': false,
+  'resize': false,
+  'text-decoration': false,
+  'text-shadow': false,
+  'text-transform': false,
+  'word-break': false,
+  'opacity': false,
+  'transform': false,
+  'transition': false,
+  'visibility': false,
+  'box-shadow': false,
+  'box-sizing': false,
+  'cursor': false,
+  'z-index': false,
+  'table': false,
+  'spanning-breakpoints': false,
+  'debug': false,
+  'text-align': true,
+  'padding': true,
+  'margin': true,
+  'width': true,
+  'max-width': true,
+  'height': true,
+  'max-height': true,
+  'min-height': true,
+  'position': true,
+  'coordinates': true,
+  'grid': true,
+  'flex': true,
+  'flex-direction': true,
+  'display': true,
+  'overflow': true,
+  'float': true,
+  'border-radius': true,
+  'font-size': true,
+  'line-height': true,
+  'font-weight': true,
+  'white-space': true,
+  'vertical-align': true,
+  'letter-spacing': true,
+  'measure': true,
 );
 
 /**********
@@ -111,73 +121,73 @@ $white: #fff;
 
 $colors: (
   // Black/gray/white
-  'black':         $black,
-  'near-black':    #111,
-  'dark-gray':     #333,
-  'mid-gray':      #555,
-  'gray':          #777,
-  'silver':        #999,
-  'light-silver':  #aaa,
-  'moon-gray':     #ccc,
-  'light-gray':    #eee,
-  'near-white':    #f4f4f4,
-  'white':         $white,
+  'black': $black,
+  'near-black': #111,
+  'dark-gray': #333,
+  'mid-gray': #555,
+  'gray': #777,
+  'silver': #999,
+  'light-silver': #aaa,
+  'moon-gray': #ccc,
+  'light-gray': #eee,
+  'near-white': #f4f4f4,
+  'white': $white,
   // Red
-  'dark-red':      #e7040f,
-  'red':           #ff4136,
-  'light-red':     #ff725c,
-  'washed-red':    #ffdfdf,
+  'dark-red': #e7040f,
+  'red': #ff4136,
+  'light-red': #ff725c,
+  'washed-red': #ffdfdf,
   // Orange/yellow
-  'orange':        #ff6300,
-  'gold':          #ffb700,
-  'yellow':        #ffd700,
-  'light-yellow':  #fbf1a9,
+  'orange': #ff6300,
+  'gold': #ffb700,
+  'yellow': #ffd700,
+  'light-yellow': #fbf1a9,
   'washed-yellow': #fffceb,
   // Purple/pink
-  'purple':        #5e2ca5,
-  'light-purple':  #a463f2,
-  'dark-pink':     #d5008f,
-  'hot-pink':      #ff41b4,
-  'pink':          #ff80cc,
-  'light-pink':    #ffa3d7,
+  'purple': #5e2ca5,
+  'light-purple': #a463f2,
+  'dark-pink': #d5008f,
+  'hot-pink': #ff41b4,
+  'pink': #ff80cc,
+  'light-pink': #ffa3d7,
   // Green
-  'dark-green':    #137752,
-  'green':         #19a974,
-  'light-green':   #9eebcf,
-  'washed-green':  #e8fdf5,
+  'dark-green': #137752,
+  'green': #19a974,
+  'light-green': #9eebcf,
+  'washed-green': #e8fdf5,
   // Blue
-  'navy':          #001b44,
-  'dark-blue':     #00449e,
-  'blue':          #357edd,
-  'light-blue':    #96ccff,
+  'navy': #001b44,
+  'dark-blue': #00449e,
+  'blue': #357edd,
+  'light-blue': #96ccff,
   'lightest-blue': #cdecff,
-  'washed-blue':   #f6fffe,
+  'washed-blue': #f6fffe,
   // Black opacity variations
-  'black-90':      color.scale($black, $alpha: -10%),
-  'black-80':      color.scale($black, $alpha: -20%),
-  'black-70':      color.scale($black, $alpha: -30%),
-  'black-60':      color.scale($black, $alpha: -40%),
-  'black-50':      color.scale($black, $alpha: -50%),
-  'black-40':      color.scale($black, $alpha: -60%),
-  'black-30':      color.scale($black, $alpha: -70%),
-  'black-20':      color.scale($black, $alpha: -80%),
-  'black-10':      color.scale($black, $alpha: -90%),
-  'black-05':      color.scale($black, $alpha: -95%),
-  'black-025':     color.scale($black, $alpha: -97.5%),
-  'black-0125':    color.scale($black, $alpha: -98.75%),
+  'black-90': color.scale($black, $alpha: -10%),
+  'black-80': color.scale($black, $alpha: -20%),
+  'black-70': color.scale($black, $alpha: -30%),
+  'black-60': color.scale($black, $alpha: -40%),
+  'black-50': color.scale($black, $alpha: -50%),
+  'black-40': color.scale($black, $alpha: -60%),
+  'black-30': color.scale($black, $alpha: -70%),
+  'black-20': color.scale($black, $alpha: -80%),
+  'black-10': color.scale($black, $alpha: -90%),
+  'black-05': color.scale($black, $alpha: -95%),
+  'black-025': color.scale($black, $alpha: -97.5%),
+  'black-0125': color.scale($black, $alpha: -98.75%),
   // White opacity variations
-  'white-90':      color.scale($white, $alpha: -10%),
-  'white-80':      color.scale($white, $alpha: -20%),
-  'white-70':      color.scale($white, $alpha: -30%),
-  'white-60':      color.scale($white, $alpha: -40%),
-  'white-50':      color.scale($white, $alpha: -50%),
-  'white-40':      color.scale($white, $alpha: -60%),
-  'white-30':      color.scale($white, $alpha: -70%),
-  'white-20':      color.scale($white, $alpha: -80%),
-  'white-10':      color.scale($white, $alpha: -90%),
-  'white-05':      color.scale($white, $alpha: -95%),
-  'white-025':     color.scale($white, $alpha: -97.5%),
-  'white-0125':    color.scale($white, $alpha: -98.75%),
+  'white-90': color.scale($white, $alpha: -10%),
+  'white-80': color.scale($white, $alpha: -20%),
+  'white-70': color.scale($white, $alpha: -30%),
+  'white-60': color.scale($white, $alpha: -40%),
+  'white-50': color.scale($white, $alpha: -50%),
+  'white-40': color.scale($white, $alpha: -60%),
+  'white-30': color.scale($white, $alpha: -70%),
+  'white-20': color.scale($white, $alpha: -80%),
+  'white-10': color.scale($white, $alpha: -90%),
+  'white-05': color.scale($white, $alpha: -95%),
+  'white-025': color.scale($white, $alpha: -97.5%),
+  'white-0125': color.scale($white, $alpha: -98.75%),
   // Transparent
   'transparent': transparent,
   // Color keywords
@@ -198,7 +208,7 @@ $spacer-levels: (
   '4': $spacer-base,
   '5': $spacer-base * functions.nth-power-of-two(1),
   '6': $spacer-base * functions.nth-power-of-two(2),
-  '7': $spacer-base * functions.nth-power-of-two(3)
+  '7': $spacer-base * functions.nth-power-of-two(3),
 );
 
 /*
@@ -208,57 +218,57 @@ $spacer-levels: (
  */
 $sizer-base: 1rem;
 $sizer-scale: (
-  '0':           0,
-  '1':           $sizer-base,
-  '2':           $sizer-base * functions.nth-power-of-two(1),
-  '3':           $sizer-base * functions.nth-power-of-two(2),
-  '4':           $sizer-base * functions.nth-power-of-two(3),
-  '5':           $sizer-base * functions.nth-power-of-two(4),
-  '6':           $sizer-base * functions.nth-power-of-two(5)
+  '0': 0,
+  '1': $sizer-base,
+  '2': $sizer-base * functions.nth-power-of-two(1),
+  '3': $sizer-base * functions.nth-power-of-two(2),
+  '4': $sizer-base * functions.nth-power-of-two(3),
+  '5': $sizer-base * functions.nth-power-of-two(4),
+  '6': $sizer-base * functions.nth-power-of-two(5),
 );
 
 $widths: map.merge(
   $sizer-scale,
   (
-    '-10':         10%,
-    '-20':         20%,
-    '-25':         25%,
-    '-30':         30%,
-    '-third':      math.div(100%, 3),
-    '-40':         40%,
-    '-50':         50%,
-    '-60':         60%,
+    '-10': 10%,
+    '-20': 20%,
+    '-25': 25%,
+    '-30': 30%,
+    '-third': math.div(100%, 3),
+    '-40': 40%,
+    '-50': 50%,
+    '-60': 60%,
     '-two-thirds': math.div(200%, 3),
-    '-70':         70%,
-    '-75':         75%,
-    '-80':         80%,
-    '-90':         90%,
-    '-100':        100%,
-    '-auto':       auto
+    '-70': 70%,
+    '-75': 75%,
+    '-80': 80%,
+    '-90': 90%,
+    '-100': 100%,
+    '-auto': auto,
   )
 );
 
 $max-widths: map.merge(
   $sizer-scale,
   (
-    '7':           $sizer-base * functions.nth-power-of-two(5) * 1.5,
-    '8':           $sizer-base * functions.nth-power-of-two(6),
-    '9':           $sizer-base * functions.nth-power-of-two(6) * 1.5,
-    '-100':        100%,
-    '-none':       none
+    '7': $sizer-base * functions.nth-power-of-two(5) * 1.5,
+    '8': $sizer-base * functions.nth-power-of-two(6),
+    '9': $sizer-base * functions.nth-power-of-two(6) * 1.5,
+    '-100': 100%,
+    '-none': none,
   )
 );
 
 $heights: map.merge(
   $sizer-scale,
   (
-    '-0':          0,
-    '-25':         25%,
-    '-50':         50%,
-    '-75':         75%,
-    '-100':        100%,
-    '-auto':       auto,
-    '-inherit':    inherit
+    '-0': 0,
+    '-25': 25%,
+    '-50': 50%,
+    '-75': 75%,
+    '-100': 100%,
+    '-auto': auto,
+    '-inherit': inherit,
   )
 );
 
@@ -273,8 +283,8 @@ $aspect-ratio-name: ratio;
 
 // Map of aspect ratios; name followed by number value or list of two values, x and y as in x/y aspect.
 $aspect-ratios: (
-  '1x1':  1,
-  '16x9': 16 9
+  '1x1': 1,
+  '16x9': 16 9,
 );
 
 /*
@@ -283,8 +293,8 @@ $aspect-ratios: (
 $background-attachment-name: bg;
 $background-attachments: (
   'scroll': scroll,
-  'fixed':  fixed,
-  'local':  local
+  'fixed': fixed,
+  'local': local,
 );
 
 /*
@@ -292,7 +302,7 @@ $background-attachments: (
  */
 $background-clip-name: bg-clip;
 $background-clips: (
-  'text':    text,
+  'text': text,
   // 'border':  border-box,
   // 'padding': padding-box,
   // 'content': content-box,
@@ -308,8 +318,8 @@ $background-color-name: bg;
  */
 $background-position-name: bg;
 $background-positions: (
-  'top':    top,
-  'center': center
+  'top': top,
+  'center': center,
 );
 
 /*
@@ -328,8 +338,8 @@ $background-repeats: (
  */
 $background-size-name: bg;
 $background-sizes: (
-  'cover':   cover,
-  'contain': contain
+  'cover': cover,
+  'contain': contain,
 );
 
 /*
@@ -343,19 +353,31 @@ $border-color-prefix: b--;
 $border-radius-prefix: br;
 $border-radius-base: 1rem;
 $border-radius-levels: (
-  '0':        0,
-  '1':        $border-radius-base * functions.nth-power-of-two(-3),
-  '2':        $border-radius-base * functions.nth-power-of-two(-2),
-  '3':        $border-radius-base * functions.nth-power-of-two(-1),
-  '4':        $border-radius-base,
-  '5':        $border-radius-base * functions.nth-power-of-two(1),
-  '6':        $border-radius-base * functions.nth-power-of-two(2),
-  '-100':     100%,
-  '-pill':    9999999px,
-  '--top':    (bottom-right: 0, bottom-left: 0),
-  '--right':  (top-left: 0, bottom-left: 0),
-  '--bottom': (top-right: 0, top-left: 0),
-  '--left':   (top-right: 0, bottom-right: 0)
+  '0': 0,
+  '1': $border-radius-base * functions.nth-power-of-two(-3),
+  '2': $border-radius-base * functions.nth-power-of-two(-2),
+  '3': $border-radius-base * functions.nth-power-of-two(-1),
+  '4': $border-radius-base,
+  '5': $border-radius-base * functions.nth-power-of-two(1),
+  '6': $border-radius-base * functions.nth-power-of-two(2),
+  '-100': 100%,
+  '-pill': 9999999px,
+  '--top': (
+    bottom-right: 0,
+    bottom-left: 0,
+  ),
+  '--right': (
+    top-left: 0,
+    bottom-left: 0,
+  ),
+  '--bottom': (
+    top-right: 0,
+    top-left: 0,
+  ),
+  '--left': (
+    top-right: 0,
+    bottom-right: 0,
+  ),
 );
 
 /*
@@ -367,33 +389,33 @@ $borders: (
   'ba': (
     border-direction: null,
     border-style: $-border-style-default,
-    border-width: $-border-width-default
+    border-width: $-border-width-default,
   ),
   'bt': (
     border-direction: top,
     border-style: $-border-style-default,
-    border-width: $-border-width-default
+    border-width: $-border-width-default,
   ),
   'br': (
     border-direction: right,
     border-style: $-border-style-default,
-    border-width: $-border-width-default
+    border-width: $-border-width-default,
   ),
   'bb': (
     border-direction: bottom,
     border-style: $-border-style-default,
-    border-width: $-border-width-default
+    border-width: $-border-width-default,
   ),
   'bl': (
     border-direction: left,
     border-style: $-border-style-default,
-    border-width: $-border-width-default
+    border-width: $-border-width-default,
   ),
   'bn': (
     border-direction: null,
     border-style: none,
-    border-width: 0
-  )
+    border-width: 0,
+  ),
 );
 
 /*
@@ -401,14 +423,14 @@ $borders: (
  */
 $border-style-prefix: b--;
 $border-styles: (
-  'solid':  solid,
+  'solid': solid,
   'dotted': dotted,
   'dashed': dashed,
   'double': double,
   'groove': groove,
-  'ridge':  ridge,
-  'inset':  inset,
-  'outset': outset
+  'ridge': ridge,
+  'inset': inset,
+  'outset': outset,
 );
 
 /*
@@ -421,7 +443,7 @@ $border-widths: (
   '2': $border-width-base * functions.nth-power-of-two(-2),
   '3': $border-width-base * functions.nth-power-of-two(-1),
   '4': $border-width-base,
-  '5': $border-width-base * functions.nth-power-of-two(1)
+  '5': $border-width-base * functions.nth-power-of-two(1),
 );
 
 /*
@@ -429,34 +451,34 @@ $border-widths: (
  */
 $box-shadow-name: 'shadow';
 $box-shadows: (
-  'small': 0 .125rem .5rem .125rem rgba(0 0 0 / 20%),
-  '':      0 .5rem 1rem .125rem rgba(0 0 0 / 20%),
-  'big':   0 1rem 2rem .25rem rgba(0 0 0 / 20%)
+  'small': 0 0.125rem 0.5rem 0.125rem rgba(0 0 0 / 20%),
+  '': 0 0.5rem 1rem 0.125rem rgba(0 0 0 / 20%),
+  'big': 0 1rem 2rem 0.25rem rgba(0 0 0 / 20%),
 );
 
 /*
  * Box sizing
  */
 $box-sizings: (
-  'border-box':  border-box,
-  'content-box': content-box
+  'border-box': border-box,
+  'content-box': content-box,
 );
 
 /*
  * Coordinates
  */
 $coordinate-spacer-levels: (
-  '0':   0,
-  '1':   1rem,
-  '2':   2rem,
-  '50':  50%,
-  '100': 100%
+  '0': 0,
+  '1': 1rem,
+  '2': 2rem,
+  '50': 50%,
+  '100': 100%,
 );
 $coordinate-directions: (
-  'top':    top,
-  'right':  right,
+  'top': top,
+  'right': right,
   'bottom': bottom,
-  'left':   left
+  'left': left,
 );
 
 /*
@@ -464,12 +486,12 @@ $coordinate-directions: (
  */
 $cursor-name: cursor;
 $cursors: (
-  'pointer':     pointer,
-  'text':        text,
-  'none':        none,
+  'pointer': pointer,
+  'text': text,
+  'none': none,
   'not-allowed': not-allowed,
-  'progress':    progress,
-  'wait':        wait
+  'progress': progress,
+  'wait': wait,
 );
 
 /*
@@ -479,20 +501,24 @@ $debug-grid-name: debug-grid;
 /* stylelint-disable max-line-length */
 $debug-grids: (
   '': (
-    'data-url': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFElEQVR4AWPAC97/9x0eCsAEPgwAVLshdpENIxcAAAAASUVORK5CYII=',
-    'background': transparent
+    'data-url':
+      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFElEQVR4AWPAC97/9x0eCsAEPgwAVLshdpENIxcAAAAASUVORK5CYII=',
+    'background': transparent,
   ),
   '16': (
-    'data-url': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMklEQVR4AWOgCLz/b0epAa6UGuBOqQHOQHLUgFEDnAbcBZ4UGwDOkiCnkIhdgNgNxAYAiYlD+8sEuo8AAAAASUVORK5CYII=',
-    'background': transparent
+    'data-url':
+      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMklEQVR4AWOgCLz/b0epAa6UGuBOqQHOQHLUgFEDnAbcBZ4UGwDOkiCnkIhdgNgNxAYAiYlD+8sEuo8AAAAASUVORK5CYII=',
+    'background': transparent,
   ),
   'solid-8': (
-    'data-url': 'data:image/gif;base64,R0lGODdhCAAIAPEAAADw/wDx/////wAAACwAAAAACAAIAAACDZQvgaeb/lxbAIKA8y0AOw==',
-    'background': white
+    'data-url':
+      'data:image/gif;base64,R0lGODdhCAAIAPEAAADw/wDx/////wAAACwAAAAACAAIAAACDZQvgaeb/lxbAIKA8y0AOw==',
+    'background': white,
   ),
   'solid-16': (
-    'data-url': 'data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/xXy/////ywAAAAAEAAQAAACIZyPKckYDQFsb6ZqD85jZ2+BkwiRFKehhqQCQgDHcgwEBQA7',
-    'background': white
+    'data-url':
+      'data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/xXy/////ywAAAAAEAAQAAACIZyPKckYDQFsb6ZqD85jZ2+BkwiRFKehhqQCQgDHcgwEBQA7',
+    'background': white,
   ),
 );
 /* stylelint-enable max-line-length */
@@ -501,39 +527,39 @@ $debug-striped-name: debug-striped;
 $debug-striped-items: (
   '': (
     map.get($colors, 'black-025'),
-    map.get($colors, 'black-05')
+    map.get($colors, 'black-05'),
   ),
   'light': (
     map.get($colors, 'black-025'),
-    transparent
+    transparent,
   ),
   'black': (
     map.get($colors, 'black'),
-    transparent
-  )
+    transparent,
+  ),
 );
 
 /*
  * Display
  */
 $displays: (
-  'db':           block,
-  'block':        block,
-  'di':           inline,
-  'inline':       inline,
-  'dib':          inline-block,
+  'db': block,
+  'block': block,
+  'di': inline,
+  'inline': inline,
+  'dib': inline-block,
   'inline-block': inline-block,
-  'dn':           none,
-  'dt':           table,
-  'dtc':          table-cell,
-  'df':           flex,
-  'flex':         flex,
-  'dif':          inline-flex,
-  'inline-flex':  inline-flex,
-  'dg':           grid,
-  'grid':         grid,
-  'dc':           contents,
-  'dfr':          flow-root
+  'dn': none,
+  'dt': table,
+  'dtc': table-cell,
+  'df': flex,
+  'flex': flex,
+  'dif': inline-flex,
+  'inline-flex': inline-flex,
+  'dg': grid,
+  'grid': grid,
+  'dc': contents,
+  'dfr': flow-root,
 );
 
 /*
@@ -541,10 +567,10 @@ $displays: (
  */
 $flex-direction-name: flex;
 $flex-directions: (
-  'column':         column,
-  'row':            row,
+  'column': column,
+  'row': row,
   'column-reverse': column-reverse,
-  'row-reverse':    row-reverse
+  'row-reverse': row-reverse,
 );
 
 /*
@@ -552,73 +578,73 @@ $flex-directions: (
  */
 $flex-wrap-name: flex;
 $flex-wraps: (
-  'wrap':         wrap,
-  'nowrap':       nowrap,
-  'wrap-reverse': wrap-reverse
+  'wrap': wrap,
+  'nowrap': nowrap,
+  'wrap-reverse': wrap-reverse,
 );
 
 $flex-align-items-name: items;
 $flex-align-items: (
-  'start':    flex-start,
-  'end':      flex-end,
-  'center':   center,
+  'start': flex-start,
+  'end': flex-end,
+  'center': center,
   'baseline': baseline,
-  'stretch':  stretch
+  'stretch': stretch,
 );
 
 $flex-align-self-name: self;
 $flex-align-selfs: (
-  'start':    flex-start,
-  'end':      flex-end,
-  'center':   center,
+  'start': flex-start,
+  'end': flex-end,
+  'center': center,
   'baseline': baseline,
-  'stretch':  stretch
+  'stretch': stretch,
 );
 
 $flex-align-content-name: content;
 $flex-align-contents: (
-  'start':   flex-start,
-  'end':     flex-end,
-  'center':  center,
+  'start': flex-start,
+  'end': flex-end,
+  'center': center,
   'between': space-between,
-  'around':  space-around,
-  'stretch': stretch
+  'around': space-around,
+  'stretch': stretch,
 );
 
 $flex-justify-content-name: justify;
 $flex-justify-contents: (
-  'start':   flex-start,
-  'end':     flex-end,
-  'center':  center,
+  'start': flex-start,
+  'end': flex-end,
+  'center': center,
   'between': space-between,
-  'around':  space-around,
-  'evenly':  space-evenly
+  'around': space-around,
+  'evenly': space-evenly,
 );
 
 $flex-grow-name: flex-grow;
 $flex-grows: (
   '0': 0,
-  '1': 1
+  '1': 1,
 );
 
 $flex-shrink-name: flex-shrink;
 $flex-shrinks: (
   '0': 0,
-  '1': 1
+  '1': 1,
 );
 
 $flex-order-name: order;
 $flex-orders: (
-  '1':    1,
-  '2':    2,
-  '3':    3,
-  '4':    4,
-  '5':    5,
-  '6':    6,
-  '7':    7,
-  '8':    8,
-  '9':    9,
-  'last': 99999
+  '1': 1,
+  '2': 2,
+  '3': 3,
+  '4': 4,
+  '5': 5,
+  '6': 6,
+  '7': 7,
+  '8': 8,
+  '9': 9,
+  'last': 99999,
 );
 
 /*
@@ -628,7 +654,7 @@ $float-prefix: f;
 $floats: (
   'l': left,
   'r': right,
-  'n': none
+  'n': none,
 );
 
 /*
@@ -636,10 +662,11 @@ $floats: (
  */
 /* stylelint-disable max-line-length */
 $font-families: (
-  'sans-serif':   '-apple-system, BlinkMacSystemFont, "avenir next", avenir, "helvetica neue", helvetica, ubuntu, roboto, noto, "segoe ui", arial, sans-serif',
-  'serif':        'georgia, times, serif',
-  'code':         'consolas, monaco, monospace',
-  'font-inherit': inherit
+  'sans-serif':
+    '-apple-system, BlinkMacSystemFont, "avenir next", avenir, "helvetica neue", helvetica, ubuntu, roboto, noto, "segoe ui", arial, sans-serif',
+  'serif': 'georgia, times, serif',
+  'code': 'consolas, monaco, monospace',
+  'font-inherit': inherit,
 );
 /* stylelint-enable max-line-length */
 
@@ -649,15 +676,15 @@ $font-families: (
 $font-size-base: 1em;
 $font-scaling-factor: 1.25;
 $font-sizes: (
-  'f-headline':    6rem,
+  'f-headline': 6rem,
   'f-subheadline': 5rem,
-  'f1':            $font-size-base * functions.power($font-scaling-factor, 5),
-  'f2':            $font-size-base * functions.power($font-scaling-factor, 4),
-  'f3':            $font-size-base * functions.power($font-scaling-factor, 3),
-  'f4':            $font-size-base * functions.power($font-scaling-factor, 2),
-  'f5':            $font-size-base * functions.power($font-scaling-factor, 1),
-  'f6':            $font-size-base,
-  'small':         $font-size-base * functions.power($font-scaling-factor, -1)
+  'f1': $font-size-base * functions.power($font-scaling-factor, 5),
+  'f2': $font-size-base * functions.power($font-scaling-factor, 4),
+  'f3': $font-size-base * functions.power($font-scaling-factor, 3),
+  'f4': $font-size-base * functions.power($font-scaling-factor, 2),
+  'f5': $font-size-base * functions.power($font-scaling-factor, 1),
+  'f6': $font-size-base,
+  'small': $font-size-base * functions.power($font-scaling-factor, -1),
 );
 
 /*
@@ -666,27 +693,27 @@ $font-sizes: (
 $font-styles: (
   'fs-normal': normal,
   'fs-italic': italic,
-  'i':         italic
+  'i': italic,
 );
 
 /*
  * Font weight
  */
 $font-weight-levels: (
-  'fw-100':     100,
-  'fw-200':     200,
-  'fw-300':     300,
-  'fw-400':     400,
-  'fw-500':     500,
-  'fw-600':     600,
-  'fw-700':     700,
-  'fw-800':     800,
-  'fw-900':     900,
+  'fw-100': 100,
+  'fw-200': 200,
+  'fw-300': 300,
+  'fw-400': 400,
+  'fw-500': 500,
+  'fw-600': 600,
+  'fw-700': 700,
+  'fw-800': 800,
+  'fw-900': 900,
   'fw-lighter': lighter,
-  'fw-bolder':  bolder,
+  'fw-bolder': bolder,
   // Aliases
-  'fw-normal':  400,
-  'b':          700
+  'fw-normal': 400,
+  'b': 700,
 );
 
 /*
@@ -695,17 +722,31 @@ $font-weight-levels: (
 $column-name: col;
 $row-name: row;
 $number-of-columns: 12;
-$columns: ('auto': auto);
+$columns: (
+  'auto': auto,
+);
 
 @for $i from 1 through $number-of-columns {
   $columns-per-row: math.div($number-of-columns, $i);
   $width: math.div(100%, $number-of-columns) * $i;
-  $width-with-gap: calc($width - var(--column-gap, 0px) + var(--column-gap, 0px) / $columns-per-row);
+  $width-with-gap: calc(
+    $width - var(--column-gap, 0px) + var(--column-gap, 0px) / $columns-per-row
+  );
 
   @if $i == $number-of-columns {
-    $columns: map.merge($columns, ('#{$i}': 100%));
+    $columns: map.merge(
+      $columns,
+      (
+        '#{$i}': 100%,
+      )
+    );
   } @else {
-    $columns: map.merge($columns, ('#{$i}': $width-with-gap));
+    $columns: map.merge(
+      $columns,
+      (
+        '#{$i}': $width-with-gap,
+      )
+    );
   }
 }
 
@@ -715,10 +756,10 @@ $columns: ('auto': auto);
 $height-prefix: h;
 $view-height-prefix: vh;
 $view-heights: (
-  '-25':  25vh,
-  '-50':  50vh,
-  '-75':  75vh,
-  '-100': 100vh
+  '-25': 25vh,
+  '-50': 50vh,
+  '-75': 75vh,
+  '-100': 100vh,
 );
 
 /*
@@ -735,9 +776,9 @@ $hover-color-name: hover;
  * Letter spacing
  */
 $letter-spacings: (
-  'tracked':       .1em,
-  'tracked-tight': -.05em,
-  'tracked-mega':  .25em
+  'tracked': 0.1em,
+  'tracked-tight': -0.05em,
+  'tracked-mega': 0.25em,
 );
 
 /*
@@ -747,14 +788,19 @@ $line-height-name: lh;
 $line-height-levels: (
   'solid': 1,
   'title': 1.15,
-  'copy':  1.5,
-  'extra': 2
+  'copy': 1.5,
+  'extra': 2,
 );
 
 /*
  * Margin
  */
-$margin-levels: map.merge($spacer-levels, ('-auto': auto));
+$margin-levels: map.merge(
+  $spacer-levels,
+  (
+    '-auto': auto,
+  )
+);
 $margin-levels-negative: (
   '1': - $spacer-base * functions.nth-power-of-two(-3),
   '2': - $spacer-base * functions.nth-power-of-two(-2),
@@ -764,68 +810,72 @@ $margin-levels-negative: (
 );
 
 $margins: (
-  'm':  (
+  'm': (
     'properties': margin,
-    'levels': $spacer-levels
+    'levels': $spacer-levels,
   ),
   'mt': (
     'properties': margin-top,
-    'levels': $margin-levels
+    'levels': $margin-levels,
   ),
   'mr': (
     'properties': margin-right,
-    'levels': $margin-levels
+    'levels': $margin-levels,
   ),
   'mb': (
     'properties': margin-bottom,
-    'levels': $margin-levels
+    'levels': $margin-levels,
   ),
   'ml': (
     'properties': margin-left,
-    'levels': $margin-levels
+    'levels': $margin-levels,
   ),
   'mh': (
     'properties': [margin-left margin-right],
-    'levels': $margin-levels
+    'levels': $margin-levels,
   ),
   // Use alias center for mh-auto
-  '': (
-    'properties': [margin-left margin-right],
-    'levels': ('center': auto)
-  ),
+  '':
+    (
+      'properties': [margin-left margin-right],
+      'levels': (
+        'center': auto,
+      ),
+    ),
   'mv': (
     'properties': [margin-top margin-bottom],
-    'levels': $spacer-levels
+    'levels': $spacer-levels,
   ),
   // Negative margins
-  'n':  (
-    'properties': margin,
-    'levels': $margin-levels-negative
-  ),
+  'n':
+    (
+      'properties': margin,
+      'levels': $margin-levels-negative,
+    ),
   'nt': (
     'properties': margin-top,
-    'levels': $margin-levels-negative
+    'levels': $margin-levels-negative,
   ),
   'nr': (
     'properties': margin-right,
-    'levels': $margin-levels-negative
+    'levels': $margin-levels-negative,
   ),
   'nb': (
     'properties': margin-bottom,
-    'levels': $margin-levels-negative
+    'levels': $margin-levels-negative,
   ),
   'nl': (
     'properties': margin-left,
-    'levels': $margin-levels-negative
+    'levels': $margin-levels-negative,
   ),
   'nh': (
     'properties': [margin-left margin-right],
-    'levels': $margin-levels-negative
+    'levels': $margin-levels-negative,
   ),
   'nv': (
     'properties': [margin-top margin-bottom],
-    'levels': $margin-levels-negative
-  )
+    'levels': $margin-levels-negative,
+  ),
 );
 
 /*
@@ -834,9 +884,9 @@ $margins: (
 $min-height-prefix: min;
 $max-height-prefix: max;
 $min-max-heights: (
-  'h-100':  100%,
+  'h-100': 100%,
   'h-none': none,
-  'vh-100': 100vh
+  'vh-100': 100vh,
 );
 
 /*
@@ -849,17 +899,17 @@ $max-width-prefix: mw;
  */
 $measures: (
   'measure-narrow': 20em,
-  'measure':        30em,
-  'measure-wide':   34em
+  'measure': 30em,
+  'measure-wide': 34em,
 );
 
 /*
  * Object fit
  */
 $object-fits: (
-  'contain':    contain,
-  'cover':      cover,
-  'fill':       fill,
+  'contain': contain,
+  'cover': cover,
+  'fill': fill,
   // 'none':       none,
   // 'scale-down': scale-down,
 );
@@ -870,18 +920,18 @@ $object-fits: (
 $opacity-name: o;
 $opacity-levels: (
   '100': 1,
-  '90':  .9,
-  '80':  .8,
-  '70':  .7,
-  '60':  .6,
-  '50':  .5,
-  '40':  .4,
-  '30':  .3,
-  '20':  .2,
-  '10':  .1,
-  '05':  .05,
-  '025': .025,
-  '0':   0
+  '90': 0.9,
+  '80': 0.8,
+  '70': 0.7,
+  '60': 0.6,
+  '50': 0.5,
+  '40': 0.4,
+  '30': 0.3,
+  '20': 0.2,
+  '10': 0.1,
+  '05': 0.05,
+  '025': 0.025,
+  '0': 0,
 );
 
 /*
@@ -890,59 +940,68 @@ $opacity-levels: (
 $overflow-name: overflow;
 $-overflow-map: (
   'visible': visible,
-  'hidden':  hidden,
-  'scroll':  scroll,
-  'auto':    auto
+  'hidden': hidden,
+  'scroll': scroll,
+  'auto': auto,
 );
 $overflows: (
-  '':  ('property': overflow,   'map': $-overflow-map),
-  'x': ('property': overflow-x, 'map': $-overflow-map),
-  'y': ('property': overflow-y, 'map': $-overflow-map),
+  '': (
+    'property': overflow,
+    'map': $-overflow-map,
+  ),
+  'x': (
+    'property': overflow-x,
+    'map': $-overflow-map,
+  ),
+  'y': (
+    'property': overflow-y,
+    'map': $-overflow-map,
+  ),
 );
 
 /*
  * Padding
  */
 $paddings: (
-  'p':  (
+  'p': (
     'properties': padding,
-    'levels': $spacer-levels
+    'levels': $spacer-levels,
   ),
   'pt': (
     'properties': padding-top,
-    'levels': $spacer-levels
+    'levels': $spacer-levels,
   ),
   'pr': (
     'properties': padding-right,
-    'levels': $spacer-levels
+    'levels': $spacer-levels,
   ),
   'pb': (
     'properties': padding-bottom,
-    'levels': $spacer-levels
+    'levels': $spacer-levels,
   ),
   'pl': (
     'properties': padding-left,
-    'levels': $spacer-levels
+    'levels': $spacer-levels,
   ),
   'ph': (
     'properties': [padding-left padding-right],
-    'levels': $spacer-levels
+    'levels': $spacer-levels,
   ),
   'pv': (
     'properties': [padding-top padding-bottom],
-    'levels': $spacer-levels
-  )
+    'levels': $spacer-levels,
+  ),
 );
 
 /*
  * Position
  */
 $positions: (
-  'static':   static,
+  'static': static,
   'absolute': absolute,
   'relative': relative,
-  'fixed':    fixed,
-  'sticky':   sticky
+  'fixed': fixed,
+  'sticky': sticky,
 );
 
 /*
@@ -958,9 +1017,9 @@ $force-smooth-scroll: false;
  */
 $resize-name: 'resize';
 $resizes: (
-  '':  both,
+  '': both,
   'h': horizontal,
-  'v': vertical
+  'v': vertical,
 );
 
 /*
@@ -969,7 +1028,7 @@ $resizes: (
 $table-stripe-name: stripe;
 $table-stripes: (
   'light': map.get($colors, 'black-05'),
-  'dark':  map.get($colors, 'black-10')
+  'dark': map.get($colors, 'black-10'),
 );
 
 /*
@@ -979,24 +1038,24 @@ $text-aligns: (
   'tl': left,
   'tr': right,
   'tc': center,
-  'tj': justify
+  'tj': justify,
 );
 
 /*
  * Text decoration
  */
 $text-decorations: (
-  'underline':    underline,
+  'underline': underline,
   'line-through': line-through,
-  'strike':       line-through,
-  'no-underline': none
+  'strike': line-through,
+  'no-underline': none,
 );
 
 /*
  * Text shadow
  */
 $text-shadows: (
-  'text-shadow': .1em .1em .1em map.get($colors, 'black-60')
+  'text-shadow': 0.1em 0.1em 0.1em map.get($colors, 'black-60'),
 );
 
 /*
@@ -1004,18 +1063,18 @@ $text-shadows: (
  */
 $text-transforms: (
   'capitalize': capitalize,
-  'uppercase':  uppercase
+  'uppercase': uppercase,
 );
 
 /*
  * Transform
  */
 $-translate-levels: (
-  '0':    0,
-  '100':  100%,
+  '0': 0,
+  '100': 100%,
   'n100': -100%,
-  '50':   50%,
-  'n50':  -50%
+  '50': 50%,
+  'n50': -50%,
 );
 $transform-translate-horizontal-name: 'translateX';
 $transform-translate-horizontal-levels: $-translate-levels;
@@ -1027,13 +1086,13 @@ $transform-translate-vertical-levels: $-translate-levels;
  */
 $transition-name: transition;
 $transition-properties: (
-  '':          all,
-  'transform': transform
+  '': all,
+  'transform': transform,
 );
 $transition-speeds: (
-  'slow':   .5s,
-  'medium': .25s,
-  'fast':   .15s
+  'slow': 0.5s,
+  'medium': 0.25s,
+  'fast': 0.15s,
 );
 
 /*
@@ -1053,10 +1112,10 @@ $user-selects: (
  */
 $vertical-align-name: v;
 $vertical-aligns: (
-  'mid':         middle,
-  'middle':      middle,
-  'top':         top,
-  'bottom':      bottom,
+  'mid': middle,
+  'middle': middle,
+  'top': top,
+  'bottom': bottom,
   // 'base':        baseline,
   // 'text-top':    text-top,
   // 'text-bottom': text-bottom,
@@ -1068,8 +1127,8 @@ $vertical-aligns: (
  * Visibility
  */
 $visibilities: (
-  'visible':   visible,
-  'hidden':    hidden,
+  'visible': visible,
+  'hidden': hidden,
   'invisible': hidden,
   // 'collapse':  collapse
 );
@@ -1078,9 +1137,9 @@ $visibilities: (
  * White space
  */
 $white-spaces: (
-  'nowrap':    nowrap,
-  'pre':       pre,
-  'pre-wrap':  pre-wrap,
+  'nowrap': nowrap,
+  'pre': pre,
+  'pre-wrap': pre-wrap,
   // 'ws-normal': normal
 );
 
@@ -1090,10 +1149,10 @@ $white-spaces: (
 $width-prefix: w;
 $view-width-prefix: vw;
 $view-widths: (
-  '-25':  25vw,
-  '-50':  50vw,
-  '-75':  75vw,
-  '-100': 100vw
+  '-25': 25vw,
+  '-50': 50vw,
+  '-75': 75vw,
+  '-100': 100vw,
 );
 
 /*
@@ -1103,18 +1162,22 @@ $word-break-name: word-break;
 $word-breaks: (
   'all': break-all,
   'word': break-word,
-  'normal': normal
+  'normal': normal,
 );
 
 /*
  * Z-index
  */
 $z-index-name: z;
-$z-indexes: ('last': 9999);
+$z-indexes: (
+  'last': 9999,
+);
 $z-index-start: -1;
 $z-index-end: 9;
 
 @for $i from $z-index-start through $z-index-end {
-  $current-z-index: (functions.number-to-class-name($i): $i);
+  $current-z-index: (
+    functions.number-to-class-name($i): $i,
+  );
   $z-indexes: map.merge($z-indexes, $current-z-index);
 }
