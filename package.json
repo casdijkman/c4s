@@ -71,6 +71,7 @@
     "build-watch": "gulp buildWatch",
     "build-serve": "gulp buildServe",
     "serve": "gulp serve",
-    "lint": "gulp lint"
+    "lint": "gulp lint",
+    "prettier": "prettier . --write"
   }
 }
