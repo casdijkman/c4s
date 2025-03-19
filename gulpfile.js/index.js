@@ -168,11 +168,17 @@ const build = series(
     gzipDist, compileNunjucks
 );
 
+const buildWithoutUpdateScripts = series(
+    clean,
+    parallel(copyStaticFiles, compileSass, compileSassDocs, compileJavascript),
+    gzipDist, compileNunjucks
+);
+
 const buildWatchServe = series(build, parallel(watchFiles, serve));
 
 function watchFiles() {
     watch(globs.src.staticFiles, copyStaticFiles);
-    watch(globs.src.sass, build);
+    watch(globs.src.sass, buildWithoutUpdateScripts);
     watch(globs.src.sassDocs, compileSassDocs);
     watch(globs.src.nunjucksAll, compileNunjucks);
     watch(globs.src.javascript, compileJavascript);
