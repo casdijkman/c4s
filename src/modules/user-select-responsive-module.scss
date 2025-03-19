@@ -7,6 +7,8 @@
 @use '../load-modules';
 
 @include load-modules.load-modules(
-  ('user-select': true),
+  (
+    'user-select': true,
+  ),
   null
 );

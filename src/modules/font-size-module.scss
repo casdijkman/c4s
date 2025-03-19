@@ -7,6 +7,8 @@
 @use '../load-modules';
 
 @include load-modules.load-modules(
-  ('font-size': false),
+  (
+    'font-size': false,
+  ),
   null
 );

@@ -7,6 +7,8 @@
 @use '../load-modules';
 
 @include load-modules.load-modules(
-  ('word-break': true),
+  (
+    'word-break': true,
+  ),
   null
 );

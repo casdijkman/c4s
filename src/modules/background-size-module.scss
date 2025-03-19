@@ -7,6 +7,8 @@
 @use '../load-modules';
 
 @include load-modules.load-modules(
-  ('background-size': false),
+  (
+    'background-size': false,
+  ),
   null
 );

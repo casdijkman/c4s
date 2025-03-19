@@ -7,6 +7,8 @@
 @use '../load-modules';
 
 @include load-modules.load-modules(
-  ('visibility': false),
+  (
+    'visibility': false,
+  ),
   null
 );

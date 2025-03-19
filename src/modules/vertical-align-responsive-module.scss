@@ -7,6 +7,8 @@
 @use '../load-modules';
 
 @include load-modules.load-modules(
-  ('vertical-align': true),
+  (
+    'vertical-align': true,
+  ),
   null
 );

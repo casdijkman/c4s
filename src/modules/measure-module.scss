@@ -7,6 +7,8 @@
 @use '../load-modules';
 
 @include load-modules.load-modules(
-  ('measure': false),
+  (
+    'measure': false,
+  ),
   null
 );

@@ -45,7 +45,9 @@ function moduleFileContent({ moduleName, responsive = false }) {
 @use '../load-modules';
 
 @include load-modules.load-modules(
-  ('${moduleName}': ${responsive.toString()}),
+  (
+    '${moduleName}': ${responsive.toString()},
+  ),
   null
 );
 `;
