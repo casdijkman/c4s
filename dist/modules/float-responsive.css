@@ -13,7 +13,7 @@
   float: none;
 }
 .clearfix::after {
-  content: "";
+  content: '';
   display: block;
   clear: both;
 }
@@ -28,7 +28,7 @@
     float: none;
   }
   .clearfix-s::after {
-    content: "";
+    content: '';
     display: block;
     clear: both;
   }
@@ -44,7 +44,7 @@
     float: none;
   }
   .clearfix-m::after {
-    content: "";
+    content: '';
     display: block;
     clear: both;
   }
@@ -60,7 +60,7 @@
     float: none;
   }
   .clearfix-l::after {
-    content: "";
+    content: '';
     display: block;
     clear: both;
   }
@@ -76,7 +76,7 @@
     float: none;
   }
   .clearfix-h::after {
-    content: "";
+    content: '';
     display: block;
     clear: both;
   }

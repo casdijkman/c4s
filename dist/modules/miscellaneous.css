@@ -24,7 +24,7 @@
   inset: 0;
 }
 .stretch-pseudo::after {
-  content: "";
+  content: '';
   pointer-events: auto;
   background-color: transparent;
 }

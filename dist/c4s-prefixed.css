@@ -194,7 +194,7 @@ code {
 .c4s-stretch-pseudo::after {
   position: absolute;
   inset: 0;
-  content: "";
+  content: '';
   pointer-events: auto;
   background-color: transparent;
 }
@@ -1082,8 +1082,8 @@ code {
   border-style: outset;
 }
 .c4s-sans-serif {
-  font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir,
-    "helvetica neue", helvetica, ubuntu, roboto, noto, "segoe ui", arial,
+  font-family: -apple-system, BlinkMacSystemFont, 'avenir next', avenir,
+    'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial,
     sans-serif;
 }
 .c4s-serif {
@@ -1320,7 +1320,7 @@ code {
   width: 100%;
 }
 .c4s-show-breakpoints::before {
-  content: "[breakpoint: base] ";
+  content: '[breakpoint: base] ';
 }
 .c4s-debug-grid {
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFElEQVR4AWPAC97/9x0eCsAEPgwAVLshdpENIxcAAAAASUVORK5CYII=)
@@ -2454,7 +2454,7 @@ code {
   float: none;
 }
 .c4s-clearfix::after {
-  content: "";
+  content: '';
   display: block;
   clear: both;
 }
@@ -2627,7 +2627,7 @@ code {
     max-width: 28rem;
   }
   .c4s-show-breakpoints::before {
-    content: "[breakpoint: s] ";
+    content: '[breakpoint: s] ';
   }
   .c4s-tl-s {
     text-align: left;
@@ -3713,7 +3713,7 @@ code {
     float: none;
   }
   .c4s-clearfix-s::after {
-    content: "";
+    content: '';
     display: block;
     clear: both;
   }
@@ -3883,7 +3883,7 @@ code {
     max-width: 38rem;
   }
   .c4s-show-breakpoints::before {
-    content: "[breakpoint: m] ";
+    content: '[breakpoint: m] ';
   }
   .c4s-tl-m {
     text-align: left;
@@ -4969,7 +4969,7 @@ code {
     float: none;
   }
   .c4s-clearfix-m::after {
-    content: "";
+    content: '';
     display: block;
     clear: both;
   }
@@ -5140,7 +5140,7 @@ code {
     max-width: 58rem;
   }
   .c4s-show-breakpoints::before {
-    content: "[breakpoint: l] ";
+    content: '[breakpoint: l] ';
   }
   .c4s-tl-l {
     text-align: left;
@@ -6226,7 +6226,7 @@ code {
     float: none;
   }
   .c4s-clearfix-l::after {
-    content: "";
+    content: '';
     display: block;
     clear: both;
   }
@@ -6398,7 +6398,7 @@ code {
     max-width: 88rem;
   }
   .c4s-show-breakpoints::before {
-    content: "[breakpoint: h] ";
+    content: '[breakpoint: h] ';
   }
   .c4s-tl-h {
     text-align: left;
@@ -7484,7 +7484,7 @@ code {
     float: none;
   }
   .c4s-clearfix-h::after {
-    content: "";
+    content: '';
     display: block;
     clear: both;
   }

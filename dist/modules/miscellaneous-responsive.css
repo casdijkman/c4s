@@ -24,7 +24,7 @@
   inset: 0;
 }
 .stretch-pseudo::after {
-  content: "";
+  content: '';
   pointer-events: auto;
   background-color: transparent;
 }
@@ -79,7 +79,7 @@
     inset: 0;
   }
   .stretch-pseudo-s::after {
-    content: "";
+    content: '';
     pointer-events: auto;
     background-color: transparent;
   }
@@ -135,7 +135,7 @@
     inset: 0;
   }
   .stretch-pseudo-m::after {
-    content: "";
+    content: '';
     pointer-events: auto;
     background-color: transparent;
   }
@@ -191,7 +191,7 @@
     inset: 0;
   }
   .stretch-pseudo-l::after {
-    content: "";
+    content: '';
     pointer-events: auto;
     background-color: transparent;
   }
@@ -247,7 +247,7 @@
     inset: 0;
   }
   .stretch-pseudo-h::after {
-    content: "";
+    content: '';
     pointer-events: auto;
     background-color: transparent;
   }

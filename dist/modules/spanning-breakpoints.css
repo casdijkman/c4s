@@ -11,7 +11,7 @@
   width: 100%;
 }
 .show-breakpoints::before {
-  content: "[breakpoint: base] ";
+  content: '[breakpoint: base] ';
 }
 @media only screen and (min-width: 30em) {
   .container,
@@ -19,7 +19,7 @@
     max-width: 28rem;
   }
   .show-breakpoints::before {
-    content: "[breakpoint: s] ";
+    content: '[breakpoint: s] ';
   }
 }
 @media only screen and (min-width: 40em) {
@@ -29,7 +29,7 @@
     max-width: 38rem;
   }
   .show-breakpoints::before {
-    content: "[breakpoint: m] ";
+    content: '[breakpoint: m] ';
   }
 }
 @media only screen and (min-width: 60em) {
@@ -40,7 +40,7 @@
     max-width: 58rem;
   }
   .show-breakpoints::before {
-    content: "[breakpoint: l] ";
+    content: '[breakpoint: l] ';
   }
 }
 @media only screen and (min-width: 90em) {
@@ -52,6 +52,6 @@
     max-width: 88rem;
   }
   .show-breakpoints::before {
-    content: "[breakpoint: h] ";
+    content: '[breakpoint: h] ';
   }
 }

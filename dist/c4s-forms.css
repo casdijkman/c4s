@@ -9,7 +9,7 @@
   appearance: none;
 }
 .checkbox::before {
-  content: "";
+  content: '';
   display: inline-block;
   height: 1rem;
   width: 1rem;
@@ -356,7 +356,7 @@ code {
   inset: 0;
 }
 .stretch-pseudo::after {
-  content: "";
+  content: '';
   pointer-events: auto;
   background-color: transparent;
 }
@@ -1244,8 +1244,8 @@ code {
   border-style: outset;
 }
 .sans-serif {
-  font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir,
-    "helvetica neue", helvetica, ubuntu, roboto, noto, "segoe ui", arial,
+  font-family: -apple-system, BlinkMacSystemFont, 'avenir next', avenir,
+    'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial,
     sans-serif;
 }
 .serif {
@@ -1482,7 +1482,7 @@ code {
   width: 100%;
 }
 .show-breakpoints::before {
-  content: "[breakpoint: base] ";
+  content: '[breakpoint: base] ';
 }
 .debug-grid {
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFElEQVR4AWPAC97/9x0eCsAEPgwAVLshdpENIxcAAAAASUVORK5CYII=)
@@ -2616,7 +2616,7 @@ code {
   float: none;
 }
 .clearfix::after {
-  content: "";
+  content: '';
   display: block;
   clear: both;
 }
@@ -2793,7 +2793,7 @@ code {
     max-width: 28rem;
   }
   .show-breakpoints::before {
-    content: "[breakpoint: s] ";
+    content: '[breakpoint: s] ';
   }
   .tl-s {
     text-align: left;
@@ -3879,7 +3879,7 @@ code {
     float: none;
   }
   .clearfix-s::after {
-    content: "";
+    content: '';
     display: block;
     clear: both;
   }
@@ -4051,7 +4051,7 @@ code {
     max-width: 38rem;
   }
   .show-breakpoints::before {
-    content: "[breakpoint: m] ";
+    content: '[breakpoint: m] ';
   }
   .tl-m {
     text-align: left;
@@ -5137,7 +5137,7 @@ code {
     float: none;
   }
   .clearfix-m::after {
-    content: "";
+    content: '';
     display: block;
     clear: both;
   }
@@ -5310,7 +5310,7 @@ code {
     max-width: 58rem;
   }
   .show-breakpoints::before {
-    content: "[breakpoint: l] ";
+    content: '[breakpoint: l] ';
   }
   .tl-l {
     text-align: left;
@@ -6396,7 +6396,7 @@ code {
     float: none;
   }
   .clearfix-l::after {
-    content: "";
+    content: '';
     display: block;
     clear: both;
   }
@@ -6570,7 +6570,7 @@ code {
     max-width: 88rem;
   }
   .show-breakpoints::before {
-    content: "[breakpoint: h] ";
+    content: '[breakpoint: h] ';
   }
   .tl-h {
     text-align: left;
@@ -7656,7 +7656,7 @@ code {
     float: none;
   }
   .clearfix-h::after {
-    content: "";
+    content: '';
     display: block;
     clear: both;
   }
