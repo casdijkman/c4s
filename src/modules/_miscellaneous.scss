@@ -51,8 +51,10 @@
   }
 
   #{functions.construct-class-name($global-prefix, svg-wrapper, $media)} {
-    width: 1.5rem;
-    height: 1.5rem;
+    --svg-wrapper-size: 1.5rem;
+
+    width: var(--svg-wrapper-width, var(--svg-wrapper-size));
+    height: var(--svg-wrapper-height, var(--svg-wrapper-size));
     max-height: 100%;
 
     svg {
@@ -69,5 +71,9 @@
 
   #{functions.construct-class-name($global-prefix, isolate, $media)} {
     isolation: isolate;
+  }
+
+  #{functions.construct-class-name($global-prefix, no-isolate, $media)} {
+    isolation: auto;
   }
 }

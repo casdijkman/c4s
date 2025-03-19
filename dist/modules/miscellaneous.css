@@ -37,8 +37,9 @@
   text-overflow: ellipsis;
 }
 .svg-wrapper {
-  width: 1.5rem;
-  height: 1.5rem;
+  --svg-wrapper-size: 1.5rem;
+  width: var(--svg-wrapper-width, var(--svg-wrapper-size));
+  height: var(--svg-wrapper-height, var(--svg-wrapper-size));
   max-height: 100%;
 }
 .svg-wrapper svg {
@@ -52,4 +53,7 @@
 }
 .isolate {
   isolation: isolate;
+}
+.no-isolate {
+  isolation: auto;
 }

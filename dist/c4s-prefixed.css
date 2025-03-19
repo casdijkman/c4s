@@ -207,8 +207,9 @@ code {
   text-overflow: ellipsis;
 }
 .c4s-svg-wrapper {
-  width: 1.5rem;
-  height: 1.5rem;
+  --svg-wrapper-size: 1.5rem;
+  width: var(--svg-wrapper-width, var(--svg-wrapper-size));
+  height: var(--svg-wrapper-height, var(--svg-wrapper-size));
   max-height: 100%;
 }
 .c4s-svg-wrapper svg {
@@ -222,6 +223,9 @@ code {
 }
 .c4s-isolate {
   isolation: isolate;
+}
+.c4s-no-isolate {
+  isolation: auto;
 }
 .c4s-dim {
   transition: opacity 0.15s ease-in;

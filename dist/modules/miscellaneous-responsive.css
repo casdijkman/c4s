@@ -37,8 +37,9 @@
   text-overflow: ellipsis;
 }
 .svg-wrapper {
-  width: 1.5rem;
-  height: 1.5rem;
+  --svg-wrapper-size: 1.5rem;
+  width: var(--svg-wrapper-width, var(--svg-wrapper-size));
+  height: var(--svg-wrapper-height, var(--svg-wrapper-size));
   max-height: 100%;
 }
 .svg-wrapper svg {
@@ -52,6 +53,9 @@
 }
 .isolate {
   isolation: isolate;
+}
+.no-isolate {
+  isolation: auto;
 }
 @media only screen and (min-width: 30em) {
   .list-reset-s {
@@ -88,8 +92,9 @@
     text-overflow: ellipsis;
   }
   .svg-wrapper-s {
-    width: 1.5rem;
-    height: 1.5rem;
+    --svg-wrapper-size: 1.5rem;
+    width: var(--svg-wrapper-width, var(--svg-wrapper-size));
+    height: var(--svg-wrapper-height, var(--svg-wrapper-size));
     max-height: 100%;
   }
   .svg-wrapper-s svg {
@@ -103,6 +108,9 @@
   }
   .isolate-s {
     isolation: isolate;
+  }
+  .no-isolate-s {
+    isolation: auto;
   }
 }
 @media only screen and (min-width: 40em) {
@@ -140,8 +148,9 @@
     text-overflow: ellipsis;
   }
   .svg-wrapper-m {
-    width: 1.5rem;
-    height: 1.5rem;
+    --svg-wrapper-size: 1.5rem;
+    width: var(--svg-wrapper-width, var(--svg-wrapper-size));
+    height: var(--svg-wrapper-height, var(--svg-wrapper-size));
     max-height: 100%;
   }
   .svg-wrapper-m svg {
@@ -155,6 +164,9 @@
   }
   .isolate-m {
     isolation: isolate;
+  }
+  .no-isolate-m {
+    isolation: auto;
   }
 }
 @media only screen and (min-width: 60em) {
@@ -192,8 +204,9 @@
     text-overflow: ellipsis;
   }
   .svg-wrapper-l {
-    width: 1.5rem;
-    height: 1.5rem;
+    --svg-wrapper-size: 1.5rem;
+    width: var(--svg-wrapper-width, var(--svg-wrapper-size));
+    height: var(--svg-wrapper-height, var(--svg-wrapper-size));
     max-height: 100%;
   }
   .svg-wrapper-l svg {
@@ -207,6 +220,9 @@
   }
   .isolate-l {
     isolation: isolate;
+  }
+  .no-isolate-l {
+    isolation: auto;
   }
 }
 @media only screen and (min-width: 90em) {
@@ -244,8 +260,9 @@
     text-overflow: ellipsis;
   }
   .svg-wrapper-h {
-    width: 1.5rem;
-    height: 1.5rem;
+    --svg-wrapper-size: 1.5rem;
+    width: var(--svg-wrapper-width, var(--svg-wrapper-size));
+    height: var(--svg-wrapper-height, var(--svg-wrapper-size));
     max-height: 100%;
   }
   .svg-wrapper-h svg {
@@ -259,5 +276,8 @@
   }
   .isolate-h {
     isolation: isolate;
+  }
+  .no-isolate-h {
+    isolation: auto;
   }
 }
