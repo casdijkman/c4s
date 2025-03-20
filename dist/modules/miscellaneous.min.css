@@ -1,6 +1,6 @@
 /*!
- * C4S CSS, version 0.6.6 <https://c4s.cdijkman.nl>
- * SPDX-FileCopyrightText: 2024 Cas Dijkman
+ * C4S CSS, version 0.6.7 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2025 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
 .list-reset{list-style-type:none;padding-left:0;margin-top:0;margin-bottom:0}.button-reset{font-size:inherit;font-family:inherit;line-height:inherit;background-color:inherit;text-align:inherit;border-style:none;padding:0}.stretch,.stretch-pseudo::after{position:absolute;inset:0}.stretch-pseudo::after{content:"";pointer-events:auto;background-color:transparent}.dn-empty:empty{display:none}.truncate{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.svg-wrapper{--svg-wrapper-size:1.5rem;width:var(--svg-wrapper-width, var(--svg-wrapper-size));height:var(--svg-wrapper-height, var(--svg-wrapper-size));max-height:100%}.svg-wrapper svg{width:100%;height:100%;vertical-align:top}.sr-only{position:absolute;clip:rect(0,0,0,0)}.isolate{isolation:isolate}.no-isolate{isolation:auto}

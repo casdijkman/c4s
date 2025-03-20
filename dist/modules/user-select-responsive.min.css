@@ -1,6 +1,6 @@
 /*!
- * C4S CSS, version 0.6.6 <https://c4s.cdijkman.nl>
- * SPDX-FileCopyrightText: 2024 Cas Dijkman
+ * C4S CSS, version 0.6.7 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2025 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
 .user-select-none{-webkit-user-select:none;-moz-user-select:none;user-select:none}.user-select-all{-webkit-user-select:all;-moz-user-select:all;user-select:all}.user-select-text{-webkit-user-select:text;-moz-user-select:text;user-select:text}@media only screen and (min-width:30em){.user-select-none-s{-webkit-user-select:none;-moz-user-select:none;user-select:none}.user-select-all-s{-webkit-user-select:all;-moz-user-select:all;user-select:all}.user-select-text-s{-webkit-user-select:text;-moz-user-select:text;user-select:text}}@media only screen and (min-width:40em){.user-select-none-m{-webkit-user-select:none;-moz-user-select:none;user-select:none}.user-select-all-m{-webkit-user-select:all;-moz-user-select:all;user-select:all}.user-select-text-m{-webkit-user-select:text;-moz-user-select:text;user-select:text}}@media only screen and (min-width:60em){.user-select-none-l{-webkit-user-select:none;-moz-user-select:none;user-select:none}.user-select-all-l{-webkit-user-select:all;-moz-user-select:all;user-select:all}.user-select-text-l{-webkit-user-select:text;-moz-user-select:text;user-select:text}}@media only screen and (min-width:90em){.user-select-none-h{-webkit-user-select:none;-moz-user-select:none;user-select:none}.user-select-all-h{-webkit-user-select:all;-moz-user-select:all;user-select:all}.user-select-text-h{-webkit-user-select:text;-moz-user-select:text;user-select:text}}

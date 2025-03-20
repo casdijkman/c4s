@@ -1,6 +1,6 @@
 /*!
- * C4S CSS, version 0.6.6 <https://c4s.cdijkman.nl>
- * SPDX-FileCopyrightText: 2024 Cas Dijkman
+ * C4S CSS, version 0.6.7 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2025 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
 .static{position:static}.absolute{position:absolute}.relative{position:relative}.fixed{position:fixed}.sticky{position:sticky}@media only screen and (min-width:30em){.static-s{position:static}.absolute-s{position:absolute}.relative-s{position:relative}.fixed-s{position:fixed}.sticky-s{position:sticky}}@media only screen and (min-width:40em){.static-m{position:static}.absolute-m{position:absolute}.relative-m{position:relative}.fixed-m{position:fixed}.sticky-m{position:sticky}}@media only screen and (min-width:60em){.static-l{position:static}.absolute-l{position:absolute}.relative-l{position:relative}.fixed-l{position:fixed}.sticky-l{position:sticky}}@media only screen and (min-width:90em){.static-h{position:static}.absolute-h{position:absolute}.relative-h{position:relative}.fixed-h{position:fixed}.sticky-h{position:sticky}}

@@ -1,6 +1,6 @@
 /*!
- * C4S CSS, version 0.6.6 <https://c4s.cdijkman.nl>
- * SPDX-FileCopyrightText: 2024 Cas Dijkman
+ * C4S CSS, version 0.6.7 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2025 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
 .max-h-100{max-height:100%}.max-h-none{max-height:none}.max-vh-100{max-height:100vh}@media only screen and (min-width:30em){.max-h-100-s{max-height:100%}.max-h-none-s{max-height:none}.max-vh-100-s{max-height:100vh}}@media only screen and (min-width:40em){.max-h-100-m{max-height:100%}.max-h-none-m{max-height:none}.max-vh-100-m{max-height:100vh}}@media only screen and (min-width:60em){.max-h-100-l{max-height:100%}.max-h-none-l{max-height:none}.max-vh-100-l{max-height:100vh}}@media only screen and (min-width:90em){.max-h-100-h{max-height:100%}.max-h-none-h{max-height:none}.max-vh-100-h{max-height:100vh}}

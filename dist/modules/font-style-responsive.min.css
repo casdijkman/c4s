@@ -1,6 +1,6 @@
 /*!
- * C4S CSS, version 0.6.6 <https://c4s.cdijkman.nl>
- * SPDX-FileCopyrightText: 2024 Cas Dijkman
+ * C4S CSS, version 0.6.7 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2025 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
 .fs-normal{font-style:normal}.fs-italic,.i{font-style:italic}@media only screen and (min-width:30em){.fs-normal-s{font-style:normal}.fs-italic-s,.i-s{font-style:italic}}@media only screen and (min-width:40em){.fs-normal-m{font-style:normal}.fs-italic-m,.i-m{font-style:italic}}@media only screen and (min-width:60em){.fs-normal-l{font-style:normal}.fs-italic-l,.i-l{font-style:italic}}@media only screen and (min-width:90em){.fs-normal-h{font-style:normal}.fs-italic-h,.i-h{font-style:italic}}

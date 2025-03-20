@@ -1,6 +1,6 @@
 /*!
- * C4S CSS, version 0.6.6 <https://c4s.cdijkman.nl>
- * SPDX-FileCopyrightText: 2024 Cas Dijkman
+ * C4S CSS, version 0.6.7 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2025 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
 .fl{float:left}.fr{float:right}.fn{float:none}.clearfix::after{content:"";display:block;clear:both}@media only screen and (min-width:30em){.fl-s{float:left}.fr-s{float:right}.fn-s{float:none}.clearfix-s::after{content:"";display:block;clear:both}}@media only screen and (min-width:40em){.fl-m{float:left}.fr-m{float:right}.fn-m{float:none}.clearfix-m::after{content:"";display:block;clear:both}}@media only screen and (min-width:60em){.fl-l{float:left}.fr-l{float:right}.fn-l{float:none}.clearfix-l::after{content:"";display:block;clear:both}}@media only screen and (min-width:90em){.fl-h{float:left}.fr-h{float:right}.fn-h{float:none}.clearfix-h::after{content:"";display:block;clear:both}}

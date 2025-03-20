@@ -1,6 +1,6 @@
 /*!
- * C4S CSS, version 0.6.6 <https://c4s.cdijkman.nl>
- * SPDX-FileCopyrightText: 2024 Cas Dijkman
+ * C4S CSS, version 0.6.7 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2025 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
 .transition-slow{transition:all .5s ease-in-out}.transition-medium{transition:all .25s ease-in-out}.transition-fast{transition:all .15s ease-in-out}.transition-transform-slow{transition:transform .5s ease-in-out}.transition-transform-medium{transition:transform .25s ease-in-out}.transition-transform-fast{transition:transform .15s ease-in-out}
