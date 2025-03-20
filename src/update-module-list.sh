@@ -8,36 +8,41 @@
 
 [[ $(dirname "$(realpath "$0")") != $(pwd) ]] && echo "Run script from it's own directory" && exit 1
 
-shopt -s extglob
+modules_not_responsive_able=(reset spanning-breakpoints forms)
+modules_not_enabled=(forms)
 
-variables_file="_variables.scss"
-module_lines_start="$(grep -n "\$modules" <"$variables_file" | head -n1 | cut -d: -f 1)"
-((module_lines_start++))
-module_lines="$(tail -n+"$module_lines_start" "$variables_file")"
-module_lines_end="$(echo "$module_lines" | grep -n ")" | head -n1 | cut -d: -f 1)"
-((module_lines_end--))
-module_lines="$(echo "$module_lines" | head -n"$module_lines_end")"
-last_line="$(echo "$module_lines" | tail -n1)"
-last_line="$(printf '%s\n' "${last_line##+([[:space:]])}")"
-modules_not_responsive=(reset spanning-breakpoints forms)
+function debug_modules() {
+      npx sass --stdin << 'EOF'
+@use 'variables';
+@debug(variables.$modules-all);
+EOF
+}
+
+modules_output=$(debug_modules 2>&1 | grep -F DEBUG)
+modules_output="${modules_output/*DEBUG: /}"
+IFS=',()' read -ra modules <<< "$modules_output"
 
 {
     echo "["
 
-    while read -r line; do
-        line_clean="$(echo "$line" | xargs)"
-        line_clean="${line_clean//,/}"
-        line_clean="${line_clean// /}"
-        is_enabled=true
-        [[ $line_clean = //* ]] && is_enabled=false
-        line_clean="${line_clean//\//}"
+    for module_string in "${modules[@]}"; do
+        [[ -z $module_string ]] && continue
 
-        module="$(echo "$line_clean" | cut -d: -f 1)"
-        is_responsive="$(echo "$line_clean" | cut -d: -f 2)"
+        module="$(echo "$module_string" | cut -d: -f 1)"
+        module="${module//\"/}"
+        module="${module// /}"
+        is_responsive="$(echo "$module_string" | cut -d: -f 2)"
+        is_responsive="${is_responsive// /}"
         responsive_able=true
 
-        for item in "${modules_not_responsive[@]}"; do
+        for item in "${modules_not_responsive_able[@]}"; do
             [[ $module == "$item" ]] && responsive_able=false
+        done
+
+        is_enabled=true
+
+        for item in "${modules_not_enabled[@]}"; do
+            [[ $module == "$item" ]] && is_enabled=false
         done
 
         echo "  {"
@@ -47,12 +52,12 @@ modules_not_responsive=(reset spanning-breakpoints forms)
         echo "    \"isEnabled\": ${is_enabled}"
         echo -n "  }"
 
-        if [[ $line = "$last_line" ]]; then
+         if [[ $module_string = "${modules[-1]}" ]]; then
             echo
         else
             echo ","
         fi
-    done< <(echo "$module_lines")
+    done
 
     echo "]"
 } >module-list.json
