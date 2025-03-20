@@ -135,6 +135,9 @@
     );
   }
 
-  @return (map.get($colors, 'red') * 0.2126) +
-    (map.get($colors, 'green') * 0.7152) + (map.get($colors, 'blue') * 0.0722);
+  $weighted-red: map.get($colors, 'red') * 0.2126;
+  $weighted-green: map.get($colors, 'green') * 0.7152;
+  $weighted-blue: map.get($colors, 'blue') * 0.0722;
+
+  @return $weighted-red + $weighted-green + $weighted-blue;
 }
