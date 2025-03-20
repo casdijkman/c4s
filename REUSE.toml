@@ -1,0 +1,44 @@
+version = 1
+SPDX-PackageName = "C4S"
+SPDX-PackageSupplier = "Cas Dijkman <cas@cdijkman.nl>"
+
+[[annotations]]
+path = [
+     "package.json",
+     "yarn.lock",
+     "favicon.ico",
+     "logo.svg",
+     ".nvmrc",
+     ".prettierrc",
+     ".prettierignore",
+     "docs/assets/checkbox-check.svg",
+     "src/module-list.json",
+     "docs/assets/screencasts/**"
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2025 Cas Dijkman <cas@cdijkman.nl>"
+SPDX-License-Identifier = "GPL-3.0-only"
+
+[[annotations]]
+path = "docs/assets/500x400.jpg"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "USFWS"
+SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = [".yarn/**", ".yarnrc.yml"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "none"
+SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = "docs/icons/bootstrap/**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "The Bootstrap Authors (https://getbootstrap.com/)"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "docs/icons/ionicons/**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Ionic (https://ionic.io/)"
+SPDX-License-Identifier = "MIT"
