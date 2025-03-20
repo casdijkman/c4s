@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /*
- * SPDX-FileCopyrightText: 2024 Cas Dijkman
+ * SPDX-FileCopyrightText: 2025 Cas Dijkman
  *
  * SPDX-License-Identifier: GPL-3.0-only
  */
@@ -37,7 +37,7 @@ glob.sync('./modules/_*.scss').forEach((file) => {
 
 function moduleFileContent({ moduleName, responsive = false }) {
     return `/*
- * SPDX-FileCopyrightText: 2024 Cas Dijkman
+ * SPDX-FileCopyrightText: 2025 Cas Dijkman
  *
  * SPDX-License-Identifier: GPL-3.0-only
  */

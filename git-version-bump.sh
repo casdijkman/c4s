@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# SPDX-FileCopyrightText: 2024 Cas Dijkman
+# SPDX-FileCopyrightText: 2025 Cas Dijkman
 #
 # SPDX-License-Identifier: GPL-3.0-only
 
@@ -34,6 +34,7 @@ function update_version() {
 function build() {
     echo Building...
     sleep 1
+    yarn prettier || exit 1
     yarn build || exit 1
     yarn lint
     [[ "$(command -v alert)" ]] && alert

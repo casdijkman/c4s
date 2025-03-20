@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# SPDX-FileCopyrightText: 2024 Cas Dijkman
+# SPDX-FileCopyrightText: 2025 Cas Dijkman
 #
 # SPDX-License-Identifier: GPL-3.0-only
 
