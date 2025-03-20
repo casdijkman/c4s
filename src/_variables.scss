@@ -41,10 +41,10 @@ $breakpoints: map.remove($breakpoints-all, 'p');
  * Select modules to load in the order listed below.
  * Value `false' means non-responsive, `true' means responsive.
  */
-$modules: (
+$modules-all: (
   'complex': false,
   'reset': false,
-  // 'forms':               false,
+  'forms': false,
   'miscellaneous': false,
   'hover': false,
   'color': false,
@@ -106,6 +106,9 @@ $modules: (
   'letter-spacing': true,
   'measure': true,
 );
+
+// Select modules to use by default
+$modules: map.remove($modules-all, 'forms');
 
 /**********
  * SHARED *
