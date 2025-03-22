@@ -111,16 +111,17 @@
             </label>
 
             <input
-                class="button-reset dib bg-dark-blue br-pill grow ph4 pv3 white cursor-pointer"
+                class="btn-primary grow br-pill"
                 type="submit"
-                value="Generate custom C4S stylesheet">
+                value="Generate custom C4S stylesheet"
+            >
         </form>
 
         <div class="tc">
             <div
-                class="dib ph3 pv2 ba br2 f4 lh-extra"
+                class="dib ph3 pv2 ba br2 f5 lh-extra"
                 style="display: none;"
-                data-custom-modules-output
+                data-custom-modules-output-message
             >
                 Generating custom modules...
 
@@ -137,6 +138,17 @@
             style="display: none;"
             data-custom-modules-output-css
         ></pre>
+
+        <div class="tc">
+            <button
+                type="button"
+                class="btn-primary br-pill"
+                style="display: none;"
+                data-custom-modules-output-css-copy
+            >
+                Copy CSS to clipboard
+            </button>
+        </div>
     </div>
 
     <style>

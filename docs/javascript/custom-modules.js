@@ -12,8 +12,9 @@ import {
 } from './helpers/constants';
 
 const $form = $('[data-custom-modules-form]');
-const output = document.querySelector('[data-custom-modules-output]');
+const $outputMessage = $('[data-custom-modules-output-message]');
 const $outputCss = $('[data-custom-modules-output-css]');
+const $outputCssCopy = $('[data-custom-modules-output-css-copy]');
 const separator = '|';
 
 const filterModules = (filterArray) => {
@@ -105,20 +106,25 @@ function download({ css, isMinified = false }) {
     link.href = `data:text/css,${encodeURIComponent(css)}`;
     link.click();
 
-    if (output) {
-        output.style.display = null;
-        output.innerHTML = `
+    if ($outputMessage.any()) {
+        $outputMessage.show();
+        $outputMessage.innerHtml(`
 🥳 Finished generating, your download has started<br>
 <a href=${location.pathname} class="link dark-blue hover-underline">
 <div class="dib">👉&nbsp;</div>Create another custom stylesheet</a><br>
 Or share <a href="${location}" class="link dark-blue hover-underline">
-this download link</a> with your friends 👐
-</a>`;
+this download link</a> with your friends!
+</a>`);
     }
 
     if ($outputCss.any()) {
         $outputCss.show();
-        $outputCss.innerHtml(css);
+        $outputCss.innerText(css);
+    }
+
+    if ($outputCssCopy.any()) {
+        $outputCssCopy.show();
+        $outputCssCopy.onClick(() => navigator.clipboard.writeText(css));
     }
 }
 

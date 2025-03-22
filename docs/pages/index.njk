@@ -233,38 +233,34 @@
 
         <div class="row column-gap row-gap">
             {% for file in files | rejectattr('isRaw') | mySelect('name', 'c4s') %}
-                <div class="dib bg-dark-blue br-pill grow">
-                    <a
-                        class="dif items-center link ph4 pv3 nowrap white"
-                        href="{{ file.file }}"
-                        download
-                    >
-                        <span class="svg-wrapper dib nt1 mr2">
-                            {% include "docs/icons/ionicons/download-outline.svg" %}
-                        </span>
-
-                        Download C4S
-
-                        {% if file.isMinified %}
-                            minified
-                        {% endif %}
-                    </a>
-                </div>
-            {% endfor %}
-
-            <div class="dib bg-dark-blue br-pill grow">
                 <a
-                    class="dif items-center link ph4 pv3 nowrap white"
-                    href="/custom.html"
-                    title="Select your own modules"
+                    class="dif items-center btn-primary br-pill grow no-underline"
+                    href="{{ file.file }}"
+                    download
                 >
-                    <span class="svg-wrapper dib nt1 mr2" style="fill: currentColor;">
-                        {% include "docs/icons/ionicons/create-outline.svg" %}
+                    <span class="svg-wrapper dib nt1 mr2">
+                        {% include "docs/icons/ionicons/download-outline.svg" %}
                     </span>
 
-                    Customize C4S
+                    Download C4S
+
+                    {% if file.isMinified %}
+                        minified
+                    {% endif %}
                 </a>
-            </div>
+            {% endfor %}
+
+            <a
+                class="dif items-center btn-primary br-pill grow no-underline"
+                href="/custom.html"
+                title="Select your own modules"
+            >
+                <span class="svg-wrapper dib nt1 mr2" style="fill: currentColor;">
+                    {% include "docs/icons/ionicons/create-outline.svg" %}
+                </span>
+
+                Customize C4S
+            </a>
         </div>
 
         <h2 id="files">
