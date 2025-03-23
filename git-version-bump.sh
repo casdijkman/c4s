@@ -6,6 +6,8 @@
 
 #set -x # Enable debugging
 
+[[ ! $(command -v node) ]] && echo "node is not installed" && exit 1
+
 [[ $(dirname "$(realpath "$0")") != $(pwd) ]] && echo "Run script from it's own directory" && exit 1
 
 [[ ! -f package.json ]] && echo "Could not find package.json" && exit 1
@@ -34,6 +36,7 @@ function update_version() {
 function build() {
     echo Building...
     sleep 1
+    yarn install
     yarn prettier || exit 1
     yarn build || exit 1
     yarn lint
@@ -41,7 +44,7 @@ function build() {
     [[ "$(command -v notify-gong)" ]] && notify-gong
 }
 
-function git_commit() {
+function git_commit_and_tag() {
     git add package.json dist/ \
         src/_variables.scss src/c4s-{forms,custom,custom-verbose}.scss
     version_string="v$(jq -r '.version' <package.json)"
@@ -51,5 +54,5 @@ function git_commit() {
 
 update_version
 echo "$1" | grep -qE "^-(b|-build)$" && build
-git_commit
+git_commit_and_tag
 exit 0
