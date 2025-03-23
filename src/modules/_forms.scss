@@ -151,13 +151,13 @@ $buttons: (
     border-radius: 0.5rem;
     padding: 0.5rem 1rem;
     cursor: pointer;
+    text-align: center;
     white-space: nowrap;
 
     &:where(button) {
       font-size: inherit;
       font-family: inherit;
       line-height: inherit;
-      text-align: inherit;
     }
 
     &:where(:disabled) {
