@@ -2237,6 +2237,7 @@ code {
 }
 .gap {
   --gap: 1rem;
+  --column-gap: var(--gap);
   gap: var(--gap);
 }
 .flex-wrap {
@@ -3521,6 +3522,7 @@ code {
   }
   .gap-l {
     --gap: 1rem;
+    --column-gap: var(--gap);
     gap: var(--gap);
   }
   .flex-wrap-l {

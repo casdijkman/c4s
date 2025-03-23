@@ -44,8 +44,13 @@
     row-gap: var(--row-gap);
   }
 
+  /*
+     The `--column-gap` variable is also used in calculating column widths in the grid
+     system, that is why `column-gap` is also set to the value of `--gap`.
+   */
   #{functions.construct-class-name($global-prefix, gap, $media)} {
     --gap: 1rem;
+    --column-gap: var(--gap);
 
     gap: var(--gap);
   }

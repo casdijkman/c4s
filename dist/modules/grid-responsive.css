@@ -95,6 +95,7 @@
 }
 .gap {
   --gap: 1rem;
+  --column-gap: var(--gap);
   gap: var(--gap);
 }
 @media only screen and (min-width: 30em) {
@@ -190,6 +191,7 @@
   }
   .gap-s {
     --gap: 1rem;
+    --column-gap: var(--gap);
     gap: var(--gap);
   }
 }
@@ -286,6 +288,7 @@
   }
   .gap-m {
     --gap: 1rem;
+    --column-gap: var(--gap);
     gap: var(--gap);
   }
 }
@@ -382,6 +385,7 @@
   }
   .gap-l {
     --gap: 1rem;
+    --column-gap: var(--gap);
     gap: var(--gap);
   }
 }
@@ -478,6 +482,7 @@
   }
   .gap-h {
     --gap: 1rem;
+    --column-gap: var(--gap);
     gap: var(--gap);
   }
 }

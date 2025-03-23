@@ -2237,6 +2237,7 @@ code {
 }
 .gap {
   --gap: 1rem;
+  --column-gap: var(--gap);
   gap: var(--gap);
 }
 .flex-wrap {
@@ -3500,6 +3501,7 @@ code {
   }
   .gap-s {
     --gap: 1rem;
+    --column-gap: var(--gap);
     gap: var(--gap);
   }
   .flex-wrap-s {
@@ -4758,6 +4760,7 @@ code {
   }
   .gap-m {
     --gap: 1rem;
+    --column-gap: var(--gap);
     gap: var(--gap);
   }
   .flex-wrap-m {
@@ -6017,6 +6020,7 @@ code {
   }
   .gap-l {
     --gap: 1rem;
+    --column-gap: var(--gap);
     gap: var(--gap);
   }
   .flex-wrap-l {
@@ -7277,6 +7281,7 @@ code {
   }
   .gap-h {
     --gap: 1rem;
+    --column-gap: var(--gap);
     gap: var(--gap);
   }
   .flex-wrap-h {

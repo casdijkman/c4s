@@ -2238,6 +2238,7 @@ code {
 }
 .c4s-gap {
   --gap: 1rem;
+  --column-gap: var(--gap);
   gap: var(--gap);
 }
 .c4s-flex-wrap {
@@ -3497,6 +3498,7 @@ code {
   }
   .c4s-gap-s {
     --gap: 1rem;
+    --column-gap: var(--gap);
     gap: var(--gap);
   }
   .c4s-flex-wrap-s {
@@ -4753,6 +4755,7 @@ code {
   }
   .c4s-gap-m {
     --gap: 1rem;
+    --column-gap: var(--gap);
     gap: var(--gap);
   }
   .c4s-flex-wrap-m {
@@ -6010,6 +6013,7 @@ code {
   }
   .c4s-gap-l {
     --gap: 1rem;
+    --column-gap: var(--gap);
     gap: var(--gap);
   }
   .c4s-flex-wrap-l {
@@ -7268,6 +7272,7 @@ code {
   }
   .c4s-gap-h {
     --gap: 1rem;
+    --column-gap: var(--gap);
     gap: var(--gap);
   }
   .c4s-flex-wrap-h {

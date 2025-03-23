@@ -288,6 +288,7 @@ code {
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  text-align: center;
   white-space: nowrap;
 }
 .btn-danger:where(button),
@@ -299,7 +300,6 @@ code {
   font-size: inherit;
   font-family: inherit;
   line-height: inherit;
-  text-align: inherit;
 }
 .btn-danger:where(:disabled),
 .btn-info:where(:disabled),
@@ -2400,6 +2400,7 @@ code {
 }
 .gap {
   --gap: 1rem;
+  --column-gap: var(--gap);
   gap: var(--gap);
 }
 .flex-wrap {
@@ -3663,6 +3664,7 @@ code {
   }
   .gap-s {
     --gap: 1rem;
+    --column-gap: var(--gap);
     gap: var(--gap);
   }
   .flex-wrap-s {
@@ -4921,6 +4923,7 @@ code {
   }
   .gap-m {
     --gap: 1rem;
+    --column-gap: var(--gap);
     gap: var(--gap);
   }
   .flex-wrap-m {
@@ -6180,6 +6183,7 @@ code {
   }
   .gap-l {
     --gap: 1rem;
+    --column-gap: var(--gap);
     gap: var(--gap);
   }
   .flex-wrap-l {
@@ -7440,6 +7444,7 @@ code {
   }
   .gap-h {
     --gap: 1rem;
+    --column-gap: var(--gap);
     gap: var(--gap);
   }
   .flex-wrap-h {

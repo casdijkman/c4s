@@ -119,6 +119,7 @@
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  text-align: center;
   white-space: nowrap;
 }
 .btn-danger:where(button),
@@ -130,7 +131,6 @@
   font-size: inherit;
   font-family: inherit;
   line-height: inherit;
-  text-align: inherit;
 }
 .btn-danger:where(:disabled),
 .btn-info:where(:disabled),
