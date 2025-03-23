@@ -80,7 +80,7 @@
                 <span class="tracked-tight">C4S</span>
                 CSS
             </h2>
-            <div class="row column-gap row-gap">
+            <div class="row gap">
                 <div class="col-12 col-m col-3-l grow ba br3 b--black-20 p3">
                     <h3 class="mt0 f4">Lightweight</h3>
                     Only
@@ -231,7 +231,7 @@
             Downloads
         </h2>
 
-        <div class="row column-gap row-gap">
+        <div class="row gap">
             {% for file in files | rejectattr('isRaw') | mySelect('name', 'c4s') %}
                 <a
                     class="dif items-center btn-primary br-pill grow no-underline"
