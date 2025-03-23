@@ -17,6 +17,7 @@ const $outputCss = $('[data-custom-modules-output-css]');
 const $outputCssCopy = $('[data-custom-modules-output-css-copy]');
 const separator = '|';
 
+// Verify modules existance, responsive ability and filter duplicates
 const filterModules = (filterArray) => {
     const responsiveSuffix = '-responsive';
 
@@ -96,10 +97,11 @@ async function processCss({ css, isMinified }) {
         const prettierOptions = { parser: 'css', plugins: [prettierPluginCss] };
         processedCss = await prettierFormat(processedCss, prettierOptions);
     }
-    download({ css: processedCss, isMinified });
+    showResults({ css: processedCss, isMinified });
 }
 
-function download({ css, isMinified = false }) {
+function showResults({ css, isMinified = false }) {
+    // Download as CSS file
     const link = document.createElement('a');
     const fileName = `c4s-custom-modules${isMinified ? '.min' : ''}.css`;
     link.setAttribute('download', fileName);
@@ -149,6 +151,16 @@ function initializeForm() {
     $('[data-action="enable-responsive"]').onClick(() => {
         $form.find('[data-checkbox-responsive]').each((element) => {
             element.checked = true;
+        });
+    });
+    $('[data-action="reset-modules"]').onClick(() => {
+        $form.find('[data-checkbox-module]').each((element) => {
+            element.checked = $(element).data('initial-value') === 'true';
+        });
+    });
+    $('[data-action="reset-responsive"]').onClick(() => {
+        $form.find('[data-checkbox-responsive]').each((element) => {
+            element.checked = $(element).data('initial-value') === 'true';
         });
     });
 }
