@@ -1,6 +1,6 @@
 {
   "name": "@casd/c4s",
-  "version": "0.6.8",
+  "version": "0.6.9",
   "description": "Concise Configurable Composable Classes Stylesheets",
   "author": "Cas Dijkman <info@cdijkman.nl> (https://cdijkman.nl)",
   "keywords": [

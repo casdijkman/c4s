@@ -1,5 +1,5 @@
 /*!
- * C4S CSS, version 0.6.8 <https://c4s.cdijkman.nl>
+ * C4S CSS, version 0.6.9 <https://c4s.cdijkman.nl>
  * SPDX-FileCopyrightText: 2025 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
@@ -308,7 +308,7 @@ $background-clips: (
   'text': text,
   // 'border':  border-box,
   // 'padding': padding-box,
-  // 'content': content-box,
+   // 'content': content-box,
 );
 
 /*
@@ -333,7 +333,7 @@ $background-repeats: (
   'no-repeat': no-repeat,
   // 'repeat-x': repeat-x,
   // 'repeat-y': repeat-y,
-  // 'repeat': repeat,
+   // 'repeat': repeat,
 );
 
 /*
@@ -838,8 +838,7 @@ $margins: (
     'levels': $margin-levels,
   ),
   // Use alias center for mh-auto
-  '':
-    (
+  '': (
       'properties': [margin-left margin-right],
       'levels': (
         'center': auto,
@@ -850,8 +849,7 @@ $margins: (
     'levels': $spacer-levels,
   ),
   // Negative margins
-  'n':
-    (
+  'n': (
       'properties': margin,
       'levels': $margin-levels-negative,
     ),
@@ -914,7 +912,7 @@ $object-fits: (
   'cover': cover,
   'fill': fill,
   // 'none':       none,
-  // 'scale-down': scale-down,
+   // 'scale-down': scale-down,
 );
 
 /*
@@ -1107,7 +1105,7 @@ $user-selects: (
   'all': all,
   'text': text,
   // 'auto': auto,
-  // 'contain': contain,
+   // 'contain': contain,
 );
 
 /*
@@ -1123,7 +1121,7 @@ $vertical-aligns: (
   // 'text-top':    text-top,
   // 'text-bottom': text-bottom,
   // 'sub':         sub,
-  // 'super':       super
+   // 'super':       super
 );
 
 /*
@@ -1132,8 +1130,7 @@ $vertical-aligns: (
 $visibilities: (
   'visible': visible,
   'hidden': hidden,
-  'invisible': hidden,
-  // 'collapse':  collapse
+  'invisible': hidden, // 'collapse':  collapse
 );
 
 /*
@@ -1142,8 +1139,7 @@ $visibilities: (
 $white-spaces: (
   'nowrap': nowrap,
   'pre': pre,
-  'pre-wrap': pre-wrap,
-  // 'ws-normal': normal
+  'pre-wrap': pre-wrap, // 'ws-normal': normal
 );
 
 /*
