@@ -73,5 +73,6 @@
     "serve": "gulp serve",
     "lint": "gulp lint",
     "prettier": "prettier . --write"
-  }
+  },
+  "packageManager": "yarn@4.8.1"
 }
