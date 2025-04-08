@@ -1082,9 +1082,9 @@ code {
   border-style: outset;
 }
 .c4s-sans-serif {
-  font-family: -apple-system, BlinkMacSystemFont, 'avenir next', avenir,
-    'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial,
-    sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue',
+    helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
 }
 .c4s-serif {
   font-family: georgia, times, serif;

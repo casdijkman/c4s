@@ -4,9 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 .sans-serif {
-  font-family: -apple-system, BlinkMacSystemFont, 'avenir next', avenir,
-    'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial,
-    sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue',
+    helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
 }
 .serif {
   font-family: georgia, times, serif;
@@ -19,7 +19,8 @@
 }
 @media only screen and (min-width: 30em) {
   .sans-serif-s {
-    font-family: -apple-system, BlinkMacSystemFont, 'avenir next', avenir,
+    font-family:
+      -apple-system, BlinkMacSystemFont, 'avenir next', avenir,
       'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial,
       sans-serif;
   }
@@ -35,7 +36,8 @@
 }
 @media only screen and (min-width: 40em) {
   .sans-serif-m {
-    font-family: -apple-system, BlinkMacSystemFont, 'avenir next', avenir,
+    font-family:
+      -apple-system, BlinkMacSystemFont, 'avenir next', avenir,
       'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial,
       sans-serif;
   }
@@ -51,7 +53,8 @@
 }
 @media only screen and (min-width: 60em) {
   .sans-serif-l {
-    font-family: -apple-system, BlinkMacSystemFont, 'avenir next', avenir,
+    font-family:
+      -apple-system, BlinkMacSystemFont, 'avenir next', avenir,
       'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial,
       sans-serif;
   }
@@ -67,7 +70,8 @@
 }
 @media only screen and (min-width: 90em) {
   .sans-serif-h {
-    font-family: -apple-system, BlinkMacSystemFont, 'avenir next', avenir,
+    font-family:
+      -apple-system, BlinkMacSystemFont, 'avenir next', avenir,
       'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial,
       sans-serif;
   }
