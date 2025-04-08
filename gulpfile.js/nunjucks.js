@@ -22,7 +22,7 @@ const modules = JSON.parse(modulesFile);
 
 const getOrder = (file) => {
     if (file.isMain && !file.isCustom) {
-        let value = ['', 'base', 's', 'm', 'l', 'h', 'p', 'prefixed', 'forms']
+        let value = ['', 'base', 's', 'm', 'l', 'h', 'p', 'prefixed', 'forms', 'no-reset']
             .indexOf(file.name.replace(/^c4s-?/, ''));
         if (value === -1) console.warn(`[nunjucks.js] Could not sort '${file.name}'`);
         if (file.isMinified) value += 0.5; // eslint-disable-line no-magic-numbers

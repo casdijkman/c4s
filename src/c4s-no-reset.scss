@@ -1,0 +1,13 @@
+/*
+ * C4S CSS, version 0.6.8 <https://c4s.cdijkman.nl>
+ * SPDX-FileCopyrightText: 2025 Cas Dijkman
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
+@use './variables';
+@use './load-modules';
+@use 'sass:map';
+
+variables.$modules: map.remove(variables.$modules, 'reset');
+
+@include load-modules.load-modules;
