@@ -13,7 +13,7 @@ function constructQuestion({ rule, module }) {
         Array.isArray(rule.selectors) && rule.selectors.length === 1,
         'Rule selectors.length is not 1'
     );
-    const selectorClean = rule.selectors[0].replace(/^\./, '');
+    const selectorClean = rule.selectors[0].replace(/^\./, '').replace(/::.*$/, '');
     let question = rule
         .declarations.filter((x) => !x.property.startsWith('-')) // filter browser prefixes
         .map((declaration) => `${declaration.property}: ${declaration.value};`)
