@@ -1,7 +1,7 @@
 {#
-SPDX-FileCopyrightText: 2025 Cas Dijkman
+    SPDX-FileCopyrightText: 2025 Cas Dijkman
 
-SPDX-License-Identifier: GFDL-1.3-only
+    SPDX-License-Identifier: GFDL-1.3-only
 #}
 
 {% import "docs/macros/example.njk" as example %}
@@ -15,9 +15,16 @@ SPDX-License-Identifier: GFDL-1.3-only
                 {% set readableClasses %}{{ rule.selectors | getClassesFromSelectors | join(" or ") }}{% endset %}
                 {% set caption = "Element with class <code>" + readableClasses + "</code>" %}
 
-                <div class="dib p3 ba {{ firstClass }}">
-                    {{ caption | safe }}
-                </div>
+                {% set regExp = r/--/g %}
+                {% if regExp.test(firstClass) %}
+                    <div class="dib pv3 ph4 ba br-pill {{ firstClass }}">
+                        {{ caption | safe }}
+                    </div>
+                {% else %}
+                    <div class="dib p3 ba {{ firstClass }}">
+                        {{ caption | safe }}
+                    </div>
+                {% endif %}
             {% endcall %}
         {% endfor %}
     {% endif %}
