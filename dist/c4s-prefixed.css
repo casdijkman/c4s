@@ -1,5 +1,5 @@
 /*!
- * C4S CSS, version 0.6.9 <https://c4s.cdijkman.nl>
+ * C4S CSS, version 0.6.10 <https://c4s.cdijkman.nl>
  * SPDX-FileCopyrightText: 2025 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
@@ -226,6 +226,9 @@ code {
 }
 .c4s-no-isolate {
   isolation: auto;
+}
+.c4s-text-trim {
+  text-box: trim-both cap alphabetic;
 }
 .c4s-dim {
   transition: opacity 0.15s ease-in;

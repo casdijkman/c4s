@@ -1,5 +1,5 @@
 /*!
- * C4S CSS, version 0.6.9 <https://c4s.cdijkman.nl>
+ * C4S CSS, version 0.6.10 <https://c4s.cdijkman.nl>
  * SPDX-FileCopyrightText: 2025 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
@@ -224,9 +224,6 @@ code {
   border-top-right-radius: var(--button-group-radius, 0.5rem);
   border-bottom-right-radius: var(--button-group-radius, 0.5rem);
 }
-.button-lh-fix {
-  transform: translateY(max(0.14em, 0.4em - 4px));
-}
 .btn {
   --button-color: #6c757d;
   --button-disabled-color: rgb(165.8369098712, 172.2566523605, 177.9630901288);
@@ -286,7 +283,6 @@ code {
   border-style: solid;
   border-color: var(--button-color);
   border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
   cursor: pointer;
   text-align: center;
   white-space: nowrap;
@@ -310,6 +306,22 @@ code {
   --button-color: var(--button-disabled-color);
   color: var(--button-disabled-text-color);
   cursor: auto;
+}
+.btn-danger:where(:not(.no-padding)),
+.btn-info:where(:not(.no-padding)),
+.btn-primary:where(:not(.no-padding)),
+.btn-success:where(:not(.no-padding)),
+.btn-warning:where(:not(.no-padding)),
+.btn:where(:not(.no-padding)) {
+  padding: 0.8rem 1rem;
+}
+.btn-danger:where(:not(.no-text-trim)),
+.btn-info:where(:not(.no-text-trim)),
+.btn-primary:where(:not(.no-text-trim)),
+.btn-success:where(:not(.no-text-trim)),
+.btn-warning:where(:not(.no-text-trim)),
+.btn:where(:not(.no-text-trim)) {
+  text-box: trim-both cap alphabetic;
 }
 .btn-danger:focus,
 .btn-info:focus,
@@ -388,6 +400,9 @@ code {
 }
 .no-isolate {
   isolation: auto;
+}
+.text-trim {
+  text-box: trim-both cap alphabetic;
 }
 .dim {
   transition: opacity 0.15s ease-in;

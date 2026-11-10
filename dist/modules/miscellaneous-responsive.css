@@ -1,5 +1,5 @@
 /*!
- * C4S CSS, version 0.6.9 <https://c4s.cdijkman.nl>
+ * C4S CSS, version 0.6.10 <https://c4s.cdijkman.nl>
  * SPDX-FileCopyrightText: 2025 Cas Dijkman
  * SPDX-License-Identifier: GPL-3.0-only
  */
@@ -57,6 +57,9 @@
 .no-isolate {
   isolation: auto;
 }
+.text-trim {
+  text-box: trim-both cap alphabetic;
+}
 @media only screen and (min-width: 30em) {
   .list-reset-s {
     list-style-type: none;
@@ -111,6 +114,9 @@
   }
   .no-isolate-s {
     isolation: auto;
+  }
+  .text-trim-s {
+    text-box: trim-both cap alphabetic;
   }
 }
 @media only screen and (min-width: 40em) {
@@ -168,6 +174,9 @@
   .no-isolate-m {
     isolation: auto;
   }
+  .text-trim-m {
+    text-box: trim-both cap alphabetic;
+  }
 }
 @media only screen and (min-width: 60em) {
   .list-reset-l {
@@ -224,6 +233,9 @@
   .no-isolate-l {
     isolation: auto;
   }
+  .text-trim-l {
+    text-box: trim-both cap alphabetic;
+  }
 }
 @media only screen and (min-width: 90em) {
   .list-reset-h {
@@ -279,5 +291,8 @@
   }
   .no-isolate-h {
     isolation: auto;
+  }
+  .text-trim-h {
+    text-box: trim-both cap alphabetic;
   }
 }
