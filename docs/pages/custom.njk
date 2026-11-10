@@ -58,7 +58,7 @@
 
                 <h3>Actions</h3>
                 <div class="row gap mv4" style="--gap: .5rem;">
-                    {% set buttonClasses = "col-12 col-6-s p0 ph2 br-pill" %}
+                    {% set buttonClasses = "col-12 col-6-s p2 br-pill" %}
                     <button
                         class="{{ buttonClasses }} btn-success"
                         type="button"
@@ -110,29 +110,33 @@
                     {% for file in files | rejectattr('isMinified') | rejectattr('isRaw') | selectattr('isModule') %}
                         <li class="flex flex-wrap items-center ph2 ph3-m pv1 mt1-between ba br2 column-gap row-gap"
                             draggable="true">
-                            <label class="flex-grow-1 code">
+                            <label class="flex items-center flex-grow-1">
                                 <input
                                     type="checkbox"
-                                    class="checkbox button-lh-fix"
+                                    class="checkbox flex"
                                     data-checkbox-module
                                     name="module-{{ file.name }}"
                                     data-initial-value="{{ file.isEnabled }}"
                                     {{ "checked" if file.isEnabled }}
                                 >
-                                {{ file.name }}
+                                <span class="text-trim code ml2">
+                                    {{ file.name }}
+                                </span>
                             </label>
 
                             {% if file.responsiveAble %}
-                                <label>
+                                <label class="flex items-center">
                                     <input
                                         type="checkbox"
-                                        class="checkbox button-lh-fix"
+                                        class="checkbox flex"
                                         data-checkbox-responsive
                                         name="module-{{ file.name }}-responsive"
                                         data-initial-value="{{ file.isResponsive }}"
                                         {{ "checked" if file.isResponsive }}
                                     >
-                                    Responsive
+                                    <span class="text-trim ml2">
+                                        Responsive
+                                    </span>
                                 </label>
                             {% endif %}
 

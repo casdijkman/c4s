@@ -22,7 +22,7 @@
             </a>
 
             {% if file.isMinified %}
-                <small class="ml1 ba br-pill ph1 v-mid">
+                <small class="ml1 ba br-pill p1 text-trim">
                     <span class="di dn-m">
                         min
                     </span>
@@ -234,7 +234,7 @@
         <div class="row gap">
             {% for file in files | rejectattr('isRaw') | mySelect('name', 'c4s') %}
                 <a
-                    class="dif items-center btn-primary br-pill grow no-underline"
+                    class="dif items-center btn-primary br-pill grow link"
                     href="{{ file.file }}"
                     download
                 >
@@ -242,11 +242,13 @@
                         {% include "docs/icons/ionicons/download-outline.svg" %}
                     </span>
 
-                    Download C4S
+                    <span class="text-trim">
+                        Download C4S
 
-                    {% if file.isMinified %}
-                        minified
-                    {% endif %}
+                        {% if file.isMinified %}
+                            minified
+                        {% endif %}
+                    </span>
                 </a>
             {% endfor %}
 
@@ -259,7 +261,7 @@
                     {% include "docs/icons/ionicons/create-outline.svg" %}
                 </span>
 
-                Customize C4S
+                <span class="text-trim">Customize C4S</span>
             </a>
         </div>
 

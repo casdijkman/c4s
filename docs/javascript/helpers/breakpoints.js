@@ -5,7 +5,7 @@
  */
 
 export const breakpoints = {
-    // base is anything smaller than s
+    // base covers anything smaller than s
     s: '30em',
     m: '40em',
     l: '60em',

@@ -161,17 +161,22 @@
                 </div>
             </div>
 
-            <div class="flex button-group mt5-between">
-                {% for i in [1, 2, 3, 4] %}
-                    <a
-                        class="link black ba ph3 pv2 nowrap hover-bg-black-05"
-                        href="javascript:;"
-                    >
-                        <div class="button-lh-fix">
-                            <code class="bg-black-10 pv1 ph2 br-pill">&lt;a&gt;</code>
-                        </div>
-                    </a>
-                {% endfor %}
+            <div class=" mt5-between">
+                Full size links that do nothing
+
+                <div class="flex button-group mt2">
+                    {% for i in [1, 2, 3, 4] %}
+                        <a
+                            class="link black ba p2 nowrap hover-bg-black-05"
+                            href="javascript:;"
+                        >
+                            <code class="db bg-black-10 p2 br-pill text-trim">
+                                <!-- <a> -->
+                                &lt;a&gt;
+                            </code>
+                        </a>
+                    {% endfor %}
+                </div>
             </div>
 
             <div class="mt5-between">
@@ -199,10 +204,8 @@
                                 value="{{ value }}"
                                 {{ "checked" if loop.index0 === 0 }}
                             >
-                            <div class="ph2 ph3-m pv1 pv2-m nowrap hover-bg-black-05">
-                                <div class="button-lh-fix">
-                                    {{ value }}
-                                </div>
+                            <div class="ph2 ph3-m pv1 pv2-m nowrap hover-bg-black-05 text-trim">
+                                {{ value }}
                             </div>
                         </label>
                     {% endfor %}
@@ -246,10 +249,8 @@
                                 value="{{ value }}"
                                 {{ "checked" if loop.first }}
                             >
-                            <div class="ph3 pv2 nowrap hover-bg-black-05">
-                                <div class="button-lh-fix">
-                                    {{ value }}
-                                </div>
+                            <div class="p3 nowrap hover-bg-black-05 text-trim">
+                                {{ value }}
                             </div>
                         </label>
                     {% endfor %}
@@ -296,10 +297,8 @@
                                 value="{{ value }}"
                                 {{ "checked" if loop.last }}
                             >
-                            <div class="ph3 pv2 nowrap hover-bg-black-05">
-                                <div class="button-lh-fix">
-                                    {{ value }}
-                                </div>
+                            <div class="p3 nowrap hover-bg-black-05 text-trim">
+                                {{ value }}
                             </div>
                         </label>
                     {% endfor %}
@@ -334,7 +333,7 @@
                 <input
                     type="submit"
                     value="Submit form"
-                    class="button-reset ph3 pv2 br3 ba b--black cursor-pointer"
+                    class="btn btn-primary"
                 >
             </div>
         </form>
