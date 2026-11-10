@@ -8,17 +8,17 @@
 
 [[ $(dirname "$(realpath "$0")") != $(pwd) ]] && echo "Run script from it's own directory" && exit 1
 
-modules_not_responsive_able=(reset spanning-breakpoints forms)
-modules_not_enabled=(forms)
+modules_not_responsive_able=( reset spanning-breakpoints forms )
+modules_not_enabled=( forms )
 
-function debug_modules() {
-      npx sass --stdin << 'EOF'
-@use 'variables';
+function print_debug_modules() {
+      npx sass --stdin --silence-deprecation=fs-importer-cwd << 'EOF'
+@use './_variables';
 @debug(variables.$modules-all);
 EOF
 }
 
-modules_output=$(debug_modules 2>&1 | grep -F DEBUG)
+modules_output=$(print_debug_modules 2>&1 | grep -F DEBUG)
 modules_output="${modules_output/*DEBUG: /}"
 IFS=',()' read -ra modules <<< "$modules_output"
 

@@ -121,6 +121,7 @@ _update() {
 }
 
 if (( _GENERATE )); then
+    # Only generate, do not update file
     _generate
 else
     _update
