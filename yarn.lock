@@ -1106,7 +1106,7 @@ __metadata:
   dependencies:
     "@babel/core": "npm:^7.21.8"
     "@babel/preset-env": "npm:^7.16.4"
-    "@casd/dom-surfer": "npm:^0.0.1"
+    "@casd/dom-surfer": "npm:^0.0.10"
     "@ronilaukkarinen/gulp-stylelint": "npm:^14.1.1"
     autoprefixer: "npm:^10.4.20"
     babel-loader: "npm:^9.2.1"
@@ -1145,10 +1145,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@casd/dom-surfer@npm:^0.0.1":
-  version: 0.0.1
-  resolution: "@casd/dom-surfer@npm:0.0.1"
-  checksum: 10c0/239a1692bc767fb52bc77533a552ade39de7852db1bc709650cadaaad89429dc1197b63bf8278fd62b85bdcbcf1ae500d0b4723e341130551ae647e935bb7595
+"@casd/dom-surfer@npm:^0.0.10":
+  version: 0.0.10
+  resolution: "@casd/dom-surfer@npm:0.0.10"
+  checksum: 10c0/6a02abaead09ae1dc9eaf1c8b6f531b9975d53050d7703eeea63e6e3e10abf0ffae7971ac95b11e1d40e10ba79e6fc1c64a4025704a11158ba18153bb037d231
   languageName: node
   linkType: hard
 
@@ -2559,9 +2559,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001688, caniuse-lite@npm:^1.0.30001702":
-  version: 1.0.30001765
-  resolution: "caniuse-lite@npm:1.0.30001765"
-  checksum: 10c0/2bab28b322ec040dde2b6f56019ffd1e0bbd719111e45f58cb0fb06a783812d8ba8df65755320fd253aa1926dffc7bf0864adc11f6b231ac2b3a5b8221199c29
+  version: 1.0.30001820
+  resolution: "caniuse-lite@npm:1.0.30001820"
+  checksum: 10c0/b7752a246ba6b0d4a1cbede0d9beda1790ec5bd1d9270bc61d2c42e19f427cf79ba79cf3e0ae85fa80ef7cfe7fcfd8a3db41e0e3be6db94586379f4d595956d8
   languageName: node
   linkType: hard
 
