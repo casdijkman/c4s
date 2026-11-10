@@ -76,4 +76,8 @@
   #{functions.construct-class-name($global-prefix, no-isolate, $media)} {
     isolation: auto;
   }
+
+   #{functions.construct-class-name($global-prefix, text-trim, $media)} {
+    text-box: trim-both cap alphabetic;
+  }
 }

@@ -105,14 +105,6 @@ $buttons: (
     }
   }
 
-  .button-lh-fix {
-    /*
-       `translateY` prevents shifting other elements since `height` stays the same,
-       unlike with `padding`, for example.
-    */
-    transform: translateY(max(0.14em, calc(0.4em - 4px)));
-  }
-
   @each $name, $button-color in $buttons {
     #{functions.construct-class-name(btn, $name)} {
       $button-disabled-color: color.scale($button-color, $lightness: 40%);
@@ -149,7 +141,6 @@ $buttons: (
     border-style: solid;
     border-color: var(--button-color);
     border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
     cursor: pointer;
     text-align: center;
     white-space: nowrap;
@@ -165,6 +156,15 @@ $buttons: (
 
       color: var(--button-disabled-text-color);
       cursor: auto;
+    }
+
+    &:where(:not(.no-padding)) {
+      padding: .8rem 1rem;
+    }
+    
+
+    &:where(:not(.no-text-trim)) {
+      text-box: trim-both cap alphabetic;
     }
 
     &:focus {
